@@ -85,7 +85,9 @@ jobs:
         run: |
           # Record a process failure before an unbounded allocation takes down
           # the runner and prevents evidence upload. Limit inherited by Rocq.
-          ulimit -v 3145728
+          # The 3 GiB failure is recorded in retained-frontend-origin.json.
+          # Diagnose the stock backend under one explicit larger bound.
+          ulimit -v 6291456
           echo "Extraction virtual-memory limit: $(ulimit -v) KiB"
           opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py bind
           /usr/bin/time -v opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
@@ -109,4 +111,19 @@ jobs:
           name: peregrine-run-${{ github.run_id }}-${{ github.run_attempt }}
           path: .aegis/artifact/
           include-hidden-files: true
+          if-no-files-found: error
+      - name: Preserve the pinned backend executable for local replay
+        if: always() && steps.install.outcome == 'success'
+        run: |
+          mkdir -p .aegis/replay-tool
+          cp .aegis/opam/_opam/bin/peregrine .aegis/replay-tool/
+          cp .aegis/opam-switch.export .aegis/replay-tool/
+          cp generated/LICENSE-Peregrine .aegis/replay-tool/
+          sha256sum .aegis/replay-tool/peregrine > .aegis/replay-tool/SHA256SUMS
+          ldd .aegis/replay-tool/peregrine > .aegis/replay-tool/runtime.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.install.outcome == 'success'
+        with:
+          name: peregrine-tool-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .aegis/replay-tool/
           if-no-files-found: error

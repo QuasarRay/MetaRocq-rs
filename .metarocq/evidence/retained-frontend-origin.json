@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "run": 37118537655,
+  "head": "779ae83c38e71f8e4d6fa5466afad1bc2026496d",
+  "artifact": 11272092896,
+  "archive_sha256": "f31cf1c32c344133f7fbe548f36dd83380cbb9de3b9cca0a9dd91efc1e54d7b0",
+  "checkpoint": ".metarocq/evidence/frontend-c4a61d7b1561ca06d306e53151d94aefacd7273e424bef972f9e4aa027df1ac0.ast.gz",
+  "checkpoint_sha256": "5b47eeccfa4a9e91c13460d742e4e254459e7fdce0bd1eb92a5eb3171d347429",
+  "raw_sha256": "c4a61d7b1561ca06d306e53151d94aefacd7273e424bef972f9e4aa027df1ac0",
+  "raw_bytes": 27240934,
+  "observations": {
+    "opaque_body_presence": "Rocq accepted",
+    "entire_shared_program_equality": "Rocq accepted",
+    "assumptions": [
+      "PrimString.string",
+      "PrimInt63.int",
+      "PrimFloat.float"
+    ],
+    "typed_frontend": "success",
+    "rust_backend": "out of memory at 3 GiB virtual memory"
+  },
+  "inspection": "CONSISTENT at exact source checkout; frontend preserved; generated=false, compiled=false",
+  "claim": "Real typed AST checkpoint; no generated retained Rust or semantic refinement claim."
+}
