@@ -1,0 +1,427 @@
+{
+  "attempt": {
+    "diagnosis": null,
+    "inputs": {
+      "environment": {
+        "COQLIB": null,
+        "OCAMLPATH": null,
+        "OPAM_SWITCH_PREFIX": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam",
+        "ROCQPATH": null
+      },
+      "files": {
+        ".aegis/opam-switch.export": "2d68a21db196a9812c0a07b61fb9efaf93750bdf5d7c88519557e0392a7520c7",
+        "extraction/Retained.v": "e8bc4aaaa395197776b057362db717bd51193eb0ca91bcebb4b6a41acec901b0",
+        "extraction/RetainedQuote.v": "3e3075ab71d45b757c644164799ed78c8f4545bd9145d389c279bdb157506d42",
+        "extraction/Retention.v": "91dd7e88861d255d19c15bb0b0755cbc6f7be8301b446b7b221591b88ff10332",
+        "extraction/recipe.json": "1d48da5d5c3b78e664d32fb8482d13e1f03b843e2c165b68b74fb294ce3f2275",
+        "spec/toolchain.lock.json": "1a0f9d79b245d8d495119e3e9b9e175782547fb2527aaebc6fc845fd3470160d",
+        "tools/bootstrap.py": "1fcc8bf8d29c8c176271dbd72d515357cd8ab1708f425afc8da7f19702c7df3a"
+      },
+      "timeout": 600,
+      "tools": {
+        "peregrine": {
+          "path": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine",
+          "sha256": "73006a7bae677df71051ccc7bd823b9f33a4326c5f80a73a0587e92eb51a00ff"
+        },
+        "rocq": {
+          "path": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq",
+          "sha256": "b18fc716b5239998b4f5a6baec4c50d8864db94a7960b4a14ee855c97113e09d"
+        }
+      }
+    },
+    "inputs_digest": "ac936cbc0cb04abe2e23a85889651ac905d72bb27e0fb5dc49f84695ea181294",
+    "number": 1,
+    "previous_digest": null,
+    "previous_evidence": null,
+    "reserved_seconds": 600,
+    "status": "RESERVED"
+  },
+  "claim": "candidate source generation only; Rust backend, printer and semantic correspondence are unverified",
+  "driver_sha256": "e8bc4aaaa395197776b057362db717bd51193eb0ca91bcebb4b6a41acec901b0",
+  "executions": [
+    {
+      "argv": [
+        "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq",
+        "compile",
+        "Retention.v"
+      ],
+      "cwd": "/tmp/aegis-metarocq-omi7qlzx",
+      "duration_seconds": 1.2179390160000025,
+      "finished_at": "2026-10-03T10:27:40.997873+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-03T10:27:39.779807+00:00",
+      "stderr": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_truncated": false,
+      "stdout": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_truncated": false,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq",
+        "compile",
+        "RetainedQuote.v"
+      ],
+      "cwd": "/tmp/aegis-metarocq-omi7qlzx",
+      "duration_seconds": 2.0201592160000104,
+      "finished_at": "2026-10-03T10:27:43.018585+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-03T10:27:40.998289+00:00",
+      "stderr": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_truncated": false,
+      "stdout": "Axioms:\nPrimString.string : Set\nPrimInt63.int : Set\nPrimFloat.float : Set\n",
+      "stdout_bytes": 74,
+      "stdout_sha256": "3bc82d2c360e7c30a2586b03241b0ee5a1f25f5beb881800dd43b18cf524c7eb",
+      "stdout_truncated": false,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq",
+        "compile",
+        "Retained.v"
+      ],
+      "cwd": "/tmp/aegis-metarocq-omi7qlzx",
+      "duration_seconds": 10.945290779000004,
+      "finished_at": "2026-10-03T10:27:53.964347+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-03T10:27:43.018928+00:00",
+      "stderr": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_truncated": false,
+      "stdout": "Debug: Quoting executed in: 0.902439s\nDebug: Extraction executed in: 6.535110s\nDebug: Serializing executed in: 2.215303s\n",
+      "stdout_bytes": 121,
+      "stdout_sha256": "e5af935767e0b766e56bf488aa2abfdfe9c1cbb065d7536c92fe9135a602532b",
+      "stdout_truncated": false,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine",
+        "rust",
+        "retained.ast",
+        "-o",
+        "retained.rs"
+      ],
+      "cwd": "/tmp/aegis-metarocq-omi7qlzx",
+      "duration_seconds": 40.47231588800001,
+      "finished_at": "2026-10-03T10:28:34.437431+00:00",
+      "returncode": -6,
+      "started_at": "2026-10-03T10:27:53.964972+00:00",
+      "stderr": "Fatal error: out of memory\n",
+      "stderr_bytes": 27,
+      "stderr_sha256": "1110ed6bc9c50e4b908e3f452cff841cf9ef01d112e787d307696c515b66404b",
+      "stderr_truncated": false,
+      "stdout": "Compiling:\n",
+      "stdout_bytes": 11,
+      "stdout_sha256": "8f8ba6a7a72b99939513004a9eb04cf8e2cfee9fe4d70d1973c9a64f49d6b085",
+      "stdout_truncated": false,
+      "timed_out": false
+    }
+  ],
+  "framework": "4f5b62a59331a1dcb47016a0e95c1e6be246d9c381df31c87967b1cfda859811",
+  "installation_provenance": "Installed Rocq libraries must be independently tied to the pinned sources; executable hashes alone do not establish this.",
+  "originals": {
+    "repositories": {
+      "metarocq": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "peregrine": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "specifications": {
+      "pcuic/theories/utils/PCUICAstUtils.v": {
+        "git_blob": "f25860018d0590704fcbea14c8e2b2898d4043b8",
+        "path": "pcuic/theories/utils/PCUICAstUtils.v",
+        "repository": "metarocq",
+        "sha256": "ddfbc2adec401fb24daf12f90be0046572d174b60cb5d36b5744527d523d7c1e"
+      }
+    }
+  },
+  "outputs": {},
+  "plan_digest": "858f71283f6ebace71db3a9869862ed5899ac92d92438ae00713edfad7177c56",
+  "reason": "extraction failed, timed out, or produced truncated diagnostics",
+  "recipe": {
+    "driver": "extraction/Retained.v",
+    "schema": 1,
+    "support": [
+      "extraction/Retention.v",
+      "extraction/RetainedQuote.v"
+    ],
+    "units": [
+      {
+        "ast": "generated/retained.ast",
+        "rust": "generated/retained.rs",
+        "stem": "retained"
+      }
+    ]
+  },
+  "recipe_inputs": {
+    "extraction/Retained.v": "e8bc4aaaa395197776b057362db717bd51193eb0ca91bcebb4b6a41acec901b0",
+    "extraction/RetainedQuote.v": "3e3075ab71d45b757c644164799ed78c8f4545bd9145d389c279bdb157506d42",
+    "extraction/Retention.v": "91dd7e88861d255d19c15bb0b0755cbc6f7be8301b446b7b221591b88ff10332",
+    "extraction/recipe.json": "1d48da5d5c3b78e664d32fb8482d13e1f03b843e2c165b68b74fb294ce3f2275"
+  },
+  "schema": 1,
+  "source": {
+    "digest": "6fce4f2b5b858d52b6220e76ff3a94074f805b600880b30b9b11d545d896f4ef",
+    "entries": {
+      ".github/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      ".github/workflows/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      ".github/workflows/extraction.yml": {
+        "executable": false,
+        "sha256": "8158d8bbc627f233d08f289bb32229d61df9071af8aeb256b806cb932676c5f1"
+      },
+      ".github/workflows/supervision.yml": {
+        "executable": false,
+        "sha256": "3a48bec038d46cb9d1f195c1413afa65e9a70158fa31de6b6e1ab3856a2664cc"
+      },
+      ".gitignore": {
+        "executable": false,
+        "sha256": "9ef8c3876cf818f89dddde2f47ede37832873fc8008944e8b2c25010685696d6"
+      },
+      ".metarocq/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      ".metarocq/parent-checkpoint.json": {
+        "executable": false,
+        "sha256": "fd75f2b063c00b553e84f68fe3c80fa5216e6f538014b83c16d816d9e80167c6"
+      },
+      ".metarocq/plan.json": {
+        "executable": false,
+        "sha256": "0a9b73785c84b3817e8ef18f18315be739cf0d6a62fb892495d0178cda7f9009"
+      },
+      "AGENTS.MD": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "Cargo.lock": {
+        "executable": false,
+        "sha256": "78aaeb231e21568551ac35ab302d11c4d972739c4bacc208bbec3a5e660e5625"
+      },
+      "Cargo.toml": {
+        "executable": false,
+        "sha256": "03dc8975a56dbb235371e05054f139c8a383171305b9d0087bea953eb4278ca1"
+      },
+      "LICENSE.MD": {
+        "executable": false,
+        "sha256": "6f954aa3706fc91f4c8f46d531165051fe647d6515b47c0d6b23e8d8dc8616ea"
+      },
+      "README.md": {
+        "executable": false,
+        "sha256": "d5b3e573256e9b917a8ee2cf6fef682aabc554646dc3fde12e033cc74104117f"
+      },
+      "build.rs": {
+        "executable": false,
+        "sha256": "b00613815800f74d0d0e680badba089eb62f69c7a5b9880169a7acd54909f055"
+      },
+      "docs/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "docs/BOOTSTRAP_STATUS.md": {
+        "executable": false,
+        "sha256": "e84ce2c0f6a67bb54507ac6ee57639f55a828386ab5c2a29fd302c13695ec833"
+      },
+      "docs/STATUS.md": {
+        "executable": false,
+        "sha256": "978848c4645cdb284b720a1f37025d9cefb982dfb13b388254aa68044440176e"
+      },
+      "docs/adr/0001-extraction-boundary.md": {
+        "executable": false,
+        "sha256": "cb763fad8d89d93a0d332fa1d4312b7cdef5469a6b9b6e103d62ac6e0aa0b3ae"
+      },
+      "docs/adr/0002-controller-upgrade.md": {
+        "executable": false,
+        "sha256": "ec55b7fe9f33f03337876a059d5f00ef76c0060bbbec2b30ac5a113074c90dd8"
+      },
+      "docs/adr/0003-resumable-extraction.md": {
+        "executable": false,
+        "sha256": "35a22c69e94e0b437f734dd6e5e6b4fb15c09a0d53a6ce29db46bcac5d6297ba"
+      },
+      "docs/adr/0004-additive-reflection.md": {
+        "executable": false,
+        "sha256": "4d2681c5a8708add274f8412b28d8a9ea182a5c56d4df006d696abe0ef1b32ca"
+      },
+      "docs/adr/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "docs/branch-progress.json": {
+        "executable": false,
+        "sha256": "583a39d2ff3dd8ab5f24672b927f9156ac95d56b24e30bdd7ba44e4bdbc11dd5"
+      },
+      "extraction/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "extraction/Bootstrap.v": {
+        "executable": false,
+        "sha256": "e7c3e28025add1ae2d51cc438b599f079ad2f45e14573e5eac5fc3da91696967"
+      },
+      "extraction/Retained.v": {
+        "executable": false,
+        "sha256": "e8bc4aaaa395197776b057362db717bd51193eb0ca91bcebb4b6a41acec901b0"
+      },
+      "extraction/RetainedQuote.v": {
+        "executable": false,
+        "sha256": "3e3075ab71d45b757c644164799ed78c8f4545bd9145d389c279bdb157506d42"
+      },
+      "extraction/Retention.v": {
+        "executable": false,
+        "sha256": "91dd7e88861d255d19c15bb0b0755cbc6f7be8301b446b7b221591b88ff10332"
+      },
+      "extraction/recipe.json": {
+        "executable": false,
+        "sha256": "1d48da5d5c3b78e664d32fb8482d13e1f03b843e2c165b68b74fb294ce3f2275"
+      },
+      "formal/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "formal/hol4/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "formal/hol4/Holmakefile": {
+        "executable": false,
+        "sha256": "581a2593de45ad897bec1c8600b6d8592f9f0caef647455ad71443fef8cf87c7"
+      },
+      "formal/hol4/MetaRocqBootstrapScript.sml": {
+        "executable": false,
+        "sha256": "0d5c8f3df44eaa624c457063ede559a59874bef4bdd0e6258a03d99dd20a6e4b"
+      },
+      "formal/hol4/README.md": {
+        "executable": false,
+        "sha256": "d0ec2866102fb69eb3781495c2b25cae28b92e837fa4bd9a1c0c8020c769d01f"
+      },
+      "generated/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "generated/LICENSE-MetaRocq": {
+        "executable": false,
+        "sha256": "310ccd944e4d5aa1a024ec1a4a1a182492aa2b4d1e540c0158cb7d60b1a1f437"
+      },
+      "generated/LICENSE-Peregrine": {
+        "executable": false,
+        "sha256": "15b92e15c99fbe30abf1fc1409b381140cc4cdfdf408223e92db8970874bbd31"
+      },
+      "generated/README.md": {
+        "executable": false,
+        "sha256": "242019588f1be856d32cf0ebd08ee7a03fa77fb45c49561c8e8b309d8f4f1782"
+      },
+      "generated/pcuic_isapp.ast": {
+        "executable": false,
+        "sha256": "8928b1052a0c38c9757cf9740a8b3d47ace54420cd8237aeb7e75da522da57ff"
+      },
+      "generated/pcuic_isapp.rs": {
+        "executable": false,
+        "sha256": "75e4945066701726f09340254447a739ef7b3ebbe9a634a45c73a42b019bcd61"
+      },
+      "spec/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "spec/README.md": {
+        "executable": false,
+        "sha256": "c23fa9bf71e3bc6a2caa234be0b3ae1ee74fa8ae7af2667aa208b9f672539dc5"
+      },
+      "spec/obligations.json": {
+        "executable": false,
+        "sha256": "ac84030c5222458df35a397a3e9f8f8e96a9a278ff10c949085e0bbac4beec7e"
+      },
+      "spec/source-inventory.json": {
+        "executable": false,
+        "sha256": "75b58d961786b3289a39503ded9052eb10098b8d83c4fbd3abab4f6b9918392a"
+      },
+      "spec/toolchain.lock.json": {
+        "executable": false,
+        "sha256": "1a0f9d79b245d8d495119e3e9b9e175782547fb2527aaebc6fc845fd3470160d"
+      },
+      "spec/upstream.lock.json": {
+        "executable": false,
+        "sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97"
+      },
+      "src/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "src/lib.rs": {
+        "executable": false,
+        "sha256": "cebd36a9d9ccb6b100d7a21991ee7a50ba9760f7a1b0d259b496b08c492eaed6"
+      },
+      "src/proofs.rs": {
+        "executable": false,
+        "sha256": "a50c473e807aeca69a9e26d959271958b604cd3c45efa7e040c548f698ddd948"
+      },
+      "tools/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "tools/bootstrap.py": {
+        "executable": false,
+        "sha256": "1fcc8bf8d29c8c176271dbd72d515357cd8ab1708f425afc8da7f19702c7df3a"
+      },
+      "tools/ci_observation.py": {
+        "executable": false,
+        "sha256": "790fd912b1f9f20ffeabef8adf3333ef787c0eb81ef54a37e39762ac65e72a1a"
+      },
+      "tools/install_extraction.sh": {
+        "executable": false,
+        "sha256": "5b03becf50d26845a51d98394130b9c51c77d1282f5bcc6a25263f6609bac86c"
+      },
+      "tools/retention_inventory.py": {
+        "executable": false,
+        "sha256": "c6faeb9a1c34a1de603ca86541c0564a6d965c236ef4e6f26c104817c1519544"
+      },
+      "tools/rust-normalize/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "tools/rust-normalize/Cargo.toml": {
+        "executable": false,
+        "sha256": "84055b4f133efffeaad655e02ebfffe7b64e5ed1a9607e56a65e1ff90072c794"
+      },
+      "tools/rust-normalize/src/AGENTS.md": {
+        "executable": false,
+        "sha256": "44600b055dd0928c053bac566ab4b8130818d964f85ae068c129b6f48a6d2370"
+      },
+      "tools/rust-normalize/src/lib.rs": {
+        "executable": false,
+        "sha256": "8355cf66ee6262954b705cb1021585836a229fdce6938c00b956fc1dbea1927a"
+      },
+      "tools/sync_instructions.py": {
+        "executable": false,
+        "sha256": "25ddb15f35fd88278166f944c82a81b2d768672b80d9e391e948ec36b4472536"
+      }
+    }
+  },
+  "status": "FAILED",
+  "task": "additive-proof-retention",
+  "tool_identity": {
+    "peregrine": {
+      "path": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine",
+      "sha256": "73006a7bae677df71051ccc7bd823b9f33a4326c5f80a73a0587e92eb51a00ff"
+    },
+    "rocq": {
+      "path": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq",
+      "sha256": "b18fc716b5239998b4f5a6baec4c50d8864db94a7960b4a14ee855c97113e09d"
+    }
+  }
+}

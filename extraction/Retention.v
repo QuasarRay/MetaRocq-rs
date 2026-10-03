@@ -52,3 +52,28 @@ Definition retained_root_body (p : Ast.Env.program) : option Ast.term :=
 
 Definition has_retained_root_body (p : Ast.Env.program) : bool :=
   match retained_root_body p with Some _ => true | None => false end.
+
+(* Give each list element and tail a generated name, so the Rust printer does
+   not have to emit the whole environment as one deeply nested expression.
+   This changes sharing only. The concrete driver checks equality in Rocq. *)
+Definition share_value {A : Type} (value : A) : TemplateMonad A :=
+  value <- tmEval lazy value;;
+  name <- tmFreshName "retained_value";;
+  tmDefinition name value.
+
+Fixpoint share_list {A : Type} (values : list A) : TemplateMonad (list A) :=
+  match values with
+  | [] => ret []
+  | value :: tail =>
+      value' <- share_value value;;
+      tail' <- share_list tail;;
+      name <- tmFreshName "retained_tail";;
+      tmDefinition name (value' :: tail')
+  end.
+
+Definition share_program (p : Ast.Env.program) : TemplateMonad Ast.Env.program :=
+  decls <- share_list (declarations (fst p));;
+  univs <- share_value (universes (fst p));;
+  retro <- share_value (retroknowledge (fst p));;
+  root <- share_value (snd p);;
+  ret ({| universes := univs; declarations := decls; retroknowledge := retro |}, root).

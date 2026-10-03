@@ -1,0 +1,16 @@
+{
+  "run": 37116424210,
+  "head": "31bcb1d692ff670661fd74a45844975aabfa8b93",
+  "artifact": 11272165891,
+  "archive_sha256": "bc0a00175b37ffaca91d733c5428f6297d2b605dd7e0b70af5f554db2086eecc",
+  "independent_inspection": "CONSISTENT at exact source checkout; generated=false, compiled=false",
+  "stages": {
+    "Retention.v": "PASS",
+    "RetainedQuote.v": "PASS: original opaque-body presence check; assumptions PrimString.string, PrimInt63.int, PrimFloat.float",
+    "Retained.v": "PASS: typed AST emitted in 10.95 seconds",
+    "peregrine rust": "FAIL: Fatal error: out of memory, exit -6"
+  },
+  "virtual_memory_limit_kib": 3145728,
+  "maximum_resident_kib": 2972460,
+  "next": "Preserve successful frontend bytes before Rust; add generated declaration/tail sharing with a kernel-checked equality to the original complete quoted program."
+}

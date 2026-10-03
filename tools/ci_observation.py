@@ -20,6 +20,13 @@ if state_path.exists():
     state = json.loads(state_path.read_text())
     if state.get("extraction_path"):
         files.append(state["extraction_path"])
+        observation = json.loads((ROOT / state["extraction_path"]).read_text())
+        for entry in observation.get("frontend", {}).values():
+            sha = entry["sha256"]
+            name = entry["path"]
+            if name != f".metarocq/evidence/frontend-{sha}.ast" or hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != sha:
+                raise ValueError("frontend checkpoint mismatch")
+            files.append(name)
 for name in (".aegis/opam-switch.export", "Cargo.lock"):
     if (ROOT / name).is_file():
         files.append(name)
@@ -27,7 +34,7 @@ manifest = {"schema": 1, "commit": os.environ["GITHUB_SHA"],
             "head": os.environ["CHECKOUT_SHA"], "run_id": os.environ["GITHUB_RUN_ID"],
             "attempt": os.environ["GITHUB_RUN_ATTEMPT"], "steps": steps, "files": {},
             "claim": "CI process observations only; no semantic or production-readiness proof"}
-for name in files:
+for name in dict.fromkeys(files):
     path = ROOT / name
     destination = out / name
     destination.parent.mkdir(parents=True, exist_ok=True)

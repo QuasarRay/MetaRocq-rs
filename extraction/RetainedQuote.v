@@ -14,8 +14,15 @@ Example opaque_root_body_is_present :
 Proof. vm_compute. reflexivity. Qed.
 Print Assumptions opaque_root_body_is_present.
 
+MetaRocq Run (p <- share_program retained_program;;
+              tmDefinition "shared_retained_program" p).
+
+Example sharing_preserves_entire_program :
+  shared_retained_program = retained_program.
+Proof. vm_compute. reflexivity. Qed.
+Print Assumptions sharing_preserves_entire_program.
+
 (* Return the entire quoted environment/root, not just its hash or a Boolean.
    The second component makes the retention observation executable in Rust. *)
 Definition retained_export :=
-  (retained_program, has_retained_root_body retained_program).
-
+  (shared_retained_program, has_retained_root_body shared_retained_program).
