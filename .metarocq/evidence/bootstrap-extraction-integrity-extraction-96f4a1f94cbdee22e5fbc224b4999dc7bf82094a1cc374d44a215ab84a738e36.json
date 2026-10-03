@@ -1,0 +1,176 @@
+{
+  "claim": "candidate source generation only; Rust backend, printer and semantic correspondence are unverified",
+  "driver_sha256": "e7c3e28025add1ae2d51cc438b599f079ad2f45e14573e5eac5fc3da91696967",
+  "executions": [],
+  "framework": "6348e8f40a7e2fd86f8e32b70ee7b7b235f527d99fe1a4ed8c4864d400492400",
+  "installation_provenance": "Installed Rocq libraries must be independently tied to the pinned sources; executable hashes alone do not establish this.",
+  "originals": {
+    "repositories": {
+      "metarocq": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "peregrine": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "specifications": {
+      "pcuic/theories/PCUICAst.v": {
+        "git_blob": "37d32c787e198eb17c98956216c6ce59ea6abc2e",
+        "path": "pcuic/theories/PCUICAst.v",
+        "repository": "metarocq",
+        "sha256": "13d4957b2cf06a3107169a74c523cbc9c9fd983b1cd187029009f0df8ce85500"
+      }
+    }
+  },
+  "outputs": {},
+  "plan_digest": "4b7616944511aa141dd2a3f336e4fabdeaaec4648d8ff5e22e63cc1d95e44e40",
+  "reason": "required extraction tool unavailable: rocq",
+  "schema": 1,
+  "source": {
+    "digest": "7f99589ae6237043f4a439c9ac334e1ca7dd2c8b9e3c3f87300265ff9239e156",
+    "entries": {
+      ".github/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".github/workflows/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".github/workflows/extraction.yml": {
+        "executable": false,
+        "sha256": "de5c354a483c98717037364f58abd9ae4cb4369b14eb47211888722b8a13beec"
+      },
+      ".github/workflows/supervision.yml": {
+        "executable": false,
+        "sha256": "005f117217d911f81e915c8a0800d08a56cbc7ceb81729e0d8ebb89f507ba757"
+      },
+      ".gitignore": {
+        "executable": false,
+        "sha256": "9ef8c3876cf818f89dddde2f47ede37832873fc8008944e8b2c25010685696d6"
+      },
+      ".metarocq/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".metarocq/parent-checkpoint.json": {
+        "executable": false,
+        "sha256": "938be825154da6257e11c29d7cc383a93d979cc24250bceb60473e691cc46a0c"
+      },
+      ".metarocq/plan.json": {
+        "executable": false,
+        "sha256": "c88638576482d801853aa14ae0ebc384a871190fd9069a4dfb3ea1b598fa1be6"
+      },
+      "AGENTS.MD": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "Cargo.toml": {
+        "executable": false,
+        "sha256": "8a2f62f3d22a6846b68040ff2d2dc1430f95ab39afc8821731495ffbbdfdeac3"
+      },
+      "LICENSE.MD": {
+        "executable": false,
+        "sha256": "6f954aa3706fc91f4c8f46d531165051fe647d6515b47c0d6b23e8d8dc8616ea"
+      },
+      "README.md": {
+        "executable": false,
+        "sha256": "376ea2a16397be7452ad70c5c21361b2cdf4e64bfc10d9c8cfda5ff033baa6af"
+      },
+      "docs/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "docs/BOOTSTRAP_STATUS.md": {
+        "executable": false,
+        "sha256": "6fb8171e65d6a0a007b41d8dd199c12701f95d739afccebae2a4d5b8f49a8bfc"
+      },
+      "docs/STATUS.md": {
+        "executable": false,
+        "sha256": "d96ff306a003a6227f48b580dd4e645c4d7b079dba4100fd55ca8245b8667b15"
+      },
+      "docs/adr/0001-extraction-boundary.md": {
+        "executable": false,
+        "sha256": "cb763fad8d89d93a0d332fa1d4312b7cdef5469a6b9b6e103d62ac6e0aa0b3ae"
+      },
+      "docs/adr/0002-controller-upgrade.md": {
+        "executable": false,
+        "sha256": "ec55b7fe9f33f03337876a059d5f00ef76c0060bbbec2b30ac5a113074c90dd8"
+      },
+      "docs/adr/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "extraction/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "extraction/Bootstrap.v": {
+        "executable": false,
+        "sha256": "e7c3e28025add1ae2d51cc438b599f079ad2f45e14573e5eac5fc3da91696967"
+      },
+      "formal/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "formal/hol4/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "formal/hol4/Holmakefile": {
+        "executable": false,
+        "sha256": "581a2593de45ad897bec1c8600b6d8592f9f0caef647455ad71443fef8cf87c7"
+      },
+      "formal/hol4/MetaRocqBootstrapScript.sml": {
+        "executable": false,
+        "sha256": "0d5c8f3df44eaa624c457063ede559a59874bef4bdd0e6258a03d99dd20a6e4b"
+      },
+      "formal/hol4/README.md": {
+        "executable": false,
+        "sha256": "d0ec2866102fb69eb3781495c2b25cae28b92e837fa4bd9a1c0c8020c769d01f"
+      },
+      "generated/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "generated/README.md": {
+        "executable": false,
+        "sha256": "217e0f838efee7fd66c1c8ea3b30550e7c07e80816c722cd79d08641f84dacb6"
+      },
+      "spec/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "spec/README.md": {
+        "executable": false,
+        "sha256": "c23fa9bf71e3bc6a2caa234be0b3ae1ee74fa8ae7af2667aa208b9f672539dc5"
+      },
+      "spec/obligations.json": {
+        "executable": false,
+        "sha256": "4dad8817256f13681755a8b8dea4a64bebe6ca1ef428b9c23559b005267dc8eb"
+      },
+      "spec/toolchain.lock.json": {
+        "executable": false,
+        "sha256": "9d466d1714ea393608239714f24cc6e68654dd4621374463796fdcd5ca50cd85"
+      },
+      "spec/upstream.lock.json": {
+        "executable": false,
+        "sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97"
+      },
+      "tools/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "tools/bootstrap.py": {
+        "executable": false,
+        "sha256": "e2f0d89fa98908a31e53a669a1619754620ec6c15a877aa4ce7715c4ac6e1fdd"
+      },
+      "tools/sync_instructions.py": {
+        "executable": false,
+        "sha256": "25ddb15f35fd88278166f944c82a81b2d768672b80d9e391e948ec36b4472536"
+      }
+    }
+  },
+  "status": "BLOCKED",
+  "task": "bootstrap-extraction-integrity"
+}

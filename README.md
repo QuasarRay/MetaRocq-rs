@@ -4,6 +4,9 @@ Goal: a Rust-native MetaRocq implementation, certified metaprogramming and indep
 checkable proof-carrying macro expansions. The original MetaRocq mathematical sources
 are the shared contract. This checkpoint establishes the supervised bootstrap.
 
+The current checkpoint pins Aegis PR #13 and preserves its parent PR #1 receipt.
+See `docs/STATUS.md` and ADR 0002 for the controller upgrade and cloud setup finding.
+
 **Current status: bootstrap infrastructure only. No Rust checker, verified macro
 system or machine-code correctness proof exists at this checkpoint.**
 

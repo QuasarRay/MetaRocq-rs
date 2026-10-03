@@ -1,0 +1,17 @@
+{
+  "base": "main",
+  "branch": "metarocq/01-bootstrap",
+  "evidence": null,
+  "evidence_digest": null,
+  "extraction": ".metarocq/evidence/bootstrap-pcuic-isapp-extraction-89f33eef3d87e7ff48960bb2459b41cfa4d2cd421ce1f6372dc6da31263af19b.json",
+  "extraction_digest": "89f33eef3d87e7ff48960bb2459b41cfa4d2cd421ce1f6372dc6da31263af19b",
+  "head": "124951fb16688efcfd2271319820c3f52a83257d",
+  "plan_digest": "a9f32444f8de0360ce3dd3e2cd0a9ddf7c2ee6d88c03e2924e60f7243074dcfc",
+  "pr": 1,
+  "repository": "QuasarRay/MetaRocq-rs",
+  "statuses": [
+    "UNVERIFIED"
+  ],
+  "task": "bootstrap-pcuic-isapp",
+  "url": "https://github.com/QuasarRay/MetaRocq-rs/pull/1"
+}

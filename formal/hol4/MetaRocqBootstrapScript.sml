@@ -1,5 +1,5 @@
 (* Tool qualification only; this is not a model or theorem of PCUIC. *)
-open HolKernel boolLib bossLib;
+open HolKernel boolLib bossLib integerTheory;
 val _ = new_theory "MetaRocqBootstrap";
 
 Theorem z3_identity:

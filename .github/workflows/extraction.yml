@@ -27,7 +27,7 @@ jobs:
       - name: Install isolated Rocq and Peregrine build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
           opam init --bare --disable-sandboxing -y default https://opam.ocaml.org
           opam switch create .aegis/opam ocaml-base-compiler.4.14.2 -y --jobs=2
           opam repository add rocq-released https://rocq-prover.org/opam/released --switch .aegis/opam -y
