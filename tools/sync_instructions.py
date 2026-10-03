@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy the canonical project instructions into each tracked source directory."""
+"""Sync project instructions without overwriting the embedded Aegis authority."""
 import argparse
 from pathlib import Path
 import subprocess
@@ -10,9 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 def generated():
     canonical = (ROOT / "AGENTS.MD").read_bytes()
     names = subprocess.check_output(["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"], cwd=ROOT).decode().split("\0")
-    dirs = {Path(".")}
+    dirs = set()
     for name in filter(None, names):
-        dirs.update(Path(name).parents)
+        path = Path(name)
+        # Aegis owns its instructions and generator under this boundary.
+        if path.parts[0] == ".agents":
+            continue
+        dirs.update(parent for parent in path.parents if parent != Path("."))
     return {(directory / "AGENTS.md").as_posix(): canonical for directory in dirs}
 
 
