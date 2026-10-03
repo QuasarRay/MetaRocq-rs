@@ -1,0 +1,18 @@
+[framework]
+name = "Aegis for MetaRocq-rs"
+version = "6.1.0-metarocq.1"
+project_independent = false
+
+[metarocq]
+authority = "contracts/authority.json"
+contract_language = "original Rocq/Gallina definitions, unchanged"
+target_language = "Rust via Peregrine typed extraction"
+workflow = "bind, generate, verify, checkpoint"
+completion_claim = "scoped verifier observations only"
+
+[cost]
+reuse_first = true
+generation_second = true
+handwritten_requires_reason = true
+mandatory_optional_quality_work = false
+automatic_agent_delegation = false

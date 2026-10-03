@@ -1,0 +1,1 @@
+{"claim":"logical content, not credentials or PostgreSQL system catalogs","events":0,"files":{"data/tasks.json":"48d1d165f3ed741b2e58fe33037492b82475790a2fcb2921985d4beda11f1447"},"heads":{},"schema":1,"tables":["aegis.tasks","aegis.events"]}

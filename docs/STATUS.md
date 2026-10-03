@@ -1,3 +1,24 @@
+# Current bootstrap status
+
+The new Aegis controller is embedded under `.agents` at the exact revision recorded
+in `spec/aegis-deployment.json`. Aegis PR 18 preserves PR 17; this branch preserves
+the complete open MetaRocq-rs PR 4 history. Automatic PostgreSQL persistence,
+append-only task access, logical export/restore, Markdown journals and sequential
+roadmap execution are implemented and qualified.
+
+**Bootstrapping_MetaRocq-rs_MetaTheory is unfinished. Implementation is blocked.**
+Only the source audit is runnable. Missing work includes the independent original
+checker, executable retained-proof replay in LambdaBox/CakeML, a verified Rust-aware
+shared specification, semantic transport and the exact compiler/binary proof chain.
+The candidate prover must replay proofs; retained syntax and a successful process
+are insufficient. See ADR 0005 and `.agents/roadmaps/metarocq-bootstrap.json`.
+
+Full architecture production readiness and maximum possible efficiency are not
+claimed. Existing generated Rust, source inventories and all historical evidence
+remain intact. Logging has no model calls; it does not capture private reasoning.
+
+## Preserved earlier status
+
 # Current status
 
 PRs 1 and 2 are merged. Work continues in PR 4 to retain its completed opam cache.

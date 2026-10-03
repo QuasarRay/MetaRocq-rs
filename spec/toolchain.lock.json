@@ -11,7 +11,7 @@
     },
     "aegis": {
       "repository": "https://github.com/QuasarRay/Aegis.git",
-      "commit": "d5c6a4b88ff3887f949bb27596a20b86f67a8c90"
+      "commit": "c0f9e96e3ecf697750ea8e6cc896d04a4bb9abf8"
     },
     "kontroli": {
       "repository": "https://github.com/QuasarRay/kontroli-rs.git",
@@ -29,7 +29,7 @@
   "reuse": {
     "kontroli_manifest_sha256": "a9cc0af1392d1e6fa649c9037ec245af607554c35a42e5b73baf55693bf43c3d",
     "kontroli_license": "GPL-3.0; invoked from its own unchanged checkout",
-    "aegis_pr": "https://github.com/QuasarRay/Aegis/pull/17"
+    "aegis_pr": "https://github.com/QuasarRay/Aegis/pull/18"
   },
   "limitations": [
     "Package requirements are not a full transitive dependency lock; archive opam switch export and Cargo.lock after a successful bootstrap.",

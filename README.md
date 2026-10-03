@@ -1,3 +1,13 @@
+# MetaRocq-rs: metatheory-first bootstrap
+
+Aegis is embedded under `.agents` and pinned by `spec/aegis-deployment.json`.
+The new sequential roadmap and append-only PostgreSQL context pipeline are in
+`.agents/roadmaps`, `.agents/pipelines`, and `.agents/database`.
+
+**The metatheory bootstrap is unfinished; implementation remains gated.**
+See `docs/STATUS.md` and `docs/adr/0005-sequential-metatheory-bootstrap.md`.
+The historical extraction workflow and evidence below are preserved.
+
 # MetaRocq-rs
 
 Goal: a Rust-native MetaRocq implementation, certified metaprogramming and independently

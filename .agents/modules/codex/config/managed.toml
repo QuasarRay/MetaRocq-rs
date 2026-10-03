@@ -1,0 +1,4 @@
+# Formalization and roadmap-authoring worker request. The host must authenticate
+# actual model/effort before dispatch; these requested settings are not proof.
+model = "gpt-6-astra"
+model_reasoning_effort = "max"

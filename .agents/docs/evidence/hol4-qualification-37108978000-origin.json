@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "repository": "QuasarRay/Aegis",
+  "head": "1b3c7cd500891b60d4880c679bb337bfd8b80bc1",
+  "run_id": 37108978000,
+  "job_id": 111163015858,
+  "artifact_id": 11268309608,
+  "archive_sha256": "23cf136f4a4e9497cc2419f48c6de5392576619876226371cdb81027c772a54b",
+  "packet_sha256": "c702db4d9d70a08f6b34830571f372052905c043638eb122befdf71932e27275",
+  "scope": "AegisHol4Smoke.integer_interval and three negative theorem-object controls; not MetaRocq refinement",
+  "tactictoe_run": 37108978011,
+  "source": "https://github.com/QuasarRay/Aegis/actions/runs/37108978000"
+}

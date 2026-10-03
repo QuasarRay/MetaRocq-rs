@@ -19,6 +19,8 @@ def git(root, *args):
 
 
 def check_source(name, pin):
+    if name == 'aegis' and (ROOT / '.agents').exists():
+        return check_deployment(pin)
     path = ROOT / ".aegis/references" / name
     # Reject redirected source roots; immutable commit checking is not a sandbox.
     for p in [path, *path.parents]:
@@ -37,12 +39,29 @@ def check_source(name, pin):
     return path
 
 
+def check_deployment(pin):
+    deployment = ROOT / '.agents'
+    record = json.loads((ROOT / 'spec/aegis-deployment.json').read_text())
+    if deployment.is_symlink() or record['commit'] != pin['commit'] or record['repository'] != pin['repository']:
+        raise ValueError('Aegis deployment pin mismatch')
+    for name, expected in record['files'].items():
+        path = deployment / name
+        if Path(name).is_absolute() or '..' in Path(name).parts or any(p.is_symlink() for p in [path, *path.parents]):
+            raise ValueError('redirected Aegis deployment')
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError(f'Aegis deployment bytes differ: {name}')
+    return deployment
+
+
 def sources(lock):
     parent = ROOT / ".aegis/references"
     if (ROOT / ".aegis").is_symlink() or parent.is_symlink():
         raise ValueError("redirected reference destination")
     parent.mkdir(parents=True, exist_ok=True)
     for name, pin in lock["repositories"].items():
+        if name == 'aegis' and (ROOT / '.agents').exists():
+            check_deployment(pin)
+            continue
         path = parent / name
         if not path.exists():
             subprocess.run(["git", "init", "-q", str(path)], check=True)
@@ -110,6 +129,12 @@ def main():
     parser.add_argument("--output", default=".metarocq/evidence/hol4-symbols.json")
     args = parser.parse_args()
     lock = json.loads(LOCK.read_text())
+    if args.command in {'extract', 'verify'}:
+        deployed = check_source('aegis', lock['repositories']['aegis'])
+        # This independent gate has no status-flag bypass. Existing extraction
+        # code and evidence remain available, but cannot advance implementation.
+        subprocess.run([sys.executable, '-B', str(deployed / 'pipelines/bootstrap.py'),
+                        '--root', str(ROOT), 'gate'], check=True)
     if args.command == "sources":
         result = sources(lock)
     elif args.command == "check":

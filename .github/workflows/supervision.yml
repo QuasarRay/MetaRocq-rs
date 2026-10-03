@@ -7,6 +7,8 @@ permissions:
   contents: read
 jobs:
   generated-rust:
+    needs: preflight
+    if: needs.preflight.outputs.implementation_allowed == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -19,12 +21,24 @@ jobs:
   preflight:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    outputs:
+      implementation_allowed: ${{ steps.gate.outputs.allowed }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - run: python3 -B tools/bootstrap.py sources
+      - run: python3 -m pip install -r .agents/database/requirements.txt
       - run: python3 -B tools/sync_instructions.py --check
       - run: python3 -B tools/bootstrap.py check
       - run: python3 -B tools/retention_inventory.py --check
+      - run: python3 -B .agents/pipelines/bootstrap.py --root . validate
+      - run: python3 -B tools/metatheory_preflight.py
+      - id: gate
+        run: |
+          if python3 -B .agents/pipelines/bootstrap.py --root . gate; then
+            echo 'allowed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'allowed=false' >> "$GITHUB_OUTPUT"
+          fi

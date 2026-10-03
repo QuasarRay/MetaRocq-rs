@@ -1,0 +1,46 @@
+{
+  "selected_base": "662f5c50e6e9b839de4aa1bb556cf4f2e889d5f5",
+  "refs": [
+    {
+      "ref": "refs/remotes/origin/HEAD",
+      "commit": "4d1336425d69d93b0ecc79f4770dda6a937d7f70",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "commit": "4d1336425d69d93b0ecc79f4770dda6a937d7f70",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/01-bootstrap",
+      "commit": "33d23ec2e89c5561ffabc858e991e69023ba9438",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/02-evidence-binding",
+      "commit": "a9a0ac15d0d63ee6c669825620fb0707ca41e1c7",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/03-resumable-extraction",
+      "commit": "662f5c50e6e9b839de4aa1bb556cf4f2e889d5f5",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/1",
+      "commit": "33d23ec2e89c5561ffabc858e991e69023ba9438",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/2",
+      "commit": "a9a0ac15d0d63ee6c669825620fb0707ca41e1c7",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/4",
+      "commit": "662f5c50e6e9b839de4aa1bb556cf4f2e889d5f5",
+      "ancestor_of_selected_base": true
+    }
+  ],
+  "policy": "Preserve existing heads; new branch descends the current open PR. Alternative Candle coordinators remain preserved, not blindly merged."
+}

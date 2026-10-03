@@ -18,7 +18,26 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
   cancel-in-progress: false
 jobs:
+  metatheory-gate:
+    runs-on: ubuntu-24.04
+    outputs:
+      allowed: ${{ steps.gate.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - run: python3 -m pip install -r .agents/database/requirements.txt
+      - id: gate
+        run: |
+          if python3 -B .agents/pipelines/bootstrap.py --root . gate; then
+            echo 'allowed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'allowed=false' >> "$GITHUB_OUTPUT"
+          fi
   extract:
+    needs: metatheory-gate
+    if: needs.metatheory-gate.outputs.allowed == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:
