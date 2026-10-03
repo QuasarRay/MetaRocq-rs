@@ -40,7 +40,7 @@ Definition retain_module (name : qualid) : TemplateMonad retained_module :=
          retained_constraints := universes |}.
 
 (* Lookup the quoted root; absence of an opaque body is observable failure. *)
-Definition retained_root_body (p : Ast.program) : option Ast.term :=
+Definition retained_root_body (p : Ast.Env.program) : option Ast.term :=
   match snd p with
   | tConst kn _ =>
     match List.find (fun d => eq_kername kn (fst d)) (declarations (fst p)) with
@@ -50,5 +50,5 @@ Definition retained_root_body (p : Ast.program) : option Ast.term :=
   | _ => None
   end.
 
-Definition has_retained_root_body (p : Ast.program) : bool :=
+Definition has_retained_root_body (p : Ast.Env.program) : bool :=
   match retained_root_body p with Some _ => true | None => false end.

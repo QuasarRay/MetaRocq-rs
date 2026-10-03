@@ -6,6 +6,16 @@ on:
 permissions:
   contents: read
 jobs:
+  generated-rust:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - run: rustup toolchain install 1.98.1 --profile minimal
+      - run: cargo +1.98.1 test --workspace --locked
   preflight:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

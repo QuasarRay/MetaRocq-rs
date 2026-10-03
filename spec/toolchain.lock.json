@@ -11,7 +11,7 @@
     },
     "aegis": {
       "repository": "https://github.com/QuasarRay/Aegis.git",
-      "commit": "cb5b09bf0661c318098d4c3f3393f60e564adc60"
+      "commit": "2c4774284cf0f83a69a1fc032234893e7b85bb34"
     },
     "kontroli": {
       "repository": "https://github.com/QuasarRay/kontroli-rs.git",
