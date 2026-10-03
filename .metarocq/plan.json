@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "task": "bootstrap-extraction-integrity",
+  "authority_sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97",
+  "paper_sections": [
+    "JACM 2025: PCUIC syntax and safe checker"
+  ],
+  "reuse": {
+    "strategy": "generate",
+    "sources": [
+      "MetaRocq PCUICAst.isApp at 7197056adbb9c15288b4c8d43407bf25786f723e",
+      "Peregrine typed frontend/Rust backend at d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+      "Aegis extraction recorder and checkpoint revalidation at 85a4664fed12fd9784ff05a3b067ef6ce0d821f5"
+    ],
+    "license": "Original MetaRocq and Peregrine: MIT; project LICENSE.MD retained; external Kontroli utility remains GPL-3.0.",
+    "reason": "Extract the original executable definition rather than duplicate the term predicate or invent a Rust AST contract.",
+    "generator": [
+      "python3",
+      "tools/bootstrap.py",
+      "extract"
+    ]
+  },
+  "adr": "docs/adr/0001-extraction-boundary.md",
+  "remote": {
+    "repository": "QuasarRay/MetaRocq-rs",
+    "base": "metarocq/01-bootstrap"
+  },
+  "obligations": [
+    {
+      "id": "pcuic-isapp",
+      "anchor": "pcuic/theories/PCUICAst.v",
+      "symbol": "isApp",
+      "statement": "For each representable PCUIC term t, the generated isApp result equals original PCUICAst.isApp t under an explicitly proved representation relation; no such relation is yet proved.",
+      "rust_paths": [
+        "generated/pcuic_isapp.rs"
+      ],
+      "method": "kani",
+      "entry": "proofs::pcuic_isapp",
+      "expected_checks": 1,
+      "assumptions": [
+        "Original Rocq semantics, upstream assumptions, and the source-to-installed-library correspondence require independent review.",
+        "Peregrine Rust backend/printer and bumpalo/runtime behavior are not proved by this checkpoint."
+      ],
+      "limits": [
+        "OPEN: generate candidate source and inspect the generated API before defining the Kani harness proofs::pcuic_isapp.",
+        "Kani will provide bounded regression evidence only; full PCUIC, source refinement, macro and binary obligations remain OPEN."
+      ]
+    }
+  ]
+}

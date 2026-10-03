@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "paper": {
+    "title": "Correct and Complete Type Checking and Certified Erasure for Coq, in Coq",
+    "doi": "10.1145/3706056",
+    "url": "https://doi.org/10.1145/3706056",
+    "role": "scientific guide; pinned original Rocq definitions remain the shared contract"
+  },
+  "repositories": [
+    {
+      "id": "metarocq",
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "release": "v1.5.1-9.1",
+      "role": "original contract and executable definitions"
+    },
+    {
+      "id": "peregrine",
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+      "role": "typed extraction to candidate Rust source"
+    }
+  ],
+  "specifications": [
+    {
+      "repository": "metarocq",
+      "path": "template-rocq/theories/Ast.v",
+      "sha256": "5ba617985615c145ae003ebb4e6e549056c6fda1d19cd42de5408cb3311f1a58",
+      "git_blob": "85b94d06e83165179611e347b2efd80cee1c28e9"
+    },
+    {
+      "repository": "metarocq",
+      "path": "pcuic/theories/PCUICAst.v",
+      "sha256": "13d4957b2cf06a3107169a74c523cbc9c9fd983b1cd187029009f0df8ce85500",
+      "git_blob": "37d32c787e198eb17c98956216c6ce59ea6abc2e"
+    },
+    {
+      "repository": "metarocq",
+      "path": "pcuic/theories/PCUICTyping.v",
+      "sha256": "849f5ab38a62e319c3a6a4163dfc904ef1fcbe6c8a9f8f0c4457c25b2ec158ab",
+      "git_blob": "8a68e86385c261ca16017d5af742d38ad68e1d5b"
+    },
+    {
+      "repository": "metarocq",
+      "path": "safechecker/theories/PCUICSafeChecker.v",
+      "sha256": "45585561c27ba074fe049f9eee1faa863ed0a891500aec87dcf573fc2ce8b981",
+      "git_blob": "8691e1f5d25b8001c7d497f0e67a71c888c6b0db"
+    },
+    {
+      "repository": "metarocq",
+      "path": "erasure/theories/ErasureFunction.v",
+      "sha256": "651414bbcf6d24b0acbbfd9d38a84eca41501f186a1b9045e27ef1ad1a9e6ac0",
+      "git_blob": "f092d9c1541c82fd9801de5f16c427922d57132a"
+    },
+    {
+      "repository": "metarocq",
+      "path": "safechecker-plugin/theories/Extraction.v",
+      "sha256": "5a7cee9e9588d7aadaa1092f673292615e3eb64fd41f1d08908588e1c6454a90",
+      "git_blob": "c682baa73de30e2b31bd3168f9ce137d68f8796d"
+    }
+  ],
+  "target": {
+    "repository": "https://github.com/QuasarRay/MetaRocq-rs.git",
+    "instructions_commit": "089c4137f8a88c1864175cae34299a72ce07afac",
+    "instructions_path": "AGENTS.MD",
+    "instructions_sha256": "415e531b6cc25e42c12d0139b7966feff4d290077ecff0eff90eb5f7ca61d2ec"
+  },
+  "specification_roots": [
+    "common/",
+    "utils/",
+    "template-rocq/",
+    "pcuic/",
+    "safechecker/",
+    "erasure/",
+    "safechecker-plugin/",
+    "erasure-plugin/",
+    "quotation/"
+  ],
+  "limitations": [
+    "This source release is compatible with the inspected Peregrine opam constraints; it is not asserted to be the exact paper artifact.",
+    "Peregrine doc/backends.md marks the Rust backend and printer unverified.",
+    "Rocq source bytes are not HOL4 input. A semantics-preserving PCUIC/Rocq-to-HOL4 bridge remains OPEN.",
+    "Z3_TAC reconstructs supported SMT proofs; it does not prove arbitrary MetaRocq or Rust metatheory automatically.",
+    "Rust semantics, primitive remappings, extraction correctness, macro certificates, compiler and machine-code refinement remain OPEN.",
+    "safechecker-plugin Extraction.v declares fake_abstract_guard_impl_properties; it cannot be silently promoted to a proved guard implementation."
+  ]
+}

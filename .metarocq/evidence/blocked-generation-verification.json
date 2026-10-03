@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "argv": [
+    "python3",
+    "-B",
+    "tools/bootstrap.py",
+    "verify",
+    "--timeout",
+    "120"
+  ],
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "{\"status\": \"BLOCKED\", \"reason\": \"generation is blocked or failed; cannot verify a substitute implementation\", \"claim\": \"no successful verification observation\"}\n",
+  "claim": "Observed rejection of verification after blocked generation; no Kani proof ran."
+}

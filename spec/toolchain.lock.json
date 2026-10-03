@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "repositories": {
+    "metarocq": {
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e"
+    },
+    "peregrine": {
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "aegis": {
+      "repository": "https://github.com/QuasarRay/Aegis.git",
+      "commit": "85a4664fed12fd9784ff05a3b067ef6ce0d821f5"
+    },
+    "kontroli": {
+      "repository": "https://github.com/QuasarRay/kontroli-rs.git",
+      "commit": "966cfc3069aab378d10ae567da4ff41c2da95c65"
+    }
+  },
+  "packages": {
+    "rocq": "9.1",
+    "metarocq": "1.5.1",
+    "ocaml": "4.14.2",
+    "rust": "1.98.1",
+    "kani": "0.67.0",
+    "bumpalo": "3.14.0"
+  },
+  "reuse": {
+    "kontroli_manifest_sha256": "a9cc0af1392d1e6fa649c9037ec245af607554c35a42e5b73baf55693bf43c3d",
+    "kontroli_license": "GPL-3.0; invoked from its own unchanged checkout",
+    "aegis_pr": "https://github.com/QuasarRay/Aegis/pull/13"
+  },
+  "limitations": [
+    "Package requirements are not a full transitive dependency lock; archive opam switch export and Cargo.lock after a successful bootstrap.",
+    "Tool/source hashes do not authenticate installation provenance or prove semantic preservation."
+  ],
+  "hol4": {
+    "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+    "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+    "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+    "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+    "hol4_mcp_version": "0.1.0"
+  },
+  "aeneas_release": {
+    "tag": "nightly-2026.09.28-b86120d",
+    "source_commit": "b86120d",
+    "asset": "aeneas-linux-x86_64.tar.gz",
+    "url": "https://github.com/AeneasVerif/aeneas/releases/download/nightly-2026.09.28-b86120d/aeneas-linux-x86_64.tar.gz",
+    "sha256": "605bb2c4abcc7678642669ec8db94dc88fba0aa082b04d5fdafb0cc83fae56cd"
+  }
+}

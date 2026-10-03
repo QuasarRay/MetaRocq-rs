@@ -1,0 +1,57 @@
+name: Peregrine bootstrap qualification
+on:
+  pull_request:
+    paths:
+      - 'extraction/**'
+      - 'tools/bootstrap.py'
+      - 'spec/**'
+      - 'Cargo.toml'
+      - '.github/workflows/extraction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  extract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - run: python3 -B tools/bootstrap.py sources
+      - run: python3 -B tools/bootstrap.py check
+      - name: Install isolated Rocq and Peregrine build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
+          opam init --bare --disable-sandboxing -y default https://opam.ocaml.org
+          opam switch create .aegis/opam ocaml-base-compiler.4.14.2 -y --jobs=2
+          opam repository add rocq-released https://rocq-prover.org/opam/released --switch .aegis/opam -y
+          for package in .aegis/references/metarocq/rocq-metarocq-*.opam; do
+            name="$(basename "$package" .opam)"
+            opam pin add --switch .aegis/opam --no-action -y "$name.1.5.1" .aegis/references/metarocq
+          done
+          opam pin add --switch .aegis/opam --no-action -y rocq-peregrine .aegis/references/peregrine
+          opam install --switch .aegis/opam -y rocq-peregrine --jobs=2
+          opam switch export --switch .aegis/opam .metarocq/evidence/opam-switch.export
+      - name: Generate from the original PCUIC definition
+        run: |
+          opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py bind
+          opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
+      - name: Compile the generated candidate
+        run: |
+          rustup toolchain install 1.98.1 --profile minimal
+          cargo +1.98.1 check
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: peregrine-bootstrap-observations
+          path: |
+            generated/
+            .metarocq/evidence/
+            Cargo.lock
+          include-hidden-files: true
