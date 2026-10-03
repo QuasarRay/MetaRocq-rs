@@ -7,6 +7,9 @@ on:
       - 'spec/**'
       - '.metarocq/plan.json'
       - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'build.rs'
+      - 'src/**'
       - '.github/workflows/extraction.yml'
   workflow_dispatch:
 permissions:
@@ -73,7 +76,7 @@ jobs:
             .aegis/opam-root
             .aegis/opam
           key: ${{ steps.identity.outputs.key }}-partial-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Generate from the original PCUIC definition
+      - name: Retain an original opaque proof as typed AST data
         id: extract
         run: |
           opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py bind
@@ -82,7 +85,7 @@ jobs:
         id: compile
         run: |
           rustup toolchain install 1.98.1 --profile minimal
-          cargo +1.98.1 check
+          cargo +1.98.1 test --workspace --locked --features retained
       - name: Record only observations from this run
         if: always()
         env:

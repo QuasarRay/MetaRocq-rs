@@ -104,6 +104,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=("sources", "check", "bind", "extract", "verify", "checkpoint", "hol4-smoke", "manifest"))
     parser.add_argument("--timeout", type=int, default=600)
+    parser.add_argument("--retry-diagnosis")
     parser.add_argument("--pr", type=int)
     parser.add_argument("--generated")
     parser.add_argument("--output", default=".metarocq/evidence/hol4-symbols.json")
@@ -120,7 +121,7 @@ def main():
             result = app.freeze(".metarocq/plan.json", {
                 name: check_source(name, lock["repositories"][name]) for name in ("metarocq", "peregrine")})
         elif args.command == "extract":
-            result = app.extract(args.timeout)
+            result = app.extract(args.timeout, retry_diagnosis=args.retry_diagnosis)
         elif args.command == "verify":
             result = app.verify(args.timeout)
         elif args.command == "checkpoint":

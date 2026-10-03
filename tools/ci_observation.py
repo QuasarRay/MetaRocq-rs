@@ -13,7 +13,8 @@ steps = {s: os.environ.get(s.upper() + "_OUTCOME", "unknown")
          for s in ("preflight", "install", "extract", "compile")}
 files = []
 if steps["extract"] == "success":
-    files += ["generated/pcuic_isapp.ast", "generated/pcuic_isapp.rs"]
+    recipe = json.loads((ROOT / "extraction/recipe.json").read_text())
+    files += [u[k] for u in recipe["units"] for k in ("ast", "rust")]
 state_path = ROOT / ".aegis/metarocq.json"
 if state_path.exists():
     state = json.loads(state_path.read_text())

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "driver": "extraction/Retained.v",
+  "support": ["extraction/Retention.v"],
+  "units": [
+    {"stem": "retained", "ast": "generated/retained.ast", "rust": "generated/retained.rs"}
+  ]
+}

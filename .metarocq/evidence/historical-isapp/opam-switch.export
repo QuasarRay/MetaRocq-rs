@@ -1,0 +1,659 @@
+opam-version: "2.0"
+compiler: ["ocaml-base-compiler.4.14.2"]
+roots: [
+  "ocaml-base-compiler.4.14.2"
+  "rocq-core.9.1.1"
+  "rocq-peregrine.dev"
+  "rocq-stdlib.9.0.0"
+]
+installed: [
+  "astring.0.8.5"
+  "atd.4.2.0"
+  "atdgen.4.2.0"
+  "atdgen-runtime.4.2.0"
+  "atdts.4.2.0"
+  "base.v0.16.5"
+  "base-bigarray.base"
+  "base-threads.base"
+  "base-unix.base"
+  "biniou.1.2.2"
+  "camlp-streams.5.0.1"
+  "cmdliner.2.1.1"
+  "conf-clang.2"
+  "conf-gmp.5"
+  "conf-linux-libc-dev.0"
+  "conf-pkg-config.5"
+  "coq.9.1.1"
+  "coq-compcert.3.18"
+  "coq-core.9.1.1"
+  "coq-ext-lib.0.13.2"
+  "coq-flocq.4.2.2"
+  "coq-mathcomp-ssreflect.2.4.0"
+  "coq-menhirlib.20260209"
+  "coq-parseque.0.2.2"
+  "coq-stdlib.9.0.0"
+  "coq-wasm.2.2.0"
+  "coqide-server.9.1.1"
+  "cppo.1.8.0"
+  "csexp.1.5.2"
+  "dune.3.23.1"
+  "dune-configurator.3.23.1"
+  "easy-format.1.3.4"
+  "elpi.3.7.3"
+  "fmt.0.11.0"
+  "linenoise.1.5.1"
+  "logs.0.10.0"
+  "malfunction.0.7.1"
+  "mdx.2.5.2"
+  "menhir.20260209"
+  "menhirCST.20260209"
+  "menhirGLR.20260209"
+  "menhirLib.20260209"
+  "menhirSdk.20260209"
+  "ocaml.4.14.2"
+  "ocaml-base-compiler.4.14.2"
+  "ocaml-compiler-libs.v0.12.4"
+  "ocaml-config.2"
+  "ocaml-options-vanilla.1"
+  "ocaml-version.4.1.4"
+  "ocamlbuild.0.16.1"
+  "ocamlfind.1.9.8"
+  "ppx_derivers.1.2.1"
+  "ppx_deriving.6.0.3"
+  "ppx_optcomp.v0.16.0"
+  "ppxlib.0.35.0"
+  "re.1.14.0"
+  "result.1.5"
+  "rocq-cakeml-extraction.0.1.0"
+  "rocq-ceres-bytestring.1.0.0"
+  "rocq-certirocq.0.9.1+9.1"
+  "rocq-core.9.1.1"
+  "rocq-elm-extraction.0.2.1"
+  "rocq-elpi.3.5.1"
+  "rocq-equations.1.3.1+9.1"
+  "rocq-hierarchy-builder.1.10.3"
+  "rocq-mathcomp-ssreflect.2.4.0"
+  "rocq-metarocq-common.1.5.1"
+  "rocq-metarocq-erasure.1.5.1"
+  "rocq-metarocq-erasure-plugin.1.5.1"
+  "rocq-metarocq-pcuic.1.5.1"
+  "rocq-metarocq-safechecker.1.5.1"
+  "rocq-metarocq-safechecker-plugin.1.5.1"
+  "rocq-metarocq-template.1.5.1"
+  "rocq-metarocq-template-pcuic.1.5.1"
+  "rocq-metarocq-utils.1.5.1"
+  "rocq-peregrine.dev"
+  "rocq-primitive.9.0.0"
+  "rocq-runtime.9.1.1"
+  "rocq-rust-extraction.0.2.1"
+  "rocq-stdlib.9.0.0"
+  "rocq-typed-extraction-common.0.2.1"
+  "rocq-verified-extraction.1.0.0+9.1"
+  "sexplib0.v0.16.0"
+  "stdio.v0.16.0"
+  "stdlib-shims.0.3.0"
+  "topkg.1.1.1"
+  "wasm.2.0.2"
+  "yojson.3.0.0"
+  "zarith.1.14"
+]
+pinned: [
+  "rocq-metarocq-common.1.5.1"
+  "rocq-metarocq-erasure.1.5.1"
+  "rocq-metarocq-erasure-plugin.1.5.1"
+  "rocq-metarocq-pcuic.1.5.1"
+  "rocq-metarocq-quotation.1.5.1"
+  "rocq-metarocq-safechecker.1.5.1"
+  "rocq-metarocq-safechecker-plugin.1.5.1"
+  "rocq-metarocq-template.1.5.1"
+  "rocq-metarocq-template-pcuic.1.5.1"
+  "rocq-metarocq-translations.1.5.1"
+  "rocq-metarocq-utils.1.5.1"
+  "rocq-peregrine.dev"
+]
+package "rocq-metarocq-common" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "The common library of Template Rocq and PCUIC"
+  description: "MetaRocq is a meta-programming framework for Rocq."
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-utils" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "common"]
+  ]
+  install: [make "-C" "common" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-erasure" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis:
+    "Implementation and verification of an erasure procedure for Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The Erasure module provides a complete specification of Rocq's so-called
+"extraction" procedure, starting from the PCUIC calculus and targeting
+untyped call-by-value lambda-calculus.
+
+The `erasure` function translates types and proofs in well-typed terms
+into a dummy `tBox` constructor, following closely P. Letouzey's PhD
+thesis."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-safechecker" {= version}
+    "rocq-metarocq-template-pcuic" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "erasure"]
+  ]
+  install: [make "-C" "erasure" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-erasure-plugin" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis:
+    "Implementation and verification of an erasure procedure for Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The Erasure module provides a complete specification of Rocq's so-called
+"extraction" procedure, starting from the PCUIC calculus and targeting
+untyped call-by-value lambda-calculus.
+
+The `erasure` function translates types and proofs in well-typed terms
+into a dummy `tBox` constructor, following closely P. Letouzey's PhD
+thesis."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-template-pcuic" {= version}
+    "rocq-metarocq-erasure" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "erasure-plugin"]
+  ]
+  install: [make "-C" "erasure-plugin" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-pcuic" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "A type system equivalent to Rocq's and its metatheory"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The PCUIC module provides a cleaned-up specification of Rocq's typing algorithm along
+with a certified typechecker for it. This module includes the standard metatheory of
+PCUIC: Weakening, Substitution, Confluence and Subject Reduction are proven here."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-common" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "pcuic"]
+  ]
+  install: [make "-C" "pcuic" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-quotation" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "Gallina quotation functions for Template Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The Quotation module is geared at providing functions `□T → □□T` for
+`□T := Ast.term` (currently implemented) and for `□T := { t : Ast.term
+& Σ ;;; [] |- t : T }` (still in the works).  Currently `Ast.term →
+Ast.term` and `(Σ ;;; [] |- t : T) → Ast.term` functions are provided
+for Template and PCUIC terms, in `MetaRocq.Quotation.ToTemplate.All`
+and `MetaRocq.Quotation.ToPCUIC.All`.  Proving well-typedness is still
+a work in progress.
+
+Ultimately the goal of this development is to prove that `□` is a lax monoidal
+semicomonad (a functor with `cojoin : □T → □□T` that codistributes over `unit`
+and `×`), which is sufficient for proving Löb's theorem."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-template" {= version}
+    "rocq-metarocq-pcuic" {= version}
+    "rocq-metarocq-template-pcuic" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "quotation"]
+  ]
+  install: [make "-C" "quotation" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-safechecker" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis:
+    "Implementation and verification of safe conversion and typechecking algorithms for Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The SafeChecker modules provides a correct implementation of
+weak-head reduction, conversion and typechecking of Rocq definitions and global environments."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-pcuic" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "safechecker"]
+  ]
+  install: [make "-C" "safechecker" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-safechecker-plugin" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis:
+    "Implementation and verification of an erasure procedure for Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The Erasure module provides a complete specification of Rocq's so-called
+"extraction" procedure, starting from the PCUIC calculus and targeting
+untyped call-by-value lambda-calculus.
+
+The `erasure` function translates types and proofs in well-typed terms
+into a dummy `tBox` constructor, following closely P. Letouzey's PhD
+thesis."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-template-pcuic" {= version}
+    "rocq-metarocq-safechecker" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "safechecker-plugin"]
+  ]
+  install: [make "-C" "safechecker-plugin" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-template" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "A quoting and unquoting library for Rocq in Rocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+Template Rocq is a quoting library for Rocq. It takes Rocq terms and
+constructs a representation of their syntax tree as a Rocq inductive data
+type. The representation is based on the kernel's term representation.
+
+In addition to a complete reification and denotation of CIC terms,
+Template Rocq includes:
+
+- Reification of the environment structures, for constant and inductive declarations.
+- Denotation of terms and global declarations
+- A monad for manipulating global declarations, calling the type
+  checker, and inserting them in the global environment, in the style of
+  MetaRocq/MTac."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-common" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "template-rocq"]
+  ]
+  install: [make "-C" "template-rocq" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-template-pcuic" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis:
+    "Translations between Template Rocq and PCUIC and proofs of correctness"
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-template" {= version}
+    "rocq-metarocq-pcuic" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "template-pcuic"]
+  ]
+  install: [make "-C" "template-pcuic" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-translations" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "Translations built on top of MetaRocq"
+  description: """\
+MetaRocq is a meta-programming framework for Rocq.
+
+The Translations modules provides implementation of standard translations
+from type theory to type theory, e.g. parametricity and the `cross-bool`
+translation that invalidates functional extensionality."""
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "rocq-metarocq-template" {= version}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "-C" "translations"]
+  ]
+  install: [make "-C" "translations" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-metarocq-utils" {
+  opam-version: "2.0"
+  version: "1.5.1"
+  synopsis: "The utility library of Template Rocq and PCUIC"
+  description: "MetaRocq is a meta-programming framework for Rocq."
+  maintainer: "matthieu.sozeau@inria.fr"
+  authors: [
+    "Abhishek Anand <aa755@cs.cornell.edu>"
+    "Danil Annenkov <danil.v.annenkov@gmail.com>"
+    "Simon Boulier <simon.boulier@inria.fr>"
+    "Cyril Cohen <cyril.cohen@inria.fr>"
+    "Yannick Forster <forster@ps.uni-saarland.de>"
+    "Jason Gross <jgross@mit.edu>"
+    "Fabian Kunze <fkunze@fakusb.de>"
+    "Meven Lennon-Bertrand <Meven.Bertrand@univ-nantes.fr>"
+    "Kenji Maillard <kenji.maillard@inria.fr>"
+    "Gregory Malecha <gmalecha@gmail.com>"
+    "Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>"
+    "Matthieu Sozeau <matthieu.sozeau@inria.fr>"
+    "Nicolas Tabareau <nicolas.tabareau@inria.fr>"
+    "Théo Winterhalter <theo.winterhalter@inria.fr>"
+  ]
+  license: "MIT"
+  homepage: "https://metarocq.github.io/metarocq"
+  bug-reports: "https://github.com/MetaRocq/metarocq/issues"
+  depends: [
+    "stdlib-shims"
+    "rocq-core" {>= "9.1.0" & < "9.2"}
+    "rocq-stdlib" {>= "9.0~" & != "9.0.dev" & < "10"}
+    "rocq-equations" {>= "1.3.1"}
+    "coq-ext-lib" {>= "0.12"}
+  ]
+  build: [
+    ["bash" "./configure.sh"]
+    [make "-j" "%{jobs}%" "utils"]
+  ]
+  install: [make "-C" "utils" "install"]
+  dev-repo: "git+https://github.com/MetaRocq/metarocq.git#main"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD"
+  }
+}
+package "rocq-peregrine" {
+  opam-version: "2.0"
+  version: "dev"
+  synopsis:
+    "The Peregrine tool is a unified middle-end for code generation from proof assistants"
+  description:
+    "The Peregrine tool is a unified middle-end for code generation from proof assistants"
+  maintainer: "The Peregrine team"
+  authors: "The Peregrine team"
+  license: "MIT"
+  tags: ["keyword:extraction" "logpath:Peregrine"]
+  homepage: "https://peregrine-project.github.io/"
+  bug-reports: "https://github.com/peregrine-project/peregrine-tool/issues"
+  depends: [
+    "rocq-core" {>= "9.1" & < "9.2~"}
+    "rocq-stdlib" {>= "9.0" & < "9.2~"}
+    "rocq-metarocq-erasure-plugin" {>= "1.5.1" & < "1.5.2"}
+    "rocq-typed-extraction-common" {= "0.2.1"}
+    "rocq-rust-extraction" {= "0.2.1"}
+    "rocq-elm-extraction" {= "0.2.1"}
+    "rocq-cakeml-extraction" {= "0.1.0"}
+    "rocq-verified-extraction" {= "1.0.0+9.1"}
+    "rocq-primitive" {= "9.0.0"}
+    "rocq-ceres-bytestring" {= "1.0.0"}
+    "rocq-certirocq" {= "0.9.1+9.1"}
+    "cmdliner" {>= "2.0.0"}
+  ]
+  build: [make "build"]
+  install: [make "install"]
+  dev-repo: "git+https://github.com/peregrine-project/peregrine-tool.git"
+  url {
+    src:
+      "git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/peregrine#HEAD"
+  }
+}
