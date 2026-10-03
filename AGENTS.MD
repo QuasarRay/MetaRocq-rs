@@ -23,7 +23,6 @@ Project Goals:
 11. after the initial bootstrapping of MetaRocq in Rust, and verifying the Rust implementation to be correct using Z3_tac + HOL4, prove the machine code correct as well using Z3_tac + HOL4.
 
 12. The project Aegis contains mechanisms for formal verification including HOL4 MCP and policies for reducing token/credit consumption(the policy that prevents wrong implementation from happening before hand rather than change and discard must enforce it strongly enough to prevent wasting tokens/credits. make sure that the mechanism is effective for that), some of them are still in the pull requests, and partially complete, different branches have different capabilities. Adapt Aegis source code to match the requirements of This project based on This AGENTS.MD file, and work inside the finished Aegis: https://github.com/QuasarRay/Aegis
-Some progress in Aegis has been made in https://github.com/QuasarRay/kontroli-rs, reuse if it is more efficient than from scratch implementation
 
 Some progress in Aegis has been made in https://github.com/QuasarRay/kontroli-rs, reuse if it is more efficient than from scratch implementation
 

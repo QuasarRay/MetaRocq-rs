@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "task": "bootstrap-extraction-integrity",
+  "task": "resume-original-extraction",
   "authority_sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97",
   "paper_sections": [
     "JACM 2025: PCUIC syntax and safe checker"
@@ -20,10 +20,10 @@
       "extract"
     ]
   },
-  "adr": "docs/adr/0001-extraction-boundary.md",
+  "adr": "docs/adr/0003-resumable-extraction.md",
   "remote": {
     "repository": "QuasarRay/MetaRocq-rs",
-    "base": "metarocq/01-bootstrap"
+    "base": "main"
   },
   "obligations": [
     {
