@@ -1,19 +1,35 @@
+# MetaRocq-rs: metatheory-first bootstrap
+
+Aegis is embedded under `.agents` and pinned by `spec/aegis-deployment.json`.
+The new sequential roadmap and append-only PostgreSQL context pipeline are in
+`.agents/roadmaps`, `.agents/pipelines`, and `.agents/database`.
+
+**The metatheory bootstrap is unfinished; implementation remains gated.**
+See `docs/STATUS.md` and `docs/adr/0005-sequential-metatheory-bootstrap.md`.
+The historical extraction workflow and evidence below are preserved.
+
 # MetaRocq-rs
 
 Goal: a Rust-native MetaRocq implementation, certified metaprogramming and independently
 checkable proof-carrying macro expansions. The original MetaRocq mathematical sources
 are the shared contract. This checkpoint establishes the supervised bootstrap.
 
-The current checkpoint pins Aegis PR #13 and preserves its parent PR #1 receipt.
-See `docs/STATUS.md` and ADR 0002 for the controller upgrade and cloud setup finding.
+The current checkpoint pins Aegis PR #17 and preserves the previous PR history and
+the actual isApp extraction artifact. See `docs/STATUS.md` and ADR 0004.
 
 **Current status: bootstrap infrastructure only. No Rust checker, verified macro
 system or machine-code correctness proof exists at this checkpoint.**
 
-The first driver extracts the original `PCUICAst.isApp` through Peregrine's typed
-frontend. Actual generation has not succeeded locally because Rocq and Peregrine are
-absent. Generated Rust is intentionally absent; `cargo check` requires generation first.
-Kani harnesses must bind the observed generated API and cannot yet run.
+`generated/pcuic_isapp.rs` and its typed AST are unchanged outputs from the earlier
+successful Peregrine generation. A small syn/quote build transformation repairs
+two observed printer errors, so this candidate now compiles. The original generated
+application predicate passes a two-case runtime regression. This is not full refinement.
+
+The new additive `Retention.v`/`Retained.v` driver quotes an original opaque PCUIC
+proof and its dependency environment into AST data in Type. It asserts that the
+opaque root body exists, then extracts the entire data structure. Execution of this
+new extraction is being qualified separately; retaining syntax does not transfer a
+theorem to Rust semantics or prove ownership correctness.
 
 ## Reproduce
 
@@ -26,7 +42,9 @@ python -B tools/bootstrap.py check
 python -B tools/bootstrap.py bind
 # With the pinned-compatible Rocq/Peregrine installation active:
 python -B tools/bootstrap.py extract --timeout 600
-cargo +1.98.1 check
+cargo +1.98.1 test --workspace --locked
+# After successful retained-proof generation:
+cargo +1.98.1 test --workspace --locked --features retained
 ```
 
 The extraction CI workflow builds the pinned source packages, runs this same driver,

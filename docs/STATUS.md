@@ -1,18 +1,54 @@
-# Current bootstrap checkpoint
+# Current bootstrap status
 
-The project has source locks, a real Aegis work cycle, an original-definition
-Peregrine driver, transactional candidate publication and verification/checkpoint
-integrity gates. It does not yet contain generated Rust or a verified MetaRocq checker.
+The new Aegis controller is embedded under `.agents` at the exact revision recorded
+in `spec/aegis-deployment.json`. Aegis PR 18 preserves PR 17; this branch preserves
+the complete open MetaRocq-rs PR 4 history. Automatic PostgreSQL persistence,
+append-only task access, logical export/restore, Markdown journals and sequential
+roadmap execution are implemented and qualified.
 
-The first target PR and its exact live checkpoint are preserved. The second target
-checkpoint pins Aegis PR #13, retains blocked observations and fixes the cloud clang
-prerequisite exposed by the first real dependency-installation attempt.
+**Bootstrapping_MetaRocq-rs_MetaTheory is unfinished. Implementation is blocked.**
+Only the source audit is runnable. Missing work includes the independent original
+checker, executable retained-proof replay in LambdaBox/CakeML, a verified Rust-aware
+shared specification, semantic transport and the exact compiler/binary proof chain.
+The candidate prover must replay proofs; retained syntax and a successful process
+are insufficient. See ADR 0005 and `.agents/roadmaps/metarocq-bootstrap.json`.
 
-Local Rocq, Peregrine, Rust/Kani, HOL4 and Z3 are unavailable. Extraction remains
-BLOCKED locally. Cloud extraction is a separate qualification attempt whose current
-result is shown by GitHub Actions, not inferred from the existence of this workflow.
-All formal implementation obligations in spec/obligations.json remain OPEN.
+Full architecture production readiness and maximum possible efficiency are not
+claimed. Existing generated Rust, source inventories and all historical evidence
+remain intact. Logging has no model calls; it does not capture private reasoning.
 
-For the historical first-cycle observations see BOOTSTRAP_STATUS.md. For the current
-controller binding see ADR 0002 and spec/toolchain.lock.json. Kani adapter qualification
-in Aegis is not evidence that a MetaRocq-specific Kani harness exists or passed.
+## Preserved earlier status
+
+# Current status
+
+PRs 1 and 2 are merged. Work continues in PR 4 to retain its completed opam cache.
+Aegis PR 17 descends from every prior MetaRocq supervision PR through PR 16.
+
+The actual artifact from run 37106552663 is independently consistent at source
+93387eac: extraction succeeded and compilation failed. Its raw PCUIC isApp AST
+and Rust, original observation, dependency export and origin are preserved here.
+A syn/quote transformation repairs the two diagnosed Rust printer failures;
+the recovered candidate compiles and a two-case runtime regression passes.
+Three normalizer regression checks pass. No hand-written isApp implementation exists.
+
+Real Kani 0.67.0 did not verify this slice. An unbounded attempt hit the 120-second
+budget while unwinding bumpalo cleanup. With explicit unwind 4, Kani reported four
+failed checks out of 644, including allocator pointer validity and the result
+assertion. Both diagnostics are preserved losslessly as compressed logs in
+`.metarocq/evidence/`. This gate remains FAILED; runtime success does not override it.
+
+The reproducible source inventory contains all 755 tracked upstream files: 596
+Rocq files, 33 OCaml/plugin files, and 126 build/documentation/assets. One Rocq demo
+has no upstream logical-path mapping. Generated module drivers use upstream build
+mappings and MetaRocq's own declaration enumeration. This is file coverage only.
+
+The new additive retention driver requests opaque proof bodies, retains original
+PCUICAstUtils.mkApps_tApp and its dependency environment as Type-level AST data,
+and includes a concrete body-presence assertion. Its real cloud execution is the
+next qualification gate. Generic module snapshot infrastructure is additive;
+whole-project closure and non-Gallina sources are not yet converted.
+
+All original MetaRocq source files remain unchanged. Rust ownership semantics,
+semantic proof transport, full PCUIC implementation, HOL4 source refinement,
+macro certificates, independent self-hosting and machine-code proofs remain OPEN.
+This is not production-ready. See spec/obligations.json and ADR 0004.

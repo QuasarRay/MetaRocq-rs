@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "commit": "c9d84f09917ba6e30c0b93ceeb25458b19b69aa3",
+  "head": "93387eacd9091543d453be18061bad60275870ea",
+  "run_id": "37106552663",
+  "attempt": "1",
+  "steps": {
+    "preflight": "success",
+    "install": "success",
+    "extract": "success",
+    "compile": "failure"
+  },
+  "files": {
+    "generated/pcuic_isapp.ast": "8928b1052a0c38c9757cf9740a8b3d47ace54420cd8237aeb7e75da522da57ff",
+    "generated/pcuic_isapp.rs": "75e4945066701726f09340254447a739ef7b3ebbe9a634a45c73a42b019bcd61",
+    ".metarocq/evidence/resume-original-extraction-extraction-b3f0e85050a0a3dba1dcd5d0cb0e44fe0d46d525fa911cb0af64763950539a12.json": "7c19468fe733e3492aab37aead26cd9f4385d43ec096976685d98a7ec7d9533d",
+    ".aegis/opam-switch.export": "2d68a21db196a9812c0a07b61fb9efaf93750bdf5d7c88519557e0392a7520c7",
+    "Cargo.lock": "8cc7a0e602de43e0e61ef552834b86f019b5b46726a6361bfb690c9a8ae2f548"
+  },
+  "claim": "CI process observations only; no semantic or production-readiness proof"
+}

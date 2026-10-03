@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "task": "pcuic-isapp",
+  "authority_sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97",
+  "paper_sections": [
+    "JACM 2025: PCUIC syntax and safe checker"
+  ],
+  "reuse": {
+    "strategy": "generate",
+    "sources": [
+      "pinned MetaRocq original Rocq definitions",
+      "Kani proof harness pattern"
+    ],
+    "license": "REPLACE: inspect source licenses before copying",
+    "reason": "REPLACE: record evaluated reuse alternatives",
+    "generator": [
+      "python3",
+      "tools/bootstrap.py",
+      "extract"
+    ]
+  },
+  "adr": "docs/adr/0001-extraction-boundary.md",
+  "remote": {
+    "repository": "QuasarRay/MetaRocq-rs",
+    "base": "main"
+  },
+  "obligations": [
+    {
+      "id": "pcuic-isapp",
+      "anchor": "pcuic/theories/PCUICAst.v",
+      "symbol": "isApp",
+      "statement": "REPLACE: exact Rust/PCUIC representation relation and domain",
+      "rust_paths": [
+        "generated/pcuic_isapp.rs",
+        "src/proofs.rs"
+      ],
+      "method": "kani",
+      "entry": "proofs::pcuic_isapp",
+      "expected_checks": 1,
+      "assumptions": [
+        "REPLACE: list trusted correspondence and environment assumptions"
+      ],
+      "limits": [
+        "REPLACE: bounded term depth, allocation, unwind and input domain"
+      ]
+    }
+  ]
+}

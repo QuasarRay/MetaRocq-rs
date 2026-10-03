@@ -1,0 +1,47 @@
+name: Candle verifier adapters
+on:
+  pull_request:
+    paths:
+      - 'infra/agentinfra/verifiers.py'
+      - 'infra/agentinfra/process.py'
+      - 'infra/agentinfra/security.py'
+      - 'contracts/toolchain.json'
+      - 'scripts/check_verifiers.py'
+      - '.github/workflows/candle-verifiers.yml'
+permissions:
+  contents: read
+jobs:
+  adapters:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Install the pinned verification environment
+        run: |
+          rustup toolchain install 1.98.1 --profile minimal
+          cargo +1.98.1 install kani-verifier --locked --version 0.67.0
+          cargo kani setup
+          python3 - <<'PY'
+          import hashlib,json,pathlib,urllib.request,zipfile,os
+          lock=json.loads(pathlib.Path('contracts/toolchain.json').read_text())
+          archive=pathlib.Path('/tmp/aegis-verus.zip')
+          urllib.request.urlretrieve(lock['verus_url'],archive)
+          if hashlib.sha256(archive.read_bytes()).hexdigest()!=lock['verus_archive_sha256']:
+              raise SystemExit('Verus archive digest mismatch')
+          with zipfile.ZipFile(archive) as bundle: bundle.extractall('/tmp/aegis-verus')
+          location=pathlib.Path('/tmp/aegis-verus/verus-x86-linux')
+          for name in ('verus','rust_verify','z3'):
+              (location/name).chmod(0o755)
+          with open(os.environ['GITHUB_PATH'],'a') as f: f.write(str(location)+'\n')
+          PY
+      - name: Qualify positive and negative proof results
+        run: python3 -B scripts/check_verifiers.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: candle-verifier-qualification
+          path: .aegis/verifier-qualification.json
+          include-hidden-files: true

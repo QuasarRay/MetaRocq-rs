@@ -1,7 +1,15 @@
 # Generated candidates
 
-`python tools/bootstrap.py extract` writes `pcuic_isapp.ast` and `pcuic_isapp.rs`
-only after the actual Rocq/Peregrine processes succeed and emit nonempty output.
-No generated Rust is checked in at this checkpoint because those tools were absent.
-The Cargo manifest intentionally fails to build until generation succeeds.
-Do not fill this directory with hand-written code and label it extracted.
+`pcuic_isapp.ast` and `pcuic_isapp.rs` are the unchanged original outputs recovered
+from GitHub run 37106552663. Their origin and hashes are recorded under
+`.metarocq/evidence/historical-isapp/`. The generated licenses are preserved here.
+
+`build.rs` uses syn/quote to normalize the raw Rust into Cargo's output directory.
+It repairs diagnosed printer errors; it does not replace the generated predicate.
+The normalizer's regression compares every recovered function body before and
+after transformation. This is a syntax check, not semantic refinement.
+
+The current extraction recipe requests `retained.ast` and `retained.rs` for an
+original opaque proof quoted into Type-level AST data. Aegis publishes the complete
+output set only after the real Rocq/Peregrine processes succeed. See `docs/STATUS.md`
+for observed qualification outcomes. Never label handwritten code as extracted.

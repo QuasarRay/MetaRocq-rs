@@ -7,7 +7,19 @@ license-file = "LICENSE.MD"
 description = "Peregrine-generated PCUIC bootstrap candidate; not a verified checker"
 
 [lib]
-path = "generated/pcuic_isapp.rs"
+path = "src/lib.rs"
+
+[workspace]
+members = ["tools/rust-normalize"]
+
+[features]
+retained = []
+
+[build-dependencies]
+metarocq-rust-normalize = { path = "tools/rust-normalize" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(kani)'] }
 
 [dependencies]
 # Matches the pinned Peregrine test runner; no hand-written replacement runtime.

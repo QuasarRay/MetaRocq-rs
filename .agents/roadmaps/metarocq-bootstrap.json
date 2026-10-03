@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "id": "metarocq-bootstrap",
+  "description": "Runtime roadmap; planned theorem names are obligations, not existing results. Finish Bootstrapping_MetaRocq-rs_MetaTheory before implementation work.",
+  "policy": {
+    "max_active_agents": 1,
+    "reasoning_effort": "max",
+    "formalization_model": "gpt-6-astra",
+    "implementation_gate": "metatheory-verified",
+    "authorization": "Host-attested model and effort; agent flags and environment variables are not authority. Roadmap authorship and formalization require the designated model.",
+    "task_context": "One dedicated subagent per task; all contexts readable, only its own context writable; controller schedules workers sequentially.",
+    "persistence": "Automatic host hooks capture every exposed context, action, result and existing decision without model calls, logging prompts or agent-written summaries; metadata indexes provide mechanical highlights.",
+    "persistence_boundary": "Persist exposed messages, decisions, summaries and tool results; never private chain-of-thought. Append-only PostgreSQL with all logical content mirrored to Git; no silently omitted write.",
+    "durability": "Acknowledge durable writes and track database-to-Git replication watermarks; stop advancement while a write or required push is outstanding. Independent replicas are needed; administrators can rewrite both stores.",
+    "storage": "Keep database schema/code, database event content, roadmaps and agent pipelines in separate directory trees.",
+    "completion": "No input status or verified boolean establishes completion. Proof acceptance requires qualified independent replay of theorem objects, exact statements, assumptions and bound artifacts. Without such an adapter, remain BLOCKED.",
+    "paths": "Inputs and required_artifacts are canonical paths relative to the MetaRocq-rs working tree; sources below identify external read-only references. Commands are argv, never shell strings.",
+    "scheduling": "Read this DAG at runtime. A null command is BLOCKED, not skipped or complete. Changed inputs or roadmap invalidate dependent evidence. Process evidence cannot satisfy proof acceptance."
+  },
+  "sources": [
+    {"id": "metarocq", "commit": "7197056adbb9c15288b4c8d43407bf25786f723e", "lock": "spec/upstream.lock.json"},
+    {"id": "peregrine", "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9", "lock": "spec/upstream.lock.json"}
+  ],
+  "tasks": [
+    {
+      "id": "source-audit", "kind": "bootstrap", "depends_on": [],
+      "description": "Audit pinned original sources, source coverage, retained opaque proof data, CakeML wrapper assumptions and available proof tooling. Emit observations and blockers, never a metatheory claim.",
+      "inputs": ["spec/upstream.lock.json", "spec/toolchain.lock.json", "spec/source-inventory.json", "spec/obligations.json", "extraction/Retention.v", "extraction/RetainedQuote.v", "tools/metatheory_preflight.py"],
+      "command": ["python3", "tools/metatheory_preflight.py"],
+      "acceptance": {"kind": "process", "required_artifacts": ["metatheory/evidence/source-audit.json"], "required_theorems": [], "checker": "source-audit-process-only"},
+      "blockers": []
+    },
+    {
+      "id": "original-source-and-checker", "kind": "bootstrap", "depends_on": ["source-audit"],
+      "description": "Rebuild original MetaRocq from pinned source with complete dependency provenance. Instantiate its actual checker and replay its soundness, universes, normalization and guard obligations against an independently retained original kernel.",
+      "inputs": ["spec/upstream.lock.json", "spec/toolchain.lock.json", "spec/source-inventory.json", "metatheory/evidence/source-audit.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/bootstrap/OriginalChecker.v", "metatheory/evidence/original-build.json", "metatheory/evidence/original-assumptions.json"], "required_theorems": ["MetaRocqRs.Bootstrap.OriginalChecker.checker_acceptance_sound"], "checker": "independent-original-rocq-kernel-replay"},
+      "blockers": ["Installation hashes do not prove that libraries were built from the locked source.", "MetaRocq safechecker-plugin/theories/Extraction.v:36-48 assumes fake_abstract_guard_impl_properties; discharge or avoid it.", "PCUICSafeChecker.v:2494 typecheck_program has explicit normalization and environment hypotheses; audit the full transitive assumptions."]
+    },
+    {
+      "id": "retained-untyped-proof-data", "kind": "formalization", "depends_on": ["original-source-and-checker"],
+      "description": "Extend additive Type-level quotation to dependency-closed original programs with opaque bodies, universe constraints and primitive declarations. Prove faithful quotation, sharing and untyped LambdaBox erasure preserve reconstructible proof syntax and its original interpretation.",
+      "inputs": ["extraction/Retention.v", "extraction/RetainedQuote.v", "extraction/Retained.v", "spec/source-inventory.json", "metatheory/bootstrap/OriginalChecker.v"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/bootstrap/RetainedUntyped.v", "metatheory/artifacts/retained.ast", "metatheory/artifacts/retained-environment.bin"], "required_theorems": ["MetaRocqRs.Bootstrap.RetainedUntyped.quotation_dependency_closed", "MetaRocqRs.Bootstrap.RetainedUntyped.erasure_preserves_retained_program"], "checker": "independent-original-rocq-kernel-replay"},
+      "blockers": ["Current opaque_root_body_is_present and sharing_preserves_entire_program check one concrete quoted program; they do not establish semantic proof transport.", "retain_module is an inventory, not a dependency closure; Retained.v currently selects typed extraction, whereas CakeML requires the untyped path."]
+    },
+    {
+      "id": "original-cakeml-machine-checker", "kind": "bootstrap", "depends_on": ["retained-untyped-proof-data"],
+      "description": "Compile the original checker and retained proof data through untyped LambdaBox, Peregrine and CakeML. Prove concrete preservation through serialization, compiler, runtime, linking and the selected ISA, including input/output and failure behavior; retain an independent bootstrap checker and explicit trust ledger.",
+      "inputs": ["metatheory/bootstrap/OriginalChecker.v", "metatheory/bootstrap/RetainedUntyped.v", "metatheory/artifacts/retained.ast", "spec/toolchain.lock.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/bootstrap/CakeMLBridge.v", "metatheory/bootstrap/OriginalMachineScript.sml", "metatheory/artifacts/original-checker.cml", "metatheory/artifacts/original-checker.bin", "metatheory/evidence/original-trust-ledger.json"], "required_theorems": ["MetaRocqRs.Bootstrap.CakeMLBridge.retained_pipeline_preservation", "OriginalMachineTheory.original_checker_machine_sound"], "checker": "independent-original-rocq-and-hol4-kernel-replay"},
+      "blockers": ["Peregrine theories/backends/CakeMLBackend.v:44-50 admits a wrapper obligation; :57 assumes trust_coq_kernel for every input. Instantiate or discharge actual preconditions without treating the wrapper as proved end to end.", "doc/backends.md specifies untyped CakeML and --sexp=true --exclude_prelude=true --skip_type_inference=true; qualify the exact dependency/compiler/printer chain and flags.", "Upstream backend proofs must be instantiated; their existence does not bind this checker or machine image."]
+    },
+    {
+      "id": "shared-canonical-specification", "kind": "formalization", "depends_on": ["original-cakeml-machine-checker"],
+      "description": "Define shared canonical specification bytes, grammar, well-formedness, universes, declarations and semantics using original MetaRocq mathematics. Prove decoding and round trips plus a semantics-preserving Rocq/PCUIC-to-HOL4 interpretation; both eventual checkers must consume the same syntax and semantics.",
+      "inputs": ["spec/upstream.lock.json", "spec/source-inventory.json", "metatheory/bootstrap/OriginalChecker.v"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/spec/Canonical.v", "metatheory/spec/Interpretation.v", "metatheory/spec/InterpretationScript.sml", "metatheory/spec/contract.bin"], "required_theorems": ["MetaRocqRs.Spec.Canonical.decode_encode", "MetaRocqRs.Spec.Interpretation.original_semantics_preserved", "InterpretationTheory.pcuic_interpretation_sound"], "checker": "independent-original-rocq-and-hol4-kernel-replay"},
+      "blockers": ["The roadmap, source hashes and obligations.json are metadata, not a formal specification.", "Original .v files are not directly HOL4 theories; the interpretation and its universe/assumption model have not been proved."]
+    },
+    {
+      "id": "rust-syntax-ownership-types", "kind": "formalization", "depends_on": ["shared-canonical-specification"],
+      "description": "Specify the Rust constructs needed by the full port: syntax, binding, traits/generics, types, lifetimes, moves, shared/mutable loans, aliasing, drops and permitted unsafe/FFI boundaries. Reuse qualified Charon/Aeneas semantics where applicable; prove the frontend relation and ownership/type preservation, with every unsupported construct explicit.",
+      "inputs": ["metatheory/spec/Canonical.v", "metatheory/spec/Interpretation.v", "spec/toolchain.lock.json", "spec/source-inventory.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/spec/RustSyntax.v", "metatheory/spec/RustOwnership.v", "metatheory/spec/RustTypes.v"], "required_theorems": ["MetaRocqRs.Spec.RustSyntax.frontend_correspondence", "MetaRocqRs.Spec.RustOwnership.loan_invariant_preserved", "MetaRocqRs.Spec.RustTypes.type_preservation"], "checker": "independent-original-rocq-and-qualified-rust-semantics-replay"},
+      "blockers": ["Aeneas/Charon installation is not qualification of the exact supported Rust semantics or translation.", "Successful rustc borrowing checks and renamed Gallina terms do not establish ownership-aware semantic correspondence."]
+    },
+    {
+      "id": "rust-behavior-and-full-contract", "kind": "formalization", "depends_on": ["rust-syntax-ownership-types"],
+      "description": "Define operational behavior for allocation, primitives, overflow, panics, divergence, resource exhaustion and external interfaces. Relate Rust-native operations to original Template-Rocq, PCUIC, checking, erasure and quotation; cover OCaml plugins, Ltac, commands, functors and all inventory items through explicit semantics rather than silent omission.",
+      "inputs": ["metatheory/spec/RustSyntax.v", "metatheory/spec/RustOwnership.v", "metatheory/spec/RustTypes.v", "spec/source-inventory.json", "spec/obligations.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/spec/RustBehavior.v", "metatheory/spec/FullContract.v", "metatheory/spec/coverage.json"], "required_theorems": ["MetaRocqRs.Spec.RustBehavior.operational_correspondence", "MetaRocqRs.Spec.FullContract.source_coverage_complete"], "checker": "independent-original-rocq-and-hol4-kernel-replay"},
+      "blockers": ["The current isApp slice and retained proof sample do not cover the original project.", "Primitive remappings, non-Gallina source behavior and failures lack complete formal correspondence; any restriction must be explicit and cannot count as full coverage."]
+    },
+    {
+      "id": "semantic-proof-transport", "kind": "formalization", "depends_on": ["rust-behavior-and-full-contract"],
+      "description": "Generate proof transport along the shared semantic relation and prove metatheory equivalence for the full declared contract. Preserve theorem statements, complete environments, universes and assumption sets; prove both directions where equivalence is claimed and state termination/resource premises explicitly.",
+      "inputs": ["metatheory/spec/FullContract.v", "metatheory/spec/Interpretation.v", "metatheory/spec/RustBehavior.v", "metatheory/bootstrap/RetainedUntyped.v"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/spec/ProofTransport.v", "metatheory/spec/Equivalence.v", "metatheory/spec/equivalence-certificate.bin"], "required_theorems": ["MetaRocqRs.Spec.ProofTransport.original_propositions_transport", "MetaRocqRs.Spec.Equivalence.metarocq_rs_metatheory_equivalent"], "checker": "independent-original-rocq-and-hol4-kernel-replay"},
+      "blockers": ["Retained Ast.program data has no established semantic relation to Rust execution.", "No machine-checked full-contract equivalence theorem or transport certificate exists; Z3 UNSAT, bounded Kani and tool qualification cannot substitute."]
+    },
+    {
+      "id": "metatheory-verified", "kind": "bootstrap", "depends_on": ["original-cakeml-machine-checker", "semantic-proof-transport"],
+      "description": "Finish Bootstrapping_MetaRocq-rs_MetaTheory by independently replaying the actual equivalence certificate using the exact original compiled checker, its independent kernel root and the qualified HOL4 bridge. Bind all source, specification, theorem, assumption, compiler and binary identities; reject unresolved obligations and circular trust.",
+      "inputs": ["metatheory/spec/contract.bin", "metatheory/spec/equivalence-certificate.bin", "metatheory/spec/coverage.json", "metatheory/artifacts/original-checker.bin", "metatheory/evidence/original-trust-ledger.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/evidence/metatheory-replay.bin", "metatheory/evidence/metatheory-trust-closure.json"], "required_theorems": ["MetaRocqRs.Spec.Equivalence.metarocq_rs_metatheory_equivalent", "OriginalMachineTheory.original_checker_machine_sound"], "checker": "independent-original-compiled-checker-and-kernel-replay"},
+      "blockers": ["No qualified independent replay adapter or compiled-checker certificate is present.", "Exit codes, file existence, content hashes and JSON claiming verified cannot open this gate; every dependency must retain valid replay evidence."]
+    },
+    {
+      "id": "implementation-roadmap", "kind": "roadmap", "depends_on": ["metatheory-verified"],
+      "description": "Only after the proof gate, transform the verified canonical specification into a detailed language-agnostic implementation DAG. Generate declaration-to-task traceability, dependency edges, obligations, artifact/checker bindings and small tasks; require designated-model review and full coverage before execution.",
+      "inputs": ["metatheory/spec/contract.bin", "metatheory/spec/coverage.json", "metatheory/evidence/metatheory-replay.bin"], "command": null,
+      "acceptance": {"kind": "process", "required_artifacts": ["metatheory/implementation-roadmap.json", "metatheory/implementation-traceability.json"], "required_theorems": [], "checker": "verified-specification-to-roadmap-coverage-validator"},
+      "blockers": ["Metatheory gate is not satisfied and the transformation is not implemented.", "The following implementation entries are scope requirements to expand after the gate, not permission to start implementation now."]
+    },
+    {
+      "id": "rust-implementation-refinement", "kind": "implementation", "depends_on": ["implementation-roadmap"],
+      "description": "Execute the generated implementation tasks with read-all/write-own contexts. Prove actual generated Rust and every printer repair, ownership-aware lowering and macro expansion refine the verified contract; bind dependency/generator identities and add bounded Kani regressions without treating them as full semantic proof.",
+      "inputs": ["metatheory/implementation-roadmap.json", "metatheory/spec/contract.bin", "extraction/recipe.json", "tools/rust-normalize/src/lib.rs"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/implementation/RustRefinementScript.sml", "metatheory/implementation/source-certificates.bin", "metatheory/implementation/kani-evidence.json"], "required_theorems": ["RustRefinementTheory.actual_rust_refines_verified_contract"], "checker": "independent-original-checker-and-hol4-source-refinement-replay"},
+      "blockers": ["Peregrine doc/backends.md marks the typed Rust backend and printer unverified; the existing syn/quote repair is an additional unverified boundary.", "Implementation roadmap and upstream metatheory proof gate remain blocked."]
+    },
+    {
+      "id": "self-hosted-dual-verification", "kind": "implementation", "depends_on": ["rust-implementation-refinement"],
+      "description": "Compile MetaRocq-rs with rustc, use it to produce its retained-proof untyped LambdaBox program, then Peregrine/CakeML machine code. Prove each transformation, checker input interpretation and machine boundary; have original and MetaRocq-rs compiled checkers independently validate source and executable against identical canonical specification bytes, retaining the independent original trust root.",
+      "inputs": ["metatheory/implementation/source-certificates.bin", "metatheory/spec/contract.bin", "metatheory/artifacts/original-checker.bin", "metatheory/implementation-roadmap.json"], "command": null,
+      "acceptance": {"kind": "proof", "required_artifacts": ["metatheory/implementation/SelfHostedScript.sml", "metatheory/artifacts/metarocq-rs.ast", "metatheory/artifacts/metarocq-rs.bin", "metatheory/evidence/dual-checker-replay.bin"], "required_theorems": ["SelfHostedTheory.same_specification_interpretation", "SelfHostedTheory.metarocq_rs_machine_refinement", "SelfHostedTheory.independent_dual_checking_sound"], "checker": "independent-original-and-metarocq-rs-machine-checkers-with-kernel-replay"},
+      "blockers": ["No independently verified self-hosted checker, Rust-to-LambdaBox proof-retention transport or exact machine-code refinement chain exists.", "A candidate checker accepting itself cannot establish its soundness; shared serialization alone does not prove shared semantics."]
+    }
+  ]
+}

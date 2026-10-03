@@ -1,0 +1,101 @@
+name: TacticToe persistent knowledge
+on:
+  pull_request:
+    paths:
+      - 'scripts/record_tactictoe.sh'
+      - 'infra/agentinfra/hol4.py'
+      - 'contracts/toolchain.json'
+      - '.github/workflows/tactictoe-persistence.yml'
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      HOL4_SHA: "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+      HOLDIR: /tmp/HOL
+      HOL4_TACTICTOE_CACHE: ${{ github.workspace }}/.aegis/tactictoe-cache
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Restore latest compatible TacticToe knowledge
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .aegis/tactictoe-cache
+          key: tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-${{ github.run_id }}
+          restore-keys: |
+            tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-
+
+      - name: Install prerequisites and identify image
+        id: image
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential polyml libpolyml-dev git
+          echo "id=$ImageOS-$ImageVersion" >> "$GITHUB_OUTPUT"
+      - name: Reuse the completed HOL4 qualification build
+        id: holcache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: /tmp/HOL
+          key: hol4-z3-v1-40dd5b03de658f4bd9e3f4225fb0f1602ac90467-${{ steps.image.outputs.id }}-${{ runner.arch }}
+      - name: Validate restored source
+        if: steps.holcache.outputs.cache-hit == 'true'
+        run: |
+          test "$(git -C /tmp/HOL rev-parse HEAD)" = "$HOL4_SHA"
+          git -C /tmp/HOL diff --exit-code HEAD --
+          test -x /tmp/HOL/bin/Holmake
+      - name: Build pinned HOL4 when no completed cache exists
+        if: steps.holcache.outputs.cache-hit != 'true'
+        run: |
+          git clone https://github.com/HOL-Theorem-Prover/HOL.git "$HOLDIR"
+          git -C "$HOLDIR" checkout --detach "$HOL4_SHA"
+          cd "$HOLDIR"
+          poly_archive="$(find /usr/lib -name libpolymain.a -print -quit)"
+          test -n "$poly_archive"
+          poly_dir="$(dirname "$poly_archive")"
+          printf 'val polymllibdir = "%s";\n' "$poly_dir" > tools-poly/poly-includes.ML
+          poly --script tools/smart-configure.sml
+          bin/build --seq tools/sequences/upto-parallel -j2
+
+      - name: Build a project-local theory
+        run: |
+          mkdir -p .aegis/tactictoe-fixture
+          cat > .aegis/tactictoe-fixture/AegisTacticToeFixtureScript.sml <<'EOF'
+          open HolKernel boolLib bossLib;
+          val _ = new_theory "AegisTacticToeFixture";
+
+          Theorem conjunction_commutes:
+            !p q:bool. (p /\ q) <=> (q /\ p)
+          Proof
+            metis_tac[]
+          QED
+
+          val _ = export_theory();
+          EOF
+          cd .aegis/tactictoe-fixture
+          "$HOLDIR/bin/Holmake" --qof
+
+      - name: Record/update TacticToe data
+        run: bash scripts/record_tactictoe.sh AegisTacticToeFixture .aegis/tactictoe-fixture
+
+      - name: Save updated knowledge as a new immutable cache generation
+        if: always()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .aegis/tactictoe-cache
+          key: tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-${{ github.run_id }}
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: tactictoe-manifest
+          path: .aegis/tactictoe-cache/ttt_tacdata/MANIFEST
+          include-hidden-files: true

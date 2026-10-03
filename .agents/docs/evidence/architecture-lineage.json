@@ -1,0 +1,176 @@
+{
+  "selected_base": "f00afb96e35efe90524113db162c7c4a6e61884a",
+  "refs": [
+    {
+      "ref": "refs/remotes/origin/HEAD",
+      "commit": "01060f8d731e0e9082a555bc23f47810aa9eec51",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle-rs",
+      "commit": "21c16a16b693d55bb40a09c7919b75ac0c7720ff",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/01-authority",
+      "commit": "552aa8e77a293ecac56f1761df8ae57884760779",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/02-contract-runtime",
+      "commit": "d7a99e137ee6effdca5d3293ed94e16e8e430b24",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/03-verifier-hardening",
+      "commit": "82afa955e495d5c040a3c07fdf51931d97e96d2d",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/04-audit",
+      "commit": "f8b8511558d750d69a7a8479ddcbe9b96025cd48",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/05-hol4-mcp",
+      "commit": "464e8e7906f7d2b6314dd0757585ded11e2d3f46",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/candle/06-tactictoe-persistence",
+      "commit": "e01523fbf936ebfa2b9f81aa1ee64e421c88a7cb",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/codex/aegis-candle-audit",
+      "commit": "471f6f60f57a54d0fbcafffe37883fa1c7bcbc72",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/origin/codex/aegis-candle-authorities",
+      "commit": "31fffa3e7c696459a10d277b3be31e185d903566",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/origin/codex/aegis-candle-runtime",
+      "commit": "00bef82818af66fb4597131b3bb95b4654c89783",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "commit": "01060f8d731e0e9082a555bc23f47810aa9eec51",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/01-supervision",
+      "commit": "9d9cb6d4a0a8632895676167ed63db6e8b847ecf",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/02-extraction-evidence",
+      "commit": "3528552a4141f6853f95dac713820a6cbfd3bc7f",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/03-extraction-budget",
+      "commit": "8433db24a037c63658f98cd7b9be9f08203dbb31",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/04-z3-replay",
+      "commit": "fed54f274c23b70933ece54fbfaee9c0d2524148",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/05-artifact-inspection",
+      "commit": "1f22db21056a13222e88d975c817a5b2c1c9a87d",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/06-proof-retention",
+      "commit": "f00afb96e35efe90524113db162c7c4a6e61884a",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/origin/metarocq/06-proof-retention-pre-rebase-80b6cb6",
+      "commit": "80b6cb6b8dd115dbb83c9bdd457a1f568c7c68b7",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/pull/1",
+      "commit": "31fffa3e7c696459a10d277b3be31e185d903566",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/pull/10",
+      "commit": "e01523fbf936ebfa2b9f81aa1ee64e421c88a7cb",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/12",
+      "commit": "9d9cb6d4a0a8632895676167ed63db6e8b847ecf",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/13",
+      "commit": "3528552a4141f6853f95dac713820a6cbfd3bc7f",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/pull/14",
+      "commit": "8433db24a037c63658f98cd7b9be9f08203dbb31",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/15",
+      "commit": "fed54f274c23b70933ece54fbfaee9c0d2524148",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/16",
+      "commit": "1f22db21056a13222e88d975c817a5b2c1c9a87d",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/17",
+      "commit": "f00afb96e35efe90524113db162c7c4a6e61884a",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/2",
+      "commit": "552aa8e77a293ecac56f1761df8ae57884760779",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/3",
+      "commit": "d7a99e137ee6effdca5d3293ed94e16e8e430b24",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/4",
+      "commit": "82afa955e495d5c040a3c07fdf51931d97e96d2d",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/5",
+      "commit": "00bef82818af66fb4597131b3bb95b4654c89783",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/pull/6",
+      "commit": "471f6f60f57a54d0fbcafffe37883fa1c7bcbc72",
+      "ancestor_of_selected_base": false
+    },
+    {
+      "ref": "refs/remotes/pull/7",
+      "commit": "f8b8511558d750d69a7a8479ddcbe9b96025cd48",
+      "ancestor_of_selected_base": true
+    },
+    {
+      "ref": "refs/remotes/pull/9",
+      "commit": "464e8e7906f7d2b6314dd0757585ded11e2d3f46",
+      "ancestor_of_selected_base": true
+    }
+  ],
+  "policy": "Preserve existing heads; new branch descends the current open PR. Alternative Candle coordinators remain preserved, not blindly merged."
+}

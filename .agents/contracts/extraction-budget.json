@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "max_attempts": 2,
+  "max_seconds_per_attempt": 600,
+  "total_seconds": 1200
+}

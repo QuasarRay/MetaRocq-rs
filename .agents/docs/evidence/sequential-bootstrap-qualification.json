@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "command": [
+    "python",
+    "-B",
+    "scripts/selftest.py"
+  ],
+  "returncode": 0,
+  "stdout": "{\"generated_changes\":[],\"check\":true}\n",
+  "stderr": "To /tmp/tmp73cno6qm/remote.git\n * [new branch]      HEAD -> bootstrap\nfatal: '/tmp/tmpq5149td9/missing.git' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n----------------------------------------------------------------------\nRan 88 tests in 2.291s\n\nOK (skipped=2)\n",
+  "postgresql": "PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit",
+  "driver": "3.2.9",
+  "claim": "controller qualification only; no MetaRocq theorem or production readiness proof"
+}

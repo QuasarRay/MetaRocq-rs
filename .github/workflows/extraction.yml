@@ -3,55 +3,146 @@ on:
   pull_request:
     paths:
       - 'extraction/**'
-      - 'tools/bootstrap.py'
+      - 'tools/**'
       - 'spec/**'
+      - '.metarocq/plan.json'
       - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'build.rs'
+      - 'src/**'
       - '.github/workflows/extraction.yml'
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
+  metatheory-gate:
+    runs-on: ubuntu-24.04
+    outputs:
+      allowed: ${{ steps.gate.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - run: python3 -m pip install -r .agents/database/requirements.txt
+      - id: gate
+        run: |
+          if python3 -B .agents/pipelines/bootstrap.py --root . gate; then
+            echo 'allowed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'allowed=false' >> "$GITHUB_OUTPUT"
+          fi
   extract:
+    needs: metatheory-gate
+    if: needs.metatheory-gate.outputs.allowed == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - run: python3 -B tools/bootstrap.py sources
-      - run: python3 -B tools/bootstrap.py check
-      - name: Install isolated Rocq and Peregrine build dependencies
+      - id: preflight
+        run: python3 -B tools/bootstrap.py check
+      - name: Install system prerequisites
         run: |
           sudo apt-get update
           sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
-          opam init --bare --disable-sandboxing -y default https://opam.ocaml.org
-          opam switch create .aegis/opam ocaml-base-compiler.4.14.2 -y --jobs=2
-          opam repository add rocq-released https://rocq-prover.org/opam/released --switch .aegis/opam -y
-          for package in .aegis/references/metarocq/rocq-metarocq-*.opam; do
-            name="$(basename "$package" .opam)"
-            opam pin add --switch .aegis/opam --no-action -y "$name.1.5.1" .aegis/references/metarocq
-          done
-          opam pin add --switch .aegis/opam --no-action -y rocq-peregrine .aegis/references/peregrine
-          opam install --switch .aegis/opam -y rocq-peregrine --jobs=2
-          opam switch export --switch .aegis/opam .metarocq/evidence/opam-switch.export
-      - name: Generate from the original PCUIC definition
+      - name: Compute dependency cache identity
+        id: identity
         run: |
+          python3 - <<'PYTHON'
+          import hashlib, json, os
+          from pathlib import Path
+          lock = json.loads(Path('spec/toolchain.lock.json').read_text())
+          inputs = {name: lock['repositories'][name] for name in ('metarocq', 'peregrine')}
+          inputs['recipe'] = Path('tools/install_extraction.sh').read_text()
+          inputs['image'] = os.environ['ImageOS'] + os.environ['ImageVersion']
+          key = hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('key=opam-v1-' + key + '\n')
+          PYTHON
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        id: cache
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: ${{ steps.identity.outputs.key }}-complete
+          restore-keys: ${{ steps.identity.outputs.key }}-partial-
+      - name: Reconcile pinned Rocq and Peregrine installation
+        id: install
+        env:
+          # The installer explicitly synchronizes each source pin first.
+          # Avoid a second update of dev pins during opam install.
+          OPAMSKIPUPDATE: 'true'
+        run: bash tools/install_extraction.sh
+      - name: Preserve completed dependency build before extraction
+        if: steps.install.outcome == 'success' && steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: ${{ steps.identity.outputs.key }}-complete
+      - name: Preserve partial installation for a diagnosed retry
+        if: failure() && steps.install.outcome == 'failure'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: ${{ steps.identity.outputs.key }}-partial-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Retain an original opaque proof as typed AST data
+        id: extract
+        run: |
+          # Record a process failure before an unbounded allocation takes down
+          # the runner and prevents evidence upload. Limit inherited by Rocq.
+          # The 3 GiB failure is recorded in retained-frontend-origin.json.
+          # Diagnose the stock backend under one explicit larger bound.
+          ulimit -v 6291456
+          echo "Extraction virtual-memory limit: $(ulimit -v) KiB"
           opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py bind
-          opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
+          /usr/bin/time -v opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
       - name: Compile the generated candidate
+        id: compile
         run: |
           rustup toolchain install 1.98.1 --profile minimal
-          cargo +1.98.1 check
+          cargo +1.98.1 test --workspace --locked --features retained
+      - name: Record only observations from this run
+        if: always()
+        env:
+          CHECKOUT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          PREFLIGHT_OUTCOME: ${{ steps.preflight.outcome }}
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          EXTRACT_OUTCOME: ${{ steps.extract.outcome }}
+          COMPILE_OUTCOME: ${{ steps.compile.outcome }}
+        run: python3 -B tools/ci_observation.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: peregrine-bootstrap-observations
-          path: |
-            generated/
-            .metarocq/evidence/
-            Cargo.lock
+          name: peregrine-run-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .aegis/artifact/
           include-hidden-files: true
+          if-no-files-found: error
+      - name: Preserve the pinned backend executable for local replay
+        if: always() && steps.install.outcome == 'success'
+        run: |
+          mkdir -p .aegis/replay-tool
+          cp .aegis/opam/_opam/bin/peregrine .aegis/replay-tool/
+          cp .aegis/opam-switch.export .aegis/replay-tool/
+          cp generated/LICENSE-Peregrine .aegis/replay-tool/
+          sha256sum .aegis/replay-tool/peregrine > .aegis/replay-tool/SHA256SUMS
+          ldd .aegis/replay-tool/peregrine > .aegis/replay-tool/runtime.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.install.outcome == 'success'
+        with:
+          name: peregrine-tool-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .aegis/replay-tool/
+          if-no-files-found: error

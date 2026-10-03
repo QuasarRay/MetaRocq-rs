@@ -1,17 +1,18 @@
 {
-  "base": "main",
-  "branch": "metarocq/01-bootstrap",
+  "base": "metarocq/01-bootstrap",
+  "branch": "metarocq/02-evidence-binding",
   "evidence": null,
   "evidence_digest": null,
-  "extraction": ".metarocq/evidence/bootstrap-pcuic-isapp-extraction-89f33eef3d87e7ff48960bb2459b41cfa4d2cd421ce1f6372dc6da31263af19b.json",
-  "extraction_digest": "89f33eef3d87e7ff48960bb2459b41cfa4d2cd421ce1f6372dc6da31263af19b",
-  "head": "124951fb16688efcfd2271319820c3f52a83257d",
-  "plan_digest": "a9f32444f8de0360ce3dd3e2cd0a9ddf7c2ee6d88c03e2924e60f7243074dcfc",
-  "pr": 1,
+  "extraction": ".metarocq/evidence/bootstrap-extraction-integrity-extraction-96f4a1f94cbdee22e5fbc224b4999dc7bf82094a1cc374d44a215ab84a738e36.json",
+  "extraction_digest": "96f4a1f94cbdee22e5fbc224b4999dc7bf82094a1cc374d44a215ab84a738e36",
+  "extraction_status": "BLOCKED",
+  "head": "1c2ff3d4272038b92f9eac6ec3d58498f702c99b",
+  "plan_digest": "4b7616944511aa141dd2a3f336e4fabdeaaec4648d8ff5e22e63cc1d95e44e40",
+  "pr": 2,
   "repository": "QuasarRay/MetaRocq-rs",
   "statuses": [
     "UNVERIFIED"
   ],
-  "task": "bootstrap-pcuic-isapp",
-  "url": "https://github.com/QuasarRay/MetaRocq-rs/pull/1"
+  "task": "bootstrap-extraction-integrity",
+  "url": "https://github.com/QuasarRay/MetaRocq-rs/pull/2"
 }

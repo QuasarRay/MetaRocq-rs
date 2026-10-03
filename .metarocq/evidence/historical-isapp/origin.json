@@ -1,0 +1,10 @@
+{
+  "run": 37106552663,
+  "artifact": 11269886433,
+  "head": "93387eacd9091543d453be18061bad60275870ea",
+  "archive_sha256": "94f5b605c7f88282f8a1e2e4b31afa8661c9b2e02a0d131bb664018e28a46752",
+  "inspection": "CONSISTENT",
+  "generated": true,
+  "compiled": false,
+  "claim": "Historical source/run consistency only; no semantic proof"
+}

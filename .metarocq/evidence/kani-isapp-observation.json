@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "verifier": "Kani 0.67.0",
+  "source_base": "40fb1446f9c5ffe56063745429e322eee60505c0",
+  "harness_sha256": "a50c473e807aeca69a9e26d959271958b604cd3c45efa7e040c548f698ddd948",
+  "raw_rust_sha256": "75e4945066701726f09340254447a739ef7b3ebbe9a634a45c73a42b019bcd61",
+  "attempts": [
+    {
+      "status": "TIMEOUT",
+      "timeout_seconds": 120,
+      "diagnosis": "Unbounded allocator destructor unwinding; replace with explicit harness unwind bound."
+    },
+    {
+      "status": "FAILED",
+      "unwind": 4,
+      "checks": 644,
+      "failed": 4,
+      "diagnosis": "Kani reported pointer validity/object-bound failures through bumpalo allocation and the result read, including the functional assertion. No passing allocator or equivalence proof is claimed."
+    }
+  ],
+  "claim": "Actual failed verifier observations; do not mark the isApp contract proved."
+}

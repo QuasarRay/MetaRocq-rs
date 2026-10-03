@@ -1,0 +1,118 @@
+{
+  "status": "QUALIFIED",
+  "script_sha256": "587c4a7c0fef83385a9550803249bfb87244dec326b0839f1f6825e260288c2e",
+  "claim": "Z3/HOL4 reconstruction and inspection qualification only; not MetaRocq refinement",
+  "z3": {
+    "path": "/usr/bin/z3",
+    "sha256": "c05be002097e2f2106efeeac03e58032e3f5cca10104f95d7a0ddc0bd3f907cb"
+  },
+  "holmake": {
+    "status": "CHECKED",
+    "tool_identity": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/tmp/HOL/bin/Holmake",
+        "sha256": "d23f4003a99047be00d2f938bfd59e714d0e4ac93ef85eeca45450dd46fd377b"
+      },
+      "Z3": {
+        "path": "/usr/bin/z3",
+        "sha256": "c05be002097e2f2106efeeac03e58032e3f5cca10104f95d7a0ddc0bd3f907cb"
+      }
+    },
+    "execution": {
+      "argv": [
+        "/tmp/HOL/bin/Holmake",
+        "--qof",
+        "--no-cache"
+      ],
+      "cwd": "/tmp/aegis-hol4-31gmf4c0/theory",
+      "returncode": 0,
+      "stdout": "Scanning $(HOLDIR)/src/hol88\nScanning $(HOLDIR)/src/TeX\nScanning $(HOLDIR)/src/bag\nScanning $(HOLDIR)/src/sort\nScanning $(HOLDIR)/src/string\nScanning $(HOLDIR)/src/n-bit\nScanning $(HOLDIR)/src/res_quan/src\nScanning $(HOLDIR)/src/finite_maps\nScanning $(HOLDIR)/src/integer\nScanning $(HOLDIR)/src/rational\nScanning $(HOLDIR)/src/transfer\nScanning $(HOLDIR)/src/pred_set/src/more_theories\nScanning $(HOLDIR)/src/algebra/base\nScanning $(HOLDIR)/src/algebra/construction\nScanning $(HOLDIR)/src/algebra\nScanning $(HOLDIR)/src/real\nScanning $(HOLDIR)/src/real/analysis\nScanning $(HOLDIR)/src/HolSmt\nScanned 19 directories\nBuilding 1 theory file\nStarting work on AegisHol4SmokeTheory\nAegisHol4SmokeTheory                                       (10s)   [1/1]     OK\n",
+      "stderr": "",
+      "stdout_sha256": "28052409943bea1fc5ee6c9d7f723c51b76a73575e3980e436a50d80842a1767",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 756,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-03T08:14:04.882306+00:00",
+      "finished_at": "2026-10-03T08:14:17.775647+00:00",
+      "duration_seconds": 12.893199927999994
+    },
+    "claim": "direct Holmake process observation; theorem scope and tags require separate inspection"
+  },
+  "inspection": {
+    "theorem": "AegisHol4Smoke.integer_interval",
+    "goal_checked": true,
+    "hypotheses": 0,
+    "non_disk_oracles": 0,
+    "local_axioms": 0,
+    "negative_controls": 3
+  },
+  "exports": {
+    "AegisHol4SmokeTheory.sml": "b855fc2acd13ed2992dd78edc3725d4582d2adedbb93b7f29ee86775060bfe63",
+    "AegisHol4SmokeTheory.sig": "c32be66ea00d45f2e3d92b5573c3a0331f29993914470f4cdc39fda481a580cd",
+    "AegisHol4SmokeTheory.dat": "626d88d95ae3d14f0cbffe093320173d5c48d4f2266155c17c83c7bdb53d6b1b"
+  },
+  "mcp": {
+    "command": "/home/runner/.local/bin/hol4-mcp",
+    "args": [
+      "--transport",
+      "stdio"
+    ],
+    "env": {
+      "HOLDIR": "/tmp/HOL",
+      "HOL4_TACTICTOE_CACHE": "/tmp/aegis-hol4-31gmf4c0/.aegis/tactictoe-cache"
+    },
+    "identity": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/tmp/HOL/bin/Holmake",
+        "sha256": "d23f4003a99047be00d2f938bfd59e714d0e4ac93ef85eeca45450dd46fd377b"
+      },
+      "hol4-mcp": {
+        "path": "/home/runner/.local/bin/hol4-mcp",
+        "sha256": "f2d6484df655ed9161aa2de15eea5479755fcf6ed944899cd41472d74e1ea8c8"
+      },
+      "Z3": {
+        "path": "/usr/bin/z3",
+        "sha256": "c05be002097e2f2106efeeac03e58032e3f5cca10104f95d7a0ddc0bd3f907cb"
+      }
+    },
+    "claim": "orchestration only; final acceptance requires direct Holmake"
+  },
+  "mcp_smoke": {
+    "status": "READY",
+    "server": "{'name': 'hol', 'title': None, 'version': '4.0.10', 'description': None, 'websiteUrl': None, 'icons': None}",
+    "tools": [
+      "hol_check_proof",
+      "hol_file_status",
+      "hol_interrupt",
+      "hol_log",
+      "hol_logs",
+      "hol_restart",
+      "hol_send",
+      "hol_sessions",
+      "hol_setenv",
+      "hol_start",
+      "hol_state_at",
+      "hol_stop",
+      "holmake"
+    ],
+    "probe": "hol_sessions",
+    "claim": "MCP orchestration smoke test only; not proof evidence"
+  }
+}

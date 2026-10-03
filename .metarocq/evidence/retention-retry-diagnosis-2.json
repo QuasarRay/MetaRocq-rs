@@ -1,0 +1,9 @@
+{
+  "run": 37115009102,
+  "head": "2e11defb5a9a7da7c2e1d55592a0b241a1438dc3",
+  "artifact": 11271152657,
+  "archive_sha256": "ca8bf92e11be51b37636786c3502534cc8cabb5087599e1e0c58d599647d7961",
+  "diagnosis": "Upstream Ast exports Env but deliberately does not Include it; the full program path is Ast.Env.program, not Ast.program.",
+  "correction": "Use the namespace declared at original Ast.v lines 644-646. The preceding module-quotation metaprogram now elaborates; the failure was in the added lookup signature.",
+  "preservation": "Previous attempts and checkpoints remain in Git history and evidence."
+}
