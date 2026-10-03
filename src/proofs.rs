@@ -21,4 +21,5 @@ fn original_predicate_application_and_variable() {
 
 #[cfg(kani)]
 #[kani::proof]
+#[kani::unwind(4)]
 fn pcuic_isapp() { check_application_case(kani::any()); }

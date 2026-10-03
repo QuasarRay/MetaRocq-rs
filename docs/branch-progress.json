@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "claim": "Observed branch reachability; retained alternate implementations are not claimed integrated.",
+  "repositories": {
+    "MetaRocq-rs": {
+      "continuation": "40fb1446f9c5ffe56063745429e322eee60505c0",
+      "branches": [
+        {
+          "branch": "origin",
+          "sha": "40fb1446f9c5ffe56063745429e322eee60505c0",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "main",
+          "sha": "4d1336425d69d93b0ecc79f4770dda6a937d7f70",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/01-bootstrap",
+          "sha": "33d23ec2e89c5561ffabc858e991e69023ba9438",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/02-evidence-binding",
+          "sha": "a9a0ac15d0d63ee6c669825620fb0707ca41e1c7",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/03-resumable-extraction",
+          "sha": "40fb1446f9c5ffe56063745429e322eee60505c0",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        }
+      ]
+    },
+    "Aegis": {
+      "continuation": "cb5b09bf0661c318098d4c3f3393f60e564adc60",
+      "branches": [
+        {
+          "branch": "origin",
+          "sha": "85a4664fed12fd9784ff05a3b067ef6ce0d821f5",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle-rs",
+          "sha": "d966825478c462bd2adbabb4cdd8a97099291bab",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle/01-authority",
+          "sha": "552aa8e77a293ecac56f1761df8ae57884760779",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle/02-contract-runtime",
+          "sha": "d7a99e137ee6effdca5d3293ed94e16e8e430b24",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle/03-verifier-hardening",
+          "sha": "82afa955e495d5c040a3c07fdf51931d97e96d2d",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle/04-audit",
+          "sha": "f8b8511558d750d69a7a8479ddcbe9b96025cd48",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "candle/05-hol4-mcp",
+          "sha": "464e8e7906f7d2b6314dd0757585ded11e2d3f46",
+          "ancestor_of_continuation": false,
+          "disposition": "retained at original remote ref; not replaced or claimed integrated"
+        },
+        {
+          "branch": "candle/06-tactictoe-persistence",
+          "sha": "e01523fbf936ebfa2b9f81aa1ee64e421c88a7cb",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "codex/aegis-candle-audit",
+          "sha": "471f6f60f57a54d0fbcafffe37883fa1c7bcbc72",
+          "ancestor_of_continuation": false,
+          "disposition": "retained at original remote ref; not replaced or claimed integrated"
+        },
+        {
+          "branch": "codex/aegis-candle-authorities",
+          "sha": "31fffa3e7c696459a10d277b3be31e185d903566",
+          "ancestor_of_continuation": false,
+          "disposition": "retained at original remote ref; not replaced or claimed integrated"
+        },
+        {
+          "branch": "codex/aegis-candle-runtime",
+          "sha": "00bef82818af66fb4597131b3bb95b4654c89783",
+          "ancestor_of_continuation": false,
+          "disposition": "retained at original remote ref; not replaced or claimed integrated"
+        },
+        {
+          "branch": "main",
+          "sha": "01060f8d731e0e9082a555bc23f47810aa9eec51",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/01-supervision",
+          "sha": "2793d301011d10945479d5b334ebd88a6dbcc4a6",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/02-extraction-evidence",
+          "sha": "85a4664fed12fd9784ff05a3b067ef6ce0d821f5",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/03-extraction-budget",
+          "sha": "3d67cc9bcff508203142ef8218a981575976d203",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/04-z3-replay",
+          "sha": "1b3c7cd500891b60d4880c679bb337bfd8b80bc1",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/05-artifact-inspection",
+          "sha": "6b749aa4031d9bb16caa1271dafd28848f748bc7",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        },
+        {
+          "branch": "metarocq/06-proof-retention",
+          "sha": "cb5b09bf0661c318098d4c3f3393f60e564adc60",
+          "ancestor_of_continuation": true,
+          "disposition": "preserved in continuation ancestry"
+        }
+      ]
+    }
+  }
+}

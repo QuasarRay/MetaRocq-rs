@@ -51,6 +51,26 @@
       "id": "machine-code",
       "status": "OPEN",
       "required_evidence": "State and prove the compiler, runtime, linking and ISA refinement chain for an exact binary."
+    },
+    {
+      "id": "proof-syntax-retention",
+      "status": "OPEN",
+      "required_evidence": "Check original opaque bodies and their complete dependency environment survive Type-level quotation, typed erasure and generated Rust representation."
+    },
+    {
+      "id": "proof-transport",
+      "status": "OPEN",
+      "required_evidence": "Machine-generated, independently checked theorem transporting each original proposition along a proved PCUIC-to-Rust semantic relation."
+    },
+    {
+      "id": "ownership-aware-lowering",
+      "status": "OPEN",
+      "required_evidence": "Charon/Aeneas or qualified Rust model for borrowing, lifetimes, aliasing, primitives and failure behavior; prove any idiomatic lowering semantics-preserving."
+    },
+    {
+      "id": "nongallina-source-coverage",
+      "status": "OPEN",
+      "required_evidence": "Explicit port and semantics for OCaml plugins, Ltac, notation/command integration, functors, runtime interfaces and every unmapped inventory item."
     }
   ]
 }

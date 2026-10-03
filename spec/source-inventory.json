@@ -1,0 +1,5738 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/MetaRocq/metarocq.git",
+  "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+  "counts": {
+    "build-doc-or-asset": 126,
+    "ocaml-plugin": 33,
+    "rocq-module": 596
+  },
+  "files": [
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "eb06bdbec50f203e04ce25280b3cd8854648af8ec651f67bb5459dda1f126ee8",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "sha256": "c7f13d263d30f8a9fb0f15514ead435ee33bec8c6cb975af83b76b2a12886ddf",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".github/workflows/nix-action-rocq-9.1.yml",
+      "sha256": "100e56ac9c4c5debed97489eb65e48e8f7fc69e799214235a0c550d1ee1eabb9",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".github/workflows/nix-action-rocq-dev.yml",
+      "sha256": "b53345de5312fa5b1b085730da8c63f0b8cbdd73d0ddfa69325f00a991b6037f",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "00da3b759a692beec2bdd836747d907c3133a08c4d1d79b37fab839ecd93ef29",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/cachedMake.sh",
+      "sha256": "390d91aa142d0b56f29f4a1135bd4726f4b1b988fee80e0c595970206b351a54",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/config.nix",
+      "sha256": "575400b479e65cce3a3eab8ecc0f8e76c1e549a947d37408eb031640b819ea7e",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/coq-nix-toolbox.nix",
+      "sha256": "752472de141b5f3592c1e415aaa5435a265051f9eb8627770c71170837e78a8e",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/coq-overlays/metacoq/default.nix",
+      "sha256": "74f607f3e21e53a6e163ebd886d6fdcbf2631d932d3759d4b6b11f5da2d924bf",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/coq-overlays/metarocq/default.nix",
+      "sha256": "924f20a206ac5e34e1dfa41f2fb274cd74497c7f9ff4eee941ecb467002c1ef2",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".nix/renameNixActions.sh",
+      "sha256": "b7b28f36d7f2260c841e766c50acebd71ea7bb0a82a6c6ff31c4d331121f137e",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".vscode/metarocq.code-workspace",
+      "sha256": "8e5e5497e93b20443280a41cf198ce066c6832e9e13340766178952fdb264fc5",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "27d702d74eeca8b8f85ad15f3031e6d0cce3f30238a378b01b3122d57b21a5ca",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "DOC.md",
+      "sha256": "d578f95df0979682dec5ad53039e3368a6077a37c050c5bd0222d86cd5b1935b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "1c688582610289b494162c16b256dcd0bed835e82bfb7531a2290ddcc445377b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "310ccd944e4d5aa1a024ec1a4a1a182492aa2b4d1e540c0158cb7d60b1a1f437",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "Makefile",
+      "sha256": "9622df0f34931fb67b9613b47fffe91262c8d77940bf025744ba0d5b54907e44",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "README.md",
+      "sha256": "bdbdb48fa0c99fde4b5d5dfaf314e2509d793d9e9a4f5fbfa7a482750b34ac5c",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "RELEASING.md",
+      "sha256": "938c1a153232c469d89816d79a80d28ed2d7fc14584faf02de1de5613fdebafb",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "TODO.md",
+      "sha256": "9951d56b106ad6ef52194366c6fc4209a89ed1ebdae130315f3e023e753c2de0",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "checktodos.sh",
+      "sha256": "77c5f967d76109f080e2d9d3301f5516e7245f1e961d87ab4812d72d3c1d8f70",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "common/Makefile",
+      "sha256": "4e30b14614b33389ae4c2559f5dc7db9d0b304d77b13d08aca7f53291a542108",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "common/_RocqProject.in",
+      "sha256": "17fd48564f5c3d6734563bf7dcd1825960a4b4f3ed34e00b3981f9ba2fd5442b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "common/theories/BasicAst.v",
+      "sha256": "b3205d7d67424c1fa22392c784e23b5bd351bf5d0ddf84822c8ac32371a6e77b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.BasicAst"
+      ]
+    },
+    {
+      "path": "common/theories/EnvMap.v",
+      "sha256": "edaa96c44331c40a780290be24c34906b4a6f7cd6f37073c9baaba84a923cfd2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.EnvMap"
+      ]
+    },
+    {
+      "path": "common/theories/Environment.v",
+      "sha256": "034022ff47d496b174b2e1cf2ad2c88dfd7378519ff2c5499b7a7e3c4d8935c8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Environment"
+      ]
+    },
+    {
+      "path": "common/theories/EnvironmentReflect.v",
+      "sha256": "c64436e6b4fc9535dc61c44973faa73c8701ee75e83a6f2758e59a65844bff0e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.EnvironmentReflect"
+      ]
+    },
+    {
+      "path": "common/theories/EnvironmentTyping.v",
+      "sha256": "82439e01e58dafbee91a3176c7050ae5b139bab00d724c4987ced51c950abebe",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.EnvironmentTyping"
+      ]
+    },
+    {
+      "path": "common/theories/Kernames.v",
+      "sha256": "cf4babab0ef69333d35d7561b4f640f62e93873d90288bf1eb1a8b3e5dd96457",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Kernames"
+      ]
+    },
+    {
+      "path": "common/theories/MonadBasicAst.v",
+      "sha256": "79300b8e970c48e4e5693b33395531f7126085fd7b5dad6a5a2a8408022195da",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.MonadBasicAst"
+      ]
+    },
+    {
+      "path": "common/theories/Primitive.v",
+      "sha256": "ec596f2f1ca2403caf87ba62c8f22c65d309804a3bef018d42174ffc8e5ac7d9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Primitive"
+      ]
+    },
+    {
+      "path": "common/theories/Reflect.v",
+      "sha256": "00ac1c3c43d413df10ddca1268bd1ecfc89d760f764d6fad8b241bfeabdc99de",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Reflect"
+      ]
+    },
+    {
+      "path": "common/theories/Transform.v",
+      "sha256": "39709c43213040d861f5799eaff5923c7764eca541084d6ee7aea01298f00190",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Transform"
+      ]
+    },
+    {
+      "path": "common/theories/Universes.v",
+      "sha256": "3c7332bbd8a9be8779737b753c7b66124166d17eed4e8a0ebb962b4cb3ca4171",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.Universes"
+      ]
+    },
+    {
+      "path": "common/theories/UniversesDec.v",
+      "sha256": "b9924d648d12b3e44dbc4115f855dc986d0bf236399203443b0db8f7c163276f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.UniversesDec"
+      ]
+    },
+    {
+      "path": "common/theories/config.v",
+      "sha256": "1285b7f4697b59a5e6b641586119dc8a30857cda1bde3dd4edfff5b81f30c25f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.config"
+      ]
+    },
+    {
+      "path": "common/theories/uGraph.v",
+      "sha256": "f302931a6dbe6df2909e26cf4c147101f8578b952a8e9ec4aa9eac2d5d9dbc99",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Common.uGraph"
+      ]
+    },
+    {
+      "path": "configure.sh",
+      "sha256": "f87c360585652062728da585a2fd5cc01242ddfee639fe7362e628479b747189",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "default.nix",
+      "sha256": "10048421ee04868bfd7046570a902fe455243379322c22581c65a3b20d9f76df",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "dependency-graph/dependency-graph.md",
+      "sha256": "b1d2d47bc1c83279ac33a6c54b279fd8ed2dddbf03041cd87393c1bf3c84ee5a",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "dependency-graph/depgraph-2022-07-01.dot",
+      "sha256": "9d5190a4653a360c3b0fecb2a61ab18c3a143d8252775c52f34091514b43f28c",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "dependency-graph/depgraph-2022-07-01.png",
+      "sha256": "0a07a634acf7918299df8724e526d4e1e7abaf476fd0ae99709a3668112df4d4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "dependency-graph/depgraph-2022-07-01.svg",
+      "sha256": "a465e96a0fac9cf36579e27d094af79bdfde5161137796d3bcf65b78a511f776",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "dependency-graph/generate-depgraph.sh",
+      "sha256": "067afda0cdc2abd4422a8a40ca3003cd0bf70d2a760fb9c5b14794b68505aa5b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/Makefile",
+      "sha256": "d6b614ab416d73c913a037ad26ec21acd0b897b2e0c745cd31b5b9ae44241961",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/Makefile.plugin.local",
+      "sha256": "4b1826e05c0ea6ac6e6af9fbe95305bcda0a85b29c6f9e6c6c9c7acf8b3dfde4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/_PluginProject.in",
+      "sha256": "a027f0460a158c4d0237e68a45376a87c3d9ab67fcfe8b0a5b59f2786c14c909",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/_RocqProject.in",
+      "sha256": "fbc336d45d49efa5d67739b58c5511fda22097c3581676d2c877b807961afd21",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/clean_extraction.sh",
+      "sha256": "3750763d4641486c1be1fcf2265583284d2d6fdcbc4debaef002dd0e78863925",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/src/.gitignore",
+      "sha256": "089afc71a9ba0c01b8411539ba1c68250c2d2e106d3bfc49f3c99939ce27ed3d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/src/META.rocq-metarocq-erasure",
+      "sha256": "0739ce7e0d647d18b04e7de80b3c82cf1379f401a0aa041206d63b3615f5221d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/src/g_metarocq_erasure.mlg",
+      "sha256": "c79919ea4afe541263860d3b0361641526f32b0fcd994536f0b2591d34b25c4a",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/src/metarocq_erasure_plugin.mlpack",
+      "sha256": "439d732f3a76acab48e1a82530a43d5f26f33318489c2712a29b8b7e49b88ed4",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "erasure-plugin/theories/ETransform.v",
+      "sha256": "1033e41021a76742d669a67087c491dba4ceef70eac78ac1c64671082cffffea",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ErasurePlugin.ETransform"
+      ]
+    },
+    {
+      "path": "erasure-plugin/theories/Erasure.v",
+      "sha256": "6d0ee1d5204ebbf326821759d7e758e764d47983e9e8955472c6c85bf80c3278",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ErasurePlugin.Erasure"
+      ]
+    },
+    {
+      "path": "erasure-plugin/theories/ErasureCorrectness.v",
+      "sha256": "4d8fe9adefb0b9d7293d5ce94db0f73dc03f5dc7767197b398991a6ec3ceefc6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ErasurePlugin.ErasureCorrectness"
+      ]
+    },
+    {
+      "path": "erasure-plugin/theories/Extraction.v",
+      "sha256": "b501b905b6ad7f3ed524d6ba8559d4f38d846f1a3abf015031ebd20ec1eaa67c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ErasurePlugin.Extraction"
+      ]
+    },
+    {
+      "path": "erasure-plugin/theories/Loader.v",
+      "sha256": "5262b1e69f4d7e9d0b85555442ff50643a5a8e8129555013020f808e56b7746a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ErasurePlugin.Loader"
+      ]
+    },
+    {
+      "path": "erasure/.vscode/tasks.json",
+      "sha256": "d94cfcede10ab8591911f0d9b6e5c3274a937f82fa119b2c9b762d16e28be2ca",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/Makefile",
+      "sha256": "10190d6abebb7d2564d535bb41fcf5b2702d96a35654693868ea1f04ddc68d88",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/_RocqProject.in",
+      "sha256": "c69f243184ad92b696ccbb0e96386e93e3262ccf64ee8b6635823db89ac0f18c",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/erasure.code-workspace",
+      "sha256": "4f888fe1084d2a9091583d5093693d81453c0b8d06dfd6192b096972bae551d4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/theories/EArities.v",
+      "sha256": "acc118fb90fe0fcfe33b507f2dd070526b842bfee958a0140719a4a4e75cb9e4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EArities"
+      ]
+    },
+    {
+      "path": "erasure/theories/EAst.v",
+      "sha256": "f1b5884f2cd8f089472ff7cb06b232a27be3465d6120d6ba30fc55a0731be4fd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EAst"
+      ]
+    },
+    {
+      "path": "erasure/theories/EAstUtils.v",
+      "sha256": "f536ca4615e8da72dd7ce42d2d548ee6e2f8de8c3e55f2e6259d6caf0e5505da",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EAstUtils"
+      ]
+    },
+    {
+      "path": "erasure/theories/EBeta.v",
+      "sha256": "41ae940c49b0a76f4e788543561bb2fdc1652eb23c2c7c2f46e4dfe1bbe7ad68",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EBeta"
+      ]
+    },
+    {
+      "path": "erasure/theories/ECSubst.v",
+      "sha256": "96b977d981efbec1228963838f78141a16802b7ef4c35b86ceb8c987b51f593b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ECSubst"
+      ]
+    },
+    {
+      "path": "erasure/theories/ECoInductiveToInductive.v",
+      "sha256": "5e80520c56869c9046d3942128cfbf4f413e07046f2b9dfdebed7003f7206daa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ECoInductiveToInductive"
+      ]
+    },
+    {
+      "path": "erasure/theories/EConstructorsAsBlocks.v",
+      "sha256": "a30d248c2fdba77576e787898e11f68acfcf3e810ef9ccccf752380dc795b076",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EConstructorsAsBlocks"
+      ]
+    },
+    {
+      "path": "erasure/theories/EDeps.v",
+      "sha256": "d182f36a8f88b7a8ebf18d68b011154f1f86f833e6c0439fdcf6c22395d8ce82",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EDeps"
+      ]
+    },
+    {
+      "path": "erasure/theories/EEnvMap.v",
+      "sha256": "eadd74204aae80e86bad60a95cfed067cd1e0be81fc6468ae842fc0f4a8c17d2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EEnvMap"
+      ]
+    },
+    {
+      "path": "erasure/theories/EEtaExpanded.v",
+      "sha256": "29e157474206b47af0dbf70227fe99db4fdfc58bac19b24bd97820758630ee9f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EEtaExpanded"
+      ]
+    },
+    {
+      "path": "erasure/theories/EEtaExpandedFix.v",
+      "sha256": "4cd00c2b8f6f58c76dcf7d085da3ac5343ee28f68dfe4227a05b2d180dec1c5a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EEtaExpandedFix"
+      ]
+    },
+    {
+      "path": "erasure/theories/EExtends.v",
+      "sha256": "5c88a154baba26c876111b193b91cd6cd464728d57c61422a4a65652a5de612b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EExtends"
+      ]
+    },
+    {
+      "path": "erasure/theories/EGenericGlobalMap.v",
+      "sha256": "4578bf9c942a2378cc03c95a74ff2e87601c3fc6366233fef04e85d8a37337aa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EGenericGlobalMap"
+      ]
+    },
+    {
+      "path": "erasure/theories/EGenericMapEnv.v",
+      "sha256": "4aa5cc7a3b820fb2066d11834791c191ad9d6062cc6bc443d6fa0f1df94e014c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EGenericMapEnv"
+      ]
+    },
+    {
+      "path": "erasure/theories/EGlobalEnv.v",
+      "sha256": "10e34fd00400a2dc944cee5b6c748b250acb8a1f0477013b339f6217569d0aa4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EGlobalEnv"
+      ]
+    },
+    {
+      "path": "erasure/theories/EGlobalFragment.v",
+      "sha256": "c9553197955b745a3b0f027db4baee3fdba11b24396e0c5ff86d1619fa96858a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EGlobalFragment"
+      ]
+    },
+    {
+      "path": "erasure/theories/EImplementBox.v",
+      "sha256": "a1553379ff17035f76e66456cba4fb0958e925ff13ee14564c12d778bce03bf6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EImplementBox"
+      ]
+    },
+    {
+      "path": "erasure/theories/EInduction.v",
+      "sha256": "941f0ff252006261ac8d6ca9f59e5f433f77ceb98b769c840426118d5d94a523",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EInduction"
+      ]
+    },
+    {
+      "path": "erasure/theories/EInlineProjections.v",
+      "sha256": "928a3bb650ee672a46c1842adeeb80226fe8d7df669dc30b43e9a17c2504530c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EInlineProjections"
+      ]
+    },
+    {
+      "path": "erasure/theories/EInlining.v",
+      "sha256": "67c3f2020bb115dbf1554145097ca65389070f8a6e53ce7f9c3ce20b577a9993",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EInlining"
+      ]
+    },
+    {
+      "path": "erasure/theories/ELiftSubst.v",
+      "sha256": "1cad9c03de1386c93b5a322d3acf6f8419b8ea35f9e5cb498f12b89fd8cf842a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ELiftSubst"
+      ]
+    },
+    {
+      "path": "erasure/theories/EOptimizePropDiscr.v",
+      "sha256": "38e6562aa06131d963fe52ce81fa57d5c938f8b8b03f5980f45a3edd8c6ee5d9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EOptimizePropDiscr"
+      ]
+    },
+    {
+      "path": "erasure/theories/EPretty.v",
+      "sha256": "4ef3528a98efdac3bfc55fda6b343f37a8c39ff008d5662ccad45e351bbde482",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EPretty"
+      ]
+    },
+    {
+      "path": "erasure/theories/EPrimitive.v",
+      "sha256": "ed7032cfb54e43042c9a037c8614171ae8b1150042ffb187a64bb99aa4ba1928",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EPrimitive"
+      ]
+    },
+    {
+      "path": "erasure/theories/EProgram.v",
+      "sha256": "744e6b95b3c8fa49044c9d43bb5ca0ce0c20fe810cf8b43e03ca46de7d87187e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EProgram"
+      ]
+    },
+    {
+      "path": "erasure/theories/EReflect.v",
+      "sha256": "b0b3f4f3debfc1ec10de56feb3c689211592cff12608af435b418f47d0c19d38",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EReflect"
+      ]
+    },
+    {
+      "path": "erasure/theories/ERemapInductives.v",
+      "sha256": "2de8800cff232104a5a761be6fb504ff59f4d3d17e05e56fe2e7407bde5baa42",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ERemapInductives"
+      ]
+    },
+    {
+      "path": "erasure/theories/ERemoveParams.v",
+      "sha256": "25a279efa0a460193e6d8741ae0617897a19382b0c28ac839f7ded8904aeda1d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ERemoveParams"
+      ]
+    },
+    {
+      "path": "erasure/theories/EReorderCstrs.v",
+      "sha256": "533d4c97089e4ceddb787d386584f64b118ad729f782d30e61bd7283da5e56be",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EReorderCstrs"
+      ]
+    },
+    {
+      "path": "erasure/theories/ESpineView.v",
+      "sha256": "5ca371e8f75b60b138f470d77f795f8653a215c4b9f77055ff19e1c924169d2f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ESpineView"
+      ]
+    },
+    {
+      "path": "erasure/theories/ESubstitution.v",
+      "sha256": "2b8fe9c7c656f647191e7854e55c085ac1efe82ec0da991e21b606cb35d5d7cd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ESubstitution"
+      ]
+    },
+    {
+      "path": "erasure/theories/EUnboxing.v",
+      "sha256": "6bb51bfa4c659324156de6401b5410f05d2cff3dc5ea538b748c3ce4a735ea1a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EUnboxing"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEval.v",
+      "sha256": "6d8dbd83491de0f0a6dddcf5106c2b9b004947675ec045eb5f43b7b7975e5883",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEval"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEvalCstrsAsBlocksFixLambdaInd.v",
+      "sha256": "c69e919d9d2e9ca8522d397045669b643a2b5f31048a6b18b38f07af4ecda618",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEvalCstrsAsBlocksFixLambdaInd"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEvalCstrsAsBlocksInd.v",
+      "sha256": "0144300730c50da43505bfe285ca6d23fe809a4049ec2e1c384ccf81166e5e15",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEvalCstrsAsBlocksInd"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEvalEtaInd.v",
+      "sha256": "c16135698ab49be76b23b1380a3b9a176e18227ed47628590a4cf5447fdd371d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEvalEtaInd"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEvalInd.v",
+      "sha256": "53882d730d2e73db73af3601a3fdd17cda7c0e85cfe18b916410010f39f742f0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEvalInd"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWcbvEvalNamed.v",
+      "sha256": "3569c76e2940a1e9919ddf116252a413bfff0fd25f242af973827cfc28da1924",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWcbvEvalNamed"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWellformed.v",
+      "sha256": "a2563ce69ef611982b8627f5ce79d7af0ce3c31a25409277f1e38ec3898a9f05",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWellformed"
+      ]
+    },
+    {
+      "path": "erasure/theories/EWtAst.v",
+      "sha256": "d8a123025783f86d008eee46332468fe48bac246eef2c0f4c9051cb15b48880a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.EWtAst"
+      ]
+    },
+    {
+      "path": "erasure/theories/ErasureCorrectness.v",
+      "sha256": "99c5aedbfb2ad719a9f8add2759ac7d64bffe4d04e662dc922635c379c9ab4ec",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ErasureCorrectness"
+      ]
+    },
+    {
+      "path": "erasure/theories/ErasureFunction.v",
+      "sha256": "651414bbcf6d24b0acbbfd9d38a84eca41501f186a1b9045e27ef1ad1a9e6ac0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ErasureFunction"
+      ]
+    },
+    {
+      "path": "erasure/theories/ErasureFunctionProperties.v",
+      "sha256": "882e4c2a2c165a2c774228bc3c71cf2fa175def3022bbb6b37f039842b91e185",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ErasureFunctionProperties"
+      ]
+    },
+    {
+      "path": "erasure/theories/ErasureProperties.v",
+      "sha256": "3baced89fd6755e3644c488696db82a0056e4c4b0f0cb98adb5901eab25df44d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.ErasureProperties"
+      ]
+    },
+    {
+      "path": "erasure/theories/Extract.v",
+      "sha256": "420f546d8821172a3cebbdf419a794d90b4ebc84fcd49e3abb5f1e355e19c36d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Extract"
+      ]
+    },
+    {
+      "path": "erasure/theories/Prelim.v",
+      "sha256": "f77587720d4b7137bdd4cbdc6b0ca93530d5ef108dc7e9567daf861ab76a4295",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Prelim"
+      ]
+    },
+    {
+      "path": "erasure/theories/README.md",
+      "sha256": "b67f56bb6bd9faa1923f6cdfdc999b2979f3cca1521a7ec4c9d4d5ec8e04d757",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/theories/Typed/Annotations.v",
+      "sha256": "734bae38a3f524518c46cbb230ca756ddf60572863f61188c8a8b4038b91a120",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Annotations"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/Certifying.v",
+      "sha256": "60d5c23c4fc2c844370bf957c781eee82c0e9ebb658dc3e136f70982961e0478",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Certifying"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/CertifyingBeta.v",
+      "sha256": "2590d330f044c26cd63e28d55df8849439eaa65ad5d2014913f1ce95dd454742",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.CertifyingBeta"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/CertifyingEta.v",
+      "sha256": "481f7dbd367d307289fa1368901419139166ecb244266f0d9cd4a4a8b1529fea",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.CertifyingEta"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/CertifyingInlining.v",
+      "sha256": "42cea64b2f1a8789a3e992ec324c551754ae7b2770bd51601c192ef35818005a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.CertifyingInlining"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/ClosedAux.v",
+      "sha256": "43e0227ad721395279249290193149039488ebead43f1c17814dd96009e9df6e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.ClosedAux"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/Erasure.v",
+      "sha256": "743e33f827ce3ed9148dd00b435deccc23607d37afe097ca88c1ae3e827b8264",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Erasure"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/ErasureCorrectness.v",
+      "sha256": "bbd3bcb0005bfafb83ee81522b0ab58083c2e7b606ef2b1d1dfb0e774675c553",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.ErasureCorrectness"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/ExAst.v",
+      "sha256": "3b9699a8569ab191c00ed7980c9d451b58169fab216bc47d693d91ccdd1532db",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.ExAst"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/Extraction.v",
+      "sha256": "1c4849f1f2604540f083b844491c9c508df2b1d7fb2f7fd7ac99ef6923397216",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Extraction"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/ExtractionCorrectness.v",
+      "sha256": "ca58520ebb15a7f1767da9a5125c8abf45ad069987bcfa43067b149fd11eaf9a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.ExtractionCorrectness"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/Optimize.v",
+      "sha256": "08ee122e3d7fbf0c7b6562d94dd64a6ed109d7042803e86cc0097e40e7d3add7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Optimize"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/OptimizeCorrectness.v",
+      "sha256": "a151b130d830f170dc025d54b1a46b86edc929c098529ee5b82fefe308817f5d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.OptimizeCorrectness"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/OptimizePropDiscr.v",
+      "sha256": "6941381020785b0365e9591b499e5cd8eb25b96641a96c833a0bf90203ad4654",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.OptimizePropDiscr"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/README.md",
+      "sha256": "ef2455396ccb733eebe0e8f8fe085e1c9021fd7fc1ef0ac8dc89538200ed603a",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "erasure/theories/Typed/Transform.v",
+      "sha256": "a7ccd1fb37fc46efaea7d7ec5795d196e714e21153fac97db6668b9f751c9be2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Transform"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/TypeAnnotations.v",
+      "sha256": "c2c0b81aaa1c7d6f8210d002c828c257da135ca5f70d2f7f7778875f0c499e53",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.TypeAnnotations"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/Utils.v",
+      "sha256": "0edf4a0cf45612feb1a3dbaf44ccd1c88ac3a1b6afd5145c55422970e4ba3338",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.Utils"
+      ]
+    },
+    {
+      "path": "erasure/theories/Typed/WcbvEvalAux.v",
+      "sha256": "e8c23d12e2c6dcb0bc8c521517701c82d1c1e1759b2430e2f39e90510bff74b3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Erasure.Typed.WcbvEvalAux"
+      ]
+    },
+    {
+      "path": "examples/Makefile",
+      "sha256": "dde2158fa0e6d7097f3ab8b92acc71468b7274425381978d4084692bd7bfa6d4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "examples/Makefile.rocq.local",
+      "sha256": "e574062b18ecbcc297235486506b4b397583220734ff4146e59d82fc206d99eb",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "examples/_RocqProject.in",
+      "sha256": "702531e6e9a5b83248653b2265f555b566f258e2fcada2eedda4be30a94c0b99",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "examples/add_constructor.v",
+      "sha256": "12db7a066f5e75d3ae69e6927accbfb7bffe2dc7ce879c651569085554c7ee17",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.add_constructor"
+      ]
+    },
+    {
+      "path": "examples/constructor_tac.v",
+      "sha256": "7d308f607abcfc2449eca8d5130d2c1f6dd7a2918f7dee90548585833e55cb2f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.constructor_tac"
+      ]
+    },
+    {
+      "path": "examples/demo.v",
+      "sha256": "b4a3767c548dd63d79f4a054fefde1529bf068eb236d64a3f603119e9a0b8a10",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.demo"
+      ]
+    },
+    {
+      "path": "examples/metarocq_tour.v",
+      "sha256": "2c7cf81273ad7997919bd7e477b29d305db74799e93d14f377fb598cf02f59c6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.metarocq_tour"
+      ]
+    },
+    {
+      "path": "examples/metarocq_tour_prelude.v",
+      "sha256": "f47c5b52094a7684c37e0699d0695d609993cf558575c3cc95fea51b1d6f486e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.metarocq_tour_prelude"
+      ]
+    },
+    {
+      "path": "examples/tauto.v",
+      "sha256": "c476cd795f42d923880c2615a8cac9e66126a5becee155d10a2fc0d900cdc1d8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.tauto"
+      ]
+    },
+    {
+      "path": "examples/typing_correctness.v",
+      "sha256": "e20e0183efea58931626469e3dbe4501cd29bb532a4965d317402f256a0f7d7f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Examples.typing_correctness"
+      ]
+    },
+    {
+      "path": "html/config.js",
+      "sha256": "c510830770151840344f6b048d65fc2f02751e90f0fc6a0d3d8f4cf22135127d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "html/coqdoc.css",
+      "sha256": "a9e3ca0d5df045755bd9a0aac132c807fc07fc527b484db9c91105b499de6c2f",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "html/coqdocjs.css",
+      "sha256": "0195f020a38344b6b08abad23d1ff4e709c3354f857d57ff85845c6db6ae163d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "html/coqdocjs.js",
+      "sha256": "6004019f1fd69a9e1a219347976f36e4a558ee9e6ab7bef2b47b3166e21cc880",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "html/resources/footer.html",
+      "sha256": "eb9a5e052dda66425bdc14633c0a5be9197c5ae213678a4c30490c6319db224c",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "html/resources/header.html",
+      "sha256": "dbd7c4f850789153208b759d3bdb31794dd25b387470b0eae21fdcbf4061e65e",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "make-opam-files.sh",
+      "sha256": "b83ed1c87410061f1e850a23dcbb4a2cf011bc3648510167a3aa2dda6c8ec0ce",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/.vscode/tasks.json",
+      "sha256": "d94cfcede10ab8591911f0d9b6e5c3274a937f82fa119b2c9b762d16e28be2ca",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/Makefile",
+      "sha256": "73cc26e0aa2e4b7afaf802185f7ebf7ad3d1a14172306987a22cc3edf01c65d0",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/Makefile.pcuic.local",
+      "sha256": "2cc9b08fdbfe8dbe33f7bcd5b990f018e4373e31706826043ea26fccf49f299b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/Makefile.plugin.local",
+      "sha256": "818fd5f0700ce2ee37b6aaff89520eb8a259ad61e6276a9474389f1047166370",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/PCUIC.code-workspace",
+      "sha256": "4f888fe1084d2a9091583d5093693d81453c0b8d06dfd6192b096972bae551d4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/_PluginProject.in",
+      "sha256": "04b861442b71efd51d5568f713b25ca814e55b34fe4dc4d132231a87d289e406",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/_RocqProject.in",
+      "sha256": "e90b3721042bd8aa4d81da4111647e40ecd756ce62a2a9aacfe51da85aff72cc",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/clean_extraction.sh",
+      "sha256": "d79b4bb67ad1348d79da6b6c7bb7b364f6585b1ce40385a462059c56463162ee",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/src/metarocq_pcuic_plugin.mlpack",
+      "sha256": "748dc6ba4b1a782f5338846a19aee212598d3721c7f767e289817f542976ec3a",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "pcuic/theories/.gitignore",
+      "sha256": "187794570fbeb84f842fae603a73676afe5f18c58e1c526f46cbe491ac9391d0",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/theories/Bidirectional/BDFromPCUIC.v",
+      "sha256": "23221edd7b3c74c172fef1c3a008cfcd7a0567c1f438593dd735885c95b3d768",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Bidirectional.BDFromPCUIC"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Bidirectional/BDStrengthening.v",
+      "sha256": "f0f2c4873ddebbb00e96c52e5afefd482a0568e52c656f09318e6cf74a196eff",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Bidirectional.BDStrengthening"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Bidirectional/BDToPCUIC.v",
+      "sha256": "06a13204c616534d06f6472d62326465135cb90c4aa78e4143a2eb57e34830a0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Bidirectional.BDToPCUIC"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Bidirectional/BDTyping.v",
+      "sha256": "70b93aaeee420d62682db73cadf213b648fc76403b3c2b5e3457e0c196faf4ec",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Bidirectional.BDTyping"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Bidirectional/BDUnique.v",
+      "sha256": "cf74dbded8b8f194e0812179d8f7f23459681bd0e7aaaba1b81104c77d4d1909",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Bidirectional.BDUnique"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICClosedConv.v",
+      "sha256": "061f2665507454d79772de512a03613a97b94707267450179a5f90f5b563cb4c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICClosedConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICInstConv.v",
+      "sha256": "dde7af74b617e31f6300932aebe4526b2137cd8f1ec78b143acd3a6f35334ea7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICInstConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICNamelessConv.v",
+      "sha256": "e3b9720f653043c9e9d891b7bf6831621b3476944b78883f85cce1d28515990d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICNamelessConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICOnFreeVarsConv.v",
+      "sha256": "fd36275acdf1f191da7bf4d80d1d29ecd218c5b67fc8405cd54257cb951c4b07",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICOnFreeVarsConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICRenameConv.v",
+      "sha256": "06ca759eaa78e55d0bbb2ac5eb256af5a24c3a2a9b96ae55e0038d0261ef66d7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICRenameConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICUnivSubstitutionConv.v",
+      "sha256": "ed20bbc4dfe8ce166305cf48b60b0df011c60d707871e05924d4209a9f2a392a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICUnivSubstitutionConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICWeakeningConfigConv.v",
+      "sha256": "d74fae07cedea870bcba7095546c4b4c3d409702b6db2697951181defc26bcbd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICWeakeningConfigConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICWeakeningConv.v",
+      "sha256": "10c9b80a4733ce3467d6b44c8737b087cf629bed7da9eb87883e11e7806d447c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICWeakeningConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Conversion/PCUICWeakeningEnvConv.v",
+      "sha256": "b077b7f95f6ab4f2a725508f051dd770f2126c8c47fddf8697f1d1f66081d74a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Conversion.PCUICWeakeningEnvConv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICAlpha.v",
+      "sha256": "a6ee6f75870f14643976d72c9fb9d8d9cf9050de6a43fd0f9f8ee1e3d36ee82d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICAlpha"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICArities.v",
+      "sha256": "9cea094a88c282654c39a85d10eef4f189bae4d0ce80af6eee05180ba06ca33f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICArities"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICAst.v",
+      "sha256": "13d4957b2cf06a3107169a74c523cbc9c9fd983b1cd187029009f0df8ce85500",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICAst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCSubst.v",
+      "sha256": "ccf2d0faef9a280f35a21bfd8e7355752db086cef4dd3844bf599c10077b75c3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCSubst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCanonicity.v",
+      "sha256": "182f8eea3308c4bbb2e5aac3e009c579f76a161ce11a0ed3abfce7a1686529aa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCanonicity"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCasesContexts.v",
+      "sha256": "1895b3abbd5f9a19051ad0e4ae33e4e4a3b94dfc386d0dcd5c9bfac25c6770d6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCasesContexts"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCasesHelper.v",
+      "sha256": "a7d67e80489fd17ed642489925da72c817adb3a09abf1bb81bd96e00d99404c1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCasesHelper"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICClassification.v",
+      "sha256": "df0f379d8807447774b0eaec49cd72c7c2811c466f51e2b7bfb9ef8ea7908390",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICClassification"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICConfluence.v",
+      "sha256": "7d85480b690fb8f68214ccc60f233d9f50eabb764d92e2010ff808d41f6c890a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICConfluence"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICConsistency.v",
+      "sha256": "16458c41763fad74dd8ae87dc84f7f8be792f8b9392643fa128b79d65b281eae",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICConsistency"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICContextConversion.v",
+      "sha256": "0af2778c9cb507890a0c25f409868d597922e5ecb4ee4883c41fec2e3ceb24eb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICContextConversion"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICContextReduction.v",
+      "sha256": "970c0b6e483b7889133940d36d1742e3ac6c93c7f44e352cfe2afd73e523d37f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICContextReduction"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICContextSubst.v",
+      "sha256": "feb079375c20a3a54f219d01f7e0b5470aa63968d05a5065bce6c5c6fbc8b45c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICContextSubst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICContexts.v",
+      "sha256": "34d7a43e78fadf2a2c0e5cf6213f15a78db6ae42e1da7692bef9d27aff6fbc75",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICContexts"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICConvCumInversion.v",
+      "sha256": "c5f44d43b68e993769b4260275511e46de3720b7293aa478e2bafdae0cf560cc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICConvCumInversion"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICConversion.v",
+      "sha256": "e9f0695c50e7c185976f96958167ffa90ae522ac2d3ed997e5c9fa819de6cf20",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICConversion"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCumulProp.v",
+      "sha256": "ad46680fa31ca42c586366eae86828a63981f7869b6723531819c07bc2624678",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCumulProp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCumulativity.v",
+      "sha256": "09d05504110955059e68ec3b1d78d1c3180167feebf8bad4cf7486c0e4c9f943",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCumulativity"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICCumulativitySpec.v",
+      "sha256": "e6a00d5be33b0f29abfe5a7f2d3fc780c18ade464db22e50be5c4df54e93a779",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICCumulativitySpec"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICElimination.v",
+      "sha256": "a31ed96e69b5287a658885bf4ebc16efcac3d3ded2ccbcd6e1407972e99eb74c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICElimination"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICEquality.v",
+      "sha256": "1fbaf82e16772e3eed695cfe6cc130b315acea677076aed96ce042444e1adf67",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICEquality"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICEtaExpand.v",
+      "sha256": "f8fcc086cdfd120ebbf19f2b6eac99ab22139fced5a12ad39539f0550c4a2024",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICEtaExpand"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICExpandLets.v",
+      "sha256": "09e0b0de6e867bae2d248a8bc543bb0878395e2e7aed43ceea502497d455d442",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICExpandLets"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICExpandLetsCorrectness.v",
+      "sha256": "381b052e129f148c9e6e67db9ed29373237d9057596bf950eab16cdf40c119f5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICExpandLetsCorrectness"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICFirstorder.v",
+      "sha256": "1122a0ba8e3a218a9c9fe43b9813cb68353c6aad96188983052c57a40db544cf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICFirstorder"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICGeneration.v",
+      "sha256": "87262d2c5295bd621ae9442e5937a3eb0a83ff90aaee40cf7fc567425009de22",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICGeneration"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICGlobalEnv.v",
+      "sha256": "7330552a9aded8f3d058dc28b904b270d66584dbaef6425021d7b47ae36659d9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICGlobalEnv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICGuardCondition.v",
+      "sha256": "e176ba6b140a590a36c0d95d4799ca7699a0da6153a52084fe4c8f9559a96d46",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICGuardCondition"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICInductiveInversion.v",
+      "sha256": "eea883930946a43bd1fb6787f4e75fa076352d8584c9ec8424c09278f0bdf146",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICInductiveInversion"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICInductives.v",
+      "sha256": "59dd9091ab70f84aff934e06b0eef8ada39bca7f00a1d0d37aba78dc7d1e2cb1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICInductives"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICInversion.v",
+      "sha256": "4ca30d2ef45f43c845ad132c912e62508d8d29e0a8b0fdc7ab433eaa7e1aca86",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICInversion"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICLoader.v",
+      "sha256": "6c64f34636b7079b30d6228b49927764112137a385aa934914863fe1145fd809",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICLoader"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICMonadAst.v",
+      "sha256": "441264aebf0d9e2bb35e04ee887896d30051cb04f32c89bca614e516ec4f2b19",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICMonadAst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICNormal.v",
+      "sha256": "4cb7855a533200793e075f3b6a76db3b99ad955f0b6ca44e524cf74965c88aef",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICNormal"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICNormalization.v",
+      "sha256": "51e378de790504ae302eec8f991be17ef4008a4b85190a3ff063612032eb2c9d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICNormalization"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICParallelReduction.v",
+      "sha256": "96a5aab402d2c570ad7a6278ba344d080f9b8e9008e115aaa0d9bb60b8707708",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICParallelReduction"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICParallelReductionConfluence.v",
+      "sha256": "add180353caf02715e903ea2aa6641279e8076fdc33b75c12d7cbb2b1cae8cc6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICParallelReductionConfluence"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICPrincipality.v",
+      "sha256": "7d587669332d52ca32fcd26882b82bb85f0a5354e6fa67b20bcac998ce7bcb5c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICPrincipality"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICProgram.v",
+      "sha256": "9e9283276f57d0180994bbcfa43176a2d689d05eb008b74a2f1c0a61f8016f40",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICProgram"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICProgress.v",
+      "sha256": "39c906ee62fb1995332d9c31b1afe5c3e86d63af99dbf9cf6d19a8eb7ba5d4b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICProgress"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICRedTypeIrrelevance.v",
+      "sha256": "1a9b3f2936447de885732d8d8061a6e472e6e04154b429f4a4f810fc5fe5e79a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICRedTypeIrrelevance"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICReduction.v",
+      "sha256": "ed6fbb088d120edc3e12ce5d02d166ea2c5199e2e1c1e4d53283c0d4d61dd629",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICReduction"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSN.v",
+      "sha256": "4d301c4c7283e31a754591dbe91f87c19fce8556beec800eaf26f39398314026",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSN"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSR.v",
+      "sha256": "977fed3dae05b8ded27979f9b4afbd0bbe6858b50d3c9b9f15c9d1f735b69411",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSR"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSafeLemmata.v",
+      "sha256": "d8f664c31f0b648da3a4babd1a74fa0d97e12ba9ab5378e8037be891cb7fab1a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSafeLemmata"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSigmaCalculus.v",
+      "sha256": "c4405bb954ea4387e3845a39f1c4a8f97152f70ee445d486fcd8d85510ee5da1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSigmaCalculus"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSpine.v",
+      "sha256": "84a4e2b8b759f56463de40d135c71094f7f42c4eab3917632518f644ddad7f42",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSpine"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICSubstitution.v",
+      "sha256": "081766e93c1c2635ba3b2e38bcf253382c9789a4f15d4e4b2ceff26c037f57cd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICSubstitution"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICTelescopes.v",
+      "sha256": "792cb9f9c916575a623da0de58009d871f7848a064ec97aa99621facfb31307a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICTelescopes"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICTypedAst.v",
+      "sha256": "16aa390f532f7d4336244d17928b3cacfaa6e2aec09fefd994c24f65e7fbed44",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICTypedAst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICTyping.v",
+      "sha256": "849f5ab38a62e319c3a6a4163dfc904ef1fcbe6c8a9f8f0c4457c25b2ec158ab",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICTyping"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICUnivLevels.v",
+      "sha256": "3381475fa30c0ee333d9891ed70a07ebff4966e0d2a0836fa1d80d111169baed",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICUnivLevels"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICValidity.v",
+      "sha256": "7c18ecb59b34a6c7a18ff206e995bfdc14e3c0b05562559dd531e61e3b107ad8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICValidity"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWcbvEval.v",
+      "sha256": "be6442ae44e5084ab6a476bee59df1548bb5372dcb2a5cbe1fa88b43606aee76",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWcbvEval"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWeakeningConfig.v",
+      "sha256": "9d37728e99785d4d17c38cddc6dcc55fede5a327ff2aad34a7851438409fdf71",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWeakeningConfig"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWeakeningConfigSN.v",
+      "sha256": "6f6f7a7077200953b86eb6e595c77da6c9ca6b2f42499d4af2bd8f5851ad1108",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWeakeningConfigSN"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWeakeningEnv.v",
+      "sha256": "3ff87ac6900bfabbe1e1e4cb0790f7b5f259605a1b992a787bd808cd89ee56de",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWeakeningEnv"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWeakeningEnvSN.v",
+      "sha256": "6f88b276f2fdea35a936e5975672a2b0b553258355ae3eba3c0043deb094fdcb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWeakeningEnvSN"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWellScopedCumulativity.v",
+      "sha256": "b3bb53fdeb323dab7fac484195555291f4876b4f009060bef953061e3e364b9f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWellScopedCumulativity"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWfCases.v",
+      "sha256": "6e2356305fc02c33dc5fbe205aa5e20c74066ef4546c9dd66c56bbf594f31c04",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWfCases"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWfUniverses.v",
+      "sha256": "f3aff57adc8c4bd6fbf6f9df95f62be43ecdaa8aca8c73e38e9320398c82d0b6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWfUniverses"
+      ]
+    },
+    {
+      "path": "pcuic/theories/PCUICWtCumulativity.v",
+      "sha256": "023b5fc3a9cc8e09417d0d231d5977fe51b155bca3dd96552caa94fe14f90cf7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.PCUICWtCumulativity"
+      ]
+    },
+    {
+      "path": "pcuic/theories/README.md",
+      "sha256": "36ca2c8859a1eede0c3afbcbad02ace1c7ff6bb0e023da199ea9756ab09325cb",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICCases.v",
+      "sha256": "1094eda80c85b1e6214fe1b6c58f93526a3b59c6c7354ffba7d9955a2f75a956",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICCases"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICClosed.v",
+      "sha256": "c0784e288b480d8cd4f673a76b86bd09d79b1240b9f3d5aeb60ca198108c4046",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICClosed"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICDepth.v",
+      "sha256": "0674aaeea984e98228b9fd0f0ce87f6998428f297ced896e094c646a3a445bca",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICDepth"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICInduction.v",
+      "sha256": "18c6487ab00b014b92f8b0137884b42d32cea1dbec7efdde190e99f8570cef81",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICInduction"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICInstDef.v",
+      "sha256": "188a8377162960730d100d750e101468a7a6c72730e161fcef44867289eaef7b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICInstDef"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICLiftSubst.v",
+      "sha256": "ae86a45970dbe39aabd362fe9f93f274a5a058aecd8adea20d67d88b4b488812",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICLiftSubst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICNamelessDef.v",
+      "sha256": "669b773edffe6c21a99b20d17d8618cea72fa70dc47d8bfadffdd07d523a99dd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICNamelessDef"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICOnFreeVars.v",
+      "sha256": "151160ead12a4f749558a8383afbffe855d108aa575149ae3861ef1de68ee99c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICOnFreeVars"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICPosition.v",
+      "sha256": "cd49594781fc075fbd05f2e53ab421b9790d8eee9698201dc83c2e26cbdce54d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICPosition"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICReflect.v",
+      "sha256": "6d77ce1671ad8aaa1b04de3305eb4d1b25519af890b245d89c8a9627677577bd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICReflect"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICRenameDef.v",
+      "sha256": "1333651c527a80309cde2f8fe0a5b4ad8352099fc271a92679a3d7f8b8125c5a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICRenameDef"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICTactics.v",
+      "sha256": "08affa8cd22d50af9c71408d18edcc9a27ba79992120ed93c55baa00c7b65f1d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICTactics"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICUnivSubst.v",
+      "sha256": "598f5eb1a2d7a001d564babe3baf8565e2e6b1100f912ac5b0f475f38dc9e1fb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICUnivSubst"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Syntax/PCUICViews.v",
+      "sha256": "407ae89e7179408ac1a2b8c50b7527787785bf3dad0f6bc7e8998ac1e0526e4f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Syntax.PCUICViews"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICClosedTyp.v",
+      "sha256": "2a1ee8f52aa9b4a83d07c27ab299eb19480bfcc7421b305f64f49407e755fc41",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICClosedTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICContextConversionTyp.v",
+      "sha256": "a0faf38fc72e00a7d5129f951c5aed610eb38eeb03ab152a9b0780e21ffa457b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICContextConversionTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICInstTyp.v",
+      "sha256": "b658fd3db9b09827c548841068cc8b5473d4beda84f15d892d85a76e867bae6d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICInstTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICNamelessTyp.v",
+      "sha256": "924d85ddb416ad4ed5db448119fbfc969519a3b49f2af692c4f94e8d1a264a05",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICNamelessTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICRenameTyp.v",
+      "sha256": "fb716da7d900501c50f25ab52905ee899f7add49c540b6d6bef156809dfb3d60",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICRenameTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICUnivSubstitutionTyp.v",
+      "sha256": "59d770335217beda063af525e3c70944d07ee92eb1be361e10b67c3db5dfb9b9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICUnivSubstitutionTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICWeakeningConfigTyp.v",
+      "sha256": "f876b147540594a3fe727c9a673424c701e8097f8b7cb4394ae4449654a8db63",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICWeakeningConfigTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICWeakeningEnvTyp.v",
+      "sha256": "458c6b9fd3cd8e05f001cba57f19ec0d8812590081142ec80f8645e90dc5e101",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICWeakeningEnvTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/Typing/PCUICWeakeningTyp.v",
+      "sha256": "021cb1111f3182d1dd69b3b27cf6cca90f86d93192c2b608aa6dd8d93aa3f794",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.Typing.PCUICWeakeningTyp"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICAstUtils.v",
+      "sha256": "ddfbc2adec401fb24daf12f90be0046572d174b60cb5d36b5744527d523d7c1e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICAstUtils"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICOnOne.v",
+      "sha256": "1e4c1806f5ac7832d3b07b1aff9308634c7dc13197509eb93272c09f2cb286de",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICOnOne"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICPretty.v",
+      "sha256": "a692f760695f36aa0ee8aa7b28c4bdf6caec676e88485983f0a457fde2dc9dd0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICPretty"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICPrimitive.v",
+      "sha256": "ea7f330dfa1a6fba2afdaa5ab6a6975004a4ff77a1c12e7ea194e715c9c9e8b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICPrimitive"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICSize.v",
+      "sha256": "2aa5f017aa5e2aee809e17e9a65d3822c1ba01936bc3708599fda39cfe025dc5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICSize"
+      ]
+    },
+    {
+      "path": "pcuic/theories/utils/PCUICUtils.v",
+      "sha256": "e428b977efcddad57bde28ff8b40fa3d5871d0abe1e36006294114fa24a36657",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.PCUIC.utils.PCUICUtils"
+      ]
+    },
+    {
+      "path": "quotation/Makefile",
+      "sha256": "83dabb712a42916234eae970eba9c00f180ce20a9478caac901f534d6105a147",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "quotation/_RocqProject.in",
+      "sha256": "6b16fdcc6b16b64f8b7891dbb79aadbd875725a751f12d868674c4d27fb6afb8",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "quotation/theories/CommonUtils.v",
+      "sha256": "81a3c0c8cced7a349b2019534707767c63093855c2292daf92c8f90abdff0127",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.CommonUtils"
+      ]
+    },
+    {
+      "path": "quotation/theories/README.md",
+      "sha256": "7fe3eb27f0b21b4acdc1f0d47ce09c6d7d973076aceb6cff5d5042de1f2a4cd6",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/All.v",
+      "sha256": "99868097e62140091f5d5cfb9d7ccd60c8924a6750ecc252ad51c35968397011",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.All"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/BasicAst.v",
+      "sha256": "2f4154e4b7f40d05119d90d6560032fc9d11a3df1571e1697fe311f16f657d75",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.BasicAst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Environment.v",
+      "sha256": "4b60970cfecc3cec17b75bfef7fd0fe99aec20dd243a5cc79a57793ab4d09087",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Environment"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/EnvironmentTyping.v",
+      "sha256": "c764e063b7881202424201d7f701e66ce82861cdb427dbf4c8a7c0ae26543268",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.EnvironmentTyping"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Kernames.v",
+      "sha256": "c937e72738e8d62c229e6e3d1bfae95af719aa751b90b5112a4763e10ce1f42d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Kernames"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Primitive.v",
+      "sha256": "9cd112260c2307151a473582ddc5c07fc4e1121c04948578031cf52c752ae63d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Primitive"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Reflect.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Reflect"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Transform.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Transform"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/Universes.v",
+      "sha256": "f8701024f460dbc8d461d660fce7fbf77b6a99691020cee3a31b1d18939c864b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.Universes"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Common/config.v",
+      "sha256": "14a759657424e6010f7806a469308c0c9e05364c2d57e5209e3fa460bffc4855",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Common.config"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Equations.v",
+      "sha256": "ab62851ce2413f1b8cb7d4da6b104942db7206b102c97d33f8ee8c639c684b9e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Equations"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Equations/Type.v",
+      "sha256": "c5b76f8635bcd03ab7bcacb9e34a4bb6747c4da526a8c8a816374e33cd639c6b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Equations.Type"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Init.v",
+      "sha256": "5de7e58f7e5b70b082bb21d338bd9cb62f99a024d1f099bc2e2ab44f1d3a214f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Init"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/Induction.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.Induction"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/PCUICAst.v",
+      "sha256": "9c6aad86ab91e6491c830d54bc1999c001820522b4d8ec0ef94d64a498699f99",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.PCUICAst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/PCUICCumulativitySpec.v",
+      "sha256": "d34de7243c41c44fa9cb06734aacdb26b1c145e842ba3113ddafaa0ca8be3b4d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.PCUICCumulativitySpec"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/PCUICEquality.v",
+      "sha256": "a460b538b57b867e8bbc7e999c1bdf98188ed7b739e5b4f695a63d248ade8488",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.PCUICEquality"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/PCUICReduction.v",
+      "sha256": "b6a6e00f6e31342d813b57daacd8218afb8dec3ec5742072ff9c82e6f867fbcc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.PCUICReduction"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/PCUICTyping.v",
+      "sha256": "81262bdf4b566f6464843358c58c5c382088ddc65ad06d61bcdd832c4e4211d4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.PCUICTyping"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/Syntax/PCUICCases.v",
+      "sha256": "eb0f91ca3e5b2a078138acb54c2b258e70789cbca571ee6768365a596a85bbaf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.Syntax.PCUICCases"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/utils/PCUICAstUtils.v",
+      "sha256": "d9e5754be5895eb98154c9fe895cde8b6c92c151b0323379d829791ceb335407",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.utils.PCUICAstUtils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/PCUIC/utils/PCUICPrimitive.v",
+      "sha256": "19a6790612340487e1f282a7b9efd1b88b3c304d5151f3ab25fb454554611624",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.PCUIC.utils.PCUICPrimitive"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Environment/Sig.v",
+      "sha256": "03e906f4cb30dd7d586229ca16fb1c0c0e5b19c3f6b7ac3ef00cd5dfc248d78d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Environment.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/EnvironmentTyping/Sig.v",
+      "sha256": "c3a247d965077b5a47d2c5da03eade42a975f8556e5fef282fe9646720fbd55e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.EnvironmentTyping.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/Instances.v",
+      "sha256": "f43ea1bb50b36ac4f7a29f2afe4d9cf287b72baf935ab2998d594cb731e7dcbe",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/Kername/Instances.v",
+      "sha256": "7643110e676ef9c2193432d6c0f7996d9e570a29d116496a2ef8bb3db2810a80",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.Kername.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameMap/Instances.v",
+      "sha256": "3980c796dc439f7b000bb087783939e728bfcab4bf06b7aa6c2967d3c19753b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameMap.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameMapDecide/Instances.v",
+      "sha256": "f39ed8149c95e67312f1d8d85552825aa92d80d8ca89b092a5a091885b011e3e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameMapDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameMapExtraFact/Instances.v",
+      "sha256": "404d4565edc2a5db78c47bdae70506c09a85ce96564eed99c8ede222e916f982",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameMapExtraFact.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameMapFact/Instances.v",
+      "sha256": "547bda37f37d0d41a6556d3b270a946a4ed8a99f7c23fe96820d1d44b02088ec",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameMapFact.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameSet/Instances.v",
+      "sha256": "b1416e677fdbeb40b4dd57b6f33dc7f098503e3e9e6840e4407c685b7812e522",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameSetExtraDecide/Instances.v",
+      "sha256": "83fdbd89b62f58b7d5f1b7ce4b11daa5096fe5b3e794dfa1e523444687d54600",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameSetExtraOrdProp/Instances.v",
+      "sha256": "0b89c8da21979ad88c6cbfebda417f5d00b6ae31639950a42f8ff8b1016cb5dd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Kernames/KernameSetOrdProp/Instances.v",
+      "sha256": "fd9b691ef802795e382bd79c8f49dcb187ee9d820006b727806d015bbef0181e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Kernames.KernameSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/ConstraintSet/Instances.v",
+      "sha256": "ba1b671b071273cbec0ef90f9efd3815e70f6399016e3a4de8e5968f83bf77e4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.ConstraintSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/ConstraintSetExtraDecide/Instances.v",
+      "sha256": "341fa8a04d98bde6652c89a76a772ecfb47d8ef5571da8454845c20f26880d2d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.ConstraintSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/ConstraintSetExtraOrdProp/Instances.v",
+      "sha256": "ca0729a5e480743a90c54baf0b38dd7d23148d0b123732b1423b4f740a7cf2ca",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.ConstraintSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/ConstraintSetOrdProp/Instances.v",
+      "sha256": "3001ef335618d2b5c4db726d40723dd5badc900df9d45770db57c2006cc79560",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.ConstraintSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/Instances.v",
+      "sha256": "b8ff89213a94a82c5b61249f2cac5303a64392aa2085d70df68d6c249c958e68",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/Level/Instances.v",
+      "sha256": "ca237202cd459da46f5dfbd36ef3f8a8f5f6ff9aa3b825f9185f02f8c37677f7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.Level.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelExpr/Instances.v",
+      "sha256": "a013b59b099493d93f37794928aa7993ae266c4fcb8f0ac48370a57e05c38be1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelExpr.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelExprSet/Instances.v",
+      "sha256": "897ad8c00ce512f01a1844966cb9086b2d5ff0464c9b58c03e7bc29bb6dbf63c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelExprSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelExprSetExtraOrdProp/Instances.v",
+      "sha256": "2c6b0137479a2d0694fb17f5f0eb8856509e1f73000ad0e279b46caf77a823b5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelExprSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelExprSetOrdProp/Instances.v",
+      "sha256": "deb485f57991be3e16e6d44b506cda739ae5f9745ccdf1536271380e4c169ab1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelExprSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelSet/Instances.v",
+      "sha256": "4e33d65cb1ec0ac2a97593e9aef8c91d4d3bb3048e2f33e3868554f3b0db80d2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelSetExtraDecide/Instances.v",
+      "sha256": "91d1807f884d60e6e0ebec1bebe304d4d7fe882ef4831e1233494b6d0b9de4be",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelSetExtraOrdProp/Instances.v",
+      "sha256": "f07d0f50909e4c9c70517edfd8994013e629916785fd8daab871bfb043da4770",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/LevelSetOrdProp/Instances.v",
+      "sha256": "84002e5e04e49ff7abc48b9f85554e9ce5b7070c3dec93527ad1d8c90820c437",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.LevelSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Common/Universes/UnivConstraint/Instances.v",
+      "sha256": "f517ae686ee918ced3b368739a01bc06e6c28c7a6f2f531e2c6bede31b7c736f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Common.Universes.UnivConstraint.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/Instances.v",
+      "sha256": "7318f8e53fae18584c4ac1c4c0ede1ac7b2184f9aeef19f00f02a693f5d6778f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICConversion/Instances.v",
+      "sha256": "eb4e815d9e562b970661b6be81333debd4da155988630fe1c26b0c538d374b6f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICConversion.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICEnvTyping/Instances.v",
+      "sha256": "dde5ee68dfa81df4996943524c816a72a24954bbc9e67e2cafd42702752593d3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICEnvTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICEnvironment/Instances.v",
+      "sha256": "7949589e42fb2d2e75c160d81723c34d953f69365c06c918e0a9bd732207b9dd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICEnvironment.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICEnvironmentHelper/Instances.v",
+      "sha256": "a21ba5c15423bcdc33034395d0c0903ed6c55bcf9ed90434ab32eb343f130eb4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICEnvironmentHelper.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICGlobalMaps/Instances.v",
+      "sha256": "3bf2ec1e9bd0edbeace7b82838787cf166d856f3c2f73288dd95be292c8910e2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICGlobalMaps.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICLookup/Instances.v",
+      "sha256": "5e7de13e85dc6cb35e0f62bcc755292c95bedd6e13a4d95a08974f59476a0ccb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICLookup.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICTerm/Instances.v",
+      "sha256": "f350e119082abe9e51105f66180e632b16dcfe0f8d076eb8f0f45c09b9e74751",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICTerm.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICAst/PCUICTermUtils/Instances.v",
+      "sha256": "d8bd125b82fed64858b04b877c05ba694904d220a55f521a65a0735b47708d8c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICAst.PCUICTermUtils.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICCumulativity/Instances.v",
+      "sha256": "2e2bec8f485d7d6c0a9cf3006469288411e735b9bfafa267f0dfdd7788d4a212",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICCumulativity.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICCumulativity/PCUICConversionParAlgo/Instances.v",
+      "sha256": "74fba67fd3ea7291807195098d60c52d8a1aa7df64389e596bc162dc41475758",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICCumulativity.PCUICConversionParAlgo.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICCumulativitySpec/Instances.v",
+      "sha256": "7089ccb5cd5a93d9d9eae8aa3a4c23f49fede428e1172d5e8dff529f4ece1711",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICCumulativitySpec.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICCumulativitySpec/PCUICConversionParSpec/Instances.v",
+      "sha256": "633f8a2900c001bd4545c42cb029de78999e194daea4ffd855500cf3a9c2193b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICCumulativitySpec.PCUICConversionParSpec.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICTyping/Instances.v",
+      "sha256": "666471cc119e6b18028cc20d06af6375c22cb1154d1f3c8aebc77b899ee93239",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICTyping/PCUICDeclarationTyping/Instances.v",
+      "sha256": "e0a948cec3d3fadc32989c5a409868972a28a84db5a4810b669309b28fa31e89",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICTyping.PCUICDeclarationTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/PCUICTyping/PCUICTypingDef/Instances.v",
+      "sha256": "0db192b63a441b2e64e98708085682327eb61ac5c6bb89a0ed89c6041f610cb3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.PCUICTyping.PCUICTypingDef.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/Syntax/PCUICReflect/Instances.v",
+      "sha256": "aa0e47f3b4dc2eba6bfbf9af0ba2af9cf7a06cb0709c2993d6bb22ef5c300b69",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.Syntax.PCUICReflect.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/Syntax/PCUICReflect/PCUICEnvironmentDecide/Instances.v",
+      "sha256": "01e828b4bf3a482fb66a99a311b7e5c9592fc48bdd5386ab598d086671d95cdf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.Syntax.PCUICReflect.PCUICEnvironmentDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/PCUIC/Syntax/PCUICReflect/PCUICTermDecide/Instances.v",
+      "sha256": "eaf96f4658cbbee9145d52c68f7d5354db3e3ba62d681fb7058011084d15cb96",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.PCUIC.Syntax.PCUICReflect.PCUICTermDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/FSets/FMapAVL/Sig.v",
+      "sha256": "02f9e069b25e51c4a22eab39eeb19bd117c3c5824e6beff98a9dee459a53469f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.FSets.FMapAVL.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/FSets/FMapFacts/Sig.v",
+      "sha256": "82bb43e602d52d17034b3d657f3b365c4876f879b5abdb4c75b155e14f4da91b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.FSets.FMapFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/FSets/FMapInterface/Sig.v",
+      "sha256": "c7c75b11b2323e63b12100d4ebe21c12722105526ba591e9acc8e7dae7918fcb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.FSets.FMapInterface.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/FSets/FMapList/Sig.v",
+      "sha256": "73f5d45612d9842d26e78ed7504f4d4d5c6e671a246296b6347a8162574868a6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.FSets.FMapList.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetAVL/Sig.v",
+      "sha256": "6356d2dd1593218ea47cf64b36f2065819e83ab76405dca7cd225f06daf0d681",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetAVL.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetDecide/Sig.v",
+      "sha256": "d59582ae4f80fe8cab63f742d5f3d097b491da0e6bd4b465a2914dc263aeb2d6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetDecide.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetFacts/Sig.v",
+      "sha256": "bcce0980363d62f422a46f0059ea580781c822a989227f3a17283ca72d6bff90",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetInterface/Sig.v",
+      "sha256": "9262ff988adfa4aa09c91db9ac2efbef19a3988dc39fe76ae5feeac49bf27ca6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetInterface.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetList/Sig.v",
+      "sha256": "e1ee9ff7d610f1514786385365a598911d10649971ae543bdce2e00bfaa3efa1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetList.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/MSets/MSetProperties/Sig.v",
+      "sha256": "9272e80b1dd3fa745b5517634ff1e2c62f7986d59edaa5313bc8965ccad025cf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.MSets.MSetProperties.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/Structures/Equalities/Sig.v",
+      "sha256": "a3544faf9e745b614b17764e52cbae724f033e5dee1ad9fdf5b56a250a5055f7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.Structures.Equalities.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/Structures/Orders/Sig.v",
+      "sha256": "11dee9dd02027dfa6337506179309767e142411ad9bd3731356c69f75324c63d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.Structures.Orders.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/Structures/OrdersAlt/Sig.v",
+      "sha256": "9c175b3eda280556a3572731aa506f369c76c98dc9dee67e080ad4055d0afa83",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.Structures.OrdersAlt.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/Structures/OrdersFacts/Sig.v",
+      "sha256": "5b91fe358b1fde5002c2fa55e28c892273fa48ae994535b7687d63ecff936314",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.Structures.OrdersFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Stdlib/Structures/OrdersTac/Sig.v",
+      "sha256": "4c7c3a0b5bfeec1c1ef40af6fd60daf62640c7261156ea2a5e0d8d496977a00d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Stdlib.Structures.OrdersTac.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Utils/MRFSets/Sig.v",
+      "sha256": "44034773fc75b20e197c80257b101740631084c895e002f6ede95fa494e589f2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Utils.MRFSets.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/QuotationOf/Utils/MRMSets/Sig.v",
+      "sha256": "011ef04f484413425f21863cc0c65ea32f4db3e2e851877ca12887c61a13765a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.QuotationOf.Utils.MRMSets.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Bool.v",
+      "sha256": "14727fe624b5f27550a293a2e8efcbf9b004edff54231e899991c03df1cd9efc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Bool"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/FSets.v",
+      "sha256": "d54b9be289493c6d199587ed9544947ed35fb95b40de74dd328e53de37758263",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.FSets"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Floats.v",
+      "sha256": "bf3ba528d59bf48147c6224bf669336bbe733c4799531088ec1879d7580b666e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Floats"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Init.v",
+      "sha256": "0e46076c548fee7b299fa3731debdf0b8fc69d1985bbf642a3a7f0366e3cfe81",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Init"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Lists.v",
+      "sha256": "bce6a78d60423c07bf992509ed43918b3f8d6453b12b83d0d141317e4bbb30bc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Lists"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/MSets.v",
+      "sha256": "2d2a982e15eda68f9a295fe1ee7ac5603239d7c41c71a85e3f07d8ee4f50f462",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.MSets"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Numbers.v",
+      "sha256": "7b13ac4ffd570ffc2e9dfb0952a32ae948eb4602843289d2d2573f0ddd19edbf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Numbers"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/Strings.v",
+      "sha256": "da5602daa58de46ebd4c23cc701f285b24042df053fad3271b3e9d5f63f39086",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.Strings"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Stdlib/ssr.v",
+      "sha256": "2c4e762e7291a14346ffc22973b19c64de25b98d54f69cf8a669675731f6f305",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Stdlib.ssr"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/All_Forall.v",
+      "sha256": "f509f65ed94a671b019df297b77d2b9d453102bf186e97bed0fef38fa1048040",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.All_Forall"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/ByteCompare.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.ByteCompare"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/ByteCompareSpec.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.ByteCompareSpec"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/ByteCompare_opt.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.ByteCompare_opt"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/LibHypsNaming.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.LibHypsNaming"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRArith.v",
+      "sha256": "e38a4b672e6e23692ce1e3edfa711b4f95b2ea723a24b898954b28dad1cbdcfd",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRArith"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRCompare.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRCompare"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MREquality.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MREquality"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRList.v",
+      "sha256": "22191a37058de5c0a8e4b529b0b78b18aa7c6d27a4a0a2e5133eb22dc921282f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRList"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MROption.v",
+      "sha256": "4b2bd2b9c8977eccf87f70226542e6ea0dca0aff866553114699bc91912ec1e9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MROption"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRPred.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRPred"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRPrelude.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRPrelude"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRProd.v",
+      "sha256": "8b903258e4752e1435dafe53131faf59b535cf6a1b0483c6231e2c95c0ee14f0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRProd"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRReflect.v",
+      "sha256": "43cd6240aca4724062af8c564f40426887f7e036de8cc1b0cff8ebe0c5c6235a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRReflect"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRRelations.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRRelations"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRSquash.v",
+      "sha256": "42c68ee56f7eac2d1134576f92267d12a88a5da05d7c604e65fbc0126f3f5c83",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRSquash"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRString.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRString"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/MRUtils.v",
+      "sha256": "1ba89f742dc4e63dc8a4966972867502ea67e9084df49fe81769fb558b1838f4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.MRUtils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/ReflectEq.v",
+      "sha256": "b532ae047790a6056cb9c7431b1738fc7a44a0b803120763b46a734398f7a37f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.ReflectEq"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/bytestring.v",
+      "sha256": "e1b958d054d54f3e5c112d92217f0b71225c24ab226796b7fe2d771df59af908",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.bytestring"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/monad_utils.v",
+      "sha256": "be6b2a274abcd4f5a46339e3d6a109aa6761c4f3a9a501b51ed33756e6d3c394",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.monad_utils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToPCUIC/Utils/utils.v",
+      "sha256": "52548c4496f59406e0e4f51d48eb43fb73aab72143b785686ca7e1d4f446975b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToPCUIC.Utils.utils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/All.v",
+      "sha256": "9d81e063611bd55e14ba230132075b03ed1948c3f8ecffd6b381c55672b33d49",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.All"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/BasicAst.v",
+      "sha256": "f505eda4a1cbd9828be094cddf6aa6523989ce1a9d06fbec69ff28c310c4c06f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.BasicAst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Environment.v",
+      "sha256": "82a43bcb90457c37a2fb714235fcb74ca70199dde743455645395ce7f09f3d1b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Environment"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/EnvironmentTyping.v",
+      "sha256": "f2c29e9456247aa0dd7e71fc4e9b6da7d57629f209a83621941abdb19fd73a8f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.EnvironmentTyping"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Kernames.v",
+      "sha256": "eb2f9318492a7349db404ca54db7ecb52d83be740c840c192a3ab7f17d4404bb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Kernames"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Primitive.v",
+      "sha256": "2296ca2a7e14e0cdeebdc347fd0bfdf28dd8081e401e6dcdfc5967e7dece338d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Primitive"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Reflect.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Reflect"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Transform.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Transform"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/Universes.v",
+      "sha256": "eb2f83581d4b9b5d633976755a5392f3dad812db2d41d716b4a92a2ab0f71d32",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.Universes"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Common/config.v",
+      "sha256": "4ccb7ed4b35bc90e10f5d53104fcd7751a785c416b45971ad363b670b5a7f243",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Common.config"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Equations.v",
+      "sha256": "1dc7d24f9177083c6ce90a92e2e8193ffa9128cdac8894182990800f55c98860",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Equations"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Equations/Type.v",
+      "sha256": "74dc2ef3741dd523684d3d229d976022af4f4e34fbd7a6d5007ac0fdbcde5c1f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Equations.Type"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Init.v",
+      "sha256": "c596e9d28d2d79ecc4265770726db80e448388ba352545730e90ac1f55970524",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Init"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Environment/Sig.v",
+      "sha256": "3e13206a1307339e0b988fa86d319c48e68252a52914cedc1bcec1a807cac959",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Environment.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/EnvironmentTyping/Sig.v",
+      "sha256": "dd67e5c1cc7663ac35c7974b25010bb621c187639fdbc29c58d78ad33f70f9a3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.EnvironmentTyping.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/Instances.v",
+      "sha256": "16b151ae8db3a7b219cb91f1f258c65700061dd507f7deb09ccee5874404e276",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/Kername/Instances.v",
+      "sha256": "87d3479249c0778e89c2ff2d2d35d9613c21ca864d55ed1a08588bb9f32f1ce4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.Kername.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameMap/Instances.v",
+      "sha256": "74b95817dfee3d2272516885ea272bd61a0054582a136f4976be2f5809b6be25",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameMap.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameMapDecide/Instances.v",
+      "sha256": "bbb62f4e67956de8b39adf9ec1c4af7ba8de6db8a9864bb90c475d345238541c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameMapDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameMapExtraFact/Instances.v",
+      "sha256": "6ca49af35987e70cae0e9908d1c0e9e4aaaaa6d89ad313a3795a97d2d0c6c550",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameMapExtraFact.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameMapFact/Instances.v",
+      "sha256": "31efaf9137a25b4f417ce1e91eddec5620bef50c25aa0dcc8980c168547b2eae",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameMapFact.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameSet/Instances.v",
+      "sha256": "a84a6181cd3dd4a8d9b01e3939d38f15bf97a03c2523ff5f0b440c256b1bfa4d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameSetExtraDecide/Instances.v",
+      "sha256": "13be428be11e0cd9e37306702b3d6ba06a8e04beca7268d5a0e6da712c2a7c7d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameSetExtraOrdProp/Instances.v",
+      "sha256": "f22a13f8e2cad28bef35c6d9f2cc8594ee119b7ee6fc30e0a4d1bf0b7ae0fc01",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Kernames/KernameSetOrdProp/Instances.v",
+      "sha256": "a80fef940e577ec74936e1d0bf9b0b4674f9ec28ee980870c09cf7985e810de9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Kernames.KernameSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/ConstraintSet/Instances.v",
+      "sha256": "dcbad21f1f9fc084058cd4605901b809f8cddb02f02b28e22526796f98fec664",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.ConstraintSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/ConstraintSetExtraDecide/Instances.v",
+      "sha256": "837b41fccbcfaef487b7886cebebc99728b7e6b3f056e92709cfe477cf76ee19",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.ConstraintSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/ConstraintSetExtraOrdProp/Instances.v",
+      "sha256": "c3d1598f797a03cda209a5c54deb69263cb9108c7a4fb79990247beaf8c41fc3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.ConstraintSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/ConstraintSetOrdProp/Instances.v",
+      "sha256": "ab92dfc51ddc066a36b856981f9f0aa5d27cab949188d67ef0d002aa43e793f2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.ConstraintSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/Instances.v",
+      "sha256": "83554bb56aec998735bd4e4cc0651f5fb4bc2e28833fe5e32ffaf0cbea615599",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/Level/Instances.v",
+      "sha256": "cd0e5d36dc3d5a1123b760b4341ab9b8c0c65ec8144a425a4dca5f706884f1a1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.Level.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelExpr/Instances.v",
+      "sha256": "5c534e2d92bf793ec6e9b311eaa62cd5e1b69c71e19e082cc63c23006bffb5b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelExpr.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelExprSet/Instances.v",
+      "sha256": "63c3ccbcb9bac96b94d72301af5eecd2ea029e121f678185153a6669d0f4d229",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelExprSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelExprSetExtraOrdProp/Instances.v",
+      "sha256": "c4983cbcb29b5ab3d0315406a15053cfccb08413d50fc7b87de90824f50845e0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelExprSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelExprSetOrdProp/Instances.v",
+      "sha256": "1331b4bc29fb62fe892030c28f2a24c5b966ff2647cf84a4039fa31606cab62b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelExprSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelSet/Instances.v",
+      "sha256": "ef94c49c16dc03d5e18c9e46d8228a69ca292e1edd9f771cb03c532ddcbc80a2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelSet.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelSetExtraDecide/Instances.v",
+      "sha256": "5a4c368a51a1bcef63ef085f1c7eedfe2cb750b4acf4ad7011d7c065cdae45f3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelSetExtraDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelSetExtraOrdProp/Instances.v",
+      "sha256": "fd11c88908c245cfa90e23e29bbbc1d11d8003d8b5ef5b5f7dbff940e707bd81",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelSetExtraOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/LevelSetOrdProp/Instances.v",
+      "sha256": "a06fdbd96d70f0135446d4040e883b072dfd22cdfcd45c1596b7ba4ed4dfe06b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.LevelSetOrdProp.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Common/Universes/UnivConstraint/Instances.v",
+      "sha256": "91d64510e2f2d1e7a0d54b9401f9a640573aabeed9be3262232c1073a48a671a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Common.Universes.UnivConstraint.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/FSets/FMapAVL/Sig.v",
+      "sha256": "9f634cacf5eaf8ab9c43b1e78208bfe06c38cc5663ca06b06b90f98d2b2fa18a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.FSets.FMapAVL.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/FSets/FMapFacts/Sig.v",
+      "sha256": "eb75b0d068766b0236ab9997b9cc7cc525b09b78eb79523ea046549f3396ca3b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.FSets.FMapFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/FSets/FMapInterface/Sig.v",
+      "sha256": "d8602c53b9b8b7e41712b5ba9cb537b60fc2dfa1fce9e1c2e4a922821b2124d6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.FSets.FMapInterface.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/FSets/FMapList/Sig.v",
+      "sha256": "985782b7f43b52454a213c5460bb38c5fecef59f2fbdd5fe8473e5b08765b0e3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.FSets.FMapList.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetAVL/Sig.v",
+      "sha256": "aa26a1e6d6561f8d5db8cc4eebbd6251b6158ec6b5fa05248a261f56de15ed76",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetAVL.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetDecide/Sig.v",
+      "sha256": "442a39b3935647467c2e4fe5370683ee61534e84d2e3409ce7133b4cf31b1701",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetDecide.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetFacts/Sig.v",
+      "sha256": "31d44738bf764209570f47c87c45db07992bfe3cc2d7667c719236161501adfb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetInterface/Sig.v",
+      "sha256": "36842668f6d2377d1144026f64b5af38e10c9f4fcdb8ea5edc83934c68b47802",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetInterface.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetList/Sig.v",
+      "sha256": "770120b0eb388500c63ddf3a30ce1851fc6f07d31983fd1a47e6ee79ec60a5d2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetList.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/MSets/MSetProperties/Sig.v",
+      "sha256": "9919520df87e0e4b395eac59078d5c6090c40396e0d11b68aae7ac8dbfa71d0b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.MSets.MSetProperties.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/Structures/Equalities/Sig.v",
+      "sha256": "70b8354dca9d6a208312f919b25bec79c12aa668a12e96736975f5eaf5193a09",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.Structures.Equalities.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/Structures/Orders/Sig.v",
+      "sha256": "34641d8f3c80af57b01877ab8b272bda6edd969be810ff2405b27c64e8fe1031",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.Structures.Orders.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/Structures/OrdersAlt/Sig.v",
+      "sha256": "9ee2ffa07d108aeee738ad2c420055740310f082a4781b2b7ea6011a6e241057",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.Structures.OrdersAlt.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/Structures/OrdersFacts/Sig.v",
+      "sha256": "3447593783441d8a0e87fcdbbaf5617079f626a385dbf290f9e7e13bd39915e7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.Structures.OrdersFacts.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Stdlib/Structures/OrdersTac/Sig.v",
+      "sha256": "4792aee7b6fffd1640e6fa86b0aacbae1182976f586d1817150b2e95c67ff2d0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Stdlib.Structures.OrdersTac.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/Env/Instances.v",
+      "sha256": "2d5b118ba335ba4a551bb49e80288bdcda5097292d03fd0b35a78e46f03db52a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.Env.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/EnvHelper/Instances.v",
+      "sha256": "fef9bdd6c5a2f17237a7b4c038620a7aecde0c0203e4e759ab7be82955b1703e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.EnvHelper.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/Instances.v",
+      "sha256": "59e6b105947488e8b7c159e96f8ec911652c2e53f93be5f3a40ab47b2d349519",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/TemplateLookup/Instances.v",
+      "sha256": "9e69df3d280b24acd71dfcd0e7c26c4e789ff6752cc8dc4ca8698414e8da8dd2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.TemplateLookup.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/TemplateTerm/Instances.v",
+      "sha256": "8e6bd8ef1918b9c5b6069ba4a06a28df9c3a83493a209cb0651c2a5f4937bc06",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.TemplateTerm.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Ast/TemplateTermUtils/Instances.v",
+      "sha256": "e1e9040f95c0880991f0d745103343fe3dfe1b07a9c0018dcfb5dece87957785",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Ast.TemplateTermUtils.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/ReflectAst/EnvDecide/Instances.v",
+      "sha256": "7d041d8d299c13df919105f61189ddf83be65f86e36e6eb27381aeaf1999de61",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.ReflectAst.EnvDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/ReflectAst/Instances.v",
+      "sha256": "528b2f90c13dfcad23460c18878f030a73b993f716c1cdb055ee88586fd9207f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.ReflectAst.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/ReflectAst/TemplateTermDecide/Instances.v",
+      "sha256": "759d193383fcc7308b31744df00316c2eb64b11879aec6b1bdf4ae9c550fb528",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.ReflectAst.TemplateTermDecide.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/Instances.v",
+      "sha256": "48097660b3aa05fa4f302558e5a796ff970d64a6286ff116941ab2e2c9192df1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateConversion/Instances.v",
+      "sha256": "05ec9018605f03851a910eca9191bfeb5c3459137a21d407100ee5641d8246e4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateConversion.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateConversionPar/Instances.v",
+      "sha256": "0a4ac85f41fed00a12ea1a52c70f7a929ec91a7ce4b40826c2ec655ce661b6f7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateConversionPar.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateDeclarationTyping/Instances.v",
+      "sha256": "e20f80634539ca94b6361c82c7b3946691c6e37b382fb2cb1b0a6a5bd0f65101",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateDeclarationTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateEnvTyping/Instances.v",
+      "sha256": "efa2e1364c2472ee0306ca859457be9a2821e5d6729e8ce0a9507301b89317b1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateEnvTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateGlobalMaps/Instances.v",
+      "sha256": "9140f7691da2666e878096db53eb2ad4f78f38bb30b77faee8ee7409e255b5ea",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateGlobalMaps.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Template/Typing/TemplateTyping/Instances.v",
+      "sha256": "6dcaef819d59b28f10a1e1dcfaa59f63f761f021649d1144f55d0b5ed4c4a0be",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Template.Typing.TemplateTyping.Instances"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Utils/MRFSets/Sig.v",
+      "sha256": "a060103fbb101b709d1aaca065c529dc0e8786808704ab39324a3cb55c65daf6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Utils.MRFSets.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/QuotationOf/Utils/MRMSets/Sig.v",
+      "sha256": "0318b0eff8b39261320f8cc8da6e61f96cf8cf2857f7cb5e7f623a537dd5303d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.QuotationOf.Utils.MRMSets.Sig"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Bool.v",
+      "sha256": "9399c2d99505c2b46781b3d7de596f75a7ebe79669f771b59e1a73fb96f5f87f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Bool"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/FSets.v",
+      "sha256": "118260dd529c832d6d83e10e437b216b558a7d8643d54465eb2c3b5b9a3344b5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.FSets"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Floats.v",
+      "sha256": "8dfcd93a3b63703594ee99ca458ca648a2a68d421fa5b7706b2bd5b8a11f82c3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Floats"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Init.v",
+      "sha256": "efc3f929b2da2abcab46a71355914ffb6b38037c5fbfafb5dbc3bca2b36c5588",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Init"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Lists.v",
+      "sha256": "a94d17e6dd3823dcd5be0b1fb5c1cc76df91a79f8786071a81122366b9d2c199",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Lists"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/MSets.v",
+      "sha256": "d4546dd33826516a3b9741f6ced5f8cf4ef3fdda62830ff1fd236b112f7ca12c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.MSets"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Numbers.v",
+      "sha256": "12429df924978c269c0ff9480f7c7d1ca96d44da066c5ef6b21eb293c26b0299",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Numbers"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/Strings.v",
+      "sha256": "579b51f94580b5b4f91a2ef0fe89d95140ba2b7db9ba1fec8619496e376823cb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.Strings"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Stdlib/ssr.v",
+      "sha256": "9d8c44b7012e421f9d627876a8219879a5389abadeec9903933da377c70ebc87",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Stdlib.ssr"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/Ast.v",
+      "sha256": "25d6e31ed69786ec92ab3c77d3f02b85e29a433826535a084f26165a22a2089b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.Ast"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/AstUtils.v",
+      "sha256": "3965d8ac7db51e4b26cd7a1451e2e84d9bf00b85bcab1bf934a0ce0ec6402ef1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.AstUtils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/Induction.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.Induction"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/LiftSubst.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.LiftSubst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/ReflectAst.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.ReflectAst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/TermEquality.v",
+      "sha256": "3ff1edb676ddfb4cc62f92f02abeafac83e480ab0c031aeed4bc74ffcb4efdb4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.TermEquality"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/Typing.v",
+      "sha256": "34946dcdb7a0357a78a5c00d509c2d70878da8df940e4588bec4d7e422e3b1dc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.Typing"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/TypingWf.v",
+      "sha256": "b0b292fe064bf95396262825b12a2277237ea2eaa9d2beb0f49e36ff0714d327",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.TypingWf"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/UnivSubst.v",
+      "sha256": "669953cc07faf0c358cf5b6c7b60bfe9bb15425e37327baac5f86071a4faeeaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.UnivSubst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Template/WfAst.v",
+      "sha256": "c90497b6fdf59a9adf945f6c997a9e0b8b6da5ec80f68a4cd76737614aef4c99",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Template.WfAst"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/All_Forall.v",
+      "sha256": "6f20f5e08294321e51185830ced10d5ab3397c446a7d4aa0e60fd52464f60014",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.All_Forall"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/ByteCompare.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.ByteCompare"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/ByteCompareSpec.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.ByteCompareSpec"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/ByteCompare_opt.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.ByteCompare_opt"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/LibHypsNaming.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.LibHypsNaming"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRArith.v",
+      "sha256": "63e4fa7291cb36600f7f3dee363cfeac8557a3e7442e57379a6a7a624fdf70e7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRArith"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRCompare.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRCompare"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MREquality.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MREquality"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRList.v",
+      "sha256": "79f065c5f8e49e397e5d71f6f5f58cfe4a8bb2d4f9cf92e711c9a84c166afd08",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRList"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MROption.v",
+      "sha256": "baec78db71ba5f4712b2dd9ad0f48755602696dc0b2bd182e5b7281006d2bac4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MROption"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRPred.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRPred"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRPrelude.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRPrelude"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRProd.v",
+      "sha256": "8d692232972cd0e823d28cf80d43aa11a735a8e0cfb5cc63e56c5a226e603254",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRProd"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRReflect.v",
+      "sha256": "47480212dee41f9bcb9f57b8abd08774109784f53060b6b094c6abfca8557f2f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRReflect"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRRelations.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRRelations"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRSquash.v",
+      "sha256": "42c68ee56f7eac2d1134576f92267d12a88a5da05d7c604e65fbc0126f3f5c83",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRSquash"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRString.v",
+      "sha256": "154f95a7c82af30e323eea5af330d450d21f933676bccef1bfc91631e77d838b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRString"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/MRUtils.v",
+      "sha256": "5ad6bb72ac4aa751ff811a6f4d8d6dc6c727d472c26bf65f0d9841b732aff495",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.MRUtils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/ReflectEq.v",
+      "sha256": "c31dad5bc986596d47414398c1a481a01cc79938e075a9babab1167f7bc21dab",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.ReflectEq"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/bytestring.v",
+      "sha256": "ba149fc891c48b9b58ae68b49c0b1018baf51ee6a27d72c2efe8846d9165a3d8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.bytestring"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/monad_utils.v",
+      "sha256": "be6b2a274abcd4f5a46339e3d6a109aa6761c4f3a9a501b51ed33756e6d3c394",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.monad_utils"
+      ]
+    },
+    {
+      "path": "quotation/theories/ToTemplate/Utils/utils.v",
+      "sha256": "c9486bc41c18569dcd4848028eb8ea2e871cc4c1c8f347a9636b886cbfbc3b94",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Quotation.ToTemplate.Utils.utils"
+      ]
+    },
+    {
+      "path": "rocq-metarocq-common.opam",
+      "sha256": "b94d5f5af3d0511ff6916c2895d7f808be45eebdaed36e0c8a096b661de1223f",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-erasure-plugin.opam",
+      "sha256": "c11cae8cf328159cf2a7b53aa085cb347dbce3b4f90f37df28edf308f316906c",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-erasure.opam",
+      "sha256": "1ba9aaac89396bd2dffeb487a22872e5867c95e3bf2ec4573d5ece811736c2e6",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-pcuic.opam",
+      "sha256": "c254b5215e04340331e6fc144c1d1d659cf0df76407f7dfdfae82f7fae75d604",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-quotation.opam",
+      "sha256": "20a9cdbd810fca168cd2acdc49808295d7c4af3a79b37ca62fd6e6385ec1961b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-safechecker-plugin.opam",
+      "sha256": "273121204403ce9f21c0b0ca7a749bb0aa08d61e00ef8a8158dafb6527564d49",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-safechecker.opam",
+      "sha256": "6c4f5e450a2a7ce757b5ba24859ab1266134fd0a7e53a4d85e64d113cd691578",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-template-pcuic.opam",
+      "sha256": "e5c30ce12f62645bc7743c10f58d89325b2ce695addf4ecca24f29e397ddb8e3",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-template.opam",
+      "sha256": "436a1f1db55acc14d8cd8054d2332045619924e07623073aaa40c25cdf997b1d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-translations.opam",
+      "sha256": "e430d2959e30a30ff0fc4b39e644f299814574c4e73f700dd2d47ce6c5a933bc",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq-utils.opam",
+      "sha256": "b3746a8e4ecd089603403434dbf24bae5753faaedd76ea104f1587a2a1a37b76",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "rocq-metarocq.opam",
+      "sha256": "65b86a63424eeccf4a358ffdb310d5a11d533ee1f1362c55da81fd41cca55cbc",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/Makefile",
+      "sha256": "74979374a8f3dd6fe0844de90f93dc4ed28d612d5dbdeef8be6e8d42c2920931",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/Makefile.plugin.local",
+      "sha256": "4b1826e05c0ea6ac6e6af9fbe95305bcda0a85b29c6f9e6c6c9c7acf8b3dfde4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/_PluginProject.in",
+      "sha256": "6433bccea734e1cdcc27e18727ed642d827408823e91611633cd31d684d570bb",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/_RocqProject.in",
+      "sha256": "097c80c409312a7ced245dc6afb9ccf1168552cdc89d4dbda9286edcb9a60c59",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/clean_extraction.sh",
+      "sha256": "61db2829e329803e22414b49de12e6fabaf3755460597c5603535bf21cfe9fc8",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/demo.v",
+      "sha256": "bd3795edf7b02bcd6eb07d0be5fc373a1abbff6408c2f5c46af7c2504ae93245",
+      "kind": "rocq-module",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/src/.gitignore",
+      "sha256": "089afc71a9ba0c01b8411539ba1c68250c2d2e106d3bfc49f3c99939ce27ed3d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/src/META.rocq-metarocq-safechecker",
+      "sha256": "12257e8f5f91b389a5e40a031d47c5492eac77a25e5db7293b69f848b119ffc0",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/src/g_metarocq_safechecker.mlg",
+      "sha256": "6026082e8a8ed0267cd7d7d9334c2145270a262c75fbe9fd10bcb4fd8e10760a",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/src/metarocq_safechecker_plugin.mlpack",
+      "sha256": "453cac6051b86ac5c2e25b5b8f6b98945b881be322f9615b2005874738fe0995",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "safechecker-plugin/theories/Extraction.v",
+      "sha256": "5a7cee9e9588d7aadaa1092f673292615e3eb64fd41f1d08908588e1c6454a90",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeCheckerPlugin.Extraction"
+      ]
+    },
+    {
+      "path": "safechecker-plugin/theories/Loader.v",
+      "sha256": "dc7b09d27df54df2b8042524a00a49b8f9b72d03e781b205d97fab0f5e50beb2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeCheckerPlugin.Loader"
+      ]
+    },
+    {
+      "path": "safechecker-plugin/theories/SafeTemplateChecker.v",
+      "sha256": "e5266578fed2a0ea9c44c025351b4a09e2e2d4fd5b235ebf6e10b09ee8d8091e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeCheckerPlugin.SafeTemplateChecker"
+      ]
+    },
+    {
+      "path": "safechecker/Makefile",
+      "sha256": "26b1aa2e454a68e1adf9f78f734bb20fa921a7d9bb826536c68f3da95634e777",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker/Makefile.local",
+      "sha256": "59c6d4809667d50129eb5926d5a9e81c5a739faa0260f758927826958a92f8d2",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker/_RocqProject.in",
+      "sha256": "4adcd972ed50b205d89e1c945253074f834c57c47b3171dc3892796d74d428a6",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "safechecker/theories/PCUICEqualityDec.v",
+      "sha256": "dcedad7bf73255cae93eb4217abf2df08aee12f3a420b8c6482b62207f6e9d00",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICEqualityDec"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICErrors.v",
+      "sha256": "8413390edfe5d9b2c7815745a1d3d17c2cec0e35272ec6e6312a02e17b41cc4f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICErrors"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICRetypingEnvIrrelevance.v",
+      "sha256": "8b2e95601148ddeb06bfd4bdc05b68d48ab8c141ce4d39e66899d85f70748789",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICRetypingEnvIrrelevance"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICSafeChecker.v",
+      "sha256": "45585561c27ba074fe049f9eee1faa863ed0a891500aec87dcf573fc2ce8b981",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICSafeChecker"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICSafeConversion.v",
+      "sha256": "4335077cacd7ee3328c22df88accbb6ee032bf9af554ad3f53b9cabe6c0f6c25",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICSafeConversion"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICSafeReduce.v",
+      "sha256": "27c1a9770f6508eb465e2b15d0b867a65ddfee3e0bd0bc1480472df419c7093a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICSafeReduce"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICSafeRetyping.v",
+      "sha256": "f6a05a2447771c181bcc8cc9a0472a297a20c2c3de482ab2e81a2767fff74ae5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICSafeRetyping"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICTypeChecker.v",
+      "sha256": "47f2de621ee54adce734bf178d2c870874c315010f24bc317ecb975bcd382778",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICTypeChecker"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICWfEnv.v",
+      "sha256": "f33634284c99bd86d17faa9edef453eb6e3df1a10c1d34773a1edc81310a701f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICWfEnv"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICWfEnvImpl.v",
+      "sha256": "7fd9ca87653b179f5616ba80871c079003a86d962b064c80eadf016aace5adb9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICWfEnvImpl"
+      ]
+    },
+    {
+      "path": "safechecker/theories/PCUICWfReduction.v",
+      "sha256": "136d991c48fed47e94756840ee41cc4b5f81672fbd78259b439b889046664ee9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.SafeChecker.PCUICWfReduction"
+      ]
+    },
+    {
+      "path": "safechecker/theories/README.md",
+      "sha256": "7466ed9f19d6bc8c8c2fb0b610c97d3168071fd5273e86633c525b8a2ad13ae9",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-pcuic/Makefile",
+      "sha256": "7f3587521662abc2d6a63a2f5fb2f3659eee68e3054fa9da92c3c2c56ce22a3a",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-pcuic/_RocqProject.in",
+      "sha256": "15a3ab8d995cc3ac993bac9a9a776f06844ce2d3f0e73eb4663cf453f7588e4f",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-pcuic/theories/Loader.v",
+      "sha256": "ce0f299e7323d048de773741703cb725ba99d2025ba30586f8bdfc640d1aa15b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.Loader"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/PCUICTemplateMonad.v",
+      "sha256": "a920b7d991e18889b7694f1b6619fb655d698a614025b0c7b1467f4acfceebe0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.PCUICTemplateMonad"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/PCUICTemplateMonad/Core.v",
+      "sha256": "c0881e7ca8f0f571b3be8c231afad4624de16a8e3a3f8db09a91600f54799dec",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.PCUICTemplateMonad.Core"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/PCUICToTemplate.v",
+      "sha256": "4be15f5150785f53d0871d2b5a8f318a52b92804f562d89f776e4f48d0385daa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.PCUICToTemplate"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/PCUICToTemplateCorrectness.v",
+      "sha256": "5631c009d43ce378f6f8e0fa62ea229f45887354a44d70d79e547e8589234c6d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.PCUICToTemplateCorrectness"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/PCUICTransform.v",
+      "sha256": "533b494f0ae1c1cfe256a5054fbbae626e36a9a046a858dbe3597e6115cda761",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.PCUICTransform"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/TemplateMonadToPCUIC.v",
+      "sha256": "09b873fa1532fc7bd00d22fa97d24e2b43be66530f2495ae75d7277cbeca45ed",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.TemplateMonadToPCUIC"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/TemplateToPCUIC.v",
+      "sha256": "30f38b5d0ae6a7d4f3d4a6ec5dfc9bae14f19a8e3afd7b100aad62637b8f896c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.TemplateToPCUIC"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/TemplateToPCUICCorrectness.v",
+      "sha256": "67c26af68c6f8a9f7ac3888dc8c96698d13ea766a7331413236c586e4508cb5f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.TemplateToPCUICCorrectness"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/TemplateToPCUICExpanded.v",
+      "sha256": "b558abe286da110ac228501ac5dadbd5c8f73db5d8145193c6c1fb040f6acd43",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.TemplateToPCUICExpanded"
+      ]
+    },
+    {
+      "path": "template-pcuic/theories/TemplateToPCUICWcbvEval.v",
+      "sha256": "59a8295bf645c5d6f29fc4e75b5cec8edebac9ede5f5762f92c80b86cd3eb0a2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TemplatePCUIC.TemplateToPCUICWcbvEval"
+      ]
+    },
+    {
+      "path": "template-rocq/.gitignore",
+      "sha256": "b4d7a036e542c36be24b8dd47a183f3358b71a3f27ce21bb061c42fe769086fd",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/META.rocq-metarocq-template-ocaml",
+      "sha256": "fe52d47e5055e886ca9910f8fff17e6ef3628fe1b7838164d7a0f0f3acffd771",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/META.rocq-metarocq-template-rocq",
+      "sha256": "bfa273e257c75d08af31a467821c49d364b1fe8224ed172d4a2138d9d8ae2151",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/Makefile",
+      "sha256": "322e2b0eaf330de937dd449f7ec69c005cccf2373fbd7ae19e0e9925d55fe593",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/Makefile.plugin.local",
+      "sha256": "0bf0a5871f0467f1ee28eb04880495a2ebc3f0a4e6ba5aa2c81e6a7def628266",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/Makefile.plugin.local-late",
+      "sha256": "194db7f1da49a05262f082cc365a85ace3c23dc853b421d3ebb31440b85cb81b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/Makefile.rocq.local",
+      "sha256": "11e0e0104c1b2e8d3576c40e401d2e98e12400c2a80a88431165ed70211d1948",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/Makefile.template.local",
+      "sha256": "35db4de51d21f920d317f413baaba5398911044a52072d5925015176cf07ebaf",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/_PluginProject.in",
+      "sha256": "09dbf1f58e52b81013aab8b5ce5db012b5360c9ca81f530f6c288ffe98dc46be",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/_RocqProject.in",
+      "sha256": "e08ffbd5e64862e9e5337d83ebc6717a58bce070566afb8bc4119167293622b6",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/_TemplateRocqProject.in",
+      "sha256": "7a8264139a4ef4322449c6212116999f3aeef107c610a2501d2cb09702a33955",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/extraction.patch",
+      "sha256": "3b6cde18fbc20f4eb70fe210389c02315d5805615bb90560971f8c7a87ca1158",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/gen-src/.gitignore",
+      "sha256": "d8e92e424a6b08b223ea5c9e8365ea14273e416b7dceaf7c4d9d74ad4a93eecb",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/gen-src/metarocq_template_plugin.mlpack",
+      "sha256": "ee57cb6214300b5f566319db31bf43f26b820ab81a4a4a62c511c7dc288a3283",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/gen-src/to-lower.sh",
+      "sha256": "c8de415b82283c3740fc5d78e129d31120d4665c8e55df67d90d785486636811",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/specFloat.patch",
+      "sha256": "a49ac6d1d41d873df320494db85258864931897ab83cd726c58dd4eafda652a6",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/ast_denoter.ml",
+      "sha256": "aab30d72651338c7bab25750b61d7944df946f1ad7f7f148a676ab2b9bd8269a",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/ast_quoter.ml",
+      "sha256": "6d347d52f712ffbe8cad2c04a0b9a97458d303a13054fc383249782fc449b777",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/caml_byte.ml",
+      "sha256": "ac6810357cd6ab4a90348b4d51ff1f3abea46b39127c23c1f18ee51cbecc16f7",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/caml_byte.mli",
+      "sha256": "d3bb74f916aba1b888e68f757ca578bf6c54a7494c2490deaf0671dd4bbb9497",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/caml_bytestring.ml",
+      "sha256": "5d7d04c1c6406f8327ff904a96fa4e950d904f0b3b188b8c883a4273084595e7",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/caml_nat.ml",
+      "sha256": "901a3c1c6dad5c8e8ae35f1575f3d2f91193fe4c0ffeb81df0b9150b8a2e6199",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/caml_nat.mli",
+      "sha256": "b9d8f949973604fcb7bbc8b21475e656325144f6538e207b667fbe324293ee1b",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/constr_denoter.ml",
+      "sha256": "7c1b67d0b51feef111055ba419189caca6db624d33e59beeab93d1fa2d21fd25",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/constr_quoter.ml",
+      "sha256": "3c7b079dadb743c26cf12e943376fae5df092813ed5e1803de68fe9c14c81b85",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/constr_reification.ml",
+      "sha256": "c7adf388f12f1c219537e182a3707a8c4703b051501afa6a595755719ca8dfd8",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/denoter.ml",
+      "sha256": "1ad5436e9c6a6a9a8eac09c8f095abb8b68ce2db9a48a8953daeb2ecddd9034d",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/g_template_rocq.mlg",
+      "sha256": "328b44f5356b4889b025ef6e075d3a4c1150cc62db58fa908562c68db8ca4342",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/genbytes.ml",
+      "sha256": "326412ff7c742b8b94513920661aa6fe373864cfa1a48294c585ba2992bc1038",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/plugin_core.ml",
+      "sha256": "50f593d1c9c21069bea329723e67bc06ff1bb535426edf86015f5741d33a904e",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/plugin_core.mli",
+      "sha256": "5f149c2173ff62fe95404fe6e398e3c9ba64547bea7129723131ed5e2ff8b107",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/quoter.ml",
+      "sha256": "c33c50148ee6662145102d2924fb1eea5100087ea1cf893642c09bbc76eebab0",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/reification.ml",
+      "sha256": "d602b003f0247d289553d90f2a3a0dcaeed0bf39183bc1e31ca3f44d69ca2b94",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/run_extractable.ml",
+      "sha256": "e081e74bf81530c0c91c8ffbbc52156dd862d1ee477eee295b7217f1415fecc6",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/run_extractable.mli",
+      "sha256": "79242d2d2ca109b7f8abb0340fdb823b908491ea44f3d53bea9e81fcba04fa98",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/run_template_monad.ml",
+      "sha256": "882f3eccdb0e19d38d9d5a30dfe4df75247a65a3cbb25eb54cfb2a9dc57c5aca",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/run_template_monad.mli",
+      "sha256": "84d4864e8cb77de8d95222d6a6cfa571ca73d2c8c3528ba17985662faeff4fc3",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/template_monad.ml",
+      "sha256": "96d9ac3d06a3f74b9312e79bc48ffdd83a54de9c1096734d4c1f1624bd6789ca",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/template_monad.mli",
+      "sha256": "4bcef7bf7c8ae57c2556ae3d13b92da11aa83556125c2ced80deda9f529aae62",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/template_rocq.mlpack",
+      "sha256": "38c43fbc21f18578772f11bff233430053866125a877ead1a81849f8b7961e81",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/src/tm_util.ml",
+      "sha256": "594a3115bd8831827cd713ddb2f1a06dd37cf53c690b0a1128fb493c043bcbcb",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/theories/.gitignore",
+      "sha256": "31dccbcc8d476d38face048ea2114363f1c265ee072f1ae754ed9470f489a55a",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "template-rocq/theories/All.v",
+      "sha256": "c187010e7f649948376d519035ecdddd9b620f37edb91411c580610cfd6401af",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.All"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Ast.v",
+      "sha256": "5ba617985615c145ae003ebb4e6e549056c6fda1d19cd42de5408cb3311f1a58",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Ast"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/AstUtils.v",
+      "sha256": "71dc89168e5aa96545370f248b78eb749f4cdf3ade6bc4dab7ec63dbb1b93e53",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.AstUtils"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Checker.v",
+      "sha256": "39e53aafce2f2ba1874928a803289e2c2c674ade2b63ff522aa79e6172f18e67",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Checker"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Constants.v",
+      "sha256": "469b4a52c97395df7bd3e1c379694477119fe517b068f5dba0e08ff0a9d32d8e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Constants"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/EtaExpand.v",
+      "sha256": "27e3d7f260dbdbabc668f1aae68bdedb9c20d6c7bb8c3bec536dc4cb5257ce68",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.EtaExpand"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/ExtractableLoader.v",
+      "sha256": "4bc585f6e23a8565ec84c25a7b43e3b294370644320b1476bae995c834fd263d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.ExtractableLoader"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Extraction.v",
+      "sha256": "b1126a8afc23a3cbe16447400489b5ac56265fb99d548431796b34765c43c2e2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Extraction"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Induction.v",
+      "sha256": "717634ef78c0116dc8e80da14ff3a02a09fb3330764f630e596ef3be71cd73b6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Induction"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Lib.v",
+      "sha256": "4642dc66009af5fe4bd099e98f63ebbdb20f16839fabddc7cc2ca3dcbf66b4c7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Lib"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/LiftSubst.v",
+      "sha256": "b1c6af2295d749a3df2dc59a7cb520ae2991832e2aa7a0aa1390eaea27712172",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.LiftSubst"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Loader.v",
+      "sha256": "74c17ac86cd2698f70ebf363214bb21ab0be7cdb37475107c36b68380cc8348c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Loader"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/MonadAst.v",
+      "sha256": "c978975898c07970ec16065844dc247c93b81373f034741c884c94f5c8031f9c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.MonadAst"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Normal.v",
+      "sha256": "b277b149d6af593b9ab840b60ce6cb7bb15e6c43f797da704f2bce5bfb2f0d05",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Normal"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Pretty.v",
+      "sha256": "1eb1aa3fd9a2a89a26983cfe0a6ceb2ca1db132cb5db7c0fec30a321ab1e9a61",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Pretty"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Reduction.v",
+      "sha256": "8f1af58e8866b30e3bbed8805f95e410d5a83fb508214d671a11ee58d88c6021",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Reduction"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/ReflectAst.v",
+      "sha256": "5405ee590c8445c98a1b17b1547f8465ca0da9c784eff76dabd1084a7bd24d5b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.ReflectAst"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateCheckWf.v",
+      "sha256": "ae3db1891dbcf34ea8a34370212092d22ad4f0dd762a0941fa8553e3548cedc5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateCheckWf"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateEnvMap.v",
+      "sha256": "9172380c28eb480c05821f6bcb6c680306c7a69b79515882608ec59fac8fa885",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateEnvMap"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateMonad.v",
+      "sha256": "c82bf17535997cf520005a96d2e3b41e0eaca42baf9b4ad932a5581e918303e4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateMonad"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateMonad/Common.v",
+      "sha256": "9debd1da99fcb2267c4562c173831ba0099de47ab3e406e47eee306bafbc3172",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateMonad.Common"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateMonad/Core.v",
+      "sha256": "d5eec59435299a8fde3194033b54eceeece6a27cba3444d3e80eca769c6cdd40",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateMonad.Core"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateMonad/Extractable.v",
+      "sha256": "dd7cc2cefc88fe1d4cbb1a98706599ff71bc4c33db3903e8f5e1a17ae9f1e74e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateMonad.Extractable"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TemplateProgram.v",
+      "sha256": "6d6a3c6debd4b7f121eb6e3f7ae438c824fadf1d5b2978b1a5247af9fb9b89c0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TemplateProgram"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TermEquality.v",
+      "sha256": "cac3bcd9f132ee9197448beaa854bbc1e579bbaed894230e81cf364a4acce7b1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TermEquality"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/Typing.v",
+      "sha256": "adf4ee359831182ecd4e4d53dc58156ad5e670c9ea3087ed29eb6c212950e863",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.Typing"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/TypingWf.v",
+      "sha256": "7ebc3e63cf9aa2f67ffd1994ee9f2d892a4a45dc224fe37d9a7d76a89e4842cb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.TypingWf"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/UnivSubst.v",
+      "sha256": "f5e41cd317609984c318cffc42a72379b43eb0697201fd22b2ef81f5ebbd757b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.UnivSubst"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/WcbvEval.v",
+      "sha256": "9ab66214e7707e921842d3df94fe925d5fb7b1b41883b71935a38e9776c81c78",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.WcbvEval"
+      ]
+    },
+    {
+      "path": "template-rocq/theories/WfAst.v",
+      "sha256": "81dc61d7a9032c5184567ccda13d9a41fa9a72ae55497f1316a0804a478a5cf6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Template.WfAst"
+      ]
+    },
+    {
+      "path": "template-rocq/update_plugin.sh",
+      "sha256": "29dd75b82d67315a6291eda7a5d2eb46b32e310817481d6d4d3cdab845534493",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/CheckerTest.v",
+      "sha256": "05ebccc14a657f3e1392967c3d21a827151abeec724ceaf85696d8c0eddea1df",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.CheckerTest"
+      ]
+    },
+    {
+      "path": "test-suite/ErasureTests.v",
+      "sha256": "1d29daa43b574c81ba7ae80fdd65e75c3037039ece4259e1a08a83d1eac44273",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.ErasureTests"
+      ]
+    },
+    {
+      "path": "test-suite/Makefile",
+      "sha256": "225bcf2fbfb907685114897273bece15dad4428d64ed5be4cd648ae4a3728fe4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/Makefile.coq.local",
+      "sha256": "1ab5446a28226c5d5d29d3d657b0db516185d081deeb11143b5337686977ddfe",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/Makefile.rocq.local",
+      "sha256": "529893340b17bda34c5f29b991503156520e0ffea99851480ef91fac398f2fc0",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/TypeAnnotationTests.v",
+      "sha256": "6a300b247ad3d8d463592aeb0488fb10dae9e981b4ec50c72e26e65b9162fb18",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.TypeAnnotationTests"
+      ]
+    },
+    {
+      "path": "test-suite/_RocqProject.in",
+      "sha256": "3283676be8c119171d9bc312a73e7c5153922b4870e287bae1f4b86d725c3140",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/bug1.v",
+      "sha256": "058e8f076d3bbf860cf924a4588fa5d3c68f77f37e9015189892091a62232053",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug1"
+      ]
+    },
+    {
+      "path": "test-suite/bug2.v",
+      "sha256": "4af3e77b905d9d2bb85fadf804fd8bb1a62806b40d78858d8b4588734935d6b5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug2"
+      ]
+    },
+    {
+      "path": "test-suite/bug369.v",
+      "sha256": "ac842ac3a0760a2ed6ff2d2cfa7013e69e5e7e5cd6bf9ca301a4dc334ba0332f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug369"
+      ]
+    },
+    {
+      "path": "test-suite/bug441.v",
+      "sha256": "a8533353d3905658339affb48b6acde16b8d2ab5cd3fdbe5e5cba1b9c6f2d98a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug441"
+      ]
+    },
+    {
+      "path": "test-suite/bug5.v",
+      "sha256": "5ef3934d1aada693854d6fa1cfd7693201ff412c24ec5079fd536e9a161c935f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug5"
+      ]
+    },
+    {
+      "path": "test-suite/bug6.v",
+      "sha256": "c754888056663472066e3a691cb7be9ee71df6be4e573c1479d3032bd9dd88d0",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug6"
+      ]
+    },
+    {
+      "path": "test-suite/bug7.v",
+      "sha256": "f3b480cefd3b4797bb899c59fe2bdb49dd96d5198c4d5c59ca2187090fd217d6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug7"
+      ]
+    },
+    {
+      "path": "test-suite/bug8.v",
+      "sha256": "a3723f8a51b5dc2ffa8069af9b1a4629df535afc45cb911691e3c5e8ac41caa1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug8"
+      ]
+    },
+    {
+      "path": "test-suite/bug_quote_pstring.v",
+      "sha256": "e123e05d15f9c9befd8202310e7c25014a94e336153a5c1422cb8375f3bb107c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.bug_quote_pstring"
+      ]
+    },
+    {
+      "path": "test-suite/case.v",
+      "sha256": "902ec91d830e30400f6315aea1e385778b372a82c0442f498d0eec694d8a0220",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.case"
+      ]
+    },
+    {
+      "path": "test-suite/castprop.v",
+      "sha256": "2f044f892ec348482c235570f541128a83def129f618058d82b2a433d1bd7eaa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.castprop"
+      ]
+    },
+    {
+      "path": "test-suite/cofix.v",
+      "sha256": "3bc0b11b4a062e69039a39b43e384a1c46a17f5e3bc0987f090ffc52f4c58a64",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.cofix"
+      ]
+    },
+    {
+      "path": "test-suite/erasure_live_test.v",
+      "sha256": "20cf8c5eb0c4d144d698a84997004b6db4bc8c496ce9c81514fc3625bb223609",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.erasure_live_test"
+      ]
+    },
+    {
+      "path": "test-suite/erasure_test.v",
+      "sha256": "cafe3f8a32fbfb7e5cd4e52b34c38391725e741c89d1ace351ac838d19f34d34",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.erasure_test"
+      ]
+    },
+    {
+      "path": "test-suite/evars.v",
+      "sha256": "bf657ad658f17502c345e9dd9e03924af6c5c0dbf41b5ebb33a4ac941f3ff216",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.evars"
+      ]
+    },
+    {
+      "path": "test-suite/extractable.v",
+      "sha256": "af6d3cbc29830487ad94d33a16dea31adc5b7a97e883f27cbe63f3bce0083e63",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.extractable"
+      ]
+    },
+    {
+      "path": "test-suite/hnf_ctor.v",
+      "sha256": "654982602eb60a8be78e0f22fcdb47d6f1e7ddb0af08719e23f86d7db2823b44",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.hnf_ctor"
+      ]
+    },
+    {
+      "path": "test-suite/hott_example.v",
+      "sha256": "61fe3b6718903f4c97afb8581d5fb4144cacc892456a11593b48727059fd57ed",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.hott_example"
+      ]
+    },
+    {
+      "path": "test-suite/ind_fresh_univ.v",
+      "sha256": "bb2cfd4025dab6e79f27ce467a0dc1c949545fa5c70dccaad8291a6fa13d1481",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.ind_fresh_univ"
+      ]
+    },
+    {
+      "path": "test-suite/inferind.v",
+      "sha256": "5f55b0050ce521215a24cacd3283ccfed982cd50efe53a283f12c715120ba218",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.inferind"
+      ]
+    },
+    {
+      "path": "test-suite/inferindunivs.v",
+      "sha256": "dcf92b75d9c2a90df7cf831b4a85c627e6ccf25bd286a796e6b1e6036a99fb97",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.inferindunivs"
+      ]
+    },
+    {
+      "path": "test-suite/int.v",
+      "sha256": "5f79e82735e17e6f17dd0f451c586ab1be9df9e713e68ab4d01e49b8807745aa",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.int"
+      ]
+    },
+    {
+      "path": "test-suite/issue1042.v",
+      "sha256": "6e6c6a6927b965c62c743ce823c1a2156876967d93ec633270fabb48a4cf17bc",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.issue1042"
+      ]
+    },
+    {
+      "path": "test-suite/issue27.v",
+      "sha256": "14811cee5a32fddfdc6fd27e33c07f6943f16aaa8c1a5754f67ca1a6873c698c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.issue27"
+      ]
+    },
+    {
+      "path": "test-suite/issue28.v",
+      "sha256": "8207a3b1474f5947a4a72b580175c205d9ba1eec0de1be4e4b79cbee1945da30",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.issue28"
+      ]
+    },
+    {
+      "path": "test-suite/issue453.v",
+      "sha256": "a7b50c99e287e74e6168f7661338d253f5c7baeadb3ab7d0717682fafa3ce352",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.issue453"
+      ]
+    },
+    {
+      "path": "test-suite/letin.v",
+      "sha256": "ba6b3dcc0fab723b916ec5ab2de3165c0808e13a86bf428c74ffeeadc189488f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.letin"
+      ]
+    },
+    {
+      "path": "test-suite/modules_sections.v",
+      "sha256": "acc195d1b199c55414ca754bd8243d6d6f16603a145e9bf88794ba053e59faf3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.modules_sections"
+      ]
+    },
+    {
+      "path": "test-suite/mutind.v",
+      "sha256": "8c29cfc5152d154789c6e1ab4afab53c5953b8b3b8b7b47773684ce5ff6fb252",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.mutind"
+      ]
+    },
+    {
+      "path": "test-suite/opaque.v",
+      "sha256": "8d2f3443fdd4e52cfefb784c1989c38842a9777bbea13c62ac849a577ebbe6d4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.opaque"
+      ]
+    },
+    {
+      "path": "test-suite/order_rec.v",
+      "sha256": "73e8c58afd4e400ea44edd1fdef7f3b40472f94d26d8e7cc9838fa35c3404330",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.order_rec"
+      ]
+    },
+    {
+      "path": "test-suite/plugin-demo/.gitignore",
+      "sha256": "74b4b1eb9850bcb12e031277ad9870140c387d67752e2f5525e8c4639ad6ad20",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/Makefile",
+      "sha256": "27693fbd20c7bc24a6fc34e749d5174469bd524bda972311f36e2147f851c6a2",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/Makefile.plugin.local",
+      "sha256": "b7cc21caecf27c09781f807acc386809ee241a507550096ec1e1de16e76962ae",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/README.md",
+      "sha256": "2015c9ba6d90b73815ffe48855b064dbc0da1adef63d612aeb5ccddea2ca468d",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/_PluginProject.in",
+      "sha256": "50c1cd116d4a61a269bf65f5ba48c4bd6cc28247de7b1a9b261704a1dc8e7d5b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/_RocqProject.in",
+      "sha256": "cfbf3671f521592bccb57aa665204205f30b9297d1b7fa1ebb28127632c5faf4",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/gen-src/to-lower.sh",
+      "sha256": "2c3cbd69453d0157e7d56a993fae83bd51be63c598e2e0cdc21a649329241263",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/src/demo_plugin.mlpack",
+      "sha256": "393b576d4d169d55d635058d802a97aa0c33f5fd7ad9c89878716e7c9b38950d",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/src/g_demo_plugin.mlg",
+      "sha256": "128fb71aad3f9e630e564f7089be13decdae7872caaf29754748b5600a476aad",
+      "kind": "ocaml-plugin",
+      "modules": []
+    },
+    {
+      "path": "test-suite/plugin-demo/test/test.v",
+      "sha256": "ab75afd9f325db164b679bbfd99a4c3724b17c3ac913330c4d56d6a45b79a118",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.plugin-demo.test.test"
+      ]
+    },
+    {
+      "path": "test-suite/plugin-demo/theories/Extraction.v",
+      "sha256": "4d9cfa7ca05dffcc7fc9c14775175c1e7681b9b7ab7fbe43b7cf54b07248b590",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ExtractedPluginDemo.Extraction"
+      ]
+    },
+    {
+      "path": "test-suite/plugin-demo/theories/Lens.v",
+      "sha256": "932ea267cdec0e3517aa057cb5a208f78ba55df872b57887141ab539b7250a7e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ExtractedPluginDemo.Lens"
+      ]
+    },
+    {
+      "path": "test-suite/plugin-demo/theories/Loader.v",
+      "sha256": "99675bbab93cb2e26f83a9aaf3fc8f0bef67b7e208d987858b8adac1b2f200b9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ExtractedPluginDemo.Loader"
+      ]
+    },
+    {
+      "path": "test-suite/plugin-demo/theories/MyPlugin.v",
+      "sha256": "0a3b7287f6dadf5767e2f316318bc59172eb356197932bc3c28e573af3ded74c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.ExtractedPluginDemo.MyPlugin"
+      ]
+    },
+    {
+      "path": "test-suite/primitive.v",
+      "sha256": "79ce4cea0639dcd08db080cb5cd17cd994b73d6a6b326cd230e8526f8888c981",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.primitive"
+      ]
+    },
+    {
+      "path": "test-suite/proj.v",
+      "sha256": "d0d71437e8149b8dd1ac3d757f45b2de2032ce1883ee7939f336a50f1354d9eb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.proj"
+      ]
+    },
+    {
+      "path": "test-suite/quotation_notations.v",
+      "sha256": "35ec8770f060786dce1dc4f40edbd3dffa9d6408547e3fbd5932c86ed68d9e0e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.quotation_notations"
+      ]
+    },
+    {
+      "path": "test-suite/reduction_test.v",
+      "sha256": "c56cb477bbc3881fa8452f985d56a224bc5628f496a36d2745bf5f1f18366f34",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.reduction_test"
+      ]
+    },
+    {
+      "path": "test-suite/run_in_tactic.v",
+      "sha256": "c330d8a3cc50f0104484b73dfe656da53b48dbaf6b2457730a96049c50fe6167",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.run_in_tactic"
+      ]
+    },
+    {
+      "path": "test-suite/safechecker_test.v",
+      "sha256": "3fbe7bb9882b9b5b87c5c2ea16ccd8404ecfc112c84d48fe8ed6bd398a1134f9",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.safechecker_test"
+      ]
+    },
+    {
+      "path": "test-suite/self_erasure.v",
+      "sha256": "42f7a6e0718ce1ab05782858f31a7f3353f5a43d650f847efb85f484b671772c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.self_erasure"
+      ]
+    },
+    {
+      "path": "test-suite/sprop_tests.v",
+      "sha256": "5993896934016cd3d7320924428f375502d5e348de095b24c24c2f9497d60498",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.sprop_tests"
+      ]
+    },
+    {
+      "path": "test-suite/tmExistingInstance.v",
+      "sha256": "cd6fc7c0d2dcab9dfebcd1a02b9ebe7f3dae00f9840b214bda5cc54a3620ec4b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmExistingInstance"
+      ]
+    },
+    {
+      "path": "test-suite/tmFix.v",
+      "sha256": "ddf0bd8ee4406ef7e06daa7533c07da5be8787d4dbbbfe1544004ab2602aa09e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmFix"
+      ]
+    },
+    {
+      "path": "test-suite/tmFreshName.v",
+      "sha256": "af7796634ae91860478817ae7f390908c0927f7c89c25b323d2305193d1636b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmFreshName"
+      ]
+    },
+    {
+      "path": "test-suite/tmInferInstance.v",
+      "sha256": "c1a5a9bfd035bce21be3f924c85d55383c1275a5c2072c9e9d70c5066936376d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmInferInstance"
+      ]
+    },
+    {
+      "path": "test-suite/tmQuoteModule.v",
+      "sha256": "4c7f961da8aba2223ae5011eedbd1eaad68bc7c8dc55595239d7b6b9b5c7cda1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmQuoteModule"
+      ]
+    },
+    {
+      "path": "test-suite/tmVariable.v",
+      "sha256": "c45a30fb8cdfb42476039f85612edbdcfc0e9899c1498a9d03c278f477f795f8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.tmVariable"
+      ]
+    },
+    {
+      "path": "test-suite/unfold.v",
+      "sha256": "cd8dfba21dce26a903c71ccfe8d64a86b51490c267dd06f1d8d705d5d08861a5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.unfold"
+      ]
+    },
+    {
+      "path": "test-suite/univ.v",
+      "sha256": "16987709e37c022d08c306efc56a00ac3b7a8f1d8d0c77a26ce4e373d78d27ac",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.univ"
+      ]
+    },
+    {
+      "path": "test-suite/unquote_evars.v",
+      "sha256": "48ae934d337bf030fc28ba50491ea413a27c7ee32417a60dd3ae8be751d57bf1",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.unquote_evars"
+      ]
+    },
+    {
+      "path": "test-suite/vs.v",
+      "sha256": "e0d593612dee2e69a34837fc4ac349a95353c7dd510c0fa582dbdc45111f2f98",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.TestSuite.vs"
+      ]
+    },
+    {
+      "path": "translations/Makefile",
+      "sha256": "85f90fa90473f270e1128035a4332f421088cc3de0777732d16a27520d7dce81",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "translations/Makefile.rocq.local",
+      "sha256": "e2aa8aeaf022c33543ec3ed74820a9e6a36211193d45eabba619d43985eb7340",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "translations/MiniHoTT.v",
+      "sha256": "6ca6f91045ace91829773d2b73a10ec4d29335c199f62a3326e31fdbf147db12",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.MiniHoTT"
+      ]
+    },
+    {
+      "path": "translations/MiniHoTT_paths.v",
+      "sha256": "6c3f16a9fb61c9ddc252e56d58c1530cfc01a912d56f881fd4d1216d80e1693a",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.MiniHoTT_paths"
+      ]
+    },
+    {
+      "path": "translations/README.md",
+      "sha256": "d8df68a232ab4ae9482c2364663c64cc3ae77b2fae0d7e48e4ffecfd8f930cd7",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "translations/_RocqProject.in",
+      "sha256": "a1967b29f285825398a8786dbdfe1436e42b04f31a46b2009c3f16903fc0f98a",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "translations/param_binary.v",
+      "sha256": "df5ee75727d99a09505d357671f2a542a9b1447afb7049988b35e8421f06ada4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.param_binary"
+      ]
+    },
+    {
+      "path": "translations/param_cheap_packed.v",
+      "sha256": "4a665b1be8b673294b32dde4b8ee000d760ce3f537de9b0efb9316e7ed0058a4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.param_cheap_packed"
+      ]
+    },
+    {
+      "path": "translations/param_generous_packed.v",
+      "sha256": "d59e0b28c900c3b6cfbbf287d5c59861a37ad44b1925ecfac8afe5904fff1f50",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.param_generous_packed"
+      ]
+    },
+    {
+      "path": "translations/param_generous_unpacked.v",
+      "sha256": "3565ded48413f759cacb834f2ecdce7bef6168f39221a32b408e43571a843a17",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.param_generous_unpacked"
+      ]
+    },
+    {
+      "path": "translations/param_original.v",
+      "sha256": "87ce48f702927824f7784983f530548a7429aa8c77583fbb99140fa8ed2ce02f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.param_original"
+      ]
+    },
+    {
+      "path": "translations/sigma.v",
+      "sha256": "f7a671bb8ab9363aaf2887af8e41fce073fb53cf6befc1ec07eeead84bbdb94d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.sigma"
+      ]
+    },
+    {
+      "path": "translations/standard_model.v",
+      "sha256": "96c2f32cf29e56b1e5ce71bc54ab1c66e7e8c840b308d04324761333648bc6a6",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.standard_model"
+      ]
+    },
+    {
+      "path": "translations/times_bool_fun.v",
+      "sha256": "c2588c11d6dfef8ec1d3f947fd46d61c9fe1a0d68506c3659c2f4b47f3b57d21",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.times_bool_fun"
+      ]
+    },
+    {
+      "path": "translations/times_bool_fun2.v",
+      "sha256": "0b5e65bc89bef93c060f797abfd041586c9b622aa1a435bf9539f35c16324cfb",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.times_bool_fun2"
+      ]
+    },
+    {
+      "path": "translations/translation_utils.v",
+      "sha256": "8dd0b4be9e8c8ac40e90fd45a5210c4708f45dfc3457e9d7ec7229d16adf0958",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Translations.translation_utils"
+      ]
+    },
+    {
+      "path": "typed-equality.md",
+      "sha256": "4ed74841ec0d5382d896b2f57badf73fcdf982d28e0416fd12b4bababb2ab7f9",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "utils/Makefile",
+      "sha256": "eec2b848609a11f1c5254e1b7a46e6d9437e2e4bb922d8145088c01989f3292b",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "utils/_RocqProject",
+      "sha256": "566fd730a5c6bf66e48dfb4aa19e41b2bc9ccf6e60a905461c8b0bfa5586d250",
+      "kind": "build-doc-or-asset",
+      "modules": []
+    },
+    {
+      "path": "utils/theories/All_Forall.v",
+      "sha256": "f1ab951231185bd2c92a2a11727aaa2742eeb00a6006b8139e8f2d2dbd88d378",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.All_Forall"
+      ]
+    },
+    {
+      "path": "utils/theories/ByteCompare.v",
+      "sha256": "731ee7cfe9164f4947f1b79ae041091af5a3608d5be2badce827c3c18a5faa52",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.ByteCompare"
+      ]
+    },
+    {
+      "path": "utils/theories/ByteCompareSpec.v",
+      "sha256": "9b35637c2cbd10baeab04ab21854f6734dea3bf212f92b566e64fbcd8b96dcc2",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.ByteCompareSpec"
+      ]
+    },
+    {
+      "path": "utils/theories/ByteCompare_opt.v",
+      "sha256": "1e34640ce645a9cb609e6b9b93db17e42681926fb48aadc24b2ed60ca59bcfd7",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.ByteCompare_opt"
+      ]
+    },
+    {
+      "path": "utils/theories/LibHypsNaming.v",
+      "sha256": "173b2a22a7f4eb75f311ebd2ad23751db7aa8088d2d463b5374ebf1f4aac520d",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.LibHypsNaming"
+      ]
+    },
+    {
+      "path": "utils/theories/MRArith.v",
+      "sha256": "8fd1cc7ce2ccd5a963b4120d7f2a428a92830a8f91cbfda49b3ce4505bacc048",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRArith"
+      ]
+    },
+    {
+      "path": "utils/theories/MRCompare.v",
+      "sha256": "a2e5c174470fa1de9ec2d580e31b33750ae03f704cb9a925d92a4361a5cd7389",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRCompare"
+      ]
+    },
+    {
+      "path": "utils/theories/MREquality.v",
+      "sha256": "6e16c95bbf4cce1dec540df8e280c7017279bc4ef5dbf52778a8e16a2838a877",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MREquality"
+      ]
+    },
+    {
+      "path": "utils/theories/MRFSets.v",
+      "sha256": "3cf5a0cab271197a3dd42a1e5d64b65e5fa3bd0d02146b21ee29fccad7346a7b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRFSets"
+      ]
+    },
+    {
+      "path": "utils/theories/MRList.v",
+      "sha256": "3c2701ddb44f46b4dd2e52179696136adfbcdc1144cba25bf87ab660300ffadf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRList"
+      ]
+    },
+    {
+      "path": "utils/theories/MRListable.v",
+      "sha256": "3f742611371dce2759dbf553c32a72c8299e83911914ff581e3b916f69377796",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRListable"
+      ]
+    },
+    {
+      "path": "utils/theories/MRMSets.v",
+      "sha256": "b395d4adeda7ffcc748558c6deefe7cd173018e9ab04718018c7332c3cf61963",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRMSets"
+      ]
+    },
+    {
+      "path": "utils/theories/MROption.v",
+      "sha256": "b5b62a82831488d0db8f2759b507f8cc5c2a839d7e54e50a26d979665036860f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MROption"
+      ]
+    },
+    {
+      "path": "utils/theories/MRPred.v",
+      "sha256": "58a9bd4b293a2317bcfff87f148443ebe613da1c2c8fa5cc9bfa9b226c510da3",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRPred"
+      ]
+    },
+    {
+      "path": "utils/theories/MRPrelude.v",
+      "sha256": "4cb144bf4bbfe2dab239900152c09d7d9b0e1a122866c55b5bfe4d4f8d580306",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRPrelude"
+      ]
+    },
+    {
+      "path": "utils/theories/MRProd.v",
+      "sha256": "e5fa32c928815faec8bdc9a14f020ff9070120fe75ad9a81bd859b5068c7c95e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRProd"
+      ]
+    },
+    {
+      "path": "utils/theories/MRReflect.v",
+      "sha256": "c9f78364c1d5709bd4a22ac3226bf1c1314aebf2a21b86dcf5936856f3c6aa4c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRReflect"
+      ]
+    },
+    {
+      "path": "utils/theories/MRRelations.v",
+      "sha256": "ae1feece8f590d2df4bb9249044356bf08f291e28c4439b14762de78ed182795",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRRelations"
+      ]
+    },
+    {
+      "path": "utils/theories/MRSquash.v",
+      "sha256": "9a063934a390ca24f468da3ee72ecc7fa915c7f3206d6120918a1065a72f83e5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRSquash"
+      ]
+    },
+    {
+      "path": "utils/theories/MRString.v",
+      "sha256": "5c373c040105dc4352467f37fc4fa3bfa82ee54560c2a85253058aa5b9226662",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRString"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/DestructHead.v",
+      "sha256": "09bf2feac470b61b90e76b44b0898b424ea198153cee7ef7c7aad7e7feac994c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.DestructHead"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/DestructHyps.v",
+      "sha256": "2796bb37cb267c5666519ce14a6075f31d47b02624fe00a67c3c8372ee475b00",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.DestructHyps"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/FindHyp.v",
+      "sha256": "d6db501b3a83bdc2953563facffad86252a945f224886efe8471973228abb433",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.FindHyp"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/GeneralizeOverHoles.v",
+      "sha256": "7d079d2d5dd7df88fcffba105c9cf52603ed124e04df2a8913b6764a51ac4fe5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.GeneralizeOverHoles"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/Head.v",
+      "sha256": "58128db07f45ab96ed67cee621f58f3b2886eb756ec61ab9f59aec79406586ae",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.Head"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/InHypUnderBindersDo.v",
+      "sha256": "0ca79f2f0b5293d353f610650412ea8c0118ce4f6c1bde5c03251f07af59ee5b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.InHypUnderBindersDo"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/SpecializeAllWays.v",
+      "sha256": "42641d14e3e21b5403ba7b1e8d0a7925383ac0fa4627619a2339bdcefd09a493",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.SpecializeAllWays"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/SpecializeBy.v",
+      "sha256": "099600ff24201094cb9ee8d8583219dc1e89e3b9b1c5e8a847b1c9b64b934b14",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.SpecializeBy"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/SpecializeUnderBindersBy.v",
+      "sha256": "c8a421c990c4e21f67818b7fc512fc642d6e5482bef299f32a4687d0aa8c19d5",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.SpecializeUnderBindersBy"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/SplitInContext.v",
+      "sha256": "6d1d17ef3386422920524ac62765e57c188495156e5ab7905cfec2b5a2c724b8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.SplitInContext"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/UniquePose.v",
+      "sha256": "d787dab01598f4c360ffcb05e40a313ab05410cda77389768a29c8478cf15c8b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.UniquePose"
+      ]
+    },
+    {
+      "path": "utils/theories/MRTactics/Zeta1.v",
+      "sha256": "e6ab445424d9700d291b739c8055966bc98cdc28d07194e133a287fd5fadf008",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRTactics.Zeta1"
+      ]
+    },
+    {
+      "path": "utils/theories/MRUtils.v",
+      "sha256": "f69daca535f43319e10f81abfff79e759485c122f12f139a1932ecca28b584df",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MRUtils"
+      ]
+    },
+    {
+      "path": "utils/theories/MR_ExtrOCamlInt63.v",
+      "sha256": "09f5e26ec566ac4c6f95306f968e1b57f1b695095fee6892dca9b3df25b820f4",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MR_ExtrOCamlInt63"
+      ]
+    },
+    {
+      "path": "utils/theories/MR_ExtrOCamlNatInt.v",
+      "sha256": "2565b46e0dd1c36813ea160309d52afc3918a9bc129b7c1cf9e61bf012d67e56",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MR_ExtrOCamlNatInt"
+      ]
+    },
+    {
+      "path": "utils/theories/MR_ExtrOCamlZPosInt.v",
+      "sha256": "7c6b3c3bddfcab28b9f24ea13489ab9767851c6e26b2ea3bd00fd0273d97374c",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.MR_ExtrOCamlZPosInt"
+      ]
+    },
+    {
+      "path": "utils/theories/ReflectEq.v",
+      "sha256": "078bbcc300d581467e579b017af18d0b5a6842dbc8713d59ac619f5060fec187",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.ReflectEq"
+      ]
+    },
+    {
+      "path": "utils/theories/ResultMonad.v",
+      "sha256": "380983db22ddec727e502594467599bdcabf9e21781dc972c148c8b52a188e1f",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.ResultMonad"
+      ]
+    },
+    {
+      "path": "utils/theories/Show.v",
+      "sha256": "7a915b60edf5adbda1dff44713f2c4587834e4f1474e448936db8152e76baedf",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.Show"
+      ]
+    },
+    {
+      "path": "utils/theories/bytestring.v",
+      "sha256": "8b27b1670ea1f67dbe518252781c5d65c1228055aa8a51296ced0f2489c27e78",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.bytestring"
+      ]
+    },
+    {
+      "path": "utils/theories/canonicaltries/CanonicalTries.v",
+      "sha256": "645d855b2d2f8464b6207a772edb2e143496949f4d79f907d831ce64f79f8965",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.canonicaltries.CanonicalTries"
+      ]
+    },
+    {
+      "path": "utils/theories/canonicaltries/String2pos.v",
+      "sha256": "0909172a69222f71f1f68c33d3f410771d62fb092c54e45f49a408cd9f605432",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.canonicaltries.String2pos"
+      ]
+    },
+    {
+      "path": "utils/theories/monad_utils.v",
+      "sha256": "10a30cdb011d849c59fdf5aec6a5cbff327b33843f71b1471b62403edd1d811b",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.monad_utils"
+      ]
+    },
+    {
+      "path": "utils/theories/utils.v",
+      "sha256": "040d842b4418aee2533f209a803c82f4fa6e0be555f66763ba1a8348dba0cd7e",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.utils"
+      ]
+    },
+    {
+      "path": "utils/theories/wGraph.v",
+      "sha256": "93f287c633680820a1772e7b81629ee3ceeb89d037ff3d1b514a798196a7e1e8",
+      "kind": "rocq-module",
+      "modules": [
+        "MetaRocq.Utils.wGraph"
+      ]
+    }
+  ],
+  "claim": "Complete tracked-file inventory at the pinned commit; NOT complete quotation, extraction, or semantic coverage.",
+  "boundaries": [
+    "Rocq modules may also contain Ltac, notations, commands and functors: quoting their declarations does not port those facilities.",
+    "Module snapshots need explicit dependency-closure, universe/axiom inventories and independent checking.",
+    "OCaml plugin code and build assets require separate porting/semantics; none is counted as Rust by inventory membership."
+  ]
+}

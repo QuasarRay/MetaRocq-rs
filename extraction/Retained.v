@@ -6,7 +6,7 @@ Import MonadNotation.
 
 (* mkApps_tApp is an ORIGINAL opaque Qed proof, not a replacement theorem.
    true requests opaque dependency bodies as well as transparent definitions. *)
-MetaRocq Run (p <- tmQuoteRecTransp PCUICAstUtils.mkApps_tApp true;;
+MetaRocq Run (p <- tmQuoteRecTransp (@PCUICAstUtils.mkApps_tApp) true;;
               tmDefinition "retained_program" p).
 
 Example opaque_root_body_is_present :

@@ -1,0 +1,19 @@
+{
+  "base": "main",
+  "branch": "metarocq/03-resumable-extraction",
+  "evidence": null,
+  "evidence_digest": null,
+  "extraction": null,
+  "extraction_attempts": [],
+  "extraction_digest": null,
+  "extraction_status": "UNOBSERVED",
+  "head": "40fb1446f9c5ffe56063745429e322eee60505c0",
+  "plan_digest": "858f71283f6ebace71db3a9869862ed5899ac92d92438ae00713edfad7177c56",
+  "pr": 4,
+  "repository": "QuasarRay/MetaRocq-rs",
+  "statuses": [
+    "UNVERIFIED"
+  ],
+  "task": "additive-proof-retention",
+  "url": "https://github.com/QuasarRay/MetaRocq-rs/pull/4"
+}

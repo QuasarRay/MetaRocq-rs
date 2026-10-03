@@ -17,3 +17,4 @@ jobs:
       - run: python3 -B tools/bootstrap.py sources
       - run: python3 -B tools/sync_instructions.py --check
       - run: python3 -B tools/bootstrap.py check
+      - run: python3 -B tools/retention_inventory.py --check

@@ -1,5 +1,6 @@
 (* Additive reflection: no original MetaRocq definition is changed. *)
 From MetaRocq.Template Require Import All.
+From Stdlib Require Import List.
 Import MonadNotation ListNotations.
 Local Open Scope bs_scope.
 

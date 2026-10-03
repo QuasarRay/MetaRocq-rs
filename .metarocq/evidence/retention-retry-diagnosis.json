@@ -1,0 +1,8 @@
+{
+  "run": 37114477253,
+  "head": "40fb1446f9c5ffe56063745429e322eee60505c0",
+  "artifact": 11270913623,
+  "archive_sha256": "173deb1a8b497416d45e59f7c5481944bfc44729922129283cca695db61f7a4c",
+  "diagnosis": "Retention.v imported ListNotations without importing Stdlib.List; Rocq stopped before any quotation or extraction.",
+  "correction": "Explicitly import Stdlib.List; no original MetaRocq files modified."
+}
