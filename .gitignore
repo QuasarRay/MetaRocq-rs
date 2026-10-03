@@ -1,0 +1,14 @@
+.aegis/
+target/
+__pycache__/
+*.pyc
+*.vo
+*.vos
+*.vok
+*.glob
+.*.aux
+formal/hol4/.hol/
+formal/hol4/*Theory.sml
+formal/hol4/*Theory.sig
+formal/hol4/*.uo
+formal/hol4/*.ui

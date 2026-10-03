@@ -1,0 +1,160 @@
+{
+  "claim": "candidate source generation only; Rust backend, printer and semantic correspondence are unverified",
+  "driver_sha256": "e7c3e28025add1ae2d51cc438b599f079ad2f45e14573e5eac5fc3da91696967",
+  "executions": [],
+  "framework": "b917708d2bb96c8c12375381cf3bbd30b24044f34ef1628b5ef7656f4bbd3119",
+  "installation_provenance": "Installed Rocq libraries must be independently tied to the pinned sources; executable hashes alone do not establish this.",
+  "originals": {
+    "repositories": {
+      "metarocq": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "peregrine": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "specifications": {
+      "pcuic/theories/PCUICAst.v": {
+        "git_blob": "37d32c787e198eb17c98956216c6ce59ea6abc2e",
+        "path": "pcuic/theories/PCUICAst.v",
+        "repository": "metarocq",
+        "sha256": "13d4957b2cf06a3107169a74c523cbc9c9fd983b1cd187029009f0df8ce85500"
+      }
+    }
+  },
+  "outputs": {},
+  "plan_digest": "a9f32444f8de0360ce3dd3e2cd0a9ddf7c2ee6d88c03e2924e60f7243074dcfc",
+  "reason": "required extraction tool unavailable: rocq",
+  "schema": 1,
+  "source": {
+    "digest": "8cc704064910568da098340ad6559f0be57317d79f42fc061e9842f805ade4de",
+    "entries": {
+      ".github/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".github/workflows/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".github/workflows/extraction.yml": {
+        "executable": false,
+        "sha256": "3656e1effef09e2592b3695c03d748ebe7bc57f377c0b578c6f8172fcedc0249"
+      },
+      ".github/workflows/supervision.yml": {
+        "executable": false,
+        "sha256": "005f117217d911f81e915c8a0800d08a56cbc7ceb81729e0d8ebb89f507ba757"
+      },
+      ".gitignore": {
+        "executable": false,
+        "sha256": "9ef8c3876cf818f89dddde2f47ede37832873fc8008944e8b2c25010685696d6"
+      },
+      ".metarocq/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      ".metarocq/plan.json": {
+        "executable": false,
+        "sha256": "c4c3a5f3d46dafc82d9d19b041bffaea79f249321ebab25eced062907a23305b"
+      },
+      "AGENTS.MD": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "Cargo.toml": {
+        "executable": false,
+        "sha256": "8a2f62f3d22a6846b68040ff2d2dc1430f95ab39afc8821731495ffbbdfdeac3"
+      },
+      "LICENSE.MD": {
+        "executable": false,
+        "sha256": "6f954aa3706fc91f4c8f46d531165051fe647d6515b47c0d6b23e8d8dc8616ea"
+      },
+      "README.md": {
+        "executable": false,
+        "sha256": "b7c228cb5d10b0f19c38637c593a7d4417f8ecf31a5690c467d275fffb22dc55"
+      },
+      "docs/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "docs/adr/0001-extraction-boundary.md": {
+        "executable": false,
+        "sha256": "cb763fad8d89d93a0d332fa1d4312b7cdef5469a6b9b6e103d62ac6e0aa0b3ae"
+      },
+      "docs/adr/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "extraction/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "extraction/Bootstrap.v": {
+        "executable": false,
+        "sha256": "e7c3e28025add1ae2d51cc438b599f079ad2f45e14573e5eac5fc3da91696967"
+      },
+      "formal/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "formal/hol4/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "formal/hol4/Holmakefile": {
+        "executable": false,
+        "sha256": "581a2593de45ad897bec1c8600b6d8592f9f0caef647455ad71443fef8cf87c7"
+      },
+      "formal/hol4/MetaRocqBootstrapScript.sml": {
+        "executable": false,
+        "sha256": "43cd7de14b061aca7cc71e9447f39d8a3765345ad1b2fe153941d5377cb88304"
+      },
+      "formal/hol4/README.md": {
+        "executable": false,
+        "sha256": "d0ec2866102fb69eb3781495c2b25cae28b92e837fa4bd9a1c0c8020c769d01f"
+      },
+      "generated/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "generated/README.md": {
+        "executable": false,
+        "sha256": "217e0f838efee7fd66c1c8ea3b30550e7c07e80816c722cd79d08641f84dacb6"
+      },
+      "spec/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "spec/README.md": {
+        "executable": false,
+        "sha256": "c23fa9bf71e3bc6a2caa234be0b3ae1ee74fa8ae7af2667aa208b9f672539dc5"
+      },
+      "spec/obligations.json": {
+        "executable": false,
+        "sha256": "a595dc44fb3dba86b2e8452415235661d11fdf2b2b38d10b6546f994e280ba74"
+      },
+      "spec/toolchain.lock.json": {
+        "executable": false,
+        "sha256": "17b66251abf322d87a18a02d145a04fc9334fc6fe1eb96202f4a4e05a597d382"
+      },
+      "spec/upstream.lock.json": {
+        "executable": false,
+        "sha256": "1f774f80fa5c1d000e0afe59d23f08ebf44c2fa4e0193a1a87d59890e3bbaa97"
+      },
+      "tools/AGENTS.md": {
+        "executable": false,
+        "sha256": "073599c5460868c1d68c693c379eb75af8df70fe49cbbf0ff10f97569a8b94da"
+      },
+      "tools/bootstrap.py": {
+        "executable": false,
+        "sha256": "e2f0d89fa98908a31e53a669a1619754620ec6c15a877aa4ce7715c4ac6e1fdd"
+      },
+      "tools/sync_instructions.py": {
+        "executable": false,
+        "sha256": "25ddb15f35fd88278166f944c82a81b2d768672b80d9e391e948ec36b4472536"
+      }
+    }
+  },
+  "status": "BLOCKED",
+  "task": "bootstrap-pcuic-isapp"
+}

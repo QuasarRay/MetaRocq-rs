@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "claim": "planning ledger only; statuses are not authenticated proof evidence",
+  "obligations": [
+    {
+      "id": "full-metarocq-coverage",
+      "status": "OPEN",
+      "required_evidence": "Coverage and extraction of Template-Rocq, PCUIC, safe checker, erasure, quotation and plugin integration; the isApp probe covers only one predicate."
+    },
+    {
+      "id": "source-installation-provenance",
+      "status": "OPEN",
+      "required_evidence": "Rebuild Rocq libraries from exact original source and preserve dependency/tool identities."
+    },
+    {
+      "id": "typed-extraction",
+      "status": "OPEN",
+      "required_evidence": "Successful typed frontend and Rust generation, then compile the actual output."
+    },
+    {
+      "id": "kani-regressions",
+      "status": "OPEN",
+      "required_evidence": "Actual Kani harnesses on the generated API; preserve counterexamples and explicit bounds."
+    },
+    {
+      "id": "original-specification-interpretation",
+      "status": "OPEN",
+      "required_evidence": "A proved interpretation of original Rocq/PCUIC declarations in HOL4, including universes and assumptions."
+    },
+    {
+      "id": "rust-semantics",
+      "status": "OPEN",
+      "required_evidence": "Qualify Aeneas/Charon or another explicit Rust semantics bridge; model allocator, primitives and failure behavior."
+    },
+    {
+      "id": "source-refinement",
+      "status": "OPEN",
+      "required_evidence": "HOL4-replayed theorem relating the actual generated Rust to the original MetaRocq contract."
+    },
+    {
+      "id": "macro-certificates",
+      "status": "OPEN",
+      "required_evidence": "Bind specification, input AST, expanded Rust, generator, dependencies and checker identities in independently checked certificates."
+    },
+    {
+      "id": "self-hosted-checker",
+      "status": "OPEN",
+      "required_evidence": "Extract and verify the checking implementation; preserve an independent bootstrap checker/root of trust."
+    },
+    {
+      "id": "machine-code",
+      "status": "OPEN",
+      "required_evidence": "State and prove the compiler, runtime, linking and ISA refinement chain for an exact binary."
+    }
+  ]
+}
