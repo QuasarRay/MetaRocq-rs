@@ -1,5 +1,7 @@
 # Bootstrap observation — 2026-10-03
 
+Historical record of PR #1. Current observations are in [STATUS.md](STATUS.md).
+
 The target initially contained only AGENTS.MD and LICENSE.MD. This checkpoint adds
 supervision and an executable extraction recipe; it does not contain a Rust checker.
 

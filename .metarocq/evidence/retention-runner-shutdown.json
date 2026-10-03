@@ -1,0 +1,11 @@
+{
+  "run": 37115936737,
+  "head": "a989046b6675904fe860236a5a68191d9af7bb11",
+  "jobs": [
+    111182653415,
+    111183162044
+  ],
+  "result": "Runner shutdown / exit 143 in both attempts; no extraction artifact was uploaded.",
+  "diagnosis": "Cause is not established by these logs. Repeated shutdown during extraction motivates separating quotation and extraction processes and limiting virtual memory so resource exhaustion can be recorded.",
+  "claim": "No retained output or kernel-check success is inferred from these interrupted runs."
+}

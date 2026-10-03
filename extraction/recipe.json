@@ -1,8 +1,15 @@
 {
   "schema": 1,
   "driver": "extraction/Retained.v",
-  "support": ["extraction/Retention.v"],
+  "support": [
+    "extraction/Retention.v",
+    "extraction/RetainedQuote.v"
+  ],
   "units": [
-    {"stem": "retained", "ast": "generated/retained.ast", "rust": "generated/retained.rs"}
+    {
+      "stem": "retained",
+      "ast": "generated/retained.ast",
+      "rust": "generated/retained.rs"
+    }
   ]
 }

@@ -83,8 +83,12 @@ jobs:
       - name: Retain an original opaque proof as typed AST data
         id: extract
         run: |
+          # Record a process failure before an unbounded allocation takes down
+          # the runner and prevents evidence upload. Limit inherited by Rocq.
+          ulimit -v 3145728
+          echo "Extraction virtual-memory limit: $(ulimit -v) KiB"
           opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py bind
-          opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
+          /usr/bin/time -v opam exec --switch .aegis/opam -- python3 -B tools/bootstrap.py extract --timeout 600
       - name: Compile the generated candidate
         id: compile
         run: |

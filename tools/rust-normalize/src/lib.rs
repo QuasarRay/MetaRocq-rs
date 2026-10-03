@@ -65,6 +65,26 @@ pub fn normalize(source: &str) -> Result<String, syn::Error> {
 mod tests {
     use super::*;
     #[test]
+    fn recovered_peregrine_function_bodies_are_unchanged() {
+        let raw = include_str!("../../../generated/pcuic_isapp.rs");
+        let canonical = prettyplease::unparse(&syn::parse_file(raw).unwrap());
+        let before = syn::parse_file(&canonical).unwrap();
+        let after = syn::parse_file(&normalize(raw).unwrap()).unwrap();
+        let bodies = |file: syn::File| {
+            file.items.into_iter().flat_map(|item| match item {
+                Item::Fn(f) => vec![(f.sig.ident, *f.block)],
+                Item::Impl(i) => i.items.into_iter().filter_map(|member| match member {
+                    syn::ImplItem::Fn(f) => Some((f.sig.ident, f.block)),
+                    _ => None,
+                }).collect(),
+                _ => vec![],
+            }).collect::<Vec<_>>()
+        };
+        let original_bodies = bodies(before);
+        assert!(!original_bodies.is_empty());
+        assert_eq!(original_bodies, bodies(after));
+    }
+    #[test]
     fn program_expressions_survive_normalization() {
         let src = "impl<'a> Program { fn probe(&'a self, n: u8) -> bool { match n { 7 => true, _ => false } } }";
         // Canonicalize optional trailing punctuation before AST equality.
