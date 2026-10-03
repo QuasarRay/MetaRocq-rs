@@ -59,6 +59,10 @@ jobs:
           restore-keys: ${{ steps.identity.outputs.key }}-partial-
       - name: Reconcile pinned Rocq and Peregrine installation
         id: install
+        env:
+          # The installer explicitly synchronizes each source pin first.
+          # Avoid a second update of dev pins during opam install.
+          OPAMSKIPUPDATE: 'true'
         run: bash tools/install_extraction.sh
       - name: Preserve completed dependency build before extraction
         if: steps.install.outcome == 'success' && steps.cache.outputs.cache-hit != 'true'

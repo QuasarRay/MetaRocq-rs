@@ -3,6 +3,7 @@ From MetaRocq.PCUIC Require Import PCUICAstUtils.
 From Peregrine.Plugin Require Import Loader.
 Require Import Retention.
 Import MonadNotation.
+Local Open Scope bs_scope.
 
 (* mkApps_tApp is an ORIGINAL opaque Qed proof, not a replacement theorem.
    true requests opaque dependency bodies as well as transparent definitions. *)

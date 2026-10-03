@@ -1,0 +1,9 @@
+{
+  "run": 37115464561,
+  "head": "8f9a7fa1be620ee1f0b34a5a6680066cd67c3f40",
+  "artifact": 11270728793,
+  "archive_sha256": "0462f5ba5549fe0350a1ff1d88ff6de3775fbea5c81a247774ad7a5dc8412597",
+  "diagnosis": "Retention.v compiled; Retained.v failed because the byte-string notation scope was not open for the tmDefinition name.",
+  "correction": "Open bs_scope in the additive driver and generated module drivers. No upstream file changed.",
+  "preservation": "All prior attempts remain in evidence and Git history."
+}

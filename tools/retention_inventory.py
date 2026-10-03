@@ -62,6 +62,7 @@ From MetaRocq.Template Require Import All.
 From Peregrine.Plugin Require Import Loader.
 Require Import Retention {module}.
 Import MonadNotation.
+Local Open Scope bs_scope.
 MetaRocq Run (snapshot <- retain_module "{module}"%bs;;
               tmDefinition "retained_module_data" snapshot).
 Peregrine Extract Typed "module_snapshot.ast" retained_module_data.
