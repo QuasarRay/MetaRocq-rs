@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "claim": "translation source and adapter identity; not a semantic-equivalence certificate",
+  "repositories": {
+    "hol4": {
+      "repository": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+      "role": "source theorem prover and official OpenTheory proof exporter"
+    },
+    "holide": {
+      "repository": "https://github.com/Deducteam/Holide.git",
+      "commit": "36c373f78d66e6f8f5b2d1efe95a1a240ba8c8ad",
+      "role": "OpenTheory article to Dedukti proof translation"
+    },
+    "lambdapi": {
+      "repository": "https://github.com/Deducteam/lambdapi.git",
+      "commit": "22991e35a784e4fb3ac48f276fc769efd2e20619",
+      "role": "Dedukti checker and upstream Holide/STT-to-Rocq exporter"
+    },
+    "hol2dk": {
+      "repository": "https://github.com/Deducteam/hol2dk.git",
+      "commit": "986fe97cf1129cccfdddf765ed764adcb4ed7dce",
+      "role": "reference/reuse source for the production HOL-to-Rocq translation architecture"
+    },
+    "coq_hol_light": {
+      "repository": "https://github.com/Deducteam/coq-hol-light.git",
+      "commit": "253961a55312e51e0ab4177121ca10cb533638ae",
+      "role": "Rocq-side HOL mapping/alignment catalog and large-scale translation precedent"
+    },
+    "metarocq": {
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "role": "final quotation of kernel-checked Rocq objects into PCUIC"
+    }
+  },
+  "bound_files": {
+    "hol4:src/opentheory/postbool/OpenTheoryIO.sml": "3000433b081d89b88496c6dd765d1ed374fa9380",
+    "holide:dedukti/hol.dk": "82cbe94d6d8b08eed91b44e848583e80db604730",
+    "lambdapi:libraries/encoding.lp": "f03e1bdbce2590a3cff7473a82715bdf050f7ef0",
+    "lambdapi:libraries/mapping.lp": "24c1e43b0b07337509e6859433456b1b65f80603",
+    "lambdapi:libraries/renaming.lp": "4892d50a9535e55d90eadd82aee13e88febbe30a",
+    "lambdapi:libraries/coq.v": "c09144ceaf03e77da54b4d7dba6e87b8d93ece22",
+    "lambdapi:libraries/dk2coq.mk": "887d6743806d9d4c5a65b5e784fc814d6383429f",
+    "lambdapi:libraries/dk2sttcoq.sh": "f31fcece54a9c64a98254256a6b7e4b05da75204",
+    "coq_hol_light:mappings.lp": "f63dca005fb32a95218a3c84ba9d4ddee1d246d0",
+    "coq_hol_light:mappings.v": "5ebf9280b4074faafc9ad05d67d31ebabc72732d"
+  },
+  "trust_policy": {
+    "source": "HOL4 theorem objects must be exported by the official pinned OpenTheory logger from a clean pinned HOL4 checkout.",
+    "intermediate": "Holide output is never trusted by exit status alone; the resulting Dedukti terms must be checked independently by pinned Lambdapi before export.",
+    "rocq": "Every generated Rocq file must be accepted by the Rocq kernel. Generated theorem modules containing Admitted/admit are rejected.",
+    "coq_hol_light": "The packaged coq-hol-light theorem database is not proof evidence because its fast-load theorems are distributed as axioms. Only pinned mapping sources/conventions are reusable automatically, and mapping assumptions must remain explicit.",
+    "pcuic": "Only kernel-checked Rocq declarations are passed to the pinned MetaRocq PCUIC quotation API.",
+    "fail_closed": "Unmapped symbols, dirty or wrong revisions, missing independent checks, generated admits, or tool identity mismatches block publication."
+  }
+}
