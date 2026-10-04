@@ -1,0 +1,374 @@
+SUCCESS: stage 01
+From https://github.com/MetaRocq/metarocq
+ * branch            7197056adbb9c15288b4c8d43407bf25786f723e -> FETCH_HEAD
+HEAD is now at 7197056 Merge pull request #1248 from mattam82/fix-template-plugin-mlpack
+From https://github.com/peregrine-project/peregrine-tool
+ * branch            d768b83ffa7dab35b8d72241f0570b5bb6aedae9 -> FETCH_HEAD
+HEAD is now at d768b83 Merge pull request #73 from peregrine-project/dependabot/github_actions/haskell-actions/setup-2.12.0
+From https://github.com/peregrine-project/cakeml-backend
+ * branch            cc20d1a2986bd2fec7c6eb0864c8c9a806188b58 -> FETCH_HEAD
+HEAD is now at cc20d1a Merge pull request #6 from peregrine-project/serializer
+From https://github.com/CakeML/cakeml
+ * branch            c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9 -> FETCH_HEAD
+HEAD is now at c98da7f Adds simple optimization of store reads/writes in wordLang (#1327)
+From https://github.com/HOL-Theorem-Prover/HOL
+ * branch            40dd5b03de658f4bd9e3f4225fb0f1602ac90467 -> FETCH_HEAD
+HEAD is now at 40dd5b0 [DESCRIPTION] Fix a markdown infelicity that messed up a paragraph
+From https://github.com/QuasarRay/kontroli-rs
+ * branch            966cfc3069aab378d10ae567da4ff41c2da95c65 -> FETCH_HEAD
+HEAD is now at 966cfc3 Merge pull request #44 from QuasarRay/proof/35-aeneas-symbol-manifest
+{
+  "status": "SOURCES_MATCH",
+  "repositories": {
+    "metarocq": "7197056adbb9c15288b4c8d43407bf25786f723e",
+    "peregrine": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+    "cakeml-backend": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58",
+    "cakeml": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+    "hol4": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+    "aegis": "3ca3f2bb048b93d7b2399c17af083e30338465e9",
+    "kontroli": "966cfc3069aab378d10ae567da4ff41c2da95c65"
+  },
+  "claim": "source identity only; no extraction or proof run"
+}
+Peregrine selfhost source/provenance contract: PASS
+Semantic publication remains BLOCKED until HOL4 obligations are actually proved.
+SUCCESS: stage 02
+No matching prebuilt Rocq/MetaRocq/Peregrine toolchain found; rebuilding exact pins.
+No configuration file found, using built-in defaults.
+Checking for available remotes: rsync and local, git, mercurial, darcs. Perfect!
+
+<><> Fetching repository information ><><><><><><><><><><><><><><><><><><><><><>
+[default] Initialised
+default (at https://opam.ocaml.org): 
+    [INFO] opam is out-of-date. Please consider updating (https://opam.ocaml.org/doc/Install.html)
+
+default (at https://opam.ocaml.org): 
+    [INFO] please ensure to have GNU patch installed as `patch`. Otherwise update may fail silently (since it can't remove files).
+
+default (at https://opam.ocaml.org): 
+    [WARNING] opam >= 2.5.2 includes important security fixes; please consider upgrading (https://opam.ocaml.org/doc/Install.html)
+
+
+<><> Required setup - please read <><><><><><><><><><><><><><><><><><><><><><><>
+
+  In normal operation, opam only alters files within ~/.opam.
+
+  However, to best integrate with your system, some environment variables
+  should be set. If you allow it to, this initialisation step will update
+  your bash configuration by adding the following line to ~/.bash_profile:
+
+    test -r /home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam-root/opam-init/init.sh && . /home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam-root/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+  Otherwise, every time you want to access your opam installation, you will
+  need to run:
+
+    eval $(opam env)
+
+  You can always re-run this setup with 'opam init' later.
+
+[WARNING] Shell not updated in non-interactive mode: use --shell-setup
+
+<><> Installing new switch packages <><><><><><><><><><><><><><><><><><><><><><>
+Switch invariant: ["ocaml-base-compiler" {= "4.14.2"}]
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed base-bigarray.base
+∗ installed base-threads.base
+∗ installed base-unix.base
+∗ installed ocaml-options-vanilla.1
+⬇ retrieved ocaml-config.2  (2 extra sources)
+⬇ retrieved ocaml-base-compiler.4.14.2  (https://opam.ocaml.org/cache)
+∗ installed ocaml-base-compiler.4.14.2
+∗ installed ocaml-config.2
+∗ installed ocaml.4.14.2
+Done.
+# Run eval $(opam env --switch=/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam) to update the current shell environment
+[rocq-released] Initialised
+[NOTE] Repository rocq-released has been added to the selections of switch /home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam only.
+       Run `opam repository add rocq-released --all-switches|--set-default' to use it in all existing switches, or in newly created switches, respectively.
+
+[rocq-metarocq-common.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-common is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-erasure-plugin.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-erasure-plugin is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-erasure.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-erasure is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-pcuic.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-pcuic is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-quotation.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-quotation is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-safechecker-plugin.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-safechecker-plugin is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-safechecker.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-safechecker is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-template-pcuic.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-template-pcuic is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-template.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-template is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-translations.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-translations is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+[rocq-metarocq-utils.1.5.1] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq)
+rocq-metarocq-utils is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD (version 1.5.1)
+Package rocq-peregrine does not exist, create as a NEW package? [Y/n] y
+[rocq-peregrine.~dev] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/peregrine)
+rocq-peregrine is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/peregrine#HEAD (version dev)
+
+<><> Synchronising pinned packages ><><><><><><><><><><><><><><><><><><><><><><>
+[rocq-peregrine.dev] synchronised (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/peregrine#HEAD)
+
+The following actions will be performed:
+  ∗ install conf-gmp                         5         [required by zarith]
+  ∗ install conf-pkg-config                  5         [required by zarith]
+  ∗ install ocamlfind                        1.9.8     [required by rocq-runtime, rocq-primitive]
+  ∗ install ocamlbuild                       0.16.1    [required by fmt, astring, logs]
+  ∗ install dune                             3.23.1    [required by rocq-core]
+  ∗ install conf-linux-libc-dev              0         [required by rocq-runtime]
+  ∗ install conf-clang                       2         [required by rocq-certirocq]
+  ∗ install cmdliner                         2.1.1     [required by rocq-peregrine]
+  ∗ install zarith                           1.14      [required by rocq-runtime]
+  ∗ install topkg                            1.1.1     [required by fmt, astring, logs]
+  ∗ install yojson                           3.0.0     [required by atdgen]
+  ∗ install stdlib-shims                     0.3.0     [required by rocq-certirocq]
+  ∗ install sexplib0                         v0.16.0   [required by base, ppxlib]
+  ∗ install rocq-primitive                   9.0.0     [required by rocq-peregrine]
+  ∗ install result                           1.5       [required by mdx]
+  ∗ install re                               1.14.0    [required by mdx]
+  ∗ install ppx_derivers                     1.2.1     [required by ppxlib, ppx_deriving]
+  ∗ install ocaml-version                    4.1.4     [required by mdx]
+  ∗ install ocaml-compiler-libs              v0.12.4   [required by ppxlib]
+  ∗ install menhirSdk                        20260209  [required by menhir]
+  ∗ install menhirLib                        20260209  [required by menhir]
+  ∗ install menhirGLR                        20260209  [required by menhir]
+  ∗ install menhirCST                        20260209  [required by menhir]
+  ∗ install linenoise                        1.5.1     [required by coq-wasm]
+  ∗ install easy-format                      1.3.4     [required by atd]
+  ∗ install csexp                            1.5.2     [required by mdx]
+  ∗ install cppo                             1.8.0     [required by malfunction]
+  ∗ install camlp-streams                    5.0.1     [required by mdx]
+  ∗ install rocq-runtime                     9.1.1     [required by rocq-core, rocq-stdlib]
+  ∗ install fmt                              0.11.0    [required by mdx]
+  ∗ install astring                          0.8.5     [required by mdx]
+  ∗ install ppxlib                           0.35.0    [required by ppx_optcomp, elpi]
+  ∗ install menhir                           20260209  [required by coq-compcert]
+  ∗ install dune-configurator                3.23.1    [required by base]
+  ∗ install malfunction                      0.7.1     [required by rocq-verified-extraction]
+  ∗ install biniou                           1.2.2     [required by atdgen]
+  ∗ install rocq-core                        9.1.1
+  ∗ install coqide-server                    9.1.1     [required by coq]
+  ∗ install coq-core                         9.1.1     [required by coq-flocq, coq, coq-mathcomp-ssreflect]
+  ∗ install logs                             0.10.0    [required by mdx]
+  ∗ install ppx_deriving                     6.0.3     [required by elpi]
+  ∗ install wasm                             2.0.2     [required by coq-wasm]
+  ∗ install atd                              4.2.0     [required by atdgen, atdts]
+  ∗ install base                             v0.16.5   [required by ppx_optcomp]
+  ∗ install atdgen-runtime                   4.2.0     [required by atdgen]
+  ∗ install rocq-stdlib                      9.0.0
+  ∗ install mdx                              2.7.0     [required by coq-wasm]
+  ∗ install atdts                            4.2.0     [required by elpi]
+  ∗ install stdio                            v0.16.0   [required by ppx_optcomp]
+  ∗ install atdgen                           4.2.0     [required by elpi]
+  ∗ install coq-stdlib                       9.0.0     [required by coq, coq-flocq]
+  ∗ install ppx_optcomp                      v0.16.0   [required by rocq-equations]
+  ∗ install coq                              9.1.1     [required by coq-compcert, rocq-ceres-bytestring, coq-wasm]
+  ∗ install rocq-equations                   1.3.1+9.1 [required by rocq-certirocq]
+  ∗ install elpi                             3.7.3     [required by rocq-mathcomp-ssreflect]
+  ∗ install coq-parseque                     0.2.2     [required by coq-wasm]
+  ∗ install coq-menhirlib                    20260209  [required by coq-compcert]
+  ∗ install coq-flocq                        4.2.2     [required by coq-compcert]
+  ∗ install coq-ext-lib                      0.13.2    [required by rocq-certirocq]
+  ∗ install rocq-elpi                        3.5.1     [required by rocq-hierarchy-builder]
+  ∗ install coq-compcert                     3.18      [required by rocq-certirocq]
+  ∗ install rocq-metarocq-utils              1.5.1*    [required by rocq-ceres-bytestring, rocq-typed-extraction-common]
+  ∗ install rocq-hierarchy-builder           1.10.3    [required by rocq-mathcomp-ssreflect]
+  ∗ install rocq-metarocq-common             1.5.1*    [required by rocq-typed-extraction-common]
+  ∗ install rocq-ceres-bytestring            1.0.0     [required by rocq-peregrine]
+  ∗ install rocq-mathcomp-ssreflect          2.4.0     [required by coq-mathcomp-ssreflect]
+  ∗ install rocq-metarocq-template           1.5.1*    [required by rocq-typed-extraction-common]
+  ∗ install rocq-metarocq-pcuic              1.5.1*    [required by rocq-typed-extraction-common]
+  ∗ install coq-mathcomp-ssreflect           2.4.0     [required by coq-wasm]
+  ∗ install rocq-metarocq-template-pcuic     1.5.1*    [required by rocq-metarocq-safechecker-plugin, rocq-metarocq-erasure-plugin, rocq-typed-extraction-common]
+  ∗ install rocq-metarocq-safechecker        1.5.1*    [required by rocq-metarocq-safechecker-plugin, rocq-typed-extraction-common]
+  ∗ install coq-wasm                         2.2.0     [required by rocq-certirocq]
+  ∗ install rocq-metarocq-safechecker-plugin 1.5.1*    [required by rocq-certirocq]
+  ∗ install rocq-metarocq-erasure            1.5.1*    [required by rocq-metarocq-erasure-plugin, rocq-typed-extraction-common]
+  ∗ install rocq-typed-extraction-common     0.2.1     [required by rocq-peregrine]
+  ∗ install rocq-metarocq-erasure-plugin     1.5.1*    [required by rocq-peregrine]
+  ∗ install rocq-rust-extraction             0.2.1     [required by rocq-peregrine]
+  ∗ install rocq-elm-extraction              0.2.1     [required by rocq-peregrine]
+  ∗ install rocq-verified-extraction         1.0.0+9.1 [required by rocq-peregrine]
+  ∗ install rocq-certirocq                   0.9.1+9.1 [required by rocq-peregrine]
+  ∗ install rocq-cakeml-extraction           0.1.0     [required by rocq-peregrine]
+  ∗ install rocq-peregrine                   dev*
+===== ∗ 82 =====
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+⬇ retrieved astring.0.8.5  (https://opam.ocaml.org/cache)
+⬇ retrieved atd.4.2.0  (https://opam.ocaml.org/cache)
+⬇ retrieved atdts.4.2.0  (cached)
+⬇ retrieved base.v0.16.5  (https://opam.ocaml.org/cache)
+⬇ retrieved atdgen.4.2.0  (https://opam.ocaml.org/cache)
+⬇ retrieved biniou.1.2.2  (https://opam.ocaml.org/cache)
+⬇ retrieved camlp-streams.5.0.1  (https://opam.ocaml.org/cache)
+⬇ retrieved conf-gmp.5  (https://opam.ocaml.org/cache)
+∗ installed conf-clang.2
+⬇ retrieved cmdliner.2.1.1  (https://opam.ocaml.org/cache)
+∗ installed conf-linux-libc-dev.0
+∗ installed conf-gmp.5
+⬇ retrieved atdgen-runtime.4.2.0  (https://opam.ocaml.org/cache)
+⬇ retrieved conf-pkg-config.5  (2 extra sources)
+∗ installed conf-pkg-config.5
+⬇ retrieved coq-compcert.3.18  (https://github.com/AbsInt/CompCert/archive/v3.18.tar.gz)
+⬇ retrieved coq-ext-lib.0.13.2  (https://github.com/coq-community/coq-ext-lib/archive/refs/tags/v0.13.2.tar.gz)
+⬇ retrieved coq-core.9.1.1  (https://opam.ocaml.org/cache)
+⬇ retrieved coq-flocq.4.2.2  (https://flocq.gitlabpages.inria.fr/releases/flocq-4.2.2.tar.gz)
+⬇ retrieved coq-mathcomp-ssreflect.2.4.0  (https://github.com/math-comp/math-comp/archive/mathcomp-2.4.0.tar.gz)
+∗ installed cmdliner.2.1.1
+⬇ retrieved coq-parseque.0.2.2  (https://github.com/coq-community/parseque/archive/refs/tags/v0.2.2.tar.gz)
+⬇ retrieved coq-wasm.2.2.0  (https://github.com/WasmCert/WasmCert-Coq/archive/refs/tags/v2.2.0.tar.gz)
+⬇ retrieved coqide-server.9.1.1  (cached)
+⬇ retrieved cppo.1.8.0  (https://opam.ocaml.org/cache)
+⬇ retrieved coq-menhirlib.20260209  (https://gitlab.inria.fr/fpottier/menhir/-/archive/20260209/archive.tar.gz)
+⬇ retrieved csexp.1.5.2  (https://opam.ocaml.org/cache)
+⬇ retrieved easy-format.1.3.4  (https://opam.ocaml.org/cache)
+⬇ retrieved dune.3.23.1  (https://opam.ocaml.org/cache)
+⬇ retrieved fmt.0.11.0  (https://opam.ocaml.org/cache)
+⬇ retrieved elpi.3.7.3  (https://opam.ocaml.org/cache)
+⬇ retrieved linenoise.1.5.1  (https://opam.ocaml.org/cache)
+⬇ retrieved logs.0.10.0  (https://opam.ocaml.org/cache)
+⬇ retrieved malfunction.0.7.1  (https://opam.ocaml.org/cache)
+⬇ retrieved menhir.20260209  (cached)
+⬇ retrieved menhirCST.20260209  (cached)
+⬇ retrieved menhirGLR.20260209  (cached)
+⬇ retrieved menhirLib.20260209  (cached)
+⬇ retrieved mdx.2.7.0  (https://opam.ocaml.org/cache)
+⬇ retrieved menhirSdk.20260209  (cached)
+⬇ retrieved dune-configurator.3.23.1  (https://opam.ocaml.org/cache)
+⬇ retrieved ocaml-compiler-libs.v0.12.4  (https://opam.ocaml.org/cache)
+⬇ retrieved ocaml-version.4.1.4  (https://opam.ocaml.org/cache)
+⬇ retrieved ppx_derivers.1.2.1  (https://opam.ocaml.org/cache)
+⬇ retrieved ocamlbuild.0.16.1  (https://opam.ocaml.org/cache)
+⬇ retrieved ocamlfind.1.9.8  (https://opam.ocaml.org/cache)
+⬇ retrieved ppx_deriving.6.0.3  (https://opam.ocaml.org/cache)
+⬇ retrieved ppx_optcomp.v0.16.0  (https://opam.ocaml.org/cache)
+⬇ retrieved ppxlib.0.35.0  (https://opam.ocaml.org/cache)
+⬇ retrieved result.1.5  (https://opam.ocaml.org/cache)
+⬇ retrieved re.1.14.0  (https://opam.ocaml.org/cache)
+⬇ retrieved rocq-ceres-bytestring.1.0.0  (https://github.com/peregrine-project/rocq-ceres-bytestring/releases/download/v1.0.0/rocq-ceres-bytestring-1.0.0.tar.gz)
+⬇ retrieved rocq-cakeml-extraction.0.1.0  (https://github.com/peregrine-project/cakeml-backend/archive/refs/tags/v0.1.0.tar.gz)
+⬇ retrieved rocq-core.9.1.1  (cached)
+⬇ retrieved rocq-certirocq.0.9.1+9.1  (https://github.com/CertiRocq/certirocq/archive/refs/tags/v0.9.1+9.1.tar.gz)
+⬇ retrieved rocq-elm-extraction.0.2.1  (https://github.com/peregrine-project/rocq-typed-extraction/archive/refs/tags/v0.2.1.tar.gz)
+⬇ retrieved rocq-elpi.3.5.1  (https://github.com/LPCIC/coq-elpi/releases/download/v3.5.1/rocq-elpi-3.5.1.tar.gz)
+⬇ retrieved rocq-hierarchy-builder.1.10.3  (https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.3/hierarchy-builder-1.10.3.tar.gz)
+⬇ retrieved rocq-mathcomp-ssreflect.2.4.0  (cached)
+⬇ retrieved rocq-equations.1.3.1+9.1  (https://github.com/mattam82/Coq-Equations/releases/download/v1.3.1-9.1/Coq-Equations-1.3.1-9.1.tar.gz)
+⬇ retrieved rocq-metarocq-erasure.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-erasure-plugin.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-common.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-safechecker.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-pcuic.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-safechecker-plugin.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+∗ installed ocamlbuild.0.16.1
+⬇ retrieved rocq-metarocq-utils.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-template.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-metarocq-template-pcuic.1.5.1  (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq#HEAD)
+⬇ retrieved rocq-rust-extraction.0.2.1  (cached)
+⬇ retrieved rocq-primitive.9.0.0  (https://github.com/peregrine-project/rocq-primitive/releases/download/9.0.0/rocq-primitive-9.0.0.tar.gz)
+⬇ retrieved rocq-typed-extraction-common.0.2.1  (cached)
+⬇ retrieved rocq-runtime.9.1.1  (cached)
+⬇ retrieved rocq-verified-extraction.1.0.0+9.1  (https://github.com/MetaRocq/rocq-verified-extraction/archive/refs/tags/v1.0.0-9.1.tar.gz)
+⬇ retrieved sexplib0.v0.16.0  (https://opam.ocaml.org/cache)
+⬇ retrieved stdio.v0.16.0  (https://opam.ocaml.org/cache)
+⬇ retrieved rocq-stdlib.9.0.0  (https://opam.ocaml.org/cache)
+⬇ retrieved stdlib-shims.0.3.0  (https://opam.ocaml.org/cache)
+∗ installed ocamlfind.1.9.8
+⬇ retrieved yojson.3.0.0  (https://opam.ocaml.org/cache)
+⬇ retrieved topkg.1.1.1  (https://opam.ocaml.org/cache)
+⬇ retrieved zarith.1.14  (https://opam.ocaml.org/cache)
+⬇ retrieved wasm.2.0.2  (https://opam.ocaml.org/cache)
+∗ installed topkg.1.1.1
+∗ installed zarith.1.14
+∗ installed astring.0.8.5
+∗ installed fmt.0.11.0
+∗ installed logs.0.10.0
+∗ installed dune.3.23.1
+∗ installed camlp-streams.5.0.1
+∗ installed csexp.1.5.2
+∗ installed easy-format.1.3.4
+∗ installed cppo.1.8.0
+∗ installed biniou.1.2.2
+∗ installed dune-configurator.3.23.1
+∗ installed linenoise.1.5.1
+∗ installed menhirCST.20260209
+∗ installed menhirGLR.20260209
+∗ installed malfunction.0.7.1
+∗ installed menhirLib.20260209
+∗ installed menhirSdk.20260209
+∗ installed ocaml-version.4.1.4
+∗ installed ocaml-compiler-libs.v0.12.4
+∗ installed ppx_derivers.1.2.1
+∗ installed re.1.14.0
+∗ installed result.1.5
+∗ installed rocq-primitive.9.0.0
+∗ installed mdx.2.7.0
+∗ installed menhir.20260209
+∗ installed sexplib0.v0.16.0
+∗ installed stdlib-shims.0.3.0
+∗ installed base.v0.16.5
+∗ installed ppxlib.0.35.0
+∗ installed stdio.v0.16.0
+∗ installed ppx_deriving.6.0.3
+∗ installed ppx_optcomp.v0.16.0
+∗ installed wasm.2.0.2
+∗ installed yojson.3.0.0
+∗ installed atd.4.2.0
+∗ installed atdgen-runtime.4.2.0
+∗ installed atdts.4.2.0
+∗ installed atdgen.4.2.0
+∗ installed elpi.3.7.3
+∗ installed rocq-runtime.9.1.1
+∗ installed coqide-server.9.1.1
+∗ installed coq-core.9.1.1
+∗ installed rocq-core.9.1.1
+∗ installed rocq-elpi.3.5.1
+∗ installed rocq-hierarchy-builder.1.10.3
+∗ installed rocq-stdlib.9.0.0
+∗ installed coq-stdlib.9.0.0
+∗ installed coq.9.1.1
+∗ installed rocq-equations.1.3.1+9.1
+∗ installed coq-ext-lib.0.13.2
+∗ installed coq-menhirlib.20260209
+∗ installed coq-parseque.0.2.2
+∗ installed coq-flocq.4.2.2
+∗ installed rocq-metarocq-utils.1.5.1
+∗ installed rocq-mathcomp-ssreflect.2.4.0
+∗ installed coq-mathcomp-ssreflect.2.4.0
+∗ installed rocq-ceres-bytestring.1.0.0
+∗ installed rocq-metarocq-common.1.5.1
+∗ installed coq-compcert.3.18
+∗ installed rocq-metarocq-template.1.5.1
+∗ installed coq-wasm.2.2.0
+∗ installed rocq-metarocq-pcuic.1.5.1
+∗ installed rocq-metarocq-template-pcuic.1.5.1
+∗ installed rocq-metarocq-safechecker.1.5.1
+∗ installed rocq-metarocq-safechecker-plugin.1.5.1
+∗ installed rocq-metarocq-erasure.1.5.1
+∗ installed rocq-typed-extraction-common.0.2.1
+∗ installed rocq-elm-extraction.0.2.1
+∗ installed rocq-rust-extraction.0.2.1
+∗ installed rocq-metarocq-erasure-plugin.1.5.1
+∗ installed rocq-cakeml-extraction.0.1.0
+∗ installed rocq-verified-extraction.1.0.0+9.1
+∗ installed rocq-certirocq.0.9.1+9.1
+∗ installed rocq-peregrine.dev
+Done.
+
+<><> coq-core.9.1.1 installed successfully ><><><><><><><><><><><><><><><><><><>
+=> Coq has been renamed to The Rocq Prover, see https://rocq-prover.org/refman/changes.html#porting-to-the-rocq-prover for details.
+      This package provides compatibility binaries to ease the transition to the new rocq binary.
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine
+File "./metatheory/original-selfhost/PCUICModuleManifest.v", line 17, characters 2-32:
+Error: Unknown scope delimiting key bs.
+
+FAILED: stage 03 -- Peregrine: build selfhost LambdaBox and proof replay corpus
