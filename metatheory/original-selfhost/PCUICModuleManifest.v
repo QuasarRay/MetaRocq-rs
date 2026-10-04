@@ -1,4 +1,4 @@
-From Stdlib Require Import List.
+From Stdlib Require Import String List.
 From MetaRocq.Template Require Import Loader.
 
 Import ListNotations.
