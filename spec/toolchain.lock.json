@@ -9,6 +9,18 @@
       "repository": "https://github.com/peregrine-project/peregrine-tool.git",
       "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
     },
+    "cakeml-backend": {
+      "repository": "https://github.com/peregrine-project/cakeml-backend.git",
+      "commit": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58"
+    },
+    "cakeml": {
+      "repository": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9"
+    },
+    "hol4": {
+      "repository": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+    },
     "aegis": {
       "repository": "https://github.com/QuasarRay/Aegis.git",
       "commit": "3ca3f2bb048b93d7b2399c17af083e30338465e9"
