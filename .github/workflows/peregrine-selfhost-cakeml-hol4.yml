@@ -77,11 +77,23 @@ jobs:
             .aegis/opam
           key: metarocq-extraction-${{ runner.os }}-${{ hashFiles('spec/toolchain.lock.json', 'tools/install_extraction.sh') }}
 
-      - name: Prepare host tools and reconcile exact prebuilt pins
+      - name: Prepare host tools and select prebuilt producer
         run: |
           sudo apt-get update
           sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml
-          bash tools/install_extraction.sh
+          if [ "${{ steps.opam-cache.outputs.cache-hit }}" = "true" ] \
+             && [ -x .aegis/opam/_opam/bin/rocq ] \
+             && [ -x .aegis/opam/_opam/bin/peregrine ]; then
+            echo "Using MetaRocq-rs prebuilt toolchain cache"
+            export OPAMROOT="$GITHUB_WORKSPACE/.aegis/opam-root"
+            eval "$(opam env --switch "$GITHUB_WORKSPACE/.aegis/opam" --set-switch)"
+            rocq -v
+            peregrine --help >/dev/null
+            opam list --installed --switch "$GITHUB_WORKSPACE/.aegis/opam" | grep -E 'rocq-(metarocq|peregrine)'
+          else
+            echo "No usable exact-key prebuilt cache; rebuilding immutable pins"
+            bash tools/install_extraction.sh
+          fi
 
       - name: Save toolchain cache when rebuilt
         if: steps.opam-cache.outputs.cache-hit != 'true'
