@@ -46,8 +46,7 @@ checker uses an unproved fake guard property. Therefore:
 
 1. `OriginalCheckerUntyped.v` attempts untyped Peregrine extraction only as a
    diagnostic/backend-qualification artifact.
-2. A generated CakeML source from that open function is not called a trusted
-   checker executable.
+2. The diagnostic stage lowers the open function with pinned Peregrine and then attempts to compile it with the official CakeML v3213 x64-64 release, whose asset SHA-256 is pinned. A resulting executable is still not called a trusted checker executable.
 3. Proof execution is permitted only when
    `metatheory/artifacts/original-checker.bin` and an independently specified
    checker I/O contract exist.
