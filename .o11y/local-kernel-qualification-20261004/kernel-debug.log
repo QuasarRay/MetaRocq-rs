@@ -1,0 +1,13 @@
+Building 1 theory file
+Starting work on PeregrineSelfHostContractTheory
+PeregrineSelfHostContractTheory                             (0s)        FAIL<1>
+*** Holmake aborted - 1 target failed:
+*** PeregrineSelfHostContractTheory (status 1)
+ <<HOL message: Created theory "PeregrineSelfHostContract">>
+ error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/local-kernel-qualification/PeregrineSelfHostContractScript.sml : Fail "Peregrine selfhost fail-closed qualification theorem contaminated"
+ error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/local-kernel-qualification/PeregrineSelfHostContractScript : Fail "Peregrine selfhost fail-closed qualification theorem contaminated"
+ TAG: DISK_THM
+ HYP: 0
+ CONCLUSION: true
+ Uncaught exception at /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/local-kernel-qualification/PeregrineSelfHostContractScript.sml:28: Fail "Peregrine selfhost fail-closed qualification theorem contaminated"
+ Full log: /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/local-kernel-qualification/.hol/logs/PeregrineSelfHostContractTheory
