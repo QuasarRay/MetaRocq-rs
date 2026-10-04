@@ -1,0 +1,7 @@
+commit c92966ca1376edb8d927d647f4cb4a457d9a2909
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 05:59:01 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 05:59:01 2026 +1100
+
+    e2e: distinguish HOL machine bytes from assembler export
