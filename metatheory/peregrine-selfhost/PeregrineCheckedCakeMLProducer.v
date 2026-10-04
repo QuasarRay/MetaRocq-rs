@@ -1,5 +1,5 @@
-From Stdlib Require Import String List.
-From MetaRocq.Utils Require Import ResultMonad.
+From Stdlib Require Import List.
+From MetaRocq.Utils Require Import ResultMonad bytestring.
 From MetaRocq.Common Require Import Kernames.
 From MetaRocq.Erasure Require Import EAst.
 From CeresBS Require Import CeresSerialize.
@@ -10,6 +10,7 @@ From MetaRocqRs.OriginalSelfHost Require Import
 
 Import ListNotations.
 Import MonadNotation.
+Local Open Scope bs_scope.
 
 (*
   Executable engineering adapter only.
