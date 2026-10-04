@@ -1,43 +1,36 @@
 # Recovery verification record
 
-## Actions attempted from this session
+## Actions performed
 
-- Enumerated all active repository workflow runs and job states.
-- Confirmed repeated zero-step queued jobs.
-- Confirmed pending generations behind branch-scoped concurrency.
-- Inspected the latest reflective branch lineage repeatedly because new Selfhost branches were created during the incident.
-- Tried a different hosted Linux image for the then-latest Selfhost-7 workflow.
-- Added latest-commit-wins concurrency to the recovery workflow.
-- Re-resolved the authoritative branch to Selfhost-8 after newer work appeared.
-- Applied the same recovery policy to Selfhost-8.
+- Enumerated active workflow runs and job states.
+- Confirmed zero-step queued jobs.
+- Confirmed pending generations behind branch concurrency.
+- Re-resolved the authoritative branch as newer Selfhost layers appeared.
+- Tested an alternate Ubuntu hosted-runner image.
+- Added latest-commit-wins concurrency to recovery workflows.
+- Re-targeted recovery to Selfhost-8 after it superseded Selfhost-7.
 
 ## Result
 
-The replacement runs also entered `queued` state before executing a step.
+Replacement runs also entered `queued` before executing a step.
 
-Therefore:
-
-- runner-image selection was not sufficient;
-- the underlying backlog remained unresolved;
-- no successful latest-workflow execution can be claimed from this recovery session.
+Therefore runner-image selection was insufficient and the hosted-runner backlog remained unresolved.
 
 ## Cancellation capability audit
 
-Available integration capabilities included:
-
+Available:
 - Actions/run inspection;
-- job and artifact inspection;
+- job/artifact inspection;
 - rerun operations;
 - repository/branch/file writes.
 
-Unavailable capabilities included:
-
+Unavailable:
 - cancel workflow run;
 - force-cancel workflow run;
 - workflow dispatch.
 
-The execution environment additionally lacked an authenticated `gh` CLI and could not directly reach github.com.
+The local runtime also lacked authenticated `gh` and direct github.com access.
 
 ## Required follow-up
 
-Use GitHub Actions UI or a client with Actions write permission to cancel the outstanding runs. Once the queue is empty, execute only the latest authoritative reflective workflow and attach its final run ID and conclusion to this directory.
+Use GitHub Actions UI or another client with Actions write permission to cancel outstanding runs. Once the queue is empty, execute only the newest authoritative reflective workflow and append its final run ID, artifact digest, and conclusion here.
