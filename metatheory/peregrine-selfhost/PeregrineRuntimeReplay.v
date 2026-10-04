@@ -1,6 +1,8 @@
 From Stdlib Require Import Bool List.
 From MetaRocq.Common Require Import config.
 From MetaRocq.Template Require Import Loader Checker.
+From MetaRocq.Template Require Import TemplateMonad.
+From MetaRocq.Utils Require Import utils.
 From Peregrine Require Import Pipeline.
 From MetaRocqRs.PeregrineSelfHost Require Import PeregrineProofCorpus.
 
@@ -23,9 +25,13 @@ Definition quote_peregrine_runtime_replay_program :=
     Peregrine.Pipeline.peregrine_pipeline true.
 
 Definition materialize_peregrine_runtime_replay_program : TemplateMonad unit :=
-  p <- quote_peregrine_runtime_replay_program ;;
-  MetaRocq.Template.TemplateMonad.Core.tmDefinition
-    "peregrine_runtime_replay_program"%bs p.
+  MetaRocq.Template.TemplateMonad.Core.tmBind
+    quote_peregrine_runtime_replay_program
+    (fun p =>
+       MetaRocq.Template.TemplateMonad.Core.tmBind
+         (MetaRocq.Template.TemplateMonad.Core.tmDefinition
+            "peregrine_runtime_replay_program"%bs p)
+         (fun _ => MetaRocq.Template.TemplateMonad.Core.tmReturn tt)).
 
 MetaRocq Run materialize_peregrine_runtime_replay_program.
 
