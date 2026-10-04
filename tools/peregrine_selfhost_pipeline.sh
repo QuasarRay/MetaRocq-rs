@@ -32,7 +32,15 @@ Q=(
   -Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost
   -Q metatheory/peregrine-selfhost MetaRocqRs.PeregrineSelfHost
 )
-for f in   PeregrineSourceManifest.v   PeregrineLoadAll.v   PeregrineSnapshot.v   MaterializePeregrineSnapshot.v   PeregrineProofCorpus.v   PeregrineSelfHostEntrypoint.v   ExtractPeregrineSelfHost.v
+for f in \
+  PeregrineSourceManifest.v \
+  PeregrineLoadAll.v \
+  PeregrineSnapshot.v \
+  MaterializePeregrineSnapshot.v \
+  PeregrineProofCorpus.v \
+  PeregrineRuntimeReplay.v \
+  PeregrineSelfHostEntrypoint.v \
+  ExtractPeregrineSelfHost.v
 do
   rocq compile "${Q[@]}" "metatheory/peregrine-selfhost/$f"
 done
@@ -48,8 +56,12 @@ sha256sum "$CAKEML" | tee "$GEN/peregrine-selfhost.cakeml.sha256"
 
 cat > "$GEN/producer-boundary.txt" <<'EOF'
 The prebuilt Rocq/MetaRocq and Peregrine executables produced these artifacts.
-Their process success is not semantic evidence. Publication requires a HOL4
-theorem binding the exact source snapshot, retained proof/replay corpus, exact
+The extracted self-host entrypoint contains an executable replay command whose
+runtime data includes a dependency-closed pre-erasure quotation of Peregrine.
+That replay uses MetaRocq.Template.Checker as a diagnostic execution engine;
+upstream documents that checker as fuel-bounded and unverified. Its success is
+therefore not semantic evidence. Publication still requires a HOL4 theorem
+binding the exact source snapshot, retained proof/replay corpus, exact
 LambdaBox artifact, exact CakeML program, exact in-logic CakeML compilation,
 and exact machine-code image.
 EOF
