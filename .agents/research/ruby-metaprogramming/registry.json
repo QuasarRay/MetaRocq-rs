@@ -1,0 +1,325 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-04",
+  "scoring": {
+    "compression": "1=minimal boilerplate reduction, 5=one DSL declaration can replace a subsystem",
+    "semantic_overhead": "1=already-native/easy for Astra to infer, 5=new opaque semantic dialect",
+    "production_readiness": "high=widely deployed/currently maintained; medium=credible but narrower/unstable; experimental=not default architecture"
+  },
+  "policy": {
+    "default": "prefer_existing_gitlab_and_rails_dsl",
+    "external_dependency_gate": "adopt only when recurring generated-code/token savings exceed new semantic surface",
+    "expansion_rule": "metaprogramming that creates methods/routes/policies/UI must emit or expose a machine-readable expansion/index",
+    "proof_rule": "no metaprogramming/process success may satisfy formal proof gates"
+  },
+  "candidates": [
+    {
+      "name": "Rails / ActiveSupport + ActiveModel + ActiveRecord DSLs",
+      "repo": "rails/rails",
+      "stars_approx": 58800,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 1,
+      "native_in_gitlab": true,
+      "decision": "prefer",
+      "uses": [
+        "ActiveSupport::Concern",
+        "class_attribute",
+        "delegate",
+        "ActiveModel attributes/validation",
+        "ActiveRecord associations/scopes/callbacks",
+        "Rails routing"
+      ],
+      "reason": "Already the host framework and dominant GitLab vocabulary; highest compression with near-zero new review dialect."
+    },
+    {
+      "name": "GitLab DeclarativePolicy",
+      "repo": "gitlab-org/ruby/gems/declarative-policy",
+      "stars_approx": null,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 1,
+      "native_in_gitlab": true,
+      "decision": "prefer",
+      "uses": [
+        "RBAC rules",
+        "delegation",
+        "capability composition"
+      ],
+      "reason": "Already central to GitLab authorization; ideal for Aegis policy/RBAC without inventing another policy language."
+    },
+    {
+      "name": "Grape",
+      "repo": "ruby-grape/grape",
+      "stars_approx": 10000,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 1,
+      "native_in_gitlab": true,
+      "decision": "prefer_when_api_surface_needed",
+      "uses": [
+        "REST API DSL",
+        "parameter contracts",
+        "endpoint metadata"
+      ],
+      "reason": "GitLab already uses it heavily; compact API/validation declarations can generate substantial behavior."
+    },
+    {
+      "name": "GraphQL-Ruby",
+      "repo": "rmosolgo/graphql-ruby",
+      "stars_approx": 5400,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 1,
+      "native_in_gitlab": true,
+      "decision": "prefer_when_graphql_surface_needed",
+      "uses": [
+        "schema fields",
+        "types",
+        "mutations",
+        "authorization metadata"
+      ],
+      "reason": "Already integrated into GitLab; excellent declarative density but only useful when GraphQL is actually the interface."
+    },
+    {
+      "name": "ViewComponent",
+      "repo": "ViewComponent/view_component",
+      "stars_approx": 3600,
+      "production_readiness": "high",
+      "compression": 3,
+      "semantic_overhead": 1,
+      "native_in_gitlab": true,
+      "decision": "prefer_for_reusable_supervision_ui",
+      "uses": [
+        "reusable typed-ish view components",
+        "slots",
+        "encapsulated rendering"
+      ],
+      "reason": "GitLab already uses ViewComponent/Pajamas; reduces repeated HAML/UI without adding a second frontend model."
+    },
+    {
+      "name": "Simple Form",
+      "repo": "heartcombo/simple_form",
+      "stars_approx": 8200,
+      "production_readiness": "high",
+      "compression": 4,
+      "semantic_overhead": 3,
+      "native_in_gitlab": false,
+      "decision": "avoid_by_default",
+      "uses": [
+        "form DSL",
+        "schema-informed inputs"
+      ],
+      "reason": "Very compact forms, but GitLab already has its own UI/form conventions; extra dependency and visual dialect likely cost more review tokens than it saves."
+    },
+    {
+      "name": "ActiveAdmin",
+      "repo": "activeadmin/activeadmin",
+      "stars_approx": 9700,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 5,
+      "native_in_gitlab": false,
+      "decision": "reject_for_aegis_runtime",
+      "uses": [
+        "admin CRUD UI DSL"
+      ],
+      "reason": "Extremely compressive but effectively introduces an admin framework inside GitLab's existing product UI, duplicating routing/auth/view semantics."
+    },
+    {
+      "name": "Administrate",
+      "repo": "thoughtbot/administrate",
+      "stars_approx": 6000,
+      "production_readiness": "high",
+      "compression": 4,
+      "semantic_overhead": 4,
+      "native_in_gitlab": false,
+      "decision": "reject_for_aegis_runtime",
+      "uses": [
+        "generated admin dashboards"
+      ],
+      "reason": "Closer to standard Rails than ActiveAdmin, but still duplicates GitLab's supervision UI stack and creates a second dashboard dialect."
+    },
+    {
+      "name": "dry-validation",
+      "repo": "dry-rb/dry-validation",
+      "stars_approx": 1400,
+      "production_readiness": "high",
+      "compression": 4,
+      "semantic_overhead": 3,
+      "native_in_gitlab": false,
+      "decision": "conditional",
+      "uses": [
+        "schema validation",
+        "rule DSL"
+      ],
+      "reason": "Strong declarative contracts; worthwhile only if one schema becomes the source for UI+MCP+API validation rather than a parallel contract language."
+    },
+    {
+      "name": "dry-types",
+      "repo": "dry-rb/dry-types",
+      "stars_approx": 897,
+      "production_readiness": "high",
+      "compression": 3,
+      "semantic_overhead": 2,
+      "native_in_gitlab": "transitive",
+      "decision": "conditional",
+      "uses": [
+        "coercions",
+        "constraints",
+        "reusable types"
+      ],
+      "reason": "Some GitLab dependency graph already contains it; useful as implementation detail but not enough reason to establish a new project-wide DSL."
+    },
+    {
+      "name": "dry-schema",
+      "repo": "dry-rb/dry-schema",
+      "stars_approx": 487,
+      "production_readiness": "high",
+      "compression": 4,
+      "semantic_overhead": 3,
+      "native_in_gitlab": false,
+      "decision": "conditional",
+      "uses": [
+        "input schemas",
+        "coercion",
+        "validation"
+      ],
+      "reason": "High contract density; adopt only if it replaces multiple hand-maintained schemas and can generate review-visible expansion."
+    },
+    {
+      "name": "dry-struct",
+      "repo": "dry-rb/dry-struct",
+      "stars_approx": 441,
+      "production_readiness": "high",
+      "compression": 3,
+      "semantic_overhead": 3,
+      "native_in_gitlab": false,
+      "decision": "conditional",
+      "uses": [
+        "typed value objects"
+      ],
+      "reason": "Useful for data contracts but less compelling than existing Rails/GitLab objects unless a shared schema generator consumes it."
+    },
+    {
+      "name": "dry-initializer",
+      "repo": "dry-rb/dry-initializer",
+      "stars_approx": 342,
+      "production_readiness": "high",
+      "compression": 3,
+      "semantic_overhead": 2,
+      "native_in_gitlab": false,
+      "decision": "conditional_low_priority",
+      "uses": [
+        "initializer params/options DSL"
+      ],
+      "reason": "Saves boilerplate but not enough characters/files to justify a new dependency in this architecture."
+    },
+    {
+      "name": "dry-configurable",
+      "repo": "dry-rb/dry-configurable",
+      "stars_approx": 426,
+      "production_readiness": "high",
+      "compression": 3,
+      "semantic_overhead": 2,
+      "native_in_gitlab": "transitive",
+      "decision": "avoid_new_direct_use",
+      "uses": [
+        "configuration DSL"
+      ],
+      "reason": "Already transitive in GitLab, but Aegis host configuration should remain explicit and fail-closed rather than introduce another config layer."
+    },
+    {
+      "name": "Trailblazer",
+      "repo": "trailblazer/trailblazer",
+      "stars_approx": 3500,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 5,
+      "native_in_gitlab": false,
+      "decision": "reject_for_core",
+      "uses": [
+        "operation/activity business-process DSL",
+        "macros"
+      ],
+      "reason": "Very high behavior density, but it introduces a full business-logic architecture whose review vocabulary would compete with Aegis roadmaps and Dagger."
+    },
+    {
+      "name": "state_machines",
+      "repo": "state-machines/state_machines",
+      "stars_approx": 868,
+      "production_readiness": "high",
+      "compression": 5,
+      "semantic_overhead": 3,
+      "native_in_gitlab": false,
+      "decision": "conditional_not_for_formal_roadmap",
+      "uses": [
+        "finite-state machines",
+        "guards",
+        "callbacks",
+        "path analysis"
+      ],
+      "reason": "Excellent density for ordinary runtime state; Aegis formalization roadmap is already machine-readable and should not be duplicated into another state-machine DSL."
+    },
+    {
+      "name": "Action Policy",
+      "repo": "palkan/action_policy",
+      "stars_approx": 1600,
+      "production_readiness": "high",
+      "compression": 4,
+      "semantic_overhead": 4,
+      "native_in_gitlab": false,
+      "decision": "reject_for_gitlab_host",
+      "uses": [
+        "authorization DSL"
+      ],
+      "reason": "Good Rails authorization DSL, but GitLab already has DeclarativePolicy; adding it would duplicate the most security-sensitive semantic surface."
+    },
+    {
+      "name": "Tapioca",
+      "repo": "Shopify/tapioca",
+      "stars_approx": 856,
+      "production_readiness": "medium",
+      "compression": 2,
+      "semantic_overhead": 4,
+      "native_in_gitlab": false,
+      "decision": "do_not_add_only_for_aegis",
+      "uses": [
+        "RBI generation for metaprogrammed APIs"
+      ],
+      "reason": "Valuable visibility for Sorbet codebases, but project states API/interface remain pre-1.0 and GitLab is not a Tapioca/Sorbet architecture. Aegis should instead emit its own expansion manifest."
+    },
+    {
+      "name": "Ruby Next",
+      "repo": "ruby-next/ruby-next",
+      "stars_approx": 800,
+      "production_readiness": "medium",
+      "compression": 2,
+      "semantic_overhead": 4,
+      "native_in_gitlab": false,
+      "decision": "experimental_only",
+      "uses": [
+        "syntax transpilation",
+        "custom syntax experiments",
+        "polyfills"
+      ],
+      "reason": "Interesting for syntax research but not a boilerplate-reduction win for pinned GitLab Rails; custom syntax would raise agent review cost."
+    },
+    {
+      "name": "Roundhouse",
+      "repo": "rubys/roundhouse",
+      "stars_approx": null,
+      "production_readiness": "experimental_for_gitlab",
+      "compression": 5,
+      "semantic_overhead": 5,
+      "native_in_gitlab": false,
+      "decision": "manual_dagger_experiment_only",
+      "uses": [
+        "whole Rails analysis/transpilation",
+        "MCP/LSP",
+        "Rust emission"
+      ],
+      "reason": "Potentially extreme compression/translation capability but exact GitLab Rails compatibility is unproven; keep outside required runtime."
+    }
+  ]
+}

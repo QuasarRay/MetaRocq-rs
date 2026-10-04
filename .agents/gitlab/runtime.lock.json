@@ -1,0 +1,63 @@
+{
+  "anchors": {
+    "app/services/mcp/tools/base/custom_service.rb": "1961c82b49ced1b6e212898718bfa94503bb97a4",
+    "app/services/mcp/tools/manager.rb": "56d5a1e29220ad36166cfde55801399756ea03fb",
+    "config/routes.rb": "2bf3710000d3240a74b213e1a1e11fe321ccac04",
+    "lib/api/mcp/base.rb": "6cb089dfbe091a68ab0c7fdc038befc5d59ce9a1",
+    "lib/gitlab/github_import/client.rb": "2928d0f30f7385014055081ad1b31e9d785a6ebc",
+    "config/initializers/octokit.rb": "3b6b60a3d35a64cfab2adbc99277fdf1bc61a1d9",
+    "Gemfile": "8adcea493df616c61773e064b5f77f5a41d05e1b"
+  },
+  "claim": "Exact host/source pins and integration policy; not proof evidence.",
+  "dagger": {
+    "python_sdk": "0.21.10",
+    "rust_sdk": "0.21.10",
+    "version": "v0.21.10",
+    "commit": "02b2558d9997a77bf5d357032c45cdf5bf7d5ce1"
+  },
+  "host": {
+    "commit": "191678a37648bc14466c2bed346ed60eee7ddec6",
+    "github_mirror": "https://github.com/gitlabhq/gitlabhq.git",
+    "name": "GitLab Community Edition / FOSS",
+    "repository": "https://gitlab.com/gitlab-org/gitlab-foss.git",
+    "tag": "v19.4.1"
+  },
+  "ruby_rust": {
+    "strategy": "rails_in_ruby_rust_extensions_only_when_profiled_or_contract_justified",
+    "magnus": {
+      "repository": "https://github.com/matsadler/magnus.git",
+      "commit": "c08ca65b527e2cff2b347c46d3f8a029e17ca665",
+      "version": "0.10.0",
+      "status": "qualified_candidate_not_runtime_dependency"
+    },
+    "rb_sys": {
+      "repository": "https://github.com/oxidize-rb/rb-sys.git",
+      "commit": "7ade413d4472453c24d0741af53c728f5902cb38",
+      "version": "0.9.130",
+      "status": "qualified_candidate_not_runtime_dependency"
+    },
+    "roundhouse": {
+      "repository": "https://github.com/rubys/roundhouse.git",
+      "commit": "e87957f55f65499bb3d3111a1b1f467de8593e11",
+      "version": "2026.9.18",
+      "status": "experimental_optional_only"
+    },
+    "spinel": {
+      "repository": "https://github.com/matz/spinel.git",
+      "commit": "1d26ef67ceb9d46d1bbc9ee3373545483f1224d4",
+      "status": "experimental_optional_only"
+    },
+    "whole_gitlab_transpile": "rejected_for_required_runtime_until_gitlab_conformance_and_supported_rails_surface_are_demonstrated"
+  },
+  "schema": 1,
+  "github_bridge": {
+    "authority": "optional_external_forge_not_boot_dependency",
+    "client": "Gitlab::GithubImport::Client + Octokit 9.x from pinned GitLab",
+    "credential_env": "AEGIS_GITHUB_TOKEN",
+    "host_env": "AEGIS_GITHUB_HOST",
+    "repository_map_env": "AEGIS_GITHUB_REPOSITORY_MAP",
+    "auto_map_env": "AEGIS_GITHUB_AUTO_MAP",
+    "writes": "require GitLab admin_project and host-admin map entry with write=true",
+    "independence": "all GitLab/Aegis local functions remain available with bridge disabled"
+  }
+}

@@ -20,8 +20,13 @@ def artifacts():
         if not name or not (ROOT / name).is_file() or name.startswith((".aegis/", ".metarocq/evidence/")):
             continue
         dirs.update(p for p in Path(name).parents if str(p) != ".")
+    root_agents = (ROOT / "AGENTS.md").read_text()
     for directory in dirs:
-        outputs[(directory / "AGENTS.md").as_posix()] = (ROOT / "AGENTS.md").read_text()
+        content = root_agents
+        local = ROOT / directory / "AGENTS.local.md"
+        if local.is_file():
+            content += "\n\n---\n\n" + local.read_text().strip() + "\n"
+        outputs[(directory / "AGENTS.md").as_posix()] = content
     template = {
         "schema": 1, "task": "pcuic-isapp", "authority_sha256": authority_digest(),
         "paper_sections": ["JACM 2025: PCUIC syntax and safe checker"],

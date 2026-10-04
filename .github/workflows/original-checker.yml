@@ -4,12 +4,13 @@ on:
     paths:
       - 'metatheory/bootstrap/**'
       - 'tools/replay_original_checker.py'
+      - 'tools/checker_ci_persistence.py'
       - 'tools/install_extraction.sh'
       - 'spec/toolchain.lock.json'
       - '.github/workflows/original-checker.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: original-checker-${{ github.event.pull_request.head.ref || github.ref }}
   cancel-in-progress: false
@@ -19,13 +20,28 @@ jobs:
     # Successful replay here does not itself open that gate.
     runs-on: ubuntu-24.04
     timeout-minutes: 110
+    services:
+      postgres:
+        image: postgres:16.15
+        env:
+          POSTGRES_PASSWORD: actions-ephemeral
+          POSTGRES_DB: aegis_checker
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 2s --health-timeout 5s --health-retries 20
     env:
       OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+      AEGIS_CHECKER_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
+      - run: python3 -m pip install -r .agents/database/requirements.txt
+      - name: Restore all committed Aegis history and activate the task login
+        id: persistence
+        env:
+          AEGIS_ADMIN_DSN: postgresql://postgres:actions-ephemeral@localhost:5432/aegis_checker
+        run: python3 -B tools/checker_ci_persistence.py init
       - run: python3 -B tools/bootstrap.py sources
       - name: Install system prerequisites
         run: |
@@ -87,10 +103,31 @@ jobs:
       - name: Compile, replay with the separate kernel checker, and reject negative controls
         id: replay
         run: opam exec --switch .aegis/opam -- python3 -B tools/replay_original_checker.py
+      - name: Export every Aegis event before runner teardown
+        id: persistence_export
+        if: always() && env.AEGIS_TASK_DSN != ''
+        env:
+          AEGIS_JOB_STATUS: ${{ job.status }}
+        run: python3 -B tools/checker_ci_persistence.py export
+      - name: Publish the complete logical history and replay archive
+        if: always() && steps.persistence_export.outcome == 'success' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AEGIS_PUBLICATION_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          AEGIS_PUBLICATION_BRANCH: ${{ github.head_ref }}
+          AEGIS_PUBLICATION_BASE: ${{ github.base_ref }}
+        run: python3 -B tools/checker_ci_persistence.py publish
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: original-checker-${{ github.run_id }}-${{ github.run_attempt }}
           path: .aegis/original-checker/
+          include-hidden-files: true
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: original-checker-aegis-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .agents/data/
           include-hidden-files: true
           if-no-files-found: error

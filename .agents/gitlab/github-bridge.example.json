@@ -1,0 +1,10 @@
+{
+  "QuasarRay/MetaRocq-rs": {
+    "repository": "QuasarRay/MetaRocq-rs",
+    "write": true
+  },
+  "QuasarRay/Aegis": {
+    "repository": "QuasarRay/Aegis",
+    "write": true
+  }
+}

@@ -5,7 +5,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 
-from database.store import canonical, sha
+from database.codec import canonical, sha
 from agentinfra.security import confined_path
 
 

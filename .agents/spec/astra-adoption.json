@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "purpose": "minimal-token fix/adopt/integrate/continue packet for the GitLab Aegis architecture",
+  "entrypoint": "python3 -B scripts/control_plane.py adopt",
+  "review_budget": {
+    "strategy": "read semantic packet first; inspect implementation only for failed checks or disputed invariants",
+    "must_read_limit": 5,
+    "do_not_start_with": [
+      "full PR diffs",
+      "full GitLab source",
+      "all overlay implementation",
+      "historical architecture files already summarized here"
+    ]
+  },
+  "must_read": [
+    "AGENTS.md",
+    "spec/astra-adoption.json",
+    "docs/architecture/0013-astra-adoption-and-control-plane-fallback.md",
+    "spec/astra-architecture-review.json",
+    "gitlab/runtime.lock.json"
+  ],
+  "current_architecture": {
+    "primary": "single pinned GitLab CE/FOSS Rails application with Aegis UI/MCP/Dagger overlay",
+    "fallback": "pre-GitLab Python/PostgreSQL/Git/GitHub Aegis controller",
+    "shared_authority": "same committed roadmap, project source, PostgreSQL evidence and formal gates",
+    "fallback_is_not": "a second roadmap, second proof store, alternate formal verifier, or proof bypass"
+  },
+  "commands": {
+    "review": "python3 -B scripts/control_plane.py review",
+    "diagnose": "python3 -B scripts/control_plane.py diagnose",
+    "adopt": "python3 -B scripts/control_plane.py adopt",
+    "choose": "python3 -B scripts/control_plane.py select",
+    "continue": "python3 -B scripts/control_plane.py continue --root <MetaRocq-rs>",
+    "force_legacy": "AEGIS_CONTROL_PLANE_MODE=legacy python3 -B scripts/control_plane.py continue --root <MetaRocq-rs>",
+    "require_gitlab": "AEGIS_CONTROL_PLANE_MODE=gitlab python3 -B scripts/control_plane.py select"
+  },
+  "fault_matrix": [
+    {
+      "fault": "GitLab Rails/MCP/readiness unavailable",
+      "action": "fallback",
+      "target": "legacy controller"
+    },
+    {
+      "fault": "GitLab pipeline delegation fails after dispatch",
+      "action": "block; preserve the failed or uncertain execution result",
+      "target": null
+    },
+    {
+      "fault": "GitHub unavailable",
+      "action": "continue",
+      "target": "self-hosted GitLab/Aegis"
+    },
+    {
+      "fault": "Dagger unavailable",
+      "action": "fallback when equivalent legacy operation exists",
+      "target": "legacy controller"
+    },
+    {
+      "fault": "PostgreSQL/event persistence unavailable",
+      "action": "block",
+      "target": null
+    },
+    {
+      "fault": "Git publication/identity mismatch",
+      "action": "block/recover exact state",
+      "target": null
+    },
+    {
+      "fault": "formal verifier or independent replay failure",
+      "action": "block",
+      "target": null
+    },
+    {
+      "fault": "metatheory-verified is closed",
+      "action": "block implementation",
+      "target": null
+    }
+  ],
+  "repair_order": [
+    "run diagnose and inspect only failing checks",
+    "repair generated AGENTS/instruction drift before code changes",
+    "repair overlay/host-pin mismatch without changing proof state",
+    "use legacy fallback for GitLab-only availability faults",
+    "rerun diagnose",
+    "continue the existing formalization roadmap; do not regenerate it merely because the control plane changed"
+  ],
+  "astra_decisions_required": [
+    "accept or revise ADR 0013 invariants",
+    "verify fallback cannot bypass persistence/formal gates",
+    "fix only failing integration points",
+    "continue existing formalization work from shared roadmap/evidence"
+  ],
+  "claim": "review/adoption metadata only; never formal proof evidence"
+}

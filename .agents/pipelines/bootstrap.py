@@ -15,7 +15,8 @@ import sys
 FRAMEWORK = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(FRAMEWORK), str(FRAMEWORK / 'infra')]
 from agentinfra.process import run_process
-from database.store import Store, canonical, sha
+from database.store import Store
+from database.codec import canonical, sha
 from pipelines import roadmap
 from pipelines.publish import publish
 
