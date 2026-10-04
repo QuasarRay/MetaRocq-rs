@@ -11,7 +11,7 @@ Do NOT begin the MetaRocq proof-composition phase by merely assuming that Peregr
 
 Part I MUST first produce an exact, kernel-checked Peregrine machine-code theorem and independently replayable proof/certificate state. Part II may reuse that theorem, exact source identities, and exact transformation theorem; it MUST NOT silently replace them with native-process success, CI success, an admitted Peregrine backend obligation, `trust_coq_kernel`, or an unhashed executable.
 
-## Execute in this order
+## Execute in this exact order
 
 ### PART I — Formally verify Peregrine down to exact machine code
 
@@ -26,39 +26,62 @@ Part I MUST first produce an exact, kernel-checked Peregrine machine-code theore
 9. `09-peregrine-revalidate-with-fresh-independent-hol4.md`
 10. `10-peregrine-run-e2e-and-pass-publication-gate.md`
 
-### PART II — Prove MetaRocq source/specifications -> exact CakeML-generated machine code
+### PART II — Prove complete MetaRocq source/specifications -> exact CakeML-generated machine code
 
-Steps 11–22 are added by the next stacked branch.
+11. `11-metarocq-freeze-trust-and-e2e-completion-criteria.md`
+12. `12-metarocq-reproduce-pinned-toolchain.md`
+13. `13-metarocq-capture-complete-source-specification-and-proof-corpus.md`
+14. `14-metarocq-self-reflection-and-lambdabox-retention.md`
+15. `15-metarocq-prove-erasure-correctness-and-assumption-closure.md`
+16. `16-metarocq-reuse-verified-peregrine-to-cakeml-bridge.md`
+17. `17-metarocq-replay-complete-proof-corpus-in-hol4.md`
+18. `18-metarocq-compile-exact-cakeml-program-inside-hol4.md`
+19. `19-metarocq-compose-unified-source-to-machine-hol4-theorem.md`
+20. `20-metarocq-prove-recursive-machine-self-replay.md`
+21. `21-metarocq-local-operation-debugging-and-recovery.md`
+22. `22-metarocq-final-audit-and-publication-gate.md`
+
+### FINAL REPORT
+
+23. `23-unified-reuse-provenance-and-open-proof-obligations.md`
+
+## The exact handoff
 
 ```text
-PEREGRINE MACHINE THEOREM + VERIFIED LAMBDABOX->CAKEML BRIDGE
-                         |
-                         v
-COMPLETE METAROCQ SOURCE / PROOF / SPECIFICATION CORPUS
-                         |
-                         v
-METAROCQ SELF-REFLECTION + VERIFIED ERASURE
-                         |
-                         v
-VERIFIED PEREGRINE BRIDGE
-                         |
-                         v
-EXACT CAKEML PROGRAM
-                         |
-                         v
-HOL4 THEOREM-PRODUCING CAKEML COMPILATION
-                         |
-                         v
-EXACT METAROCQ MACHINE IMAGE
-                         |
-                         v
-ONE COMPOSED HOL4 E2E REFINEMENT THEOREM
+STEPS 01–10
+PEREGRINE SOURCE + PROOF REPLAY
+        -> VERIFIED LAMBDABOX->CAKEML
+        -> EXACT CAKEML
+        -> HOL4
+        -> EXACT PEREGRINE MACHINE THEOREM
+                     |
+                     v
+STEP 16 REUSES THE PROVED BRIDGE, NOT AN ASSUMPTION
+                     |
+                     v
+STEPS 11–22
+COMPLETE METAROCQ SOURCE/SPEC/PROOF CORPUS
+        -> PCUIC REPLAY + VERIFIED ERASURE
+        -> VERIFIED PEREGRINE BRIDGE
+        -> EXACT METAROCQ CAKEML
+        -> HOL4 CAKEML COMPILATION
+        -> EXACT METAROCQ MACHINE IMAGE
+        -> ONE E2E REFINEMENT THEOREM
 ```
 
-## Current documentation status
+## Status
 
 ```text
-PART_I_REORGANIZATION = COMPLETE ON THIS BRANCH
-PART_II_UNIFICATION   = NEXT STACKED BRANCH
-FORMAL_PROOFS         = NOT CLAIMED COMPLETE BY DOCUMENTATION ALONE
+UNIFIED_INSTRUCTION_COLLECTION = COMPLETE
+SOURCE_MANUALS                 = PRESERVED
+FORMAL_IMPLEMENTATION          = NOT CLAIMED COMPLETE
+PUBLICATION                    = FAIL-CLOSED UNTIL THEOREMS ARE KERNEL-CHECKED
+```
+
+## Branch stack
+
+```text
+docs/peregrine-selfhost-03-independent-replay
+  -> docs/unified-e2e-01-peregrine
+  -> docs/unified-e2e-02-metarocq
 ```
