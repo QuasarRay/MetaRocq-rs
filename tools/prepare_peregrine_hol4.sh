@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+source tools/hol4_artifacts.sh
 
 HOL4_DIR="${HOL4_DIR:-$ROOT/.aegis/references/hol4}"
 CAKEML_DIR="${CAKEML_DIR:-$ROOT/.aegis/references/cakeml}"
@@ -39,5 +40,5 @@ export PATH="$HOLDIR/bin:$PATH"
   "$HOLDIR/bin/Holmake" -j2 eval_cake_compile_x64Lib.uo
 )
 
-test -s "$CAKEML_DIR/cv_translator/eval_cake_compile_x64Lib.uo"
+hol4_artifact_path "$CAKEML_DIR/cv_translator/eval_cake_compile_x64Lib.uo" >/dev/null
 printf 'HOL4_DIR=%s\nCAKEML_DIR=%s\n' "$HOL4_DIR" "$CAKEML_DIR"

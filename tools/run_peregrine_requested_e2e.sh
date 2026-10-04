@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+source tools/hol4_artifacts.sh
 GEN="$ROOT/generated/peregrine-selfhost"
 mkdir -p "$GEN/hol4"
 
@@ -43,18 +44,10 @@ export CAKEMLDIR
 export PATH="$HOLDIR/bin:$PATH"
 # Compile the checked-adapter bytes directly.  The producer pipeline has
 # already required byte-for-byte equality with the native Peregrine candidate.
-export PEREGRINE_CAKEML_SEXP="$GEN/peregrine-selfhost.checked.cakeml"
+bash tools/build_peregrine_hol4_compile.sh
+export PEREGRINE_CAKEML_SEXP="$GEN/hol4/compiler-input.sexp"
 export PEREGRINE_MACHINE_ASM="$GEN/hol4/peregrine-selfhost.S"
-
-rm -f "$PEREGRINE_MACHINE_ASM"
-(
-  cd "$ROOT/formal/hol4"
-  "$HOLDIR/bin/Holmake" PeregrineGeneratedCompileTheory.dat
-)
-
-COMPILE_THEORY="$ROOT/formal/hol4/PeregrineGeneratedCompileTheory.dat"
-test -s "$COMPILE_THEORY"
-test -s "$PEREGRINE_MACHINE_ASM"
+COMPILE_THEORY="$(hol4_artifact_path "$ROOT/formal/hol4/PeregrineGeneratedCompileTheory.dat")"
 grep -Fq 'peregrine_machine_code'   "$ROOT/formal/hol4/PeregrineGeneratedCompileScript.sml"
 
 # The .S file is an exported representation.  The byte-level compiler result
@@ -82,7 +75,7 @@ EOF
   cd "$ROOT/formal/hol4"
   "$HOLDIR/bin/Holmake" PeregrineSelfHostContractTheory.dat
 )
-test -s "$ROOT/formal/hol4/PeregrineSelfHostContractTheory.dat"
+hol4_artifact_path "$ROOT/formal/hol4/PeregrineSelfHostContractTheory.dat" >/dev/null
 
 # This Original-Peregrine bootstrap is authorized independently of the Astra
 # restriction on canonical Rust-native MetaRocq-rs formalization. Authorization
@@ -106,4 +99,4 @@ fi
   cd "$ROOT/formal/hol4"
   "$HOLDIR/bin/Holmake" PeregrineSelfHostE2ETheory.dat
 )
-test -s "$ROOT/formal/hol4/PeregrineSelfHostE2ETheory.dat"
+hol4_artifact_path "$ROOT/formal/hol4/PeregrineSelfHostE2ETheory.dat" >/dev/null
