@@ -103,14 +103,29 @@ case "$ID" in
   05)
     require_file generated/peregrine-selfhost/peregrine-selfhost.cakeml
     require_file generated/peregrine-selfhost/peregrine-selfhost.cakeml.sha256
+    require_file generated/peregrine-selfhost/peregrine-selfhost.checked.cakeml
+    require_file generated/peregrine-selfhost/peregrine-selfhost.checked.cakeml.sha256
+    require_file generated/peregrine-selfhost/checked-native-cakeml-equality.txt
     sha256sum --check generated/peregrine-selfhost/peregrine-selfhost.cakeml.sha256
+    sha256sum --check generated/peregrine-selfhost/peregrine-selfhost.checked.cakeml.sha256
+    grep -Fxq 'byte-identical' \
+      generated/peregrine-selfhost/checked-native-cakeml-equality.txt ||
+      fail "checked/native CakeML equality marker missing"
+    cmp -s \
+      generated/peregrine-selfhost/peregrine-selfhost.cakeml \
+      generated/peregrine-selfhost/peregrine-selfhost.checked.cakeml ||
+      fail "checked/native CakeML candidate bytes differ"
     sha256sum \
       generated/peregrine-selfhost/peregrine-selfhost.cakeml \
+      generated/peregrine-selfhost/peregrine-selfhost.checked.cakeml \
+      generated/peregrine-selfhost/checked-native-cakeml-equality.txt \
+      metatheory/peregrine-selfhost/PeregrineCheckedCakeMLProducer.v \
       metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v \
       metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v \
       > "$STAGE_DIR/cakeml-replay-binding-inputs.sha256"
-    receipt "Exact prebuilt Peregrine CakeML candidate identity verified; not accepted as proof."
-    receipt "Replay source identities recorded alongside the exact CakeML candidate."
+    receipt "Native and checked-adapter CakeML candidates are byte-identical."
+    receipt "Equality is engineering/provenance evidence only; it is not semantic preservation proof."
+    receipt "Replay and checked-producer source identities recorded with both exact CakeML candidates."
     ;;
   06)
     proof="metatheory/peregrine-selfhost/PeregrineCakeMLPipelineCorrect.v"
