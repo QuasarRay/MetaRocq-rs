@@ -7,8 +7,13 @@ trace="${E2E_TRACE_DIR:?E2E_TRACE_DIR is required}"
 [[ "$trace" == .o11y/* && -d "$trace" ]] || { echo "invalid trace directory: $trace" >&2; exit 1; }
 [[ -f "$trace/FINALIZED" && -s "$trace/SHA256SUMS" ]] || { echo "trace not finalized" >&2; exit 1; }
 
-branch="${GITHUB_REF_NAME:-$(git branch --show-current)}"
+branch="${E2E_TARGET_REF:-${GITHUB_REF_NAME:-$(git branch --show-current)}}"
+branch="${branch#refs/heads/}"
 [[ -n "$branch" ]] || { echo "cannot determine branch" >&2; exit 1; }
+git check-ref-format "refs/heads/$branch" >/dev/null 2>&1 || {
+  echo "invalid trace branch: $branch" >&2
+  exit 1
+}
 run_id="$(basename "$trace")"
 
 git fetch --prune origin "$branch"
