@@ -11,9 +11,13 @@ permissions:
   actions: write
   contents: read
 
+concurrency:
+  group: incident-actions-drain
+  cancel-in-progress: true
+
 jobs:
   drain:
-    runs-on: ubuntu-22.04
+    runs-on: macos-14
     timeout-minutes: 10
     steps:
       - name: Cancel every other active workflow run
