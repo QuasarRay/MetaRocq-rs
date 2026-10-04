@@ -81,8 +81,8 @@ Definition unresolved_hol4_machine_refinement : hol4_machine_refinement_evidence
      refinement_peregrine :=
        {| peregrine_revision_matches := true;
           cakeml_backend_revision_matches := true;
-          checked_supported_fragment_used := true;
-          generated_tree_has_no_raise := true;
+          checked_supported_fragment_used := false;
+          generated_tree_has_no_raise := false;
           forbidden_backend_assumptions_unused := true |};
      refinement_hol4_kernel := unresolved_hol4_kernel_evidence;
      refinement_cakeml_program_digest := "";
