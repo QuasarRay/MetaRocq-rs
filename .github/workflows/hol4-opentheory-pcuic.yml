@@ -2,35 +2,6 @@ name: HOL4 OpenTheory PCUIC bridge
 
 on:
   workflow_dispatch:
-    inputs:
-      theory_dir:
-        description: Repository-relative directory containing the HOL4 theory
-        required: false
-        default: formal/hol4
-        type: string
-      hol4_theory:
-        description: HOL4 theory name to export
-        required: false
-        type: string
-      hol4_theorem:
-        description: HOL4 theorem name to export
-        required: false
-        type: string
-      rocq_symbol:
-        description: Qualified Rocq theorem produced by the translation
-        required: false
-        type: string
-  pull_request:
-    paths:
-      - 'tools/hol4_opentheory_pcuic.py'
-      - 'tools/hol4_pcuic_core.py'
-      - 'tools/hol4_pcuic_translate.py'
-      - 'tools/test_hol4_opentheory_pcuic.py'
-      - 'spec/hol4-opentheory-pcuic.lock.json'
-      - 'metatheory/bootstrap/Hol4ImportedQuote.v.in'
-      - 'docs/adr/0006-hol4-opentheory-pcuic-bridge.md'
-      - '.github/workflows/hol4-opentheory-pcuic.yml'
-
 permissions:
   contents: read
 
