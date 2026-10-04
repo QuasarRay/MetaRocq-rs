@@ -1,4 +1,6 @@
-From Stdlib Require Import String List Bool.
+From Stdlib Require Import String List Bool Arith.
+From MetaRocqRs.OriginalSelfHost Require Import
+  PCUICCertificateIR CandleExportContract.
 
 Import ListNotations.
 Open Scope string_scope.
@@ -60,3 +62,81 @@ Fixpoint all_dual_claims_accepted
       accept_dual_claim c e && all_dual_claims_accepted cs es
   | _, _ => false
   end.
+
+(* The semantic-claim ledger above remains the compact architecture-level API.
+   This second ledger refines the PCUIC metatheory claim to one job per exact
+   quoted proof-bearing constant. *)
+Record certificate_dual_job := {
+  certificate_dual_source : pcuic_theorem_certificate;
+  certificate_requires_pcuic_checker : bool;
+  certificate_requires_hol_lowering : bool;
+  certificate_requires_candle_export : bool;
+  certificate_requires_machine_binding : bool
+}.
+
+Definition certificate_dual_job_of
+  (c : pcuic_theorem_certificate) : certificate_dual_job :=
+  {| certificate_dual_source := c;
+     certificate_requires_pcuic_checker := true;
+     certificate_requires_hol_lowering := true;
+     certificate_requires_candle_export := true;
+     certificate_requires_machine_binding := true |}.
+
+Definition original_certificate_dual_ledger : list certificate_dual_job :=
+  List.map certificate_dual_job_of original_pcuic_certificate_corpus.
+
+Record certificate_dual_evidence := {
+  certificate_pcuic_checker_accepted : bool;
+  certificate_forward_lowering_proved : bool;
+  certificate_opentheory_reader_accepted : bool;
+  certificate_candle_export_evidence : candle_export_evidence;
+  certificate_statement_correspondence_proved : bool;
+  certificate_assumption_correspondence_proved : bool;
+  certificate_machine_image_identity_bound : bool
+}.
+
+Definition accept_certificate_dual_evidence
+  (e : certificate_dual_evidence) : bool :=
+  e.(certificate_pcuic_checker_accepted)
+  && e.(certificate_forward_lowering_proved)
+  && e.(certificate_opentheory_reader_accepted)
+  && candle_export_evidence_complete e.(certificate_candle_export_evidence)
+  && e.(certificate_statement_correspondence_proved)
+  && e.(certificate_assumption_correspondence_proved)
+  && e.(certificate_machine_image_identity_bound).
+
+Theorem certificate_dual_ledger_covers_every_certificate :
+  List.length original_certificate_dual_ledger = certificate_corpus_size.
+Proof.
+  unfold original_certificate_dual_ledger, certificate_corpus_size.
+  now rewrite map_length.
+Qed.
+
+Theorem missing_certificate_pcuic_side_blocks_publication :
+  forall lower ot candle stmt assumptions machine,
+    accept_certificate_dual_evidence
+      {| certificate_pcuic_checker_accepted := false;
+         certificate_forward_lowering_proved := lower;
+         certificate_opentheory_reader_accepted := ot;
+         certificate_candle_export_evidence := candle;
+         certificate_statement_correspondence_proved := stmt;
+         certificate_assumption_correspondence_proved := assumptions;
+         certificate_machine_image_identity_bound := machine |} = false.
+Proof. intros; reflexivity. Qed.
+
+Theorem changed_certificate_statement_blocks_publication :
+  forall pcuic lower ot candle assumptions machine,
+    accept_certificate_dual_evidence
+      {| certificate_pcuic_checker_accepted := pcuic;
+         certificate_forward_lowering_proved := lower;
+         certificate_opentheory_reader_accepted := ot;
+         certificate_candle_export_evidence := candle;
+         certificate_statement_correspondence_proved := false;
+         certificate_assumption_correspondence_proved := assumptions;
+         certificate_machine_image_identity_bound := machine |} = false.
+Proof.
+  intros.
+  unfold accept_certificate_dual_evidence.
+  destruct pcuic, lower, ot;
+    destruct (candle_export_evidence_complete candle); reflexivity.
+Qed.
