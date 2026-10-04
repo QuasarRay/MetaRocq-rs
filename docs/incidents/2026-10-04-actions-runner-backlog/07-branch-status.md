@@ -1,10 +1,10 @@
 # Branch incident status
 
 - Branch: `experiment/original-metarocq-selfhost-02-snapshot-opentheory`
-- Pre-report head: `31a7ac53d8e946c086a50e1934219d5711bcfd32`
+- Pre-report head: `97edd9441aebe6cfd30576877afc8be6879e1192`
 - Active runs at report snapshot: **2**
 
 - 37179283265: **Original MetaRocq selfhost snapshot** — pending — `d2a1cb43`
-- 37179077102: **Original MetaRocq selfhost snapshot** — queued — `03a97e7b`
+- 37179077102: **Original MetaRocq selfhost snapshot** — in_progress — `03a97e7b`
 
-This report commit is documentation-only and uses `[skip ci]` intentionally to avoid contributing to the backlog.
+This documentation commit uses `[skip ci]` to avoid contributing to the incident.

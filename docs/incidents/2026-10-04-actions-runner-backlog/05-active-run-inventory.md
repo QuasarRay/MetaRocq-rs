@@ -1,7 +1,5 @@
 # Active-run inventory
 
-Snapshot taken while preparing this incident report.
-
 | Run | Workflow | Branch | SHA | State | Event | Created |
 | ---: | --- | --- | --- | --- | --- | --- |
 | 37183412754 | Supervision preflight | `experiment/original-metarocq-selfhost-08-pcuic-certificate-reconciled` | `1abd5b56` | queued | pull_request | 2026-10-04T06:38:54Z |
@@ -40,14 +38,14 @@ Snapshot taken while preparing this incident report.
 | 37177107592 | Original checker kernel replay | `generated/hol4-pcuic-proof-migration` | `7d9b9d97` | pending | pull_request | 2026-10-04T04:28:42Z |
 | 37177104570 | Generate HOL4 to PCUIC proof artifacts | `generated/hol4-pcuic-proof-migration` | `1d19f138` | pending | push | 2026-10-04T04:28:38Z |
 | 37176865963 | Original checker kernel replay | `generated/hol4-pcuic-proof-migration` | `ca58bad9` | queued | pull_request | 2026-10-04T04:23:29Z |
-| 37176755961 | Generate HOL4 to PCUIC proof artifacts | `generated/hol4-pcuic-proof-migration` | `ca58bad9` | queued | push | 2026-10-04T04:21:09Z |
+| 37176755961 | Generate HOL4 to PCUIC proof artifacts | `generated/hol4-pcuic-proof-migration` | `ca58bad9` | in_progress | push | 2026-10-04T04:21:09Z |
 | 37176582647 | Supervision preflight | `research/certifying-metaprograms-03-verdict` | `28011f52` | queued | pull_request | 2026-10-04T04:17:36Z |
 | 37175201578 | Original checker kernel replay | `experiment/hol4-opentheory-pcuic` | `cacfdfdf` | in_progress | pull_request | 2026-10-04T03:50:13Z |
 
 ## Interpretation
 
-- `queued`: job is ready but has not received a hosted runner.
-- `pending`: workflow is waiting before job materialization, typically because of workflow concurrency.
-- `in_progress`: a runner was assigned and actual steps are executing.
+- `queued`: ready but waiting for a hosted runner.
+- `pending`: waiting before job materialization, commonly due to workflow concurrency.
+- `in_progress`: a runner is assigned and steps are executing.
 
-The run list is evidence of the scheduling incident, not a list of failed proofs.
+These states are scheduling evidence, not proof-failure evidence.
