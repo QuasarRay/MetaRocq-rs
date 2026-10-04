@@ -1,22 +1,92 @@
-name: Incident cancellation shim
+name: Original MetaRocq selfhost CakeML
 
 on:
   push:
     branches:
       - experiment/original-metarocq-selfhost-03-candle-cakeml
     paths:
+      - 'metatheory/original-selfhost/**'
+      - 'spec/original-metarocq-selfhost.json'
+      - 'tools/bootstrap.py'
+      - 'tools/install_extraction.sh'
       - '.github/workflows/original-metarocq-selfhost-cakeml.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
   group: original-metarocq-selfhost-cakeml-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  cancel-shim:
-    if: ${{ false }}
-    runs-on: ubuntu-22.04
+  build-open-runner:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
     steps:
-      - run: echo unreachable
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install pinned MetaRocq and Peregrine
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang curl
+          python3 tools/bootstrap.py sources
+          bash tools/install_extraction.sh
+
+      - name: Compile MetaRocq-owned selfhost pipeline
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
+          rocq compile $Q metatheory/original-selfhost/PipelineIR.v
+          rocq compile $Q metatheory/original-selfhost/OpenTheoryIR.v
+          rocq compile $Q metatheory/original-selfhost/HOLProofIR.v
+          rocq compile $Q metatheory/original-selfhost/OpenTheorySerialize.v
+          rocq compile $Q metatheory/original-selfhost/PCUICModuleManifest.v
+          rocq compile $Q metatheory/original-selfhost/SelfSnapshot.v
+          rocq compile $Q metatheory/original-selfhost/MaterializeSnapshot.v
+          rocq compile $Q metatheory/original-selfhost/SelfHostRunner.v
+          rocq compile $Q metatheory/original-selfhost/PCUICToHOL.v
+          rocq compile $Q metatheory/original-selfhost/SelfHostProgram.v
+          mkdir -p generated/original-metarocq-selfhost
+          rocq compile $Q metatheory/original-selfhost/PeregrineSelfHost.v
+          test -s generated/original-metarocq-selfhost/selfhost-runner.ast
+
+      - name: Lower lambda-box runner with pinned Peregrine
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          peregrine cakeml             generated/original-metarocq-selfhost/selfhost-runner.ast             -o generated/original-metarocq-selfhost/selfhost-runner.cml
+          test -s generated/original-metarocq-selfhost/selfhost-runner.cml
+
+      - name: Compile the open runner with pinned CakeML v3213
+        run: |
+          mkdir -p .aegis/cakeml
+          curl --fail --location --silent --show-error             https://github.com/CakeML/cakeml/releases/download/v3213/cake-x64-64.tar.gz             -o .aegis/cakeml/cake-x64-64.tar.gz
+          printf '%s  %s\n'             'e99dc1cdb9e28366f78c7c4ef812dbaab6710eb301ae8c85d1b6ce2a2161b728'             '.aegis/cakeml/cake-x64-64.tar.gz'             | sha256sum --check -
+          tar -xzf .aegis/cakeml/cake-x64-64.tar.gz -C .aegis/cakeml
+          sed -i.tmp 's/Ֆ/f/g' generated/original-metarocq-selfhost/selfhost-runner.cml
+          make -C .aegis/cakeml/cake-x64-64             CAKEFLAGS='--sexp=true --exclude_prelude=true --skip_type_inference=true'             "$GITHUB_WORKSPACE/generated/original-metarocq-selfhost/selfhost-runner.cake"
+          test -s generated/original-metarocq-selfhost/selfhost-runner.cake
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: original-metarocq-open-selfhost-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            generated/original-metarocq-selfhost/
+            metatheory/original-selfhost/*.vo
+          if-no-files-found: warn
+
+  single-binary-candle-gate:
+    needs: build-open-runner
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Require verified Candle linkage
+        run: |
+          echo "The MetaRocq runner is intentionally open over candle_backend."
+          echo "This gate remains closed until the verified CakeML OpenTheory reader is linked into the same executable."
+          test -f generated/original-metarocq-selfhost/candle-linked-selfhost.cake
+          test -f generated/original-metarocq-selfhost/candle-linked-selfhost-proof.json
