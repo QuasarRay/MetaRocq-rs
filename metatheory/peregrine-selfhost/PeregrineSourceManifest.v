@@ -9,10 +9,10 @@ Open Scope string_scope.
 Module PeregrineSourceManifest.
 
 Definition pinned_peregrine_revision : string :=
-  "d768b83ffa7dab35b8d72241f0570b5bb6aedae9".
+  "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"%bs.
 
 Definition pinned_peregrine_tree : string :=
-  "b0c82eded52366ba1b4dcee930ba83e712ec638b".
+  "b0c82eded52366ba1b4dcee930ba83e712ec638b"%bs.
 
 Definition peregrine_modules : list qualid := [
   "Peregrine.PAst"%bs;
