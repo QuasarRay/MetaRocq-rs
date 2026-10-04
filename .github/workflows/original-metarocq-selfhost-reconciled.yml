@@ -1,15 +1,7 @@
 name: Original MetaRocq reconciled certificate selfhost
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-08-pcuic-certificate-reconciled
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - 'docs/adr/0014-reconcile-certificate-and-checked-cakeml-lines.md'
-      - '.github/workflows/original-metarocq-selfhost-reconciled.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 
