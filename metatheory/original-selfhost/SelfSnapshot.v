@@ -79,7 +79,9 @@ Definition materialize_pinned_pcuic_metatheory : TemplateMonad unit :=
   MetaRocq.Template.TemplateMonad.Core.tmBind
     quote_pinned_pcuic_metatheory
     (fun snapshots =>
-       MetaRocq.Template.TemplateMonad.Core.tmDefinition
-         "original_pcuic_metatheory_snapshot"%bs snapshots).
+       MetaRocq.Template.TemplateMonad.Core.tmBind
+         (MetaRocq.Template.TemplateMonad.Core.tmDefinition
+            "original_pcuic_metatheory_snapshot"%bs snapshots)
+         (fun _ => MetaRocq.Template.TemplateMonad.Core.tmReturn tt)).
 
 End SelfSnapshot.
