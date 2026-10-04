@@ -102,9 +102,10 @@ fun run_stage trace_dir st =
       end
   end;
 
-fun run_all trace_dir [] = ()
-  | run_all trace_dir (st::rest) =
-      (run_stage trace_dir st; run_all trace_dir rest);
+fun run_all trace_dir xs =
+  case xs of
+      [] => ()
+    | st::rest => (run_stage trace_dir st; run_all trace_dir rest);
 
 fun main () =
   case CommandLine.arguments () of
