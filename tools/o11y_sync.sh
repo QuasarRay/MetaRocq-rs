@@ -42,7 +42,9 @@ for attempt in 1 2 3 4 5; do
   fi
   echo "push raced with origin; rebasing append-only trace (attempt $attempt)" >&2
   git fetch origin "$branch"
-  git rebase "origin/$branch"
+  git -c user.name='MetaRocq E2E Trace Bot' \
+      -c user.email='actions@users.noreply.github.com' \
+      rebase "origin/$branch"
   if git cat-file -e "origin/$branch:$trace" 2>/dev/null; then
     echo "origin acquired duplicate run id during retry: $trace" >&2
     exit 1
