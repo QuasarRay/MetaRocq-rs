@@ -45,7 +45,10 @@ jobs:
           rocq compile $Q metatheory/original-selfhost/OpenTheorySerialize.v
           rocq compile $Q metatheory/original-selfhost/PCUICModuleManifest.v
           rocq compile $Q metatheory/original-selfhost/SelfSnapshot.v
+          rocq compile $Q metatheory/original-selfhost/MaterializeSnapshot.v
           rocq compile $Q metatheory/original-selfhost/SelfHostRunner.v
+          rocq compile $Q metatheory/original-selfhost/PCUICToHOL.v
+          rocq compile $Q metatheory/original-selfhost/SelfHostProgram.v
           mkdir -p generated/original-metarocq-selfhost
           rocq compile $Q metatheory/original-selfhost/PeregrineSelfHost.v
           test -s generated/original-metarocq-selfhost/selfhost-runner.ast
