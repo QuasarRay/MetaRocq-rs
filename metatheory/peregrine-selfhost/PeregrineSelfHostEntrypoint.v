@@ -1,5 +1,5 @@
 From Stdlib Require Import String List Bool.
-From Peregrine Require Import Pipeline Config.
+From Peregrine Require Import Pipeline Config ConfigUtils.
 From MetaRocqRs.PeregrineSelfHost Require Import PeregrineProofCorpus.
 
 Import ListNotations.
@@ -7,7 +7,7 @@ Open Scope string_scope.
 
 Inductive peregrine_selfhost_command :=
 | RunPeregrine
-    (config : string + Peregrine.Config.config')
+    (config : string + Peregrine.ConfigUtils.config')
     (attributes : list string)
     (source : string)
     (file_name : string)
