@@ -13,9 +13,13 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: original-metarocq-selfhost-reconciled-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   materialize-reconciled-selfhost:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 180
     env:
       OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
