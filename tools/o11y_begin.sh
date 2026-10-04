@@ -4,8 +4,13 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-branch="${GITHUB_REF_NAME:-$(git branch --show-current)}"
+branch="${E2E_TARGET_REF:-${GITHUB_REF_NAME:-$(git branch --show-current)}}"
+branch="${branch#refs/heads/}"
 [[ -n "$branch" ]] || { echo "cannot determine trace branch" >&2; exit 1; }
+git check-ref-format "refs/heads/$branch" >/dev/null 2>&1 || {
+  echo "invalid trace branch: $branch" >&2
+  exit 1
+}
 
 repo_before="$(git rev-parse HEAD)"
 short="${repo_before:0:12}"
@@ -20,7 +25,7 @@ trace=".o11y/$run_id"
 [[ ! -e "$trace" ]] || { echo "refusing to reuse local trace directory: $trace" >&2; exit 1; }
 mkdir -p "$trace/preflight" "$trace/stages"
 
-# Publish the path before any network operation.  If origin synchronization
+# Publish the path before any network operation. If origin synchronization
 # itself fails, later always() workflow steps can still finalize and attempt to
 # persist the failure trace.
 if [[ -n "${GITHUB_ENV:-}" ]]; then
