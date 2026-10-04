@@ -1,0 +1,22 @@
+aegis:dagger:supervision:
+  extends: .use-docker-in-docker
+  stage: test
+  image: python:3.12-alpine
+  variables:
+    DAGGER_VERSION: "v0.21.10"
+  rules:
+    - changes:
+        - aegis/**/*
+        - app/controllers/aegis/**/*
+        - app/services/aegis/**/*
+        - app/services/mcp/tools/aegis/**/*
+        - app/views/aegis/**/*
+        - config/routes/aegis.rb
+        - config/routes.rb
+        - app/services/mcp/tools/manager.rb
+  before_script:
+    - apk add --no-cache curl git docker-cli
+    - curl -fsSL https://dl.dagger.io/dagger/install.sh | BIN_DIR=/usr/local/bin DAGGER_VERSION="${DAGGER_VERSION}" sh
+    - pip install --no-cache-dir "dagger-io==0.21.10"
+  script:
+    - python3 aegis/dagger/supervision.py --source .

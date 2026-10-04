@@ -1,0 +1,19 @@
+{
+  "files": {
+    "aegis.gitlab-ci.yml": ".gitlab/ci/aegis.gitlab-ci.yml",
+    "get_supervision_state_service.rb": "app/services/mcp/tools/aegis/get_supervision_state_service.rb",
+    "repository_snapshot.rb": "app/services/aegis/repository_snapshot.rb",
+    "route_aegis.rb": "config/routes/aegis.rb",
+    "show.html.haml": "app/views/aegis/supervision/show.html.haml",
+    "supervision_controller.rb": "app/controllers/aegis/supervision_controller.rb",
+    "github_bridge_configuration.rb": "app/services/aegis/github_bridge/configuration.rb",
+    "github_bridge_client.rb": "app/services/aegis/github_bridge/client.rb",
+    "github_bridge_snapshot.rb": "app/services/aegis/github_bridge/snapshot.rb",
+    "github_bridge_mutation_service.rb": "app/services/aegis/github_bridge/mutation_service.rb",
+    "github_controller.rb": "app/controllers/aegis/github_controller.rb",
+    "github.html.haml": "app/views/aegis/github/show.html.haml",
+    "get_github_state_service.rb": "app/services/mcp/tools/aegis/get_github_state_service.rb",
+    "mutate_github_service.rb": "app/services/mcp/tools/aegis/mutate_github_service.rb"
+  },
+  "schema": 1
+}

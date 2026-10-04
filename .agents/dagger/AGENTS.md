@@ -64,10 +64,10 @@ Target Project Repository: "https://github.com/QuasarRay/Aegis.git"
 
 ---
 
-# Architecture adoption and fallback specialization
+# Dagger integration specialization
 
-- `scripts/control_plane.py` is the bounded entrypoint for Astra to review, diagnose, adopt and continue the GitLab architecture.
-- Keep `AEGIS_CONTROL_PLANE_MODE=auto` as GitLab-primary with legacy fallback. Explicit `gitlab` must fail closed; explicit `legacy` must not contact GitLab.
-- Fallback may replace unavailable orchestration/UI/CI mechanics only. It must never bypass PostgreSQL persistence, publication identity, formal replay/verifier failures, provider authorization, or `metatheory-verified`.
-- Both modes must consume the same roadmap/evidence. Never create a fallback-only roadmap, proof database or completion marker.
-- Diagnostics must return compact machine-readable results and point Astra at failing files/checks rather than requiring whole-repository rereads.
+- Dagger is the hermetic execution/orchestration layer for repeatable build and supervision checks; it is not a proof checker and cannot satisfy a mathematical proof gate by itself.
+- Pin the Dagger CLI/SDK revision in `gitlab/runtime.lock.json`. Avoid floating container/tool versions in evidence-producing pipelines.
+- Reuse the same Dagger entrypoints from GitLab CI and local development so CI logic is not duplicated across runners.
+- Keep default checks cheap and deterministic. Large source-materialization or transpiler experiments must be explicit/manual unless their recurring benefit exceeds their compute and maintenance cost.
+- Preserve the single-agent/sequential Aegis execution policy; Dagger may parallelize independent build mechanics only when that does not create parallel agent reasoning or conflicting writes.

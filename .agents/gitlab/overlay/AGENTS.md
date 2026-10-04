@@ -64,10 +64,13 @@ Target Project Repository: "https://github.com/QuasarRay/Aegis.git"
 
 ---
 
-# Architecture adoption and fallback specialization
+# GitLab source overlay specialization
 
-- `scripts/control_plane.py` is the bounded entrypoint for Astra to review, diagnose, adopt and continue the GitLab architecture.
-- Keep `AEGIS_CONTROL_PLANE_MODE=auto` as GitLab-primary with legacy fallback. Explicit `gitlab` must fail closed; explicit `legacy` must not contact GitLab.
-- Fallback may replace unavailable orchestration/UI/CI mechanics only. It must never bypass PostgreSQL persistence, publication identity, formal replay/verifier failures, provider authorization, or `metatheory-verified`.
-- Both modes must consume the same roadmap/evidence. Never create a fallback-only roadmap, proof database or completion marker.
-- Diagnostics must return compact machine-readable results and point Astra at failing files/checks rather than requiring whole-repository rereads.
+- Overlay files must map into the pinned GitLab Rails tree through `overlay.json`; no overlay file may replace `Gemfile`, `config/application.rb`, `config/environment.rb`, or `config/boot.rb`.
+- New controllers and services must use GitLab authorization and feature-category conventions. MCP tools must use GitLab's existing MCP registry and authorization path.
+- Keep supervision reads deterministic and repository-derived. Never convert file presence, hashes, process exit codes, or Dagger success into a formal-proof completion claim.
+- Keep the overlay small enough to audit across GitLab upgrades. New integration points require a pinned source anchor or an explicit compatibility check.
+
+- GitHub bridge code must reuse GitLab's pinned GitHub/Octokit client stack and keep GitHub network failures contained to bridge features.
+- Remote GitHub writes must use explicit operation allowlists and optimistic identities where available; never expose a generic arbitrary GitHub HTTP method to agents.
+- GitHub workflow/status observations are external process evidence only and cannot satisfy formal proof acceptance.

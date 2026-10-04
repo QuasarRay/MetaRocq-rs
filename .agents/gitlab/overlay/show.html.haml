@@ -1,0 +1,57 @@
+.page-title-holder.d-flex.align-items-center
+  %h1.page-title Aegis supervision
+  %span.gl-ml-3.gl-badge.gl-badge-info= @project.full_path
+
+.gl-alert.gl-alert-info.gl-mt-4
+  .gl-alert-body
+    This is a read-only human supervision view. Process evidence and retained artifacts are not formal proof acceptance.
+
+.row.gl-mt-5
+  .col-md-4
+    .card
+      .card-header Implementation gate
+      .card-body
+        %code= @snapshot[:implementation_gate] || 'unknown'
+  .col-md-4
+    .card
+      .card-header Persistent events
+      .card-body= @snapshot.dig(:persistence, :events) || 0
+  .col-md-4
+    .card
+      .card-header Aegis deployment
+      .card-body
+        %code= @snapshot.dig(:aegis_deployment, 'commit') || 'not recorded'
+
+%p.gl-mt-4
+  = link_to 'GitHub bridge and external-forge state', aegis_project_github_path(project_id: @project.id)
+
+%h2.gl-mt-6 Roadmap
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th Task
+        %th Kind
+        %th Dependencies
+        %th Evidence
+        %th Required theorems
+        %th Blockers
+    %tbody
+      - @snapshot[:tasks].each do |task|
+        %tr
+          %td
+            %strong= task[:id]
+            %div.gl-text-secondary= task[:description]
+          %td= task[:kind]
+          %td= task[:depends_on].join(', ')
+          %td= task[:process_evidence_recorded] ? 'recorded process evidence' : 'none'
+          %td
+            - Array(task.dig(:acceptance, 'required_theorems')).each do |theorem|
+              %div
+                %code= theorem
+          %td
+            - task[:blockers].each do |blocker|
+              %div.gl-mb-2= blocker
+
+%h2.gl-mt-6 Current project status
+%pre.gl-p-4.gl-bg-subtle= @snapshot[:status_markdown]

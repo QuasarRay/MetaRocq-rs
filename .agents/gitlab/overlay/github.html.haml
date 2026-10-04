@@ -1,0 +1,138 @@
+.page-title-holder.d-flex.align-items-center
+  %h1.page-title GitHub bridge
+  %span.gl-ml-3.gl-badge.gl-badge-info= @project.full_path
+
+.gl-alert.gl-alert-info.gl-mt-4
+  .gl-alert-body
+    GitLab/Aegis remains authoritative and fully operable when GitHub is unavailable. GitHub is an optional external forge and website integration.
+
+.row.gl-mt-5
+  .col-md-3
+    .card
+      .card-header Configured
+      .card-body= @state[:configured] ? 'yes' : 'no'
+  .col-md-3
+    .card
+      .card-header API available
+      .card-body= @state[:available] ? 'yes' : 'no'
+  .col-md-3
+    .card
+      .card-header Write bridge
+      .card-body= @state[:writable] ? 'enabled by host admin' : 'disabled'
+  .col-md-3
+    .card
+      .card-header Mapping source
+      .card-body= @state[:mapping_source]
+
+- if @state[:web_url].present?
+  %p.gl-mt-4
+    = link_to 'Open repository on GitHub', @state[:web_url], target: '_blank', rel: 'noopener noreferrer'
+
+- unless @state[:available]
+  .gl-alert.gl-alert-warning.gl-mt-4
+    .gl-alert-body= @state[:reason] || 'GitHub is unavailable.'
+- else
+  %h2.gl-mt-6 Repository settings
+  .table-responsive
+    %table.table
+      %tbody
+        - @state[:repository_settings].each do |key, value|
+          %tr
+            %th= key
+            %td= value.inspect
+
+  %h2.gl-mt-6 Pull requests
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Number
+          %th Title
+          %th Head
+          %th Base
+          %th Draft
+      %tbody
+        - @state[:pull_requests].each do |pull|
+          %tr
+            %td= link_to "##{pull['number']}", pull['html_url'], target: '_blank', rel: 'noopener noreferrer'
+            %td= pull['title']
+            %td
+              %code= pull['head_ref']
+              %div
+                %code= pull['head_sha']
+            %td
+              %code= pull['base_ref']
+            %td= pull['draft'] ? 'yes' : 'no'
+
+  %h2.gl-mt-6 Workflow runs
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Run
+          %th Status
+          %th Conclusion
+          %th Commit
+      %tbody
+        - @state[:workflow_runs].each do |run|
+          %tr
+            %td= link_to "#{run['name']} ##{run['run_number']}", run['html_url'], target: '_blank', rel: 'noopener noreferrer'
+            %td= run['status']
+            %td= run['conclusion']
+            %td
+              %code= run['head_sha']
+
+  %h2.gl-mt-6 Branches and protection
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Branch
+          %th Protected
+          %th Commit
+      %tbody
+        - @state[:branches].each do |branch|
+          %tr
+            %td
+              %code= branch['name']
+            %td= branch['protected'] ? 'yes' : 'no'
+            %td
+              %code= branch['sha']
+
+  %details.gl-mt-4
+    %summary Default-branch protection and repository rulesets
+    %h3.gl-mt-4 Branch protection
+    %pre.gl-p-4.gl-bg-subtle= Gitlab::Json.pretty_generate(@state[:branch_protection] || {})
+    %h3.gl-mt-4 Rulesets
+    %pre.gl-p-4.gl-bg-subtle= Gitlab::Json.pretty_generate(@state[:rulesets] || [])
+    %h3.gl-mt-4 Actions permissions
+    %pre.gl-p-4.gl-bg-subtle= Gitlab::Json.pretty_generate(@state[:actions_permissions] || {})
+
+  %h2.gl-mt-6 Recent version-control state
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Commit
+          %th Author
+          %th Message
+      %tbody
+        - @state[:recent_commits].each do |commit|
+          %tr
+            %td= link_to commit['sha'].to_s.first(12), commit['html_url'], target: '_blank', rel: 'noopener noreferrer'
+            %td= commit['author']
+            %td= commit['message']
+
+- if @state[:writable] && can?(current_user, :admin_project, @project)
+  %h2.gl-mt-6 Admin GitHub operation
+  .gl-alert.gl-alert-warning
+    .gl-alert-body
+      Mutations execute on GitHub. The server-side bridge validates the operation and payload; the GitHub credential is never exposed to the browser or agent.
+  = form_tag(aegis_project_github_mutate_path(project_id: @project.id), method: :post) do
+    .form-group
+      = label_tag :operation, 'Operation'
+      = select_tag :operation, options_for_select(%w[create_branch create_pull_request merge_pull_request rerun_failed_workflow dispatch_workflow update_repository_settings update_branch_protection update_ruleset publish_commit_status]), class: 'form-control'
+    .form-group
+      = label_tag :payload, 'JSON payload'
+      = text_area_tag :payload, '{}', rows: 12, class: 'form-control gl-font-monospace'
+    = submit_tag 'Execute on GitHub', class: 'btn btn-danger'

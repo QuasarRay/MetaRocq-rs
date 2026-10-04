@@ -1,0 +1,32 @@
+name: Aegis GitLab control-plane bridge
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - candle-rs
+      - 'metarocq/**'
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      AEGIS_CONTROL_PLANE_MODE: auto
+      AEGIS_GITLAB_URL: ${{ vars.AEGIS_GITLAB_URL }}
+      AEGIS_GITLAB_PROJECT: ${{ vars.AEGIS_GITLAB_PROJECT }}
+      AEGIS_GITLAB_API_TOKEN: ${{ secrets.AEGIS_GITLAB_API_TOKEN }}
+      AEGIS_GITLAB_REF: ${{ github.head_ref || github.ref_name }}
+      AEGIS_GITHUB_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate architecture locally
+        run: |
+          python3 -m unittest infra.tests.test_gitlab_runtime infra.tests.test_github_bridge_overlay infra.tests.test_control_plane_adoption -v
+          python3 -m py_compile gitlab/assemble.py gitlab/materialize.py gitlab/github_actions_bridge.py dagger/supervision.py scripts/control_plane.py
+      - name: Use GitLab primary or safe legacy fallback
+        run: python3 -B scripts/control_plane.py ci --root . --prevalidated

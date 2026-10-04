@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "aegis_repository": "https://github.com/QuasarRay/Aegis.git",
+  "aegis_commit": "3ca3f2bb048b93d7b2399c17af083e30338465e9",
+  "aegis_pr": "https://github.com/QuasarRay/Aegis/pull/26",
+  "control_plane": {
+    "degraded": false,
+    "probe": {
+      "configured": false,
+      "ready": false,
+      "reason": "AEGIS_GITLAB_URL is not configured"
+    },
+    "reason": "AEGIS_GITLAB_URL is not configured",
+    "requested": "auto",
+    "selected": "legacy"
+  },
+  "architecture_checks_passed": true,
+  "preserved": {
+    "roadmap_unchanged": true,
+    "database_files": 12,
+    "database_manifest_sha256": "358ad749e8b750c8259a0942c2df72a05b46c565b28b7901d6a7991c138ab9b6",
+    "project_instructions_match": "AGENTS(3).MD",
+    "aegis_instructions_scope": ".agents/"
+  },
+  "runtime": {
+    "local_postgresql": "BLOCKED: workspace UID mapping exposes only root; non-root database identity cannot be started",
+    "gitlab": "not configured",
+    "next": "restore the committed event store into PostgreSQL in the GitHub Actions workspace before replay"
+  },
+  "claim": "Control-plane deployment and qualification only; no new theorem or production-readiness claim."
+}

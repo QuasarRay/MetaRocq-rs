@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "purpose": "minimal-token Astra review/integration packet for Aegis GitLab architecture",
+  "stack": {
+    "origin_commit": "c0f9e96e3ecf697750ea8e6cc896d04a4bb9abf8",
+    "prs": [
+      {
+        "number": 20,
+        "purpose": "single GitLab CE Rails runtime + supervision UI + GitLab MCP + Dagger"
+      },
+      {
+        "number": 21,
+        "purpose": "Ruby/Rust boundary; keep whole-Rails transpilation optional"
+      },
+      {
+        "number": 22,
+        "purpose": "optional deep GitHub website/control bridge while preserving self-hosting"
+      },
+      {
+        "number": 24,
+        "purpose": "Ruby metaprogramming/token-efficiency review packet"
+      }
+    ]
+  },
+  "invariants": [
+    "GitLab CE/FOSS is the only Rails application",
+    "GitHub is optional and cannot be a boot/proof dependency",
+    "Dagger is execution/caching, never mathematical proof",
+    "metatheory-verified remains the implementation gate",
+    "prefer GitLab/Rails-native DSLs before adding new metaprogramming libraries",
+    "any Aegis macro/DSL that hides generated API surface must emit a machine-readable expansion/index",
+    "runtime process evidence cannot satisfy formal proof acceptance"
+  ],
+  "must_read": [
+    "AGENTS.md",
+    "docs/architecture/0009-gitlab-rails-runtime.md",
+    "docs/architecture/0010-ruby-rust-and-transpilers.md",
+    "docs/architecture/0011-independent-github-bridge.md",
+    "docs/architecture/0012-ruby-metaprogramming-token-efficiency.md",
+    "gitlab/runtime.lock.json",
+    "research/ruby-metaprogramming/registry.json"
+  ],
+  "read_only_if_needed": [
+    "gitlab/overlay/overlay.json",
+    "gitlab/assemble.py",
+    "gitlab/overlay/github_bridge_mutation_service.rb",
+    "dagger/supervision.py"
+  ],
+  "review_questions": [
+    "Does any new architecture alter or weaken the formalization/bootstrapping trust chain?",
+    "Are GitLab/Rails-native DSLs sufficient for the supervision surface before introducing an external DSL?",
+    "Does every metaprogrammed Aegis surface expose deterministic expansion metadata for human/agent review?",
+    "Can the GitHub bridge be removed/disabled without affecting local Aegis formalization or supervision?"
+  ],
+  "expected_answer_shape": "approve/revise individual invariants and named integration points; do not re-read unchanged implementation files unless a listed invariant fails",
+  "token_policy": "review semantic deltas from ADRs/registry first; descend into code only for disputed claims or failing tests",
+  "successor_adoption_packet": "spec/astra-adoption.json",
+  "successor_entrypoint": "python3 -B scripts/control_plane.py adopt"
+}

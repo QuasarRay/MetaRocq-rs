@@ -5,7 +5,6 @@ PostgreSQL is authoritative; failed export/publication prevents advancement.
 """
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 import threading
@@ -16,14 +15,7 @@ from psycopg.rows import dict_row
 
 from agentinfra.atomic import atomic_write_bytes, durable_unlink
 from agentinfra.security import confined_path
-
-
-def canonical(value):
-    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
-
-
-def sha(data):
-    return hashlib.sha256(data).hexdigest()
+from .codec import canonical, sha
 
 
 class Store:
