@@ -32,6 +32,23 @@ Q=(
   -Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost
   -Q metatheory/peregrine-selfhost MetaRocqRs.PeregrineSelfHost
 )
+
+# Reuse the previously formalized checked frontend/compiler components.  These
+# are compiled here only so the executable adapter below cannot silently drift
+# away from the exact source on this branch.
+for f in \
+  EmbeddedPeregrine.v \
+  CandidateCakeMLCompiler.v \
+  EAstSupportedFragment.v \
+  CakeMLNoRaise.v \
+  CheckedCandidateCakeML.v
+do
+  rocq compile "${Q[@]}" "metatheory/original-selfhost/$f"
+done
+
+rocq compile "${Q[@]}" \
+  metatheory/peregrine-selfhost/PeregrineCheckedCakeMLProducer.v
+
 for f in \
   PeregrineSourceManifest.v \
   PeregrineLoadAll.v \
