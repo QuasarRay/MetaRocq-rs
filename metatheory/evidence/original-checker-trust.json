@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "task": "original-source-and-checker",
+  "task_status": "BLOCKED",
+  "claim": "Conditional soundness of the original PCUIC checker and four finite regressions; bootstrap incomplete",
+  "compiler_observation": {
+    "run_id": 37140518536,
+    "source_commit": "f75bff8ef22d88919afbcc8033aac180cffe5683",
+    "rocq": "9.1.1",
+    "ocaml": "4.14.2",
+    "status": "COMPILED; separate replay not executed because rocq chk was invalid",
+    "sources": {
+      "metatheory/bootstrap/CheckerExamples.v": "a65c934950efa44994ad233f962a1a68b363c44ceefb8c8a5b75e908c770873d",
+      "metatheory/bootstrap/OriginalChecker.v": "edb03d57303684180029862d052b75d92e4357539dcfac6a654de73a76851dab"
+    },
+    "reports": {
+      "compile-OriginalChecker.stdout": "339f4aad5bb3faa33045f60807a82d60850795a3a6011686d555f4ab49a98354",
+      "compile-CheckerExamples.stdout": "08413a0e1a56eefc31030bc6da08562c3601d842d36b960509b44f77e1b505c0"
+    }
+  },
+  "next_replay": {
+    "command": "rocq check",
+    "status": "PENDING_ACTIONS",
+    "required_controls": [
+      "kernel-replay",
+      "reject-invalid-proof",
+      "reject-damaged-object"
+    ],
+    "assumption_report": "original-checker artifact: assumptions.json",
+    "boundary": "Separate kernel process from the same Rocq installation; not an independently implemented checker or qualified Aegis acceptance adapter"
+  },
+  "explicit_premises": [
+    "checker_flags and normalizing_flags; examples fix default_checker_flags and checked_universes",
+    "abstract_guard_impl with guard_correct; no concrete executable guard is supplied",
+    "forall Sigma, wf_ext Sigma -> NormalizationIn Sigma"
+  ],
+  "compiler_reported_assumptions": [
+    "Eqdep.Eq_rect_eq.eq_rect_eq",
+    "FloatAxioms.SF2Prim_Prim2SF",
+    "FunctionalExtensionality.functional_extensionality_dep",
+    "PCUICGuardCondition.guard_checking_correct",
+    "PrimFloat.abs",
+    "PrimFloat.div",
+    "PrimFloat.eqb",
+    "PrimFloat.float",
+    "PrimFloat.frshiftexp",
+    "PrimFloat.ldshiftexp",
+    "PrimFloat.ltb",
+    "PrimFloat.normfr_mantissa",
+    "PrimFloat.of_uint63",
+    "PrimFloat.opp",
+    "PrimInt63.compare",
+    "PrimInt63.eqb",
+    "PrimInt63.int",
+    "PrimInt63.land",
+    "PrimInt63.lor",
+    "PrimInt63.lsl",
+    "PrimInt63.lsr",
+    "PrimInt63.ltb",
+    "PrimInt63.sub",
+    "PrimString.cat",
+    "PrimString.compare",
+    "PrimString.get",
+    "PrimString.length",
+    "PrimString.make",
+    "PrimString.string",
+    "PrimStringAxioms.compare_spec",
+    "PrimStringAxioms.of_to_list",
+    "Uint63Axioms.compare_def_spec",
+    "Uint63Axioms.eqb_correct",
+    "Uint63Axioms.eqb_refl",
+    "Uint63Axioms.ltb_spec",
+    "Uint63Axioms.of_to_Z",
+    "guard_checking"
+  ],
+  "guard_boundary": {
+    "imported_axioms": [
+      "PCUICTyping.guard_checking",
+      "PCUICGuardCondition.guard_checking_correct"
+    ],
+    "not_imported": "SafeCheckerPlugin.Extraction.fake_abstract_guard_impl_properties",
+    "distinction": "Avoiding the plugin axiom does not discharge the upstream abstract guard axioms"
+  },
+  "remaining_obligations": [
+    {
+      "id": "certified-guard",
+      "status": "UNRESOLVED",
+      "requires": "Concrete executable guard, its guard_correct proof, and discharge/justification of upstream guard axioms"
+    },
+    {
+      "id": "normalization",
+      "status": "UNRESOLVED",
+      "requires": "A proved normalization instance for the intended environments and flags"
+    },
+    {
+      "id": "universe-contract",
+      "status": "UNRESOLVED",
+      "requires": "Bind the intended supported universe/typing flags and scope beyond the four finite regressions"
+    },
+    {
+      "id": "assumption-closure",
+      "status": "UNRESOLVED",
+      "requires": "Explicit justification or elimination of primitive, functional-extensionality and Eq_rect_eq assumptions"
+    },
+    {
+      "id": "kernel-replay",
+      "status": "PENDING",
+      "requires": "Successful separate replay and rejection of both negative controls, bound to exact source/run identity"
+    },
+    {
+      "id": "qualified-replay-adapter",
+      "status": "UNRESOLVED",
+      "requires": "A qualified independent Aegis proof acceptance adapter; successful commands alone never open the gate"
+    },
+    {
+      "id": "dependency-provenance",
+      "status": "UNRESOLVED",
+      "requires": "Complete source and build provenance for all dependency objects and the retained kernel/compiler trust root"
+    },
+    {
+      "id": "publication",
+      "status": "PENDING",
+      "requires": "Import and publish every exported DB event plus all retained replay artifacts before subsequent formal work"
+    },
+    {
+      "id": "machine-code-bootstrap",
+      "status": "UNRESOLVED",
+      "requires": "Retained proofs, erasure/serialization, Peregrine/CakeML, runtime/linking and selected ISA preservation proofs"
+    }
+  ],
+  "runtime": {
+    "planned": "Actions-backed PostgreSQL restored from committed Aegis history",
+    "local": "UNAVAILABLE",
+    "formal_gate": "BLOCKED",
+    "publication": "Artifact upload does not replace Git publication"
+  }
+}
