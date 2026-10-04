@@ -1,0 +1,5 @@
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine
+File "./metatheory/original-selfhost/PCUICModuleManifest.v", line 17, characters 2-32:
+Error: Unknown scope delimiting key bs.
+
