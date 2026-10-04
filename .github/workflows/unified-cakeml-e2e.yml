@@ -97,6 +97,14 @@ jobs:
           trace="$(tools/o11y_begin.sh)"
           echo "Trace directory: $trace"
 
+      - name: Restore pinned extraction toolchain cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: unified-e2e-opam-${{ runner.os }}-${{ hashFiles('spec/toolchain.lock.json', 'tools/install_extraction.sh') }}
+
       - name: Install host prerequisites with regression-style capture
         shell: bash
         run: |
