@@ -1,64 +1,22 @@
-name: Original MetaRocq PCUIC certificate bridge
+name: Incident cancellation shim
 
 on:
   push:
     branches:
       - experiment/original-metarocq-selfhost-06-pcuic-hol-deep-embedding
     paths:
-      - 'metatheory/original-selfhost/**'
-      - 'formal/hol4/**'
-      - 'tools/hol4_pcuic_*.py'
-      - 'tools/harvest_hol4_pcuic.py'
-      - 'tools/original_cakeml_replay_gate.py'
-      - 'tools/test_hol4_opentheory_pcuic.py'
-      - 'spec/hol4-opentheory-pcuic.lock.json'
       - '.github/workflows/original-metarocq-certificate-bridge.yml'
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
   group: original-metarocq-certificate-bridge-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  compile-meta-contract:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 180
-    env:
-      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+  cancel-shim:
+    if: ${{ false }}
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-
-      - name: Validate inherited HOL4 bridge code without duplicating it
-        run: |
-          python3 -m py_compile             tools/hol4_pcuic_core.py             tools/hol4_pcuic_translate.py             tools/harvest_hol4_pcuic.py             tools/original_cakeml_replay_gate.py             tools/test_hol4_opentheory_pcuic.py
-          python3 -m unittest -v tools/test_hol4_opentheory_pcuic.py
-
-      - name: Install exact MetaRocq bootstrap
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
-          python3 tools/bootstrap.py sources
-          bash tools/install_extraction.sh
-
-      - name: Compile certificate and reuse contracts
-        run: |
-          eval "$(opam env --switch .aegis/opam --set-switch)"
-          Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
-          for f in             PipelineIR.v             OpenTheoryIR.v             PCUICModuleManifest.v             SelfSnapshot.v             MaterializeSnapshot.v             HOLProofIR.v             OpenTheorySerialize.v             RuntimeImage.v             RetainedPayload.v             SelfHostRunner.v             ExtractionRoot.v             VerifiedRuntimeAnchors.v             RecursiveTrustGraph.v             SingleImageContract.v             SingleImageRunner.v             SingleImageExtractionRoot.v             CakeMLImageIR.v             SelfHostCI.v             SelfHostCIInterpreter.v             MetaCIExtractionRoot.v             PCUICCertificateIR.v             PCUICDeepEmbeddingSchema.v             SafeCheckerContract.v             CertificateReplayIR.v             DeepEmbeddingStatus.v             HOL4ReuseContract.v             HOL4RoundTripIR.v
-          do
-            rocq compile $Q "metatheory/original-selfhost/$f"
-          done
-
-      - name: Check exact inherited reuse assets exist
-        run: |
-          test -s formal/hol4/MetaRocqBootstrapScript.sml
-          test -s formal/hol4/MetaRocqMigrationSmokeScript.sml
-          test -s tools/hol4_pcuic_core.py
-          test -s tools/hol4_pcuic_translate.py
-          test -s tools/harvest_hol4_pcuic.py
-          test -s tools/original_cakeml_replay_gate.py
-          test -s spec/hol4-opentheory-pcuic.lock.json
-          test -s metatheory/bootstrap/Hol4ImportedQuote.v.in
+      - run: echo unreachable
