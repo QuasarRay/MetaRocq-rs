@@ -44,11 +44,35 @@ Definition accept_hol4_certificate_evidence
   && e.(hol4_certificate_assumption_correspondence)
   && hol4_machine_refinement_complete e.(hol4_certificate_machine_refinement).
 
+Fixpoint accept_hol4_certificate_corpus
+  (jobs : list hol4_certificate_job)
+  (evidence : list hol4_certificate_evidence) : bool :=
+  match jobs, evidence with
+  | [], [] => true
+  | _ :: jobs', e :: evidence' =>
+      accept_hol4_certificate_evidence e
+      && accept_hol4_certificate_corpus jobs' evidence'
+  | _, _ => false
+  end.
+
+Definition accept_original_hol4_certificate_corpus
+  (evidence : list hol4_certificate_evidence) : bool :=
+  accept_hol4_certificate_corpus original_hol4_certificate_ledger evidence.
+
 Theorem hol4_ledger_covers_every_certificate :
   List.length original_hol4_certificate_ledger = certificate_corpus_size.
 Proof.
   unfold original_hol4_certificate_ledger, certificate_corpus_size.
   now rewrite map_length.
+Qed.
+
+Theorem empty_evidence_cannot_accept_nonempty_corpus :
+  original_hol4_certificate_ledger <> [] ->
+  accept_original_hol4_certificate_corpus [] = false.
+Proof.
+  intros H.
+  unfold accept_original_hol4_certificate_corpus.
+  destruct original_hol4_certificate_ledger; [contradiction|reflexivity].
 Qed.
 
 Theorem missing_hol4_side_blocks_certificate :
