@@ -84,13 +84,20 @@ case "$ID" in
     grep -Fq 'ReplayPeregrineRuntimeProofs' \
       metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v ||
       fail "runtime replay command missing from extraction root"
+    grep -Fq 'peregrine_selfhost_runtime_root' \
+      metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v ||
+      fail "replay-gated CakeML runtime root missing"
+    grep -Fq 'peregrine_selfhost_runtime_root' \
+      metatheory/peregrine-selfhost/ExtractPeregrineSelfHost.v ||
+      fail "LambdaBox extraction does not target replay-gated runtime root"
     sha256sum \
       generated/peregrine-selfhost/peregrine-selfhost.ast \
       metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v \
       metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v \
       > "$STAGE_DIR/lambdabox-replay-inputs.sha256"
     receipt "Selfhost LambdaBox/proof corpus producer completed."
-    receipt "Replay-capable entrypoint retained; diagnostic checker success is not semantic proof."
+    receipt "Extracted CakeML main is replay-gated before normal dispatch is exposed."
+    receipt "Runtime replay remains diagnostic; success is not the final semantic proof."
     ;;
   04)
     require_file generated/peregrine-selfhost/rocq-version.txt
