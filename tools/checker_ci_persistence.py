@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Restore the committed Aegis history in Actions; export it before teardown.
+"""Restore, export and automatically publish Aegis history from Actions.
 
 Administration is confined to init. Replay/export use the existing task login,
 Store, append-only schema and sequential lock. Upload is pending publication,
@@ -15,6 +15,8 @@ from pathlib import Path
 import secrets
 import subprocess
 import sys
+import tempfile
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 FRAMEWORK = ROOT / '.agents'
@@ -115,12 +117,95 @@ def export():
         store.close()
 
 
+def publication_target(source):
+    """Only the same-repository PR head may receive this run's records."""
+    if os.environ.get('GITHUB_ACTIONS') != 'true' or os.environ.get('GITHUB_EVENT_NAME') != 'pull_request':
+        raise RuntimeError('automatic publication requires a pull-request Actions workspace')
+    repository = os.environ['GITHUB_REPOSITORY']
+    branch = os.environ['AEGIS_PUBLICATION_BRANCH']
+    if (os.environ['AEGIS_PUBLICATION_REPOSITORY'] != repository
+            or branch == os.environ['AEGIS_PUBLICATION_BASE']
+            or not branch.startswith('metarocq/')):
+        raise RuntimeError('publication is restricted to the same-repository metarocq PR head')
+    from pipelines.publish import git
+    git(ROOT, 'check-ref-format', 'refs/heads/' + branch)
+    remote = git(ROOT, 'remote', 'get-url', 'origin')
+    if remote.removesuffix('.git') != 'https://github.com/' + repository:
+        raise RuntimeError('unexpected publication remote')
+    observed = git(ROOT, 'ls-remote', '--exit-code', 'origin', 'refs/heads/' + branch).split()[0]
+    if observed != source['source_commit']:
+        raise RuntimeError('PR head advanced; preserve artifacts for exact-history recovery')
+    return branch
+
+
+def publish_records():
+    """Reuse Aegis's non-forcing publisher; no model-written logging or commits."""
+    from agentinfra.security import confined_path
+    from pipelines.publish import git, publish
+    source = identity()
+    branch = publication_target(source)
+    receipt = json.loads((OUT / 'persistence.json').read_text())
+    if (receipt['identity'] != source
+            or receipt['snapshot_sha256'] != digest(FRAMEWORK / 'data/manifest.json')):
+        raise RuntimeError('publication receipt does not bind this exact source and snapshot')
+    snapshot = json.loads((FRAMEWORK / 'data/manifest.json').read_text())
+    for name, checksum in snapshot['files'].items():
+        if digest(confined_path(FRAMEWORK, name, must_exist=True)) != checksum:
+            raise RuntimeError('logical export changed before publication')
+    if list((FRAMEWORK / 'data/pending').rglob('*.json')):
+        raise RuntimeError('pending database writes block publication acceptance')
+    if not os.environ.get('GH_TOKEN'):
+        raise RuntimeError('publication credential unavailable')
+    run = source['run_id']
+    attempt = source['run_attempt']
+    if not run.isdigit() or not attempt.isdigit():
+        raise RuntimeError('invalid run identity')
+    archive = ROOT / 'metatheory/evidence' / f'checker-run-{run}-{attempt}.zip'
+    if archive.exists():
+        raise RuntimeError('run archive already exists; do not overwrite history')
+    with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED) as bundle:
+        for path in sorted(OUT.rglob('*')):
+            if path.is_symlink():
+                raise RuntimeError('redirected replay artifact')
+            if path.is_file():
+                bundle.write(path, path.relative_to(OUT).as_posix())
+    # checkout deliberately used the exact source SHA, so attach a local branch
+    # only after verifying the remote is still at that SHA. Push stays non-forcing.
+    git(ROOT, 'switch', '-c', branch)
+    git(ROOT, 'config', 'user.name', 'github-actions[bot]')
+    git(ROOT, 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
+    with tempfile.TemporaryDirectory(prefix='aegis-askpass-') as folder:
+        askpass = Path(folder) / 'askpass'
+        # The helper contains no credential and Git receives it via its private
+        # authentication pipe. Checkout never persists the token in repository config.
+        askpass.write_text('#!/bin/sh\ncase "$1" in\n*Username*) printf "%s\\n" x-access-token ;;\n*) printf "%s\\n" "$GH_TOKEN" ;;\nesac\n')
+        askpass.chmod(0o700)
+        names = ('GIT_ASKPASS', 'GIT_TERMINAL_PROMPT', 'GIT_CONFIG_COUNT', 'GIT_CONFIG_KEY_0', 'GIT_CONFIG_VALUE_0')
+        before = {name: os.environ.get(name) for name in names}
+        os.environ.update(GIT_ASKPASS=str(askpass), GIT_TERMINAL_PROMPT='0',
+                          GIT_CONFIG_COUNT='1', GIT_CONFIG_KEY_0='credential.helper', GIT_CONFIG_VALUE_0='')
+        try:
+            published = publish(FRAMEWORK, ROOT, [archive.relative_to(ROOT).as_posix()])
+        finally:
+            for name, value in before.items():
+                if value is None:
+                    os.environ.pop(name, None)
+                else:
+                    os.environ[name] = value
+    result = {'schema': 1, 'identity': source, **published,
+              'snapshot_sha256': receipt['snapshot_sha256'], 'archive_sha256': digest(archive),
+              'task_status': 'BLOCKED', 'claim': 'Exact Git publication only; no formal proof acceptance'}
+    # No database event follows publication: that would require another push.
+    (OUT / 'publication.json').write_text(json.dumps(result, indent=2) + '\n')
+    print(json.dumps(result))
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('init', 'export'))
+    parser.add_argument('command', choices=('init', 'export', 'publish'))
     args = parser.parse_args()
     try:
-        {'init': initialize, 'export': export}[args.command]()
+        {'init': initialize, 'export': export, 'publish': publish_records}[args.command]()
     except Exception as error:
         # PostgreSQL connection diagnostics may contain credential material.
         print(json.dumps({'status': 'BLOCKED', 'error_type': type(error).__name__,

@@ -10,7 +10,7 @@ on:
       - '.github/workflows/original-checker.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: original-checker-${{ github.event.pull_request.head.ref || github.ref }}
   cancel-in-progress: false
@@ -104,10 +104,19 @@ jobs:
         id: replay
         run: opam exec --switch .aegis/opam -- python3 -B tools/replay_original_checker.py
       - name: Export every Aegis event before runner teardown
+        id: persistence_export
         if: always() && env.AEGIS_TASK_DSN != ''
         env:
           AEGIS_JOB_STATUS: ${{ job.status }}
         run: python3 -B tools/checker_ci_persistence.py export
+      - name: Publish the complete logical history and replay archive
+        if: always() && steps.persistence_export.outcome == 'success' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AEGIS_PUBLICATION_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          AEGIS_PUBLICATION_BRANCH: ${{ github.head_ref }}
+          AEGIS_PUBLICATION_BASE: ${{ github.base_ref }}
+        run: python3 -B tools/checker_ci_persistence.py publish
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
