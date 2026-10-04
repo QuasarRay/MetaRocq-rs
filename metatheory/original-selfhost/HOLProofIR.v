@@ -48,14 +48,14 @@ Fixpoint compile_type (ty : hol_type) : list OpenTheoryIR.token :=
   | HVarType name =>
       [OpenTheoryIR.StringToken name; op OpenTheoryIR.VarType]
   | HType0 name =>
-      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp;
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.OTTypeOp;
        op OpenTheoryIR.Nil; op OpenTheoryIR.OpType]
   | HType1 name arg =>
-      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp]
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.OTTypeOp]
       ++ compile_type arg
       ++ [op OpenTheoryIR.Nil; op OpenTheoryIR.Cons; op OpenTheoryIR.OpType]
   | HType2 name left right =>
-      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp]
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.OTTypeOp]
       ++ compile_type left
       ++ compile_type right
       ++ [op OpenTheoryIR.Nil; op OpenTheoryIR.Cons; op OpenTheoryIR.Cons;
