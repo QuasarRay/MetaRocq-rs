@@ -1,19 +1,6 @@
 name: Peregrine selfhost LambdaBox -> CakeML -> HOL4
 
 on:
-  push:
-    branches:
-      - experiment/peregrine-selfhost-cakeml-hol4-e2e
-    paths:
-      - 'metatheory/peregrine-selfhost/**'
-      - 'metatheory/original-selfhost/PCUICModuleManifest.v'
-      - 'formal/hol4/PeregrineSelfHostContractScript.sml'
-      - 'formal/hol4/PeregrineSelfHostE2EScript.sml'
-      - 'cakeml/peregrine-selfhost/**'
-      - 'spec/peregrine-selfhost-e2e.json'
-      - 'tools/check_peregrine_selfhost_contract.py'
-      - 'tools/peregrine_selfhost_pipeline.sh'
-      - '.github/workflows/peregrine-selfhost-cakeml-hol4.yml'
   pull_request:
     branches:
       - experiment/original-metarocq-selfhost-09-hol4-kernel-e2e
