@@ -1,6 +1,6 @@
 From Stdlib Require Import String Bool.
 From MetaRocqRs.OriginalSelfHost Require Import
-  CandlePrefixComposition SingleImageContract.
+  ValidatedCakeMLGateway SingleImageContract.
 
 Open Scope string_scope.
 
@@ -27,7 +27,7 @@ Definition accept_recursive_identity (i : recursive_identity) : bool :=
   && nonempty i.(identity_ci_plan_digest)
   && i.(identity_runtime_reports_same_architecture)
   && i.(identity_machine_replay_reports_same_claims)
-  && shared_source_ready.
+  && validated_gateway_publishable.
 
 Definition unresolved_recursive_identity : recursive_identity :=
   {| identity_source_snapshot_digest := "";
