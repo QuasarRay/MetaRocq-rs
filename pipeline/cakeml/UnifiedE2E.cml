@@ -1,0 +1,102 @@
+(*
+  Unified Peregrine -> MetaRocq E2E orchestration control plane.
+
+  This file is CakeML source.  It deliberately owns the ordered state machine,
+  while the host adapter supplies the one capability not provided by the
+  verified CakeML basis used here: spawning external proof/build tools.
+
+  Output format (one command per line):
+    <step-id>\t<manual-file>\t<host-command>
+
+  The host adapter MUST execute lines strictly in emitted order and MUST stop at
+  the first non-zero exit.  Missing proof evidence is therefore BLOCKED, never
+  silently treated as success.
+*)
+
+type pipeline_step = string * string * string;
+
+val steps : pipeline_step list =
+  [
+    ("01", "01-peregrine-freeze-reuse-map-and-e2e-target.md",
+     "tools/peregrine-selfhost-e2e.sh pins"),
+    ("02", "02-peregrine-clone-pin-and-audit.md",
+     "tools/peregrine-selfhost-e2e.sh clone"),
+    ("03", "03-peregrine-build-selfhost-lambdabox-and-proof-replay-corpus.md",
+     "tools/peregrine-selfhost-e2e.sh snapshot"),
+    ("04", "04-peregrine-bootstrap-with-prebuilt-metarocq-seed.md",
+     "tools/peregrine-selfhost-e2e.sh seed && tools/peregrine-selfhost-e2e.sh lambdabox"),
+    ("05", "05-peregrine-use-prebuilt-peregrine-to-produce-cakeml.md",
+     "tools/peregrine-selfhost-e2e.sh candidate"),
+    ("06", "06-peregrine-close-lambdabox-to-cakeml-proof-gap.md",
+     "tools/peregrine-selfhost-e2e.sh translation-proof"),
+    ("07", "07-peregrine-prove-exact-cakeml-machine-code-in-hol4.md",
+     "tools/peregrine-selfhost-e2e.sh hol4-replay && tools/peregrine-selfhost-e2e.sh cakeml-program && tools/peregrine-selfhost-e2e.sh machine"),
+    ("08", "08-peregrine-embed-non-circular-proof-capsule.md",
+     "tools/peregrine-selfhost-e2e.sh capsule && tools/peregrine-selfhost-e2e.sh compose-e2e"),
+    ("09", "09-peregrine-revalidate-with-fresh-independent-hol4.md",
+     "tools/peregrine-selfhost-e2e.sh fresh-revalidate"),
+    ("10", "10-peregrine-run-e2e-and-pass-publication-gate.md",
+     "tools/peregrine-selfhost-e2e.sh audit && tools/peregrine-selfhost-e2e.sh mutations && tools/peregrine-selfhost-e2e.sh publish-check"),
+
+    ("11", "11-metarocq-freeze-trust-and-e2e-completion-criteria.md",
+     "tools/selfhost-e2e.sh pins"),
+    ("12", "12-metarocq-reproduce-pinned-toolchain.md",
+     "tools/selfhost-e2e.sh pins"),
+    ("13", "13-metarocq-capture-complete-source-specification-and-proof-corpus.md",
+     "tools/selfhost-e2e.sh snapshot"),
+    ("14", "14-metarocq-self-reflection-and-lambdabox-retention.md",
+     "tools/selfhost-e2e.sh lambdabox"),
+    ("15", "15-metarocq-prove-erasure-correctness-and-assumption-closure.md",
+     "tools/selfhost-e2e.sh erasure"),
+    ("16", "16-metarocq-reuse-verified-peregrine-to-cakeml-bridge.md",
+     "tools/selfhost-e2e.sh peregrine"),
+    ("17", "17-metarocq-replay-complete-proof-corpus-in-hol4.md",
+     "tools/selfhost-e2e.sh hol4-replay"),
+    ("18", "18-metarocq-compile-exact-cakeml-program-inside-hol4.md",
+     "tools/selfhost-e2e.sh cakeml && tools/selfhost-e2e.sh machine"),
+    ("19", "19-metarocq-compose-unified-source-to-machine-hol4-theorem.md",
+     "tools/selfhost-e2e.sh e2e"),
+    ("20", "20-metarocq-prove-recursive-machine-self-replay.md",
+     "tools/selfhost-e2e.sh replay-machine"),
+    ("21", "21-metarocq-local-operation-debugging-and-recovery.md",
+     "tools/selfhost-e2e.sh audit"),
+    ("22", "22-metarocq-final-audit-and-publication-gate.md",
+     "tools/selfhost-e2e.sh publish-check"),
+    ("23", "23-unified-reuse-provenance-and-open-proof-obligations.md",
+     "tools/unified-e2e-report.sh")
+  ];
+
+fun emit_step (id, manual, command) =
+  (TextIO.print id;
+   TextIO.print "\t";
+   TextIO.print manual;
+   TextIO.print "\t";
+   TextIO.print command;
+   TextIO.print "\n");
+
+fun emit_all [] = ()
+  | emit_all (s::ss) = (emit_step s; emit_all ss);
+
+val peregrine_steps = List.take (steps, 10);
+val metarocq_steps = List.drop (steps, 10);
+
+fun emit_one wanted [] =
+      (TextIO.print_err ("ERROR\tunknown-step\t" ^ wanted ^ "\n"))
+  | emit_one wanted ((id,manual,command)::ss) =
+      if id = wanted then emit_step (id,manual,command)
+      else emit_one wanted ss;
+
+fun usage () =
+  TextIO.print_err
+    "ERROR\tusage\tunified-e2e <plan|prove|peregrine|metarocq|step ID>\n";
+
+fun main args =
+  case args of
+      ["plan"] => emit_all steps
+    | ["prove"] => emit_all steps
+    | ["peregrine"] => emit_all peregrine_steps
+    | ["metarocq"] => emit_all metarocq_steps
+    | ["step", id] => emit_one id steps
+    | _ => usage ();
+
+val _ = main (CommandLine.arguments ());
