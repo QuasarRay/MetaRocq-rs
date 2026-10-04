@@ -31,7 +31,9 @@ rocq compile "${Q0[@]}" metatheory/original-selfhost/SelfSnapshot.v
 Q=(
   -Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost
   -Q metatheory/peregrine-selfhost MetaRocqRs.PeregrineSelfHost
+  -Q generated/peregrine-selfhost/replay-roots MetaRocqRs.PeregrineGenerated
 )
+mkdir -p "$GEN/replay-roots"
 
 # Reuse the previously formalized checked frontend/compiler components.  These
 # are compiled here only so the executable adapter below cannot silently drift
@@ -60,10 +62,23 @@ for f in \
   PeregrineLoadAll.v \
   PeregrineSnapshot.v \
   MaterializePeregrineSnapshot.v \
-  PeregrineProofCorpus.v \
-  PeregrineRuntimeReplay.v \
-  PeregrineSelfHostEntrypoint.v \
-  ExtractPeregrineSelfHost.v
+  PeregrineProofCorpus.v
+do
+  rocq compile "${Q[@]}" "metatheory/peregrine-selfhost/$f"
+done
+
+# Rocq/MetaRocq enumerates every module declaration. The renderer only emits
+# those exact references; it never chooses theorem names from source text.
+rocq compile "${Q[@]}" \
+  metatheory/peregrine-selfhost/PeregrineReplayRootInventory.v \
+  2>&1 | tee "$GEN/replay-roots/module-inventory.log"
+python3 tools/materialize_peregrine_replay_roots.py \
+  "$GEN/replay-roots/module-inventory.log" \
+  --manifest metatheory/peregrine-selfhost/PeregrineSourceManifest.v \
+  --output-dir "$GEN/replay-roots"
+rocq compile "${Q[@]}" "$GEN/replay-roots/PeregrineReplayAllGlobals.v"
+
+for f in PeregrineRuntimeReplay.v PeregrineSelfHostEntrypoint.v ExtractPeregrineSelfHost.v
 do
   rocq compile "${Q[@]}" "metatheory/peregrine-selfhost/$f"
 done
