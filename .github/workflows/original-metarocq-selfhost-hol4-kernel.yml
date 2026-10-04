@@ -136,7 +136,7 @@ jobs:
           cp formal/hol4/MetaRocqSelfHostKernelScript.sml generated/hol4/kernel/
           cd generated/hol4/kernel
           "$HOL4_DIR/bin/Holmake"
-          test -s MetaRocqSelfHostKernelTheory.dat
+          find . -type f -name "MetaRocqSelfHostKernelTheory.dat" -print -quit | grep -q .
 
       - name: Require exact MetaRocq source-to-machine HOL4 theorem
         run: |
@@ -150,7 +150,7 @@ jobs:
           cp "$theorem" generated/hol4/e2e/
           cd generated/hol4/e2e
           "$HOL4_DIR/bin/Holmake"
-          test -s MetaRocqSelfHostE2ETheory.dat
+          find . -type f -name "MetaRocqSelfHostE2ETheory.dat" -print -quit | grep -q .
 
       - name: Preserve HOL4 selfhost evidence
         if: ${{ !cancelled() }}
