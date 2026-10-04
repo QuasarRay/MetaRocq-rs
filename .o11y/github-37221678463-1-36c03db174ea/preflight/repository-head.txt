@@ -1,0 +1,7 @@
+commit 36c03db174ea24952b70fa29e5f2d12be94df5a1
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 04:44:28 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 04:44:28 2026 +1100
+
+    docs: document registered manual Actions dispatch
