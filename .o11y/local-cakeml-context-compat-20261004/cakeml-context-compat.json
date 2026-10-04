@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "base_commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+  "original_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml",
+  "derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml-context-compat-v2",
+  "modified_files": [
+    "misc/preamble.sml"
+  ],
+  "original_preamble_sha256": "16a9d52a6b28a67998295325db936e783a0026fa33675ed9e135b31fed64ec0b",
+  "adapted_preamble_sha256": "cbe4b0975a06b8da70d741e929c86c90ce590782b8252b00e0882e899aa48aab",
+  "patch_sha256": "3e823afa3d7cc8c7bf7a005f4b78a3d959ac3ca56449943b58a8a048376152c7",
+  "patch": "diff --git a/misc/preamble.sml b/misc/preamble.sml\nindex 2b5481a..e9f37a5 100644\n--- a/misc/preamble.sml\n+++ b/misc/preamble.sml\n@@ -14,11 +14,14 @@ open ASCIInumbersTheory BasicProvers Defn HolKernel Parse SatisfySimps Tactic\n      rich_listTheory sortingTheory sptreeTheory stringTheory sumTheory\n      wordsTheory;\n (*Temporary workaround for cache being slow on long files*)\n-fun clear_cache_prover gtac  =\n+fun clear_cache_prover ctxt gtac  =\n  let\n    val _ = List.app Cache.clear_cache [numSimps.arith_cache, intSimps.omega_cache,\n                                        intSimps.cooper_cache]\n-   val res = TAC_PROOF gtac\n+   val res =\n+     if isSome (Context.current_thy ctxt) then Tactical.TAC_PROOF_in ctxt gtac\n+     else Feedback.trace (\"TAC_PROOF requires current theory\", 0)\n+            (Tactical.TAC_PROOF_in ctxt) gtac\n    val _ = List.app Cache.clear_cache [numSimps.arith_cache, intSimps.omega_cache,\n                                        intSimps.cooper_cache]\n  in\n",
+  "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness",
+  "legacy_library_mode": "Scoped HOL4 compatibility trace only when the supplied context has no current theory; kernel proof rules remain unchanged."
+}

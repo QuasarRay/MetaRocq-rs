@@ -110,3 +110,27 @@ append commits do not trigger a build loop. Existing active runs are not cancele
 This makes the changed workflow reviewable and executable before any main-branch
 merge. Workflow parsing and dispatch/cache contract checks pass; cloud completion
 was still pending when this layer was written.
+
+## Executed CakeML/HOL4 compatibility observations
+
+The local compiler-library build failed because pinned CakeML's
+`clear_cache_prover` callback predates HOL4's context-aware `set_prover` API.
+The original sources remain unchanged. An isolated, recipe-addressed worktree
+adapts only the wrapper argument and its proof invocation. The exact patch is
+recorded and included in compiler-preparation and artifact-reuse receipts.
+Unexpected existing worktree changes are rejected rather than overwritten.
+
+Old ML libraries also derive helper lemmas outside a current theory. For those
+calls only, the wrapper scopes HOL4's supported legacy compatibility trace
+(`TAC_PROOF requires current theory = 0`) around the context-aware prover.
+The trace is restored afterward; kernel inference rules and oracle checks are
+unchanged. Calls with a current theory use the ordinary prover directly. The
+revised CakeML heap loads and subsequent theory generation proceeds; the full
+compiler-library build was still pending at this checkpoint.
+
+Five worktree-boundary regressions pass, covering original-source preservation,
+idempotence, unexpected existing progress, dirty/wrong source pins, and linked
+wrapper rejection. The six compilation-reuse and eight replay-root regressions
+also pass. Completed failure observations and the exact adaptation recipe are
+hashed under `.o11y/local-cakeml-context-compat-20261004`. None establishes the
+missing replay-soundness or source-to-machine theorem.

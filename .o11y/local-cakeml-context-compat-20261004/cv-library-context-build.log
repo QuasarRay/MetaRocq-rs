@@ -1,0 +1,104 @@
+Preparing worktree (detached HEAD c98da7f)
+HEAD is now at c98da7f Adds simple optimization of store reads/writes in wordLang (#1327)
+{"derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml-context-compat", "patch_sha256": "d544a955345cc26a3fd9e1aa7be338335a17801b13e918a05cf3166f9a759167", "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness"}
+Scanning $(CAKEMLDIR)/developers
+Scanning $(HOLDIR)/src/TeX
+Scanning $(HOLDIR)/src/bag
+Scanning $(HOLDIR)/src/sort
+Scanning $(HOLDIR)/src/string
+Scanning $(HOLDIR)/src/n-bit
+Scanning $(HOLDIR)/src/res_quan/src
+Scanning $(HOLDIR)/src/finite_maps
+Scanning $(HOLDIR)/examples/formal-languages/context-free
+Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Scanning $(HOLDIR)/src/transfer
+Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Scanning $(HOLDIR)/src/coalgebras
+Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Scanning $(CAKEMLDIR)/misc
+Scanning $(HOLDIR)/src/integer
+Scanning $(HOLDIR)/src/algebra/base
+Scanning $(HOLDIR)/src/algebra/construction
+Scanning $(HOLDIR)/src/algebra
+Scanning $(HOLDIR)/src/hol88
+Scanning $(HOLDIR)/src/rational
+Scanning $(HOLDIR)/src/real
+Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Scanning $(HOLDIR)/examples/formal-languages
+Scanning $(HOLDIR)/src/search
+Scanning $(HOLDIR)/examples/formal-languages/regular
+Scanning $(CAKEMLDIR)/basis/pure
+Scanning $(CAKEMLDIR)/semantics/ffi
+Scanning $(CAKEMLDIR)/semantics
+Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Scanning $(HOLDIR)/src/floating-point
+Scanning $(HOLDIR)/src/monad/more_monads
+Scanning $(HOLDIR)/src/update
+Scanning $(HOLDIR)/examples/l3-machine-code/common
+Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Scanning $(CAKEMLDIR)/semantics/proofs
+Scanning $(HOLDIR)/examples/algorithms
+Scanning $(HOLDIR)/examples/machine-code/multiword
+Scanning $(CAKEMLDIR)/compiler/backend
+Scanning $(CAKEMLDIR)/compiler/parsing
+Scanning $(CAKEMLDIR)/translator
+Scanning $(CAKEMLDIR)/characteristic
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Scanning $(HOLDIR)/src/transfer/examples
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Scanning $(CAKEMLDIR)/compiler/inference
+Scanning $(CAKEMLDIR)/compiler/printing
+Scanning $(CAKEMLDIR)/translator/monadic
+Scanning $(CAKEMLDIR)/basis
+Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Scanning $(HOLDIR)/examples/machine-code/decompiler
+Scanning $(HOLDIR)/examples/l3-machine-code
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Scanning $(CAKEMLDIR)/compiler/backend/x64
+Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Scanning $(HOLDIR)/examples/bootstrap
+Scanned 80 directories
+Building 124 theory files
+Starting work on miscTheory
+Finished unverified/reg_alloc                                          (0.000s) 
+miscTheory                                            misc (21s)  [↓123]     OK
+Starting work on cakeml-heap
+Starting work on pattern_commonTheory
+cakeml-heap                                           misc  (8s)        FAIL<1>
+Finished misc [#theories: 1]                                          (30.503s) 
+pattern_commonTheory     compiler/backend/pattern_matching  (7s)         killed
+*** Holmake aborted - 1 target failed:
+*** cakeml-heap in $(CAKEMLDIR)/misc (status 1)
+ Loading preamble.uo
+ error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml-context-compat/misc/preamble.sml : HOL_ERR (HOL_ERROR {message = "no current theory when proving: (P \226\135\146 Q \226\135\146 R) \226\135\146 Q \226\135\146 P \226\135\146 R", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+ error in load preamble : HOL_ERR (HOL_ERROR {message = "no current theory when proving: (P \226\135\146 Q \226\135\146 R) \226\135\146 Q \226\135\146 P \226\135\146 R", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+ Proof of 
+ 
+ (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R
+ 
+ failed.
+ Loading preamble.uo: HOL_ERR (HOL_ERROR {message = "no current theory when proving: (P \226\135\146 Q \226\135\146 R) \226\135\146 Q \226\135\146 P \226\135\146 R", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+ Full log: /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml-context-compat/misc/.hol/logs/cakeml-heap

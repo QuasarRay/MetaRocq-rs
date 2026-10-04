@@ -25,6 +25,14 @@ class ExactCompileInputs(unittest.TestCase):
             shutil.copyfile(REPO / name, target)
         self.gen = self.root / "generated/peregrine-selfhost"
         self.gen.mkdir(parents=True)
+        (self.gen / "hol4").mkdir()
+        for name in ("cakeml-context-compat.json", "toolchain.env"):
+            (self.gen / "hol4" / name).write_text("orchestration fixture only\n")
+        preparation = subprocess.check_output([
+            "sha256sum", str(self.gen / "hol4/cakeml-context-compat.json"),
+            str(self.gen / "hol4/toolchain.env"),
+        ], text=True)
+        (self.gen / "hol4/compiler-preparation-inputs.sha256").write_text(preparation)
         self.input = self.gen / "peregrine-selfhost.checked.cakeml"
         self.input.write_bytes(b"first serialized program\n")
         runner = self.root / "fixture-hol/bin/Holmake"

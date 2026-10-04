@@ -6,9 +6,19 @@ cd "$ROOT"
 source tools/hol4_artifacts.sh
 
 HOL4_DIR="${HOL4_DIR:-$ROOT/.aegis/references/hol4}"
-CAKEML_DIR="${CAKEML_DIR:-$ROOT/.aegis/references/cakeml}"
+CAKEML_SOURCE_DIR="${CAKEML_SOURCE_DIR:-${CAKEML_DIR:-$ROOT/.aegis/references/cakeml}}"
+compat_key="$(python3 - "$CAKEML_SOURCE_DIR/misc/preamble.sml" <<'PY'
+import hashlib, pathlib, sys
+sys.path.insert(0, 'tools')
+from materialize_cakeml_context_compat import compatible_preamble
+print(hashlib.sha256(compatible_preamble(pathlib.Path(sys.argv[1]).read_text()).encode()).hexdigest()[:16])
+PY
+)"
+CAKEML_DIR="${CAKEML_COMPAT_DIR:-$ROOT/.aegis/derived/cakeml-context-$compat_key}"
+HOLGEN="$ROOT/generated/peregrine-selfhost/hol4"
+mkdir -p "$HOLGEN"
 
-python3 - "$ROOT/spec/toolchain.lock.json" "$HOL4_DIR" "$CAKEML_DIR" <<'PY'
+python3 - "$ROOT/spec/toolchain.lock.json" "$HOL4_DIR" "$CAKEML_SOURCE_DIR" <<'PY'
 import json, subprocess, sys
 lock, hol, cake = sys.argv[1:]
 data = json.load(open(lock, encoding="utf-8"))
@@ -18,6 +28,10 @@ for key, path in (("hol4", hol), ("cakeml", cake)):
     if actual != expected:
         raise SystemExit(f"{key} pin mismatch: expected {expected}, got {actual}")
 PY
+
+python3 tools/materialize_cakeml_context_compat.py \
+  --source "$CAKEML_SOURCE_DIR" --output "$CAKEML_DIR" \
+  --receipt "$HOLGEN/cakeml-context-compat.json"
 
 if [[ ! -x "$HOL4_DIR/bin/Holmake" ]]; then
   (
@@ -41,4 +55,15 @@ export PATH="$HOLDIR/bin:$PATH"
 )
 
 hol4_artifact_path "$CAKEML_DIR/cv_translator/eval_cake_compile_x64Lib.uo" >/dev/null
+{
+  printf 'export HOL4_DIR=%q\n' "$HOL4_DIR"
+  printf 'export CAKEML_SOURCE_DIR=%q\n' "$CAKEML_SOURCE_DIR"
+  printf 'export CAKEML_DIR=%q\n' "$CAKEML_DIR"
+  printf 'export HOLDIR=%q\n' "$HOL4_DIR"
+  printf 'export CAKEMLDIR=%q\n' "$CAKEML_DIR"
+} > "$HOLGEN/toolchain.env"
+sha256sum "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/toolchain.env" \
+  "$CAKEML_DIR/misc/preamble.sml" "$HOL4_DIR/src/1/Tactical.sig" \
+  tools/materialize_cakeml_context_compat.py tools/prepare_peregrine_hol4.sh \
+  > "$HOLGEN/compiler-preparation-inputs.sha256"
 printf 'HOL4_DIR=%s\nCAKEML_DIR=%s\n' "$HOL4_DIR" "$CAKEML_DIR"
