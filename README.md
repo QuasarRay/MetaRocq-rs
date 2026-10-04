@@ -100,8 +100,10 @@ The pipeline is intentionally fail-closed.  Producer success, generated
 LambdaBox/CakeML files, or a green workflow are not substitutes for the
 required theorem-bound evidence.  Missing formal bridges remain blockers.
 
-All repository workflows on this stack are manual-only.  The unified workflow
-has `workflow_dispatch` and no `pull_request`, `push`, or schedule trigger.
+All repository workflows on this stack remain free of `pull_request`, `push`,
+or schedule triggers.  The unified workflow supports explicit `workflow_dispatch`
+and reusable `workflow_call` entry points; the default-branch copy is registered
+with GitHub Actions so manual dispatch remains discoverable.
 
 ### CachyOS prerequisites
 
@@ -231,11 +233,21 @@ Authenticate GitHub CLI once:
 gh auth status
 ```
 
-Dispatch the unified workflow explicitly:
+Dispatch the unified workflow explicitly through the registered default-branch
+workflow, while passing the E2E implementation branch as an input:
+
+```sh
+bash tools/dispatch_unified_e2e.sh \
+  experiment/cakeml-unified-e2e-03-cachyos-docs
+```
+
+Equivalent direct GitHub CLI command:
 
 ```sh
 gh workflow run unified-cakeml-e2e.yml \
-  --ref experiment/cakeml-unified-e2e-03-cachyos-docs
+  --repo QuasarRay/MetaRocq-rs \
+  --ref main \
+  --field target_ref=experiment/cakeml-unified-e2e-03-cachyos-docs
 ```
 
 There is deliberately no automatic PR/push build.  A completed run appends one
