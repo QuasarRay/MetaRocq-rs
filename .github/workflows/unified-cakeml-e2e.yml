@@ -1,0 +1,75 @@
+name: Unified CakeML Peregrine + MetaRocq E2E
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unified-cakeml-e2e-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  explicit-e2e:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    env:
+      CAKEML_REGRESSION_DIR: ${{ github.workspace }}/.aegis/references/cakeml-regression
+
+    steps:
+      - name: Checkout selected branch with full history
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize origin and open unique trace directory
+        shell: bash
+        run: |
+          trace="$(tools/o11y_begin.sh)"
+          echo "E2E_TRACE_DIR=$trace" >> "$GITHUB_ENV"
+          echo "Trace directory: $trace"
+
+      - name: Install host prerequisites with regression-style capture
+        shell: bash
+        run: |
+          tools/o11y_observe.sh host-prerequisites bash -lc '
+            sudo apt-get update &&
+            sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml curl git time
+          '
+
+      - name: Pin CakeML regression source with captured diagnostics
+        shell: bash
+        run: |
+          tools/o11y_observe.sh cakeml-regression-source bash -lc '
+            rm -rf "$CAKEML_REGRESSION_DIR" &&
+            git clone https://github.com/CakeML/regression.git "$CAKEML_REGRESSION_DIR" &&
+            git -C "$CAKEML_REGRESSION_DIR" checkout --detach 23cfeba74d0cef77f7274ab41a2e8e87d4032995 &&
+            test "$(git -C "$CAKEML_REGRESSION_DIR" rev-parse HEAD)" = 23cfeba74d0cef77f7274ab41a2e8e87d4032995
+          '
+
+      - name: Build CakeML controller with captured diagnostics
+        shell: bash
+        run: tools/o11y_observe.sh build-cakeml-controller bash tools/build_unified_e2e_cakeml.sh
+
+      - name: Execute unified CakeML controller
+        shell: bash
+        run: tools/run_unified_e2e_with_traces.sh
+
+      - name: Finalize trace hashes
+        if: ${{ always() }}
+        shell: bash
+        run: tools/o11y_finalize.sh
+
+      - name: Irreversibly append trace commit to selected branch
+        if: ${{ always() }}
+        shell: bash
+        run: tools/o11y_sync.sh
+
+      - name: Preserve run directory as Actions artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: unified-e2e-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.E2E_TRACE_DIR }}
+          if-no-files-found: error
