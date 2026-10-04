@@ -1,30 +1,7 @@
 name: Original MetaRocq HOL4-kernel selfhost E2E
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-09-hol4-kernel-e2e
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - 'formal/hol4/**'
-      - 'spec/hol4-selfhost-e2e.json'
-      - 'tools/check_hol4_selfhost_contract.py'
-      - 'tools/install_extraction.sh'
-      - 'docs/adr/0015-hol4-kernel-self-reflection-e2e.md'
-      - '.github/workflows/original-metarocq-selfhost-hol4-kernel.yml'
-  pull_request:
-    branches:
-      - experiment/original-metarocq-selfhost-08-pcuic-certificate-reconciled
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - 'formal/hol4/**'
-      - 'spec/hol4-selfhost-e2e.json'
-      - 'tools/check_hol4_selfhost_contract.py'
-      - 'tools/install_extraction.sh'
-      - 'docs/adr/0015-hol4-kernel-self-reflection-e2e.md'
-      - '.github/workflows/original-metarocq-selfhost-hol4-kernel.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 
