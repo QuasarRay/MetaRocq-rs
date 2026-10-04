@@ -76,12 +76,18 @@ def main() -> int:
             "pinned CakeML backend admitted boundary changed; re-audit required")
 
     extraction = (ROOT / "metatheory/peregrine-selfhost/ExtractPeregrineSelfHost.v").read_text()
-    require("peregrine-selfhost.ast" in extraction and "peregrine_selfhost_entrypoint" in extraction,
-            "selfhost extraction root changed unexpectedly")
+    require("peregrine-selfhost.ast" in extraction and
+            "peregrine_selfhost_runtime_root" in extraction,
+            "selfhost extraction root no longer uses the replay-gated runtime root")
 
     entry = (ROOT / "metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v").read_text()
     require("Peregrine.Pipeline.peregrine_pipeline" in entry,
             "LambdaBox root no longer reaches real Peregrine pipeline")
+    require("peregrine_selfhost_runtime_root" in entry and
+            "replay_peregrine_runtime_program" in entry and
+            "PeregrineRuntimeReady peregrine_selfhost_entrypoint" in entry and
+            "PeregrineRuntimeReplayRejected" in entry,
+            "CakeML runtime root no longer fail-closes normal dispatch on replay")
     require("retained_peregrine_proof_corpus" in entry and
             "retained_peregrine_assumption_ledger" in entry and
             "retained_peregrine_replay_jobs" in entry,
