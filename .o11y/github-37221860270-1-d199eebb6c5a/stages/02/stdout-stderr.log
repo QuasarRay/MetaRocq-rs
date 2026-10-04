@@ -1,0 +1,38 @@
+From https://github.com/MetaRocq/metarocq
+ * branch            7197056adbb9c15288b4c8d43407bf25786f723e -> FETCH_HEAD
+HEAD is now at 7197056 Merge pull request #1248 from mattam82/fix-template-plugin-mlpack
+From https://github.com/peregrine-project/peregrine-tool
+ * branch            d768b83ffa7dab35b8d72241f0570b5bb6aedae9 -> FETCH_HEAD
+HEAD is now at d768b83 Merge pull request #73 from peregrine-project/dependabot/github_actions/haskell-actions/setup-2.12.0
+From https://github.com/peregrine-project/cakeml-backend
+ * branch            cc20d1a2986bd2fec7c6eb0864c8c9a806188b58 -> FETCH_HEAD
+HEAD is now at cc20d1a Merge pull request #6 from peregrine-project/serializer
+From https://github.com/CakeML/cakeml
+ * branch            c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9 -> FETCH_HEAD
+HEAD is now at c98da7f Adds simple optimization of store reads/writes in wordLang (#1327)
+From https://github.com/HOL-Theorem-Prover/HOL
+ * branch            40dd5b03de658f4bd9e3f4225fb0f1602ac90467 -> FETCH_HEAD
+HEAD is now at 40dd5b0 [DESCRIPTION] Fix a markdown infelicity that messed up a paragraph
+From https://github.com/QuasarRay/kontroli-rs
+ * branch            966cfc3069aab378d10ae567da4ff41c2da95c65 -> FETCH_HEAD
+HEAD is now at 966cfc3 Merge pull request #44 from QuasarRay/proof/35-aeneas-symbol-manifest
+From https://github.com/peregrine-project/cakeml-backend
+ * branch            cc20d1a2986bd2fec7c6eb0864c8c9a806188b58 -> FETCH_HEAD
+HEAD is now at cc20d1a Merge pull request #6 from peregrine-project/serializer
+{
+  "status": "SOURCES_MATCH",
+  "repositories": {
+    "metarocq": "7197056adbb9c15288b4c8d43407bf25786f723e",
+    "peregrine": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+    "cakeml-backend": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58",
+    "cakeml": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+    "hol4": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+    "aegis": "3ca3f2bb048b93d7b2399c17af083e30338465e9",
+    "kontroli": "966cfc3069aab378d10ae567da4ff41c2da95c65",
+    "cakeml_backend": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58"
+  },
+  "claim": "source identity only; no extraction or proof run"
+}
+Peregrine selfhost source/provenance contract: PASS
+Semantic publication remains BLOCKED until HOL4 obligations are actually proved.
+SUCCESS: stage 02
