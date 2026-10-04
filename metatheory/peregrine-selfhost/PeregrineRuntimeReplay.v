@@ -1,7 +1,8 @@
-From Stdlib Require Import Bool.
+From Stdlib Require Import Bool List.
 From MetaRocq.Common Require Import config.
 From MetaRocq.Template Require Import Loader Checker.
 From Peregrine Require Import Pipeline.
+From MetaRocqRs.PeregrineSelfHost Require Import PeregrineProofCorpus.
 
 Import MonadNotation.
 
@@ -28,7 +29,20 @@ Definition materialize_peregrine_runtime_replay_program : TemplateMonad unit :=
 
 MetaRocq Run materialize_peregrine_runtime_replay_program.
 
+Definition replay_program_contains_certificate
+  (c : peregrine_theorem_certificate) : bool :=
+  match MetaRocq.Template.Ast.Env.lookup_env
+          (fst peregrine_runtime_replay_program)
+          c.(peregrine_certificate_name) with
+  | Some _ => true
+  | None => false
+  end.
+
+Definition replay_covers_retained_certificate_corpus : bool :=
+  forallb replay_program_contains_certificate peregrine_certificate_corpus.
+
 Definition replay_peregrine_runtime_program : bool :=
+  replay_covers_retained_certificate_corpus &&
   match
     @MetaRocq.Template.Checker.typecheck_program
       config.default_checker_flags
