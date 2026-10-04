@@ -6,12 +6,17 @@ cd "$ROOT"
 GEN="$ROOT/generated/peregrine-selfhost"
 mkdir -p "$GEN/hol4"
 
-if [[ ! -s "$GEN/peregrine-selfhost.cakeml" ]]; then
+if [[ ! -s "$GEN/peregrine-selfhost.cakeml" ||
+      ! -s "$GEN/peregrine-selfhost.checked.cakeml" ||
+      ! -s "$GEN/checked-native-cakeml-equality.txt" ]]; then
   bash tools/peregrine_selfhost_pipeline.sh
 fi
 
 test -s "$GEN/peregrine-selfhost.ast"
 test -s "$GEN/peregrine-selfhost.cakeml"
+test -s "$GEN/peregrine-selfhost.checked.cakeml"
+grep -Fxq 'byte-identical' "$GEN/checked-native-cakeml-equality.txt"
+cmp -s "$GEN/peregrine-selfhost.cakeml" "$GEN/peregrine-selfhost.checked.cakeml"
 test -s metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
 grep -Fq 'replay_peregrine_runtime_program' \
   metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
@@ -23,7 +28,9 @@ export CAKEML_DIR="${CAKEML_DIR:-$ROOT/.aegis/references/cakeml}"
 export HOLDIR="$HOL4_DIR"
 export CAKEMLDIR
 export PATH="$HOLDIR/bin:$PATH"
-export PEREGRINE_CAKEML_SEXP="$GEN/peregrine-selfhost.cakeml"
+# Compile the checked-adapter bytes directly.  The producer pipeline has
+# already required byte-for-byte equality with the native Peregrine candidate.
+export PEREGRINE_CAKEML_SEXP="$GEN/peregrine-selfhost.checked.cakeml"
 export PEREGRINE_MACHINE_ASM="$GEN/hol4/peregrine-selfhost.S"
 
 rm -f "$PEREGRINE_MACHINE_ASM"
@@ -41,10 +48,16 @@ grep -Fq 'peregrine_machine_code'   "$ROOT/formal/hol4/PeregrineGeneratedCompile
 # itself is the HOL constant [peregrine_machine_code], backed by the checked
 # PeregrineGeneratedCompile theory.  Hash both so the trace preserves that
 # distinction instead of calling assembler text "machine code".
-sha256sum   "$GEN/peregrine-selfhost.ast"   "$GEN/peregrine-selfhost.cakeml"   "$COMPILE_THEORY"   "$PEREGRINE_MACHINE_ASM"   > "$GEN/hol4/exact-artifacts.sha256"
+sha256sum   "$GEN/peregrine-selfhost.ast"   "$GEN/peregrine-selfhost.cakeml" \
+  "$GEN/peregrine-selfhost.checked.cakeml" \
+  "$GEN/checked-native-cakeml-equality.txt" \
+  "$COMPILE_THEORY"   "$PEREGRINE_MACHINE_ASM"   > "$GEN/hol4/exact-artifacts.sha256"
 
 cat > "$GEN/hol4/exact-machine-code-binding.txt" <<EOF
 HOL theory: $COMPILE_THEORY
+CakeML input: $PEREGRINE_CAKEML_SEXP
+Native cross-check: $GEN/peregrine-selfhost.cakeml
+Equality gate: $GEN/checked-native-cakeml-equality.txt
 Exact code object: PeregrineGeneratedCompile.peregrine_machine_code
 Compiler theorem: PeregrineGeneratedCompile.peregrine_selfhost_compiled
 Assembler export: $PEREGRINE_MACHINE_ASM
