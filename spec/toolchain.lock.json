@@ -28,6 +28,10 @@
     "kontroli": {
       "repository": "https://github.com/QuasarRay/kontroli-rs.git",
       "commit": "966cfc3069aab378d10ae567da4ff41c2da95c65"
+    },
+    "cakeml_backend": {
+      "repository": "https://github.com/peregrine-project/cakeml-backend.git",
+      "commit": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58"
     }
   },
   "packages": {
