@@ -117,6 +117,34 @@ These facts are not excuses to weaken the target. They define where this delta m
 10. `09-one-command-e2e-runbook-and-publication-gate.md`
 11. `10-reuse-versus-new-work-report.md`
 
+## Documentation Stack Status
+
+The collection is intentionally preserved as THREE additive review layers:
+
+```text
+PR #31
+docs/peregrine-selfhost-01-source-bootstrap
+  => README + 00–03
+
+PR #32
+docs/peregrine-selfhost-02-cakeml-certificate
+  => 04–07
+
+PR #33
+docs/peregrine-selfhost-03-independent-replay
+  => 08–10 + this index/status update
+```
+
+PR #33 reuses 00–07 unchanged.
+
+The documentation target is now complete, but the actual formal implementation MUST remain fail-closed until the theorem obligations identified by Milestones 05–08 are mechanized and kernel-checked:
+
+```text
+INSTRUCTION_SET = COMPLETE
+FINAL_PEREGRINE_E2E_THEOREM = NOT_YET_CLOSED
+PUBLICATION = BLOCKED UNTIL PROVED
+```
+
 ## Reuse Policy
 
 Whenever a new file says:
