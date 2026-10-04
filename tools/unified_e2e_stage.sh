@@ -11,7 +11,7 @@ STAGE_DIR="$TRACE/stages/$ID"
 mkdir -p "$STAGE_DIR"
 
 # Adapt CakeML/regression worker semantics: each stage has a status file,
-# combined stdout/stderr and /usr/bin/time -v resource accounting.  The outer
+# combined stdout/stderr and /usr/bin/time -v resource accounting. The outer
 # invocation observes the inner invocation so even shell/process failures are
 # retained before the CakeML controller receives the exit code.
 if [[ "${E2E_STAGE_OBS_ACTIVE:-0}" != "1" ]]; then
@@ -59,9 +59,14 @@ case "$ID" in
   02)
     require_cmd git
     require_cmd python3
+    # This stage owns the clone/pin/audit boundary. Reuse the existing lockfile-
+    # driven bootstrap so a fresh GitHub Actions runner does not assume local
+    # reference checkouts already exist.
+    python3 -B tools/bootstrap.py sources
     python3 tools/check_peregrine_selfhost_contract.py
     grep -Fq 'd768b83ffa7dab35b8d72241f0570b5bb6aedae9' spec/peregrine-selfhost-e2e.json ||
       fail "Peregrine pin drift"
+    receipt "Pinned source checkouts bootstrapped from spec/toolchain.lock.json."
     receipt "Pinned Peregrine/source contract verified."
     ;;
   03)
