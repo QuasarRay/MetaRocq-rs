@@ -153,10 +153,12 @@ jobs:
               -o "$CAKE_BOOT/cake-x64-64.tar.gz"
             echo 'e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a  '"$CAKE_BOOT/cake-x64-64.tar.gz" | sha256sum -c -
             tar -xzf "$CAKE_BOOT/cake-x64-64.tar.gz" -C "$CAKE_BOOT"
-            test -f "$CAKE_BOOT/Makefile"
-            cp cakeml/peregrine-selfhost/UnifiedE2EPipeline.cml "$CAKE_BOOT/unified_e2e_planner.cml"
-            make -C "$CAKE_BOOT" unified_e2e_planner.cake
-            "$CAKE_BOOT/unified_e2e_planner.cake" > generated/unified-e2e/pipeline.tsv
+            CAKE_HOME="$(dirname "$(find "$CAKE_BOOT" -mindepth 1 -maxdepth 3 -type f -name Makefile -print -quit)")"
+            test -n "$CAKE_HOME"
+            test -f "$CAKE_HOME/Makefile"
+            cp cakeml/peregrine-selfhost/UnifiedE2EPipeline.cml "$CAKE_HOME/unified_e2e_planner.cml"
+            make -C "$CAKE_HOME" unified_e2e_planner.cake
+            "$CAKE_HOME/unified_e2e_planner.cake" > generated/unified-e2e/pipeline.tsv
             test "$(wc -l < generated/unified-e2e/pipeline.tsv)" -eq 23
             awk -F '\t' 'NF != 6 { exit 1 } { printf "%02d\n", NR }' generated/unified-e2e/pipeline.tsv > generated/unified-e2e/expected.ids
             cut -f1 generated/unified-e2e/pipeline.tsv > generated/unified-e2e/actual.ids
