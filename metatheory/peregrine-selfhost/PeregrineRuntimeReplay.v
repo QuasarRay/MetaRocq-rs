@@ -9,13 +9,13 @@ Import MonadNotation.
   Non-canonical executable replay glue.
 
   The runtime replay object is a dependency-closed quotation of Peregrine's
-  pipeline before erasure.  Bypass opacity so retained proof bodies and their
+  pipeline before erasure. Bypass opacity so retained proof bodies and their
   dependencies are present in the quoted program.
 
   MetaRocq.Template.Checker is deliberately used here only as an executable
-  replay engine.  Upstream documents that checker as fuel-bounded and
+  replay engine. Upstream documents that checker as fuel-bounded and
   unverified; therefore success here is never treated as the final semantic
-  proof.  The later HOL4 source-to-machine gate remains authoritative.
+  proof. The later HOL4 source-to-machine gate remains authoritative.
 *)
 Definition quote_peregrine_runtime_replay_program :=
   MetaRocq.Template.TemplateMonad.Core.tmQuoteRecTransp
@@ -38,7 +38,3 @@ Definition replay_peregrine_runtime_program : bool :=
   | MetaRocq.Template.Checker.CorrectDecl _ => true
   | MetaRocq.Template.Checker.EnvError _ => false
   end.
-
-Definition peregrine_runtime_replay_program_declaration_count : nat :=
-  List.length
-    peregrine_runtime_replay_program.1.(MetaRocq.Template.Ast.Env.declarations).
