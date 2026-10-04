@@ -13,7 +13,8 @@ fi
 test -s "$GEN/peregrine-selfhost.ast"
 test -s "$GEN/peregrine-selfhost.cakeml"
 test -s metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
-grep -Fq 'replay_peregrine_runtime_program'   metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
+grep -Fq 'replay_peregrine_runtime_program' \
+  metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
 
 bash tools/prepare_peregrine_hol4.sh
 
@@ -31,10 +32,24 @@ rm -f "$PEREGRINE_MACHINE_ASM"
   "$HOLDIR/bin/Holmake" PeregrineGeneratedCompileTheory.dat
 )
 
-test -s "$ROOT/formal/hol4/PeregrineGeneratedCompileTheory.dat"
+COMPILE_THEORY="$ROOT/formal/hol4/PeregrineGeneratedCompileTheory.dat"
+test -s "$COMPILE_THEORY"
 test -s "$PEREGRINE_MACHINE_ASM"
+grep -Fq 'peregrine_machine_code'   "$ROOT/formal/hol4/PeregrineGeneratedCompileScript.sml"
 
-sha256sum   "$GEN/peregrine-selfhost.ast"   "$GEN/peregrine-selfhost.cakeml"   "$PEREGRINE_MACHINE_ASM"   > "$GEN/hol4/exact-artifacts.sha256"
+# The .S file is an exported representation.  The byte-level compiler result
+# itself is the HOL constant [peregrine_machine_code], backed by the checked
+# PeregrineGeneratedCompile theory.  Hash both so the trace preserves that
+# distinction instead of calling assembler text "machine code".
+sha256sum   "$GEN/peregrine-selfhost.ast"   "$GEN/peregrine-selfhost.cakeml"   "$COMPILE_THEORY"   "$PEREGRINE_MACHINE_ASM"   > "$GEN/hol4/exact-artifacts.sha256"
+
+cat > "$GEN/hol4/exact-machine-code-binding.txt" <<EOF
+HOL theory: $COMPILE_THEORY
+Exact code object: PeregrineGeneratedCompile.peregrine_machine_code
+Compiler theorem: PeregrineGeneratedCompile.peregrine_selfhost_compiled
+Assembler export: $PEREGRINE_MACHINE_ASM
+The assembler export is not substituted for the HOL byte object.
+EOF
 
 # Kernel-check the repository's fail-closed qualification theorem as well.
 (
@@ -51,8 +66,11 @@ FINAL="$ROOT/formal/hol4/PeregrineSelfHostE2EScript.sml"
 if [[ ! -s "$FINAL" ]]; then
   cat > "$GEN/hol4/final-source-machine.blocked" <<'EOF'
 BLOCKED: formal/hol4/PeregrineSelfHostE2EScript.sml is absent.
-Exact CakeML compiler-in-HOL evaluation and exact emitted assembly were
-attempted before this gate. No source-to-machine verification claim is made.
+The exact generated CakeML AST was compiled inside HOL. The checked compiler
+theory retains PeregrineGeneratedCompile.peregrine_machine_code as the exact
+byte-level compiler output and also emits an assembler representation. No
+source-to-machine verification claim is made until the final HOL4 composition
+theorem exists and is kernel-checked.
 EOF
   cat "$GEN/hol4/final-source-machine.blocked" >&2
   exit 42
