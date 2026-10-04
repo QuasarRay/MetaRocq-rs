@@ -14,7 +14,7 @@ trace="${E2E_TRACE_DIR:?E2E_TRACE_DIR is required}"
   else
     echo "result=FAIL_CLOSED"
   fi
-  failed="$(find "$trace" -type f \( -name 'failure.txt' -o -name 'regression-result.txt' -o -name complete \) -print | sort | xargs -r grep -l '^FAILED' || true)"
+  failed="$(find "$trace" -type f \( -name 'failure.txt' -o -name 'regression-result.txt' -o -name complete -o -name '*.result' \) -print | sort | xargs -r grep -l '^FAILED' || true)"
   if [[ -n "$failed" ]]; then
     echo "failure_files_begin"
     printf '%s\n' "$failed"
@@ -26,7 +26,7 @@ trace="${E2E_TRACE_DIR:?E2E_TRACE_DIR is required}"
   uname -a || true
   git --version || true
   bash --version | head -1 || true
-  /usr/bin/time --version | head -1 || true
+  [[ -x /usr/bin/time ]] && /usr/bin/time --version | head -1 || true
   command -v rocq >/dev/null && rocq -v || true
   command -v peregrine >/dev/null && peregrine --help 2>&1 | head -20 || true
   if [[ -n "${CAKEML_REGRESSION_DIR:-}" && -d "$CAKEML_REGRESSION_DIR/.git" ]]; then
@@ -35,10 +35,11 @@ trace="${E2E_TRACE_DIR:?E2E_TRACE_DIR is required}"
   fi
 } > "$trace/toolchain-and-host.txt" 2>&1
 
+# FINALIZED is part of the hashed payload.  SHA256SUMS intentionally excludes
+# itself because a finite file cannot contain its own cryptographic digest.
+touch "$trace/FINALIZED"
 (
   cd "$trace"
   rm -f SHA256SUMS
-  find . -type f -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS
+  find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS
 )
-
-touch "$trace/FINALIZED"

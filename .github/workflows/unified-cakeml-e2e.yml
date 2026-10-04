@@ -27,7 +27,6 @@ jobs:
         shell: bash
         run: |
           trace="$(tools/o11y_begin.sh)"
-          echo "E2E_TRACE_DIR=$trace" >> "$GITHUB_ENV"
           echo "Trace directory: $trace"
 
       - name: Install host prerequisites with regression-style capture
@@ -57,17 +56,17 @@ jobs:
         run: tools/run_unified_e2e_with_traces.sh
 
       - name: Finalize trace hashes
-        if: ${{ always() }}
+        if: ${{ always() && env.E2E_TRACE_DIR != '' }}
         shell: bash
         run: tools/o11y_finalize.sh
 
-      - name: Irreversibly append trace commit to selected branch
-        if: ${{ always() }}
+      - name: Append trace commit to selected branch without force-push
+        if: ${{ always() && env.E2E_TRACE_DIR != '' }}
         shell: bash
         run: tools/o11y_sync.sh
 
       - name: Preserve run directory as Actions artifact
-        if: ${{ always() }}
+        if: ${{ always() && env.E2E_TRACE_DIR != '' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: unified-e2e-${{ github.run_id }}-${{ github.run_attempt }}
