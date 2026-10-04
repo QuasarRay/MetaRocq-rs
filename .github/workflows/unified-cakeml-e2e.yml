@@ -2,25 +2,52 @@ name: Unified CakeML Peregrine + MetaRocq E2E
 
 on:
   workflow_dispatch:
+    inputs:
+      target_ref:
+        description: E2E branch to check out and run
+        required: true
+        default: experiment/cakeml-unified-e2e-03-cachyos-docs
+        type: string
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
 
 concurrency:
-  group: unified-cakeml-e2e-${{ github.ref }}
+  group: unified-cakeml-e2e-${{ inputs.target_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
   cancel-in-progress: false
 
 jobs:
   explicit-e2e:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.title == 'Manual Unified CakeML E2E dispatch control' &&
+       github.event.comment.body == '/run-unified-e2e' &&
+       github.actor == github.repository_owner)
     runs-on: ubuntu-22.04
     timeout-minutes: 360
     env:
+      E2E_TARGET_REF: ${{ inputs.target_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
       CAKEML_REGRESSION_DIR: ${{ github.workspace }}/.aegis/references/cakeml-regression
 
     steps:
-      - name: Checkout selected branch with full history
+      - name: Validate explicit E2E target branch
+        shell: bash
+        run: |
+          case "$E2E_TARGET_REF" in
+            experiment/cakeml-unified-e2e-*) ;;
+            *)
+              echo "Refusing non-E2E target branch: $E2E_TARGET_REF" >&2
+              exit 2
+              ;;
+          esac
+
+      - name: Checkout selected E2E branch with full history
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
+          ref: ${{ env.E2E_TARGET_REF }}
           fetch-depth: 0
 
       - name: Synchronize origin and open unique trace directory
@@ -60,7 +87,7 @@ jobs:
         shell: bash
         run: tools/o11y_finalize.sh
 
-      - name: Append trace commit to selected branch without force-push
+      - name: Append trace commit to selected E2E branch without force-push
         if: ${{ always() && env.E2E_TRACE_DIR != '' }}
         shell: bash
         run: tools/o11y_sync.sh
