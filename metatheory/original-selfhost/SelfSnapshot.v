@@ -1,5 +1,6 @@
 From Stdlib Require Import List.
 From MetaRocq.TemplatePCUIC Require Import Loader.
+From MetaRocq.Template Require Import TemplateMonad.
 From MetaRocq.PCUIC Require Import PCUICAst PCUICProgram.
 From MetaRocq.Common Require Import Kernames.
 From MetaRocqRs.OriginalSelfHost Require Import PCUICModuleManifest.
