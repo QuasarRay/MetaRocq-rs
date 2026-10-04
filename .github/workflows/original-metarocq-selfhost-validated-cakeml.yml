@@ -1,14 +1,7 @@
 name: Original MetaRocq validated CakeML candidate
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-06-validated-cakeml
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - '.github/workflows/original-metarocq-selfhost-validated-cakeml.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 
