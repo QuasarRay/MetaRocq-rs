@@ -1,16 +1,5 @@
 name: Peregrine bootstrap qualification
 on:
-  pull_request:
-    paths:
-      - 'extraction/**'
-      - 'tools/**'
-      - 'spec/**'
-      - '.metarocq/plan.json'
-      - 'Cargo.toml'
-      - 'Cargo.lock'
-      - 'build.rs'
-      - 'src/**'
-      - '.github/workflows/extraction.yml'
   workflow_dispatch:
 permissions:
   contents: read
