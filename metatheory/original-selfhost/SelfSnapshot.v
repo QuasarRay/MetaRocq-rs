@@ -3,6 +3,7 @@ From MetaRocq.TemplatePCUIC Require Import Loader.
 From MetaRocq.Template Require Import TemplateMonad.
 From MetaRocq.PCUIC Require Import PCUICAst PCUICProgram.
 From MetaRocq.Common Require Import Kernames.
+From MetaRocq.Utils Require Import utils.
 From MetaRocqRs.OriginalSelfHost Require Import PCUICModuleManifest.
 
 Import ListNotations MonadNotation.
