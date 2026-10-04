@@ -1,0 +1,16 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 6964k  100 6964k    0     0  9296k      0 --:--:-- --:--:-- --:--:-- 9296k
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/cakeml-controller/cake-x64-64.tar.gz: OK
+cc -O2 cake.S basis_ffi.c  -DEVAL -o cake  -lm
+./cake  <unified_e2e.cml >unified_e2e.cake.S
+### ERROR: parse error
+Parsing failed at line 106
+
+  | run_all trace_dir (st::rest) =
+  ^^
+
+Program exited with nonzero exit code.
+make: *** [Makefile:75: unified_e2e.cake.S] Error 1
+rm unified_e2e.cake.S
