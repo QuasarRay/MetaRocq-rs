@@ -1,0 +1,184 @@
+name: Generate HOL4 to PCUIC proof artifacts
+
+on:
+  push:
+    branches:
+      - generated/hol4-pcuic-proof-migration
+    paths:
+      - 'formal/hol4/**'
+      - 'tools/harvest_hol4_pcuic.py'
+      - 'tools/original_cakeml_replay_gate.py'
+      - 'tools/hol4_opentheory_pcuic.py'
+      - 'tools/hol4_pcuic_core.py'
+      - 'tools/hol4_pcuic_translate.py'
+      - 'spec/hol4-opentheory-pcuic.lock.json'
+      - 'spec/pcuic-first-metatheory.json'
+      - 'metatheory/bootstrap/OriginalCheckerUntyped.v'
+      - '.github/workflows/generate-hol4-pcuic-proofs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hol4-pcuic-generated-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-pcuic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      OPAMROOT: \${{ github.workspace }}/.aegis/opam-root
+      HOL4_Z3_EXECUTABLE: /usr/bin/z3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: generated/hol4-pcuic-proof-migration
+          persist-credentials: true
+
+      - name: Install system prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam polyml libpolyml-dev build-essential m4 pkg-config libgmp-dev zlib1g-dev clang z3
+
+      - name: Fetch exact pinned sources
+        run: python3 tools/hol4_opentheory_pcuic.py sources
+
+      - name: Install pinned Rocq MetaRocq Peregrine and Lambdapi
+        run: |
+          bash tools/install_extraction.sh
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          opam install --yes ocamlbuild ocamlfind
+          rm -rf .aegis/build/hol4-pcuic/lambdapi-src
+          mkdir -p .aegis/build/hol4-pcuic
+          cp -a .aegis/references/hol4-pcuic/lambdapi .aegis/build/hol4-pcuic/lambdapi-src
+          rm -rf .aegis/build/hol4-pcuic/lambdapi-src/.git
+          cd .aegis/build/hol4-pcuic/lambdapi-src
+          opam install --yes .
+
+      - name: Build pinned Holide
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          python3 tools/hol4_opentheory_pcuic.py build-holide
+
+      - name: Build pinned HOL4 and HolSmt
+        run: |
+          cd .aegis/references/hol4-pcuic/hol4
+          poly_archive="$(find /usr/lib -name libpolymain.a -print -quit)"
+          test -n "$poly_archive"
+          poly_dir="$(dirname "$poly_archive")"
+          printf 'val polymllibdir = "%s";\n' "$poly_dir" > tools-poly/poly-includes.ML
+          poly --script tools/smart-configure.sml
+          bin/build --seq tools/sequences/upto-parallel -j2
+          cd src/HolSmt
+          ../../bin/Holmake --qof -j2
+
+      - name: Generate canonical PCUIC proof artifact
+        env:
+          HOLDIR: \${{ github.workspace }}/.aegis/references/hol4-pcuic/hol4
+          HOLIDE_BIN: \${{ github.workspace }}/.aegis/build/hol4-pcuic/holide/holide
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          export LAMBDAPI_BIN="$(command -v lambdapi)"
+          export ROCQ_BIN="$(command -v rocq)"
+          python3 tools/harvest_hol4_pcuic.py
+
+      - name: Persist generated PCUIC artifacts to this isolated branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add generated/hol4-pcuic/qualification
+          if git diff --cached --quiet; then
+            echo "Generated PCUIC artifacts are unchanged."
+          else
+            git commit -m "Persist generated HOL4-to-PCUIC proof artifact"
+            git push origin HEAD:generated/hol4-pcuic-proof-migration
+          fi
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: hol4-pcuic-generated-\${{ github.run_id }}-\${{ github.run_attempt }}
+          path: generated/hol4-pcuic/qualification/
+          if-no-files-found: error
+
+  original-cakeml-replay:
+    needs: generate-pcuic
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      OPAMROOT: \${{ github.workspace }}/.aegis/opam-root
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: generated/hol4-pcuic-proof-migration
+          persist-credentials: true
+
+      - name: Install original MetaRocq and Peregrine toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
+          python3 tools/bootstrap.py sources
+          bash tools/install_extraction.sh
+
+      - name: Attempt untyped extraction and CakeML lowering of the original checker
+        id: diagnostic
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          mkdir -p generated/hol4-pcuic/cakeml
+          set +e
+          rocq compile -Q metatheory/bootstrap MetaRocqRs.Bootstrap metatheory/bootstrap/OriginalChecker.v \
+            > generated/hol4-pcuic/cakeml/original-checker-compile.log 2>&1
+          rc_original=$?
+          if [ "$rc_original" -eq 0 ]; then
+            rocq compile -Q metatheory/bootstrap MetaRocqRs.Bootstrap metatheory/bootstrap/OriginalCheckerUntyped.v \
+              > generated/hol4-pcuic/cakeml/untyped-extraction.log 2>&1
+            rc_extract=$?
+          else
+            rc_extract=99
+          fi
+          if [ "$rc_extract" -eq 0 ] && [ -f generated/hol4-pcuic/cakeml/original-checker-open.ast ]; then
+            peregrine cakeml generated/hol4-pcuic/cakeml/original-checker-open.ast \
+              -o generated/hol4-pcuic/cakeml/original-checker-open.cml \
+              > generated/hol4-pcuic/cakeml/cakeml-lowering.log 2>&1
+            rc_cakeml=$?
+          else
+            rc_cakeml=99
+          fi
+          set -e
+          printf '{"original_checker_compile":%s,"untyped_extract":%s,"cakeml_lowering":%s}\n' \
+            "$rc_original" "$rc_extract" "$rc_cakeml" \
+            > generated/hol4-pcuic/cakeml/diagnostic-status.json
+
+      - name: Enforce trusted original CakeML execution gate
+        id: gate
+        continue-on-error: true
+        run: python3 tools/original_cakeml_replay_gate.py
+
+      - name: Persist CakeML diagnostics and blocker ledger
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add generated/hol4-pcuic/cakeml
+          if git diff --cached --quiet; then
+            echo "CakeML diagnostics are unchanged."
+          else
+            git commit -m "Persist original CakeML replay diagnostics"
+            git push origin HEAD:generated/hol4-pcuic-proof-migration
+          fi
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: original-cakeml-replay-\${{ github.run_id }}-\${{ github.run_attempt }}
+          path: generated/hol4-pcuic/cakeml/
+          if-no-files-found: error
+
+      - name: Fail closed until the trusted CakeML checker actually executes
+        if: steps.gate.outcome != 'success'
+        run: |
+          echo "Trusted Original-MetaRocq CakeML checker execution remains BLOCKED."
+          cat generated/hol4-pcuic/cakeml/replay.json
+          exit 1
