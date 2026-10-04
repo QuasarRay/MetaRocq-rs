@@ -1,17 +1,7 @@
 name: Original MetaRocq selfhost snapshot
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-02-snapshot-opentheory
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - 'spec/original-metarocq-selfhost.json'
-      - 'tools/bootstrap.py'
-      - 'tools/install_extraction.sh'
-      - '.github/workflows/original-metarocq-selfhost-snapshot.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 
