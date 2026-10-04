@@ -1,0 +1,152 @@
+name: Peregrine selfhost LambdaBox -> CakeML -> HOL4
+
+on:
+  push:
+    branches:
+      - experiment/peregrine-selfhost-cakeml-hol4-e2e
+    paths:
+      - 'metatheory/peregrine-selfhost/**'
+      - 'metatheory/original-selfhost/PCUICModuleManifest.v'
+      - 'formal/hol4/PeregrineSelfHostContractScript.sml'
+      - 'formal/hol4/PeregrineSelfHostE2EScript.sml'
+      - 'cakeml/peregrine-selfhost/**'
+      - 'spec/peregrine-selfhost-e2e.json'
+      - 'tools/check_peregrine_selfhost_contract.py'
+      - 'tools/peregrine_selfhost_pipeline.sh'
+      - '.github/workflows/peregrine-selfhost-cakeml-hol4.yml'
+  pull_request:
+    branches:
+      - experiment/original-metarocq-selfhost-09-hol4-kernel-e2e
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: peregrine-selfhost-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-prove:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+      OPAMJOBS: "4"
+      HOL4_DIR: ${{ github.workspace }}/.aegis/references/hol4
+      CAKEML_DIR: ${{ github.workspace }}/.aegis/references/cakeml
+
+    steps:
+      - name: Checkout MetaRocq-rs
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Checkout pinned MetaRocq
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: MetaRocq/metarocq
+          ref: 7197056adbb9c15288b4c8d43407bf25786f723e
+          path: .aegis/references/metarocq
+          submodules: recursive
+
+      - name: Clone pinned Peregrine and all git submodules
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: peregrine-project/peregrine-tool
+          ref: d768b83ffa7dab35b8d72241f0570b5bb6aedae9
+          path: .aegis/references/peregrine
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Checkout pinned Peregrine CakeML backend
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: peregrine-project/cakeml-backend
+          ref: cc20d1a2986bd2fec7c6eb0864c8c9a806188b58
+          path: .aegis/references/cakeml-backend
+
+      - name: Checkout pinned CakeML
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: CakeML/cakeml
+          ref: c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9
+          path: .aegis/references/cakeml
+
+      - name: Checkout pinned HOL4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: HOL-Theorem-Prover/HOL
+          ref: 40dd5b03de658f4bd9e3f4225fb0f1602ac90467
+          path: .aegis/references/hol4
+
+      - name: Verify exact source/replay contract
+        run: python3 tools/check_peregrine_selfhost_contract.py
+
+      - name: Restore prebuilt MetaRocq-rs toolchain cache
+        id: opam-cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: metarocq-extraction-${{ runner.os }}-${{ hashFiles('spec/toolchain.lock.json', 'tools/install_extraction.sh') }}
+
+      - name: Prepare host tools and reconcile exact prebuilt pins
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml
+          bash tools/install_extraction.sh
+
+      - name: Save toolchain cache when rebuilt
+        if: steps.opam-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: ${{ steps.opam-cache.outputs.cache-primary-key }}
+
+      - name: Execute MetaRocq/Peregrine selfhost producer pipeline
+        run: bash tools/peregrine_selfhost_pipeline.sh
+
+      - name: Build pinned HOL4 kernel
+        run: |
+          cd "$HOL4_DIR"
+          poly --script tools/smart-configure.sml
+          bin/build
+
+      - name: Kernel-check fail-closed selfhost contract
+        run: |
+          mkdir -p generated/hol4/peregrine-contract
+          cp formal/hol4/PeregrineSelfHostContractScript.sml generated/hol4/peregrine-contract/
+          cd generated/hol4/peregrine-contract
+          "$HOL4_DIR/bin/Holmake"
+          find . -name 'PeregrineSelfHostContractTheory.dat' -print -quit | grep -q .
+
+      - name: Require exact recursive Peregrine source-to-machine theorem
+        run: |
+          theorem=formal/hol4/PeregrineSelfHostE2EScript.sml
+          if [ ! -s "$theorem" ]; then
+            echo "::error::Missing genuine PeregrineSelfHostE2E HOL4 theorem."
+            echo "::error::The retained proof corpus and generated CakeML file are producers/evidence only."
+            echo "::error::Required: exact replay soundness, LambdaBox->CakeML semantics, eval_cake_compile_x64, compile_correct/x64 binding, machine bytes, and embedded portable certificate correspondence."
+            exit 1
+          fi
+          mkdir -p generated/hol4/peregrine-e2e
+          cp "$theorem" generated/hol4/peregrine-e2e/
+          cd generated/hol4/peregrine-e2e
+          "$HOL4_DIR/bin/Holmake"
+          find . -name 'PeregrineSelfHostE2ETheory.dat' -print -quit | grep -q .
+
+      - name: Preserve all generated evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: peregrine-selfhost-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            generated/peregrine-selfhost/
+            generated/hol4/
+            metatheory/peregrine-selfhost/*.vo
+            metatheory/peregrine-selfhost/*.vos
+            metatheory/peregrine-selfhost/*.glob
+            spec/peregrine-selfhost-e2e.json
+          if-no-files-found: error
