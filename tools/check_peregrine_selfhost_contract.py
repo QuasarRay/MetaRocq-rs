@@ -87,6 +87,21 @@ def main() -> int:
             "retained_peregrine_replay_jobs" in entry,
             "LambdaBox root no longer retains complete proof/replay payload")
 
+    replay_path = ROOT / "metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v"
+    require(replay_path.is_file(), "runtime replay module missing")
+    replay = replay_path.read_text()
+    require("tmQuoteRecTransp" in replay and
+            "MetaRocq.Template.Checker.typecheck_program" in replay and
+            "replay_peregrine_runtime_program" in replay,
+            "runtime replay no longer quotes and checks the retained Peregrine program")
+    require("ReplayPeregrineRuntimeProofs" in entry and
+            "PeregrineRuntimeReplayResult" in entry,
+            "LambdaBox root no longer exposes runtime replay")
+
+    blockers = spec["current_blockers"]
+    require(any("PCUIC SafeChecker replay" in blocker for blocker in blockers),
+            "diagnostic runtime replay must not silently close the faithful PCUIC SafeChecker blocker")
+
     require(spec["status"] == "FAIL_CLOSED", "contract must remain fail-closed")
     require(bool(spec["current_blockers"]), "unresolved formal blockers must stay explicit")
     print("Peregrine selfhost source/provenance contract: PASS")
