@@ -2,9 +2,9 @@
 
 ## Objective
 
-Record exactly how much of this instruction set reuses the previous MetaRocq self-hosting/HOL4 architecture and exactly which parts are genuinely NEW Peregrine-specific work.
+Record exactly how much of this instruction set REUSES the previous MetaRocq self-hosting/HOL4 architecture, and exactly which parts are genuinely NEW Peregrine-specific work.
 
-This report is intentionally separated from the implementation status.
+This report MUST distinguish:
 
 ```text
 INSTRUCTION ARCHITECTURE COMPLETE
@@ -12,11 +12,11 @@ INSTRUCTION ARCHITECTURE COMPLETE
 ALL FORMAL THEOREMS IMPLEMENTED
 ```
 
-Do NOT interpret the existence of these instructions as evidence that the final `PeregrineSelfHostE2E` theorem already exists.
+The existence of these instructions does NOT mean that the final `PeregrineSelfHostE2E` theorem already exists.
 
-## 1. Existing Foundational Manual Reused WITHOUT Duplication
+## 1. Foundational Manual Reused WITHOUT Duplication
 
-The previous manual already contained 12 authoritative milestones:
+The previous MetaRocq E2E manual already contained 12 authoritative milestones:
 
 ```text
 01 trust and E2E completion criteria
@@ -36,42 +36,45 @@ The previous manual already contained 12 authoritative milestones:
 Result:
 
 ```text
-FOUNDATIONAL MILESTONES REUSED: 12 / 12
-FOUNDATIONAL MILESTONES REIMPLEMENTED: 0 / 12
+FOUNDATIONAL MILESTONES REUSED:        12 / 12
+FOUNDATIONAL MILESTONES REIMPLEMENTED:  0 / 12
 ```
 
-The new Peregrine manual is therefore a DELTA over the existing manual, not a replacement.
+Therefore the new Peregrine collection is a DELTA over the previous manual, NOT a replacement.
 
 ## 2. Existing Peregrine/HOL4 Implementation Scaffolding Reused
 
-PR #30 already contained useful implementation seams:
+PR #30 already contained reusable implementation seams:
 
 ```text
 1. metatheory/peregrine-selfhost/*
-   source manifest/snapshot/proof corpus/extraction root
+   source manifest / snapshot / proof corpus / extraction root
 
 2. tools/peregrine_selfhost_pipeline.sh
-   exact producer path and prebuilt-toolchain preference
+   exact producer path + prebuilt-toolchain preference
 
 3. formal/hol4/PeregrineGeneratedCompileScript.sml
-   exact serialized CakeML input -> HOL parser -> exact program -> eval_cake_compile_x64
+   serialized CakeML input
+   -> HOL-side parser
+   -> exact CakeML program
+   -> eval_cake_compile_x64
 
 4. formal/hol4/PeregrineSelfHostContractScript.sml
    fail-closed HOL4 theorem/tag qualification scaffold
 
 5. cakeml/peregrine-selfhost/CertificateRuntime.sml
-   portable-certificate runtime data carrier
+   certificate runtime data carrier
 
 6. spec/peregrine-selfhost-e2e.json
-   explicit trust boundary / required obligation ledger
+   explicit trust boundary + required obligation ledger
 
 7. docs/adr/0016-peregrine-selfhost-cakeml-hol4.md
-   correct authority model and non-circular certificate design
+   authority model + non-circular certificate design
 ```
 
-These were reused as the implementation targets referenced by Milestones 06â€“09.
+These implementation seams are REUSED by Milestones 06â€“09.
 
-No second certificate-runtime architecture was invented.
+Do NOT invent a second certificate-runtime architecture.
 
 ## 3. New Peregrine Delta Milestones Added
 
@@ -91,79 +94,116 @@ This directory adds 11 numbered delta milestones:
 10 reuse/new-work report
 ```
 
-These files specialize rather than duplicate the old 12-milestone manual.
+These files SPECIALIZE the old 12-milestone manual.
 
-## 4. Categorize the 11 Delta Milestones by Reuse vs Genuinely New Formal Content
+They do NOT duplicate it.
 
-### Primarily reuse/specialization â€” 00 through 04
+## 4. Count-Based Reuse Classification
 
-These milestones mainly apply the previous architecture to Peregrine:
+### Primarily reuse/specialization â€” Milestones 00 through 04
+
+These apply existing architecture to the exact Peregrine target:
 
 ```text
-00 classify reuse
-01 freeze exact source/dependencies
+00 classify reuse and freeze the stronger target
+01 freeze exact Peregrine source/dependencies
 02 specialize complete proof retention to Peregrine
 03 specialize bootstrap seed selection
-04 specialize prebuilt producer/candidate generation
+04 specialize the prebuilt Peregrine candidate producer
 ```
-
-They require important new exact manifests/commands, but they do not invent a new foundational proof architecture.
 
 Count:
 
 ```text
-5 / 11 delta milestones primarily reuse/specialization
+5 / 11 delta milestones = primarily reuse/specialization
 ```
 
-### Genuinely NEW formal obligations â€” 05 through 08
+### Genuinely NEW formal obligations â€” Milestones 05 through 08
 
-These exist because the stronger requested target was NOT already closed by upstream projects or the old manual:
+These exist because the stronger requested target is NOT already closed by the previous manual or by the audited upstream repositories:
 
 ```text
-05 close the actually missing complete Peregrine -> CakeML theorem
-06 instantiate exact Peregrine application semantics + CakeML machine theorem
-07 embed a portable non-circular proof capsule and prove correspondence
+05 close the missing complete Peregrine -> CakeML theorem
+06 instantiate exact Peregrine application semantics + exact CakeML machine theorem
+07 embed a portable non-circular proof capsule + prove correspondence
 08 make a fresh HOL4 instance reconstruct the outer E2E theorem
 ```
 
 Count:
 
 ```text
-4 / 11 delta milestones primarily new formal work
+4 / 11 delta milestones = primarily new formal work
 ```
 
-### Integration/reporting â€” 09 through 10
-
-These combine existing/new obligations into reproducible operation and explain reuse:
+### Integration/reporting â€” Milestones 09 through 10
 
 ```text
 09 final staged runbook/publication gate
-10 this reuse report
+10 this reuse/new-work report
 ```
 
 Count:
 
 ```text
-2 / 11 delta milestones integration/reporting
+2 / 11 delta milestones = integration/reporting
 ```
 
-## 5. Reuse by the User's Five Requested Phases
+## 5. Count-Based Overall Reuse View
+
+If you count the old 12 foundational milestones together with the 11 Peregrine delta milestones:
+
+```text
+TOTAL MILESTONE UNITS: 23
+
+12 old foundational milestones reused directly
+ 5 new delta milestones primarily reuse/specialize them
+ 4 new delta milestones contain genuinely new formal obligations
+ 2 new delta milestones integrate/report
+```
+
+Therefore, on a SIMPLE MILESTONE-COUNT basis:
+
+```text
+DIRECT REUSE + SPECIALIZATION:
+  17 / 23 ~= 73.9%
+
+GENUINELY NEW FORMAL-OBLIGATION MILESTONES:
+   4 / 23 ~= 17.4%
+
+INTEGRATION / REPORTING:
+   2 / 23 ~= 8.7%
+```
+
+IMPORTANT:
+
+This is a DOCUMENT-ARCHITECTURE metric.
+
+It is NOT an effort-weighted metric.
+
+The 4 genuinely new formal milestones are disproportionately difficult and contain most of the remaining proof risk.
+
+## 6. Reuse by the User's Five Requested Phases
 
 ### Requested Phase 1 â€” separate Peregrine branch + recursive submodules
 
-Status of instructions:
+Status:
 
 ```text
 MOSTLY NEW OPERATIONAL SPECIALIZATION
 ```
 
-The generic pinning discipline already existed.
+Already reused:
 
-New work was:
+- immutable source pinning;
+- separate dependency checkout policy;
+- source identity recording;
+- fail-closed dirty-tree checks.
+
+New Peregrine-specific work:
 
 - exact Peregrine commit;
-- recursive-submodule command;
-- mechanical confirmation that the pinned revision currently has NO `.gitmodules`/gitlinks;
+- `--recurse-submodules` cloning policy;
+- mechanical confirmation that the pinned revision currently has NO `.gitmodules` / gitlinks;
 - separate official CakeML backend checkout because it is NOT a Peregrine submodule.
 
 Documented in:
@@ -174,7 +214,7 @@ Documented in:
 
 ### Requested Phase 2 â€” one Peregrine LambdaBox containing all proof replays
 
-Status of instructions:
+Status:
 
 ```text
 ARCHITECTURE HEAVILY REUSED
@@ -183,17 +223,20 @@ PEREGRINE SCOPE SPECIALIZED
 
 Reused:
 
-- quote source as data;
-- retain proof terms as Type-level quoted data;
+- source quotation as data;
+- proof retention as computational Type-level data;
 - separate assumption ledger;
 - replay-job completeness;
-- LambdaBox retention pattern.
+- LambdaBox retention pattern;
+- source/proof completeness gate.
 
 New:
 
-- exact Peregrine source module scope;
-- exact Peregrine pipeline root;
-- complete Peregrine proof-corpus specialization.
+- exact Peregrine module scope;
+- exact Peregrine executable root;
+- complete Peregrine proof-corpus specialization;
+- one retained replay job per in-scope proof;
+- requirement that the final LambdaBox root keeps both Peregrine and its replay state reachable.
 
 Documented in:
 
@@ -203,21 +246,27 @@ Documented in:
 
 ### Requested Phase 3 â€” execute with prebuilt MetaRocq, preferring MetaRocq-rs artifacts
 
-Status of instructions:
+Status:
 
 ```text
-NEW SEED-RESOLUTION POLICY
+NEW SEED-RESOLUTION POLICY BUILT ON EXISTING TOOLCHAIN REUSE
 ```
 
-The previous toolchain already used cached MetaRocq/Rocq environments.
+The existing project already reused pinned Rocq/MetaRocq environments.
 
-New exact priority:
+The new exact priority is:
 
 ```text
-real MetaRocq-rs MetaRocq binary artifact IF present
-  > exact prebuilt MetaRocq plugin environment
-  > exact one-time source build
+1. genuine MetaRocq-rs MetaRocq binary artifact, IF one exists and matches the exact expected identity
+
+2. exact prebuilt Rocq + MetaRocq plugin environment already materialized by MetaRocq-rs
+
+3. exact one-time source build of the pinned MetaRocq environment
 ```
+
+The seed is a bootstrap producer.
+
+It is NOT final semantic proof evidence.
 
 Documented in:
 
@@ -227,7 +276,7 @@ Documented in:
 
 ### Requested Phase 4 â€” use prebuilt Peregrine to produce CakeML
 
-Status of instructions:
+Status:
 
 ```text
 MOSTLY NEW PEREGRINE-SPECIFIC PRODUCER BINDING
@@ -238,8 +287,9 @@ New requirements:
 - exact prebuilt Peregrine executable identity;
 - exact `.ast` input identity;
 - exact `.cml` candidate bytes/configuration;
-- candidate â‰  proof separation;
-- exact candidate bytes bound to theorem-stage CakeML AST.
+- candidate != proof separation;
+- exact candidate bytes bound to the theorem-stage CakeML AST;
+- exact theorem-stage configuration equals candidate-generation configuration.
 
 Documented in:
 
@@ -248,28 +298,250 @@ Documented in:
 05-close-peregrine-cakeml-proof-gap.md
 ```
 
-### Requested Phase 5 â€” exact machine theorem + proof artifacts inside same executable + future HOL4 replay
+### Requested Phase 5 â€” exact machine theorem + proof artifacts in the executable + future HOL4 replay
 
-Status of instructions:
+Status:
 
 ```text
 LARGEST AMOUNT OF NEW FORMAL WORK
 ```
 
-The old manual already provided:
+The old manual ALREADY provided the reusable architecture for:
 
 ```text
-HOL4 authority
+HOL4 as final authority
 CakeML in-logic compilation
 compile_correct composition
-recursive tyme self-replay
+exact target-machine theorem
+recursive runtime replay
 final publication audit
 ```
 
-But the stronger request required NEW work:
+The stronger Peregrine target requires NEW formal work:
 
-1. exact Peregrineâ†’CakeML pipeline theorem because upstream currently lacks a complete present `PipelineCorrect.v` path at the audited refs;
-2. exact Peregrine application semantics theorem in HOL4;
-3. exact program-specific `eval_cake_compile_x64`
-ÈÛÛ\[WØÛÜœ™XÝÛÛ\ÜÚ][ÛŽÂˆHÜX›H›ÛÙˆØ\Ý[H[œÚYHHØ[YHØZÙSS›ÙÜ˜[NÂKˆH[Ü™[H›Ýš[™ÈØ\Ý[HÛÜœ™\ÜÛ™[˜ÙNÂ‹ˆHÛË[]™[\ÚYÛˆ]›ÚY[™È[\ÜÜÚX›H^XÝXž]HÙ[‹\™Y™\™[˜ÙNÂËˆ[ˆÜ[Û˜[Ù\\˜][H›Ý™YÚ[™ÛK\\ÚXØ[Yš[HXÚØYÚ[™È[Ü™[NÂŽˆHœ™\ÚRÓ™XÛÛœÝXÝ[Ûˆ\[[™H][\ÜËÜ™\^\ÈHØ\Ý[H[™™YÙ[™\˜]\ÈHÝ]\ˆ[Ü™[K‚‚‘ØÝ[Y[Y[Ž‚‚˜^ŒKXÛÜÙK\\™YÜš[™KXØZÙ[[\›ÛÙ‹YØ\›YŒ‹XØZÙ[[ZÛY^XÝ[XXÚ[™KX]\Ý][Û‹›YŒËY[X™Y[›Û‹XÚ\˜Ý[\‹\›ÛÙ‹XØ\Ý[K›YŒY]\™KZÛZ[™\[™[\™]˜[Y][Û‹›Y˜‚ˆÈÈ‹ˆ\Ý™X[HÛÜšÈ™]\ÙYœÈZ\ÜÚ[™È\Ý™X[HÛÜšÂ‚ˆÈÈÈY]T›ØÜH8 %X]š[H™]\ØX›B‚”™]\ÙYÙ™šXÚX[Ø\Xš[]Y\Î‚‚˜^œ][Ý][ÛˆÈ[\]H[Û˜Y”ÕRPÈ›Ü›X[^˜][Û‚™\šYšYYØY™PÚXÚÙ\ˆ\˜Ú]XÝ\™B™\šYšYY\˜\Ý\™BœÙ[‹Y\˜\Ý\™H™XÙY[˜‚“Z\ÜÚ[™ËÛ™]È›Üˆ\È›Ú™XÝ‚‚˜^™^XÝ\™YÜš[™HÙ[šÜÝÛÝ\˜ÙKØÛÜœ\È[œÝ[˜ÙB™^XÝ™]Z[™Y[[YKØØ\Ý[HÛÛ\ÜÚ][Û‚™^XÝœšYÙH[ÈHš[˜[Ó[Ü™[HÜ˜\˜‚ˆÈÈÈ\™YÜš[™H8 %ZYKY[™\™Ù[H™]\ØX›Kš[˜[ØZÙSS›ÛÙˆ][˜ÛÛ\]B‚”™]\ÙY‚‚˜^”\™YÜš[™K”\[[™Kœ\™YÜš[™WÜ\[[™B˜[Y][Û‹Ý˜[œÙ›Ü›\ÂØZÙSSØ[™Y]HÙ[™\˜][Û‚œÙ\šX[^˜][Ûˆ[™œ˜\ÝXÝ\™B™\šYšYYXÛÛ\[KXÛÜœ™XÝœ˜[˜Ú	ÜÈÛÛ\[PÛÜœ™XÝ‚˜‚“Z\ÜÚ[™È]H]Y]Y™YœÎ‚‚˜^˜ÛÛ\]H™\Ù[\[[™PÛÜœ™XÝˆÈ™\šYšYYØØZÙ[[Ü\[[™WÝ[Ü™[H[\[Y[][Û‚™^XÝÙ[šÜÝœ˜YÛY[›ÛÙ‹Ú[œÝ[X][Û‚™^XÝØ[™Y]KÜ›ÛÙˆTÕY[]H›ÛÙ‚˜‚•\™Y›Ü™HZ[\ÝÛ™HH\ÈÙ[Z[™H›Ü›X[^˜][ÛˆÛÜšË‚‚ˆÈÈÈØZÙSS8 %ÛÛ\[\ˆ›ÛÙˆ\˜Ú]XÝ\™HÝ›Û™ÛH™]\ØX›B‚”™]\ÙYÙ™šXÚX[Ø\Xš[]Y\Î‚‚˜^™]˜[ØØZÙWØÛÛ\[SX‚™]˜[ØØZÙWØÛÛ\[WÞX‚˜ÛÛ\[WØÛÜœ™XÝž˜XÚÙ[™ÛXXÚ[™KÚ[š]ÛÜœ™XÝ™\ÜÈ[Ü™[\Â›Ù™šXÚX[[È›ÙÜ˜[H›ÛÙˆÛÛ\ÜÚ][Ûˆ]\›‚˜‚“Z\ÜÚ[™ËÛ™]Î‚‚˜^”\™YÜš[™K\ÜXÚYšXÈØZÙSS›ÙÜ˜[HÙ[X[XÜÈ[Ü™[B”\™YÜš[™K\ÜXÚYšXÈ^XÝ\›ÙÜ˜[HÜXÚX[^˜][Û‚˜Ø\Ý[H™Z]š[Üˆ[Ü™[B˜‚•HØZÙSSÛÛ\[\ˆ]Ù[ˆÙ\È“Õ™YYÈ™H™K\›Ý™Yœ›ÛHØÜ˜]Ú‚‚ˆÈÈÈÓ8 %Ù\›™[[™Ü[•[ÜžH[™œ˜\ÝXÝ\™HÝ›Û™ÛH™]\ØX›B‚”™]\ÙY‚‚˜^’ÓÙ\›™[ØÚXÚ×ÝB“Ü[•[ÜžHWÝ×Ø\XÛB“Ü[•[ÜžH\XÛWÝ×ÝKÜ˜]×Ü™XYØ\XÛB[Ü™[H\Ý\Ú\ËÝYËÛÜ˜XÛH[œÜXÝ[Û‚˜‚“Z\ÜÚ[™ËÛ™]Î‚‚˜^”\™YÜš[™K\ÜXÚYšXÈ[Ü™[HÛÛ\ÜÚ][Û‚œÜX›HØ\Ý[H\[™[˜ÞHX[šY™\Ý™œ™\Ú[™\[™[™XÛÛœÝXÝ[Ûˆ›ØÙY\™B˜‚ˆÈÈËˆ]X[]]]™HÝ[[X\žHÒUÕUZ\ÛXY[™ÈÐÈ\˜Ù[YÙ\Â‚•H\ÙY[ÛÝ[X˜\ÙYÝ[[X\žH\Î‚‚˜^‘^\Ý[™È›Ý[™][Û˜[X[X[Z[\ÝÛ™\È™]\ÙYˆL‚‘^\Ý[™È›Ý[™][Û˜[Z[\ÝÛ™\È\XØ]Yˆ“™]È\™YÜš[™H[HZ[\ÝÛ™\ÎˆLBˆš[X\š[H™]\ÙKÜÜXÚX[^˜][ÛŽˆBˆš[X\š[H™]È›Ü›X[Ø›YØ][ÛœÎˆˆ[YÜ˜][Û‹Ü™\Ü[™Îˆ‚‚‘^\Ý[™ÈˆÌÌ[\[Y[][ÛˆÙX[\È^XÚ]H™]\ÙYˆÈXZ›ÜˆÛÛ\Û™[Â˜‚‘È“ÕÛÛ™\ÜÙHÛÝ[È[ÈH\˜Ù[YÙHÙˆ[™Ú[™Y\š[™ÈY™›Ü‚‚HÚÜ›Ü›X[›ÛÙˆØ[ˆ™\]Z\™H[Ü™HY™›Ü[ˆÝ\Ø[™ÈÙˆ[™\ÈÙˆÜ˜Ú\Ý˜][Û‹ÙØÝ[Y[][Û‹‚‚•H™[XZ[š[™ÈÛÜšÈ\ÈÛÛ˜Ù[˜]Y[ˆHÓPS[X™\ˆÙˆÙ[X[XØ[HY™šXÝ[[Ü™[H›Ý[™\šY\È˜]\ˆ[ˆH\™ÙH[[Ý[Ùˆ›Ú[\œ]K‚‚ˆÈÈˆÚ]\ÈÕSZ\ÜÚ[™ÈY\ˆ\ÙH[œÝXÝ[ÛœÂ‚•H[œÝXÝ[ÛˆÛÛXÝ[Ûˆ\ÈÛÛ\]H[›ÝYÚÈ^XÝ]HH™\]Y\ÝY›ØYX\‚‚•HXÝX[›Ü›X[[\[Y[][Ûˆ\È“Õ\™XžHÛÛ\]K‚‚Ý\œ™[\™[\[Y[][ÛˆØ›YØ][ÛœÈ™[XZ[Ž‚‚˜^ŒKˆ›Ý™KÚ[œÝ[X]HÛÛ\]H\™YÜš[™HÙ[šÜÝœ˜YÛY[ÛÝ™\˜YÙBŒ‹ˆÛÜÙHH[\™YÜš[™H\[[™HOˆØZÙSSÙ[X[XÜÈ[Ü™[BŒËˆ›Ý™HH^XÝØ[™Y]Hž]\ÈÛÜœ™\ÜÛ™ÈH^XÝ›Ý™YØZÙSSTÕˆ›Ý™HH^XÝ\™YÜš[™HØZÙSS\XØ][ÛˆÙ[X[XÜÈ[ˆÓKˆÛÛ\ÜÙH^XÝ]˜[ØØZÙWØÛÛ\[WÞ
-ÈÛÛ\[WØÛÜœ™XÝÞ›Üˆ]›ÙÜ˜[B‹ˆ[\[Y[Ù[X™YHØ[›ÛšXØ[™\^XX›HØ\Ý[BËˆ›Ý™H[X™YYØ\Ý[HÛÜœ™\ÜÛ™[˜ÙBŽˆÛÛœÝXÝØÚXÚÈ\™YÜš[™TÙ[’ÜÝL‘BŽKˆXZÙHHœ™\ÚÓ[œÝ[˜ÙH™XÛÛœÝXÝœ™\Ú\™YÜš[™TÙ[’ÜÝL‘BŒLˆYˆ]™[ˆ\È™\]Z\™Y›Ý™HHš[˜[\ÚXØ[ÛÛZ[™\‹ÛØY\ˆ›Ú™XÝ[Û‚˜‚•[[\ÙHÛÜÙN‚‚˜^‘’SSÔT‘QÔ’S‘WÑL‘HH“ÐÒÑQ˜‚ˆÈÈKˆÝXÚØX›H[T™\]Y\Ý™\Ù\˜][Ûˆ™\Ü‚•HØÝ[Y[][Ûˆ\È[[[Û˜[HÜ][È™YHY]]™Hˆ^Y\œÎ‚‚˜^”ˆÌÌB˜œ˜[˜ÚˆØÜËÜ\™YÜš[™K\Ù[šÜÝLK\ÛÝ\˜ÙKX›ÛÝÝ˜\˜YÎ‚ˆ‘PQQBˆˆBˆ‚ˆÂ‚”ˆÌÌ‚˜œ˜[˜ÚˆØÜËÜ\™YÜš[™K\Ù[šÜÝL‹XØZÙ[[XÙ\YšXØ]B˜˜\ÙNˆˆÌÌHœ˜[˜Ú˜YÎ‚ˆˆBˆ‚ˆÂ‚”ˆÌÌÂ˜œ˜[˜ÚˆØÜËÜ\™YÜš[™K\Ù[šÜÝLËZ[™\[™[\™\^B˜˜\ÙNˆˆÌÌˆœ˜[˜Ú˜YÎ‚ˆˆBˆLˆ‘PQQH[™^ÜÝ]\È\]B˜‚”ˆÌÌˆØ\ÈÜšYÚ[˜[HÜ[™YY\ˆ8 $ÌH^\ÝY[ˆ]È]™Hœ˜[˜ÚØ\È^[™YY]]™[HÚ]¸ $ÌÈ‘Q“Ô‘HˆÌÌÈØ\Èš[˜[^™YˆˆÌÌÈ\™Y›Ü™H™]\Ù\È¸ $ÌÈ[˜Ú[™ÙY˜]\ˆ[ˆ\XØ][™È[K‚‚“›È™]š[Ý\È[Hš[H™YYÈÈ™H\ÝXÝ]™[H™]Üš][ˆÈ[›ÙXÙHH]\ˆ›ÛÙˆ^Y\œË‚‚•\È™\Ù\™\È™]šY]ØXš[]H[™™]™[ÈÛÛ\]YÛÜšÈœ›ÛH™Z[™ÈÜÝÜ™YÛ™K‚‚ˆÈÈLˆš[˜[ÛÛ˜Û\Ú[Û‚‚•HXZ›Üš]HÙˆH•TÕTÒUPÕT‘HØ\È™]\ÙY‚‚•HXZ›Üš]HÙˆHÙ[Z[™[HY™šXÝ[‘UÈÛÜšÈ\ÈÛÛ˜Ù[˜]Y[ˆ›Ý\ˆ›Ý[™\šY\Î‚‚˜^”\™YÜš[™HOˆØZÙSSÛÛ\]HÙ[X[XÈ›ÛÙ‚”\™YÜš[™K\ÜXÚYšXÈØZÙSSOˆXXÚ[™H[Ü™[HÜXÚX[^˜][Û‚››Û‹XÚ\˜Ý[\ˆ[X™YY›ÛÙ‹XØ\Ý[HÛÜœ™\ÜÛ™[˜ÙB™œ™\Ú[™\[™[Ó™XÛÛœÝXÝ[Û‚˜‚•\È\È™Y™\˜X›HÈ™]Üš][™ÈY]T›ØÜK\™YÜš[™KØZÙSSÜˆÓ›ÛÙˆ[™œ˜\ÝXÝ\™K‚‚•HÛÜœ™XÝ›Ú™XÝÝ˜]YÞH™[XZ[œÎ‚‚˜^”‘UTÑH^\Ý[™È™\šYšYY[™œ˜\ÝXÝ\™HYÙÜ™\ÜÚ]™[BQÛ›HHZ\ÜÚ[™ÈÛÛ\ÜÚ][Û‹ØÛÜœ™\ÜÛ™[˜ÙH[Ü™[\Â‘RSÓÔÑQ]]™\žH[œ›Ý™YÙ[X[XÈ›Ý[™\žB˜‚ˆÈÈ™Y™\™[˜Ù\Â‚ˆÈÈÈY]T›ØÜB‚‹HÙ™šXÚX[\˜Ú]XÝ\™K][Ý][Û‹ÕRPËØY™PÚXÚÙ\ˆ[™\˜\Ý\™HÝ™\šY]ÎˆÎ‹ËÙÚ]X‹˜ÛÛKÓY]T›ØÜKÛY]\›ØÜKØ›Ø‹ÎKŒKÔ‘PQQK›Y‹HÙ™šXÚX[[œÝ[][Û‹ÜXÚØYÙHXÛÛ\ÜÚ][ÛŽˆÎ‹ËÙÚ]X‹˜ÛÛKÓY]T›ØÜKÛY]\›ØÜKØ›Ø‹ÎKŒKÒS”ÕS›Y‚ˆÈÈÈ\™YÜš[™B‚‹HÙ™šXÚX[\™YÜš[™H™\ÜÚ]ÜžNˆÎ‹ËÙÚ]X‹˜ÛÛKÜ\™YÜš[™K\›Ú™XÝÜ\™YÜš[™K]ÛÛ‹H^XÝ\™YÜš[™H\[[™HÛÝ\˜ÙNˆÎ‹ËÙÚ]X‹˜ÛÛKÜ\™YÜš[™K\›Ú™XÝÜ\™YÜš[™K]ÛÛØ›Ø‹ÙÍŽŽÙ™˜MÙXŒÍXŽÌŒYŒMÌX˜˜YYYNKÝ[ÜšY\ËÔ\[[™K‚‹HÙ™šXÚX[ØZÙSS˜XÚÙ[™™\ÜÚ]ÜžNˆÎ‹ËÙÚ]X‹˜ÛÛKÜ\™YÜš[™K\›Ú™XÝØØZÙ[[X˜XÚÙ[™‹H™\šYšYYÛÛ\[KXÛÜœ™XÝ›ÛÙˆ˜\Ù[[™NˆÎ‹ËÙÚ]X‹˜ÛÛKÜ\™YÜš[™K\›Ú™XÝØØZÙ[[X˜XÚÙ[™Ø›Ø‹ÍX˜YYŒŒMŒNŒÌÌLYXŽYŽÙNX™ŒLÍÌÍÌ‹Ý[ÜšY\ËÐ˜XÚÙ[™ÐÛÛ\[PÛÜœ™XÝ‚‚ˆÈÈÈØZÙSS‚‹H^XÝ[Ü™[K\›ÙXÚ[™ÈÛÛ\[\ˆ[\™˜XÙNˆÎ‹ËÙÚ]X‹˜ÛÛKÐØZÙSSØØZÙ[[Ø›Ø‹ÙLML˜ÍLÍØÌ˜™ÎLÌXØÍLŽLM™™ÎYÍËØÝ—Ý˜[œÛ]Ü‹Ù]˜[ØØZÙWØÛÛ\[SX‹œÚYÂ‹H^XÝÙ™šXÚX[ÛÛ\[][Ûˆ^[\NˆÎ‹ËÙÚ]X‹˜ÛÛKÐØZÙSSØØZÙ[[Ø›Ø‹ÙLML˜ÍLÍØÌ˜™ÎLÌXØÍLŽLM™™ÎYÍËÙ^[\\ËØÛÛ\[][Û‹ÞÚ[ÐÛÛ\[TØÜš\œÛ[‹H^XÝÙ™šXÚX[XXÚ[™K\›ÛÙˆÛÛ\ÜÚ][Ûˆ^[\NˆÎ‹ËÙÚ]X‹˜ÛÛKÐØZÙSSØØZÙ[[Ø›Ø‹ÙLML˜ÍLÍØÌ˜™ÎLÌXØÍLŽLM™™ÎYÍËÙ^[\\ËØÛÛ\[][Û‹ÞÜ›ÛÙœËÚ[Ô›ÛÙ”ØÜš\œÛ[‚ˆÈÈÈÓ‚‹HÙ™šXÚX[Ó™\ÜÚ]ÜžNˆÎ‹ËÙÚ]X‹˜ÛÛKÒÓU[Ü™[KT›Ý™\‹ÒÓ‹HÙ™šXÚX[Ü[•[ÜžH[Ü™[KØ\XÛH[\™˜XÙNˆÎ‹ËÙÚ]X‹˜ÛÛKÒÓU[Ü™[KT›Ý™\‹ÒÓØ›Ø‹ÍXŒÙMN™YLÙŒY˜ŒŒMŒ˜XÎLËÜÜ˜ËÛÜ[[ÜžKÜÜÝ›ÛÛÓÜ[•[ÜžRSËœÚYÂ‹HÙ™šXÚX[Ü[•[ÜžH™XY\ˆÛÛ˜XÝˆÎ‹ËÙÚ]X‹˜ÛÛKÒÓU[Ü™[KT›Ý™\‹ÒÓØ›Ø‹ÍXŒÙMN™YLÙŒY˜ŒŒMŒ˜XÎLËÜÜ˜ËÛÜ[[ÜžKÜ™XY\‹ÓÜ[•[ÜžT™XY\‹œÚYÂ
+1. a COMPLETE Peregrine -> CakeML pipeline theorem for the exact self-host program;
+2. exact candidate bytes <-> exact proved CakeML AST correspondence;
+3. exact Peregrine application/replay semantics connected to the CakeML program;
+4. exact program-specific `eval_cake_compile_x64` theorem;
+5. exact specialization of CakeML `compile_correct` + x64 configuration theorems;
+6. an embedded Level-1 proof capsule carrying real replayable HOL4/OpenTheory proof material;
+7. a HOL4 theorem proving the exact CakeML program exposes EXACTLY that capsule;
+8. a final composed `PeregrineSelfHostE2E` theorem;
+9. a FRESH second HOL4 instance reconstructing the core theorem and recompiling the exact CakeML program;
+10. if one physical file must also contain the OUTER machine theorem, a separate proved container/loader projection theorem.
+
+Documented in:
+
+```text
+05-close-peregrine-cakeml-proof-gap.md
+06-cakeml-hol4-exact-machine-attestation.md
+07-embed-non-circular-proof-capsule.md
+08-future-hol4-independent-revalidation.md
+09-one-command-e2e-runbook-and-publication-gate.md
+```
+
+## 7. Why "Most Architecture Was Reused" Does NOT Mean "Most Proof Effort Is Finished"
+
+The reusable architecture answers questions such as:
+
+```text
+What are the trust boundaries?
+Which exact artifacts must be shared between theorems?
+How must proof corpus completeness be represented?
+Why must proof data survive erasure?
+Why must CakeML compile inside HOL4?
+How must the final theorem compose?
+How must assumptions/oracles be audited?
+How must recursive self-replay avoid circularity?
+How must publication fail closed?
+```
+
+Those questions are ALREADY answered.
+
+The remaining hard work is narrower but deeper:
+
+```text
+prove the exact missing transformations
+instantiate them for the exact self-hosted Peregrine program
+bind exact bytes/ASTs/theorems together
+prove the embedded capsule correspondence
+reconstruct the whole chain in a fresh HOL4 instance
+```
+
+Therefore:
+
+```text
+ARCHITECTURAL DESIGN REUSE = VERY HIGH
+REMAINING NEW FORMALIZATION SCOPE = NARROWER
+REMAINING FORMALIZATION DIFFICULTY = STILL HIGH
+```
+
+## 8. What Was NOT Reimplemented
+
+The new instruction stack deliberately does NOT create replacements for:
+
+- MetaRocq quotation;
+- PCUIC;
+- MetaRocq SafeChecker;
+- MetaRocq verified erasure;
+- Peregrine's existing transformation framework;
+- the existing verified `CompileCorrect.v` work;
+- CakeML compiler correctness;
+- CakeML x64 backend correctness;
+- CakeML theorem-producing compiler evaluation;
+- HOL4 kernel;
+- HOL4 OpenTheory import/export;
+- the existing MetaRocq-rs certificate/provenance structure;
+- the existing PR #30 Peregrine selfhost scaffolding.
+
+This is the most important reuse result.
+
+The remaining work is COMPOSITION + MISSING PROOFS around the exact self-hosted program, not a rewrite of these foundations.
+
+## 9. What Still Has to Be Implemented Before Publication Can Be Called E2E
+
+The instruction set is complete.
+
+The implementation is NOT yet complete until all of the following become real kernel-checked artifacts:
+
+```text
+[ ] complete Peregrine source/proof snapshot theorem
+[ ] complete proof-replay theorem over the exact retained corpus
+[ ] exact source -> LambdaBox refinement theorem
+[ ] exact LambdaBox -> CakeML pipeline theorem
+[ ] exact candidate bytes <-> proved CakeML AST theorem
+[ ] exact CakeML application-semantics theorem
+[ ] exact embedded capsule correspondence theorem
+[ ] exact eval_cake_compile_x64 theorem for that same program
+[ ] exact CakeML compile_correct/x64 machine theorem
+[ ] one connected PeregrineSelfHostE2E theorem
+[ ] machine runtime replay correspondence theorem
+[ ] fresh independent HOL4 reconstruction theorem
+[ ] mutation suite proving the publication gate is fail-closed
+```
+
+Optional stronger target:
+
+```text
+[ ] proved physical-container / loader projection theorem
+    IF the OUTER exact-machine theorem itself must also be physically embedded
+    in the same final executable file
+```
+
+## 10. Final Quantitative Summary
+
+### Documentation architecture
+
+```text
+Previous foundational milestones reused:   12 / 12
+Previous foundational milestones rewritten: 0 / 12
+
+New Peregrine delta milestones:             11
+  primarily reuse/specialization:            5
+  primarily new formal work:                 4
+  integration/reporting:                     2
+```
+
+### Simple combined milestone-count view
+
+```text
+reuse/specialization: 17 / 23 ~= 73.9%
+new formal obligations: 4 / 23 ~= 17.4%
+integration/reporting: 2 / 23 ~= 8.7%
+```
+
+### Formal-effort interpretation
+
+Do NOT infer:
+
+```text
+17.4% new milestones
+=> only 17.4% of the proof effort remains
+```
+
+The remaining new milestones contain the most technically difficult program-specific proof obligations.
+
+A more accurate qualitative summary is:
+
+```text
+TRUST-CHAIN DESIGN:
+  mostly reused and already specified
+
+TOOLCHAIN / PRODUCER OPERATIONS:
+  mostly reused with Peregrine-specific binding
+
+NEW FORMAL THEORY:
+  concentrated in four narrow but difficult areas
+
+FINAL IMPLEMENTATION STATUS:
+  blocked until those proof obligations are mechanized
+```
+
+## 11. Final Stack Preservation Report
+
+The final documentation stack is:
+
+```text
+PR #31
+docs/peregrine-selfhost-01-source-bootstrap
+  => README + 00â€“03
+
+PR #32
+docs/peregrine-selfhost-02-cakeml-certificate
+  => 04â€“07
+
+PR #33
+docs/peregrine-selfhost-03-independent-replay
+  => 08â€“10 + README status update
+```
+
+The stack preserves progress incrementally.
+
+No later PR rewrites the earlier milestone files.
+
+The intended review order is:
+
+```text
+#31 -> #32 -> #33
+```
+
+## Final Status
+
+```text
+INSTRUCTION_SET = COMPLETE
+REUSE_STRATEGY = EXPLICIT
+STACKED_PR_HISTORY = PRESERVED
+
+FINAL_PEREGRINE_E2E_THEOREM = NOT_YET_CLOSED
+PUBLICATION = BLOCKED UNTIL THE EXPLICIT THEOREM OBLIGATIONS ARE PROVED
+```
+
+## References
+
+### MetaRocq
+
+- Official MetaRocq architecture, quotation, PCUIC, SafeChecker, verified erasure, and self-erasure overview: https://github.com/MetaRocq/metarocq/blob/9.1/README.md
+- Official MetaRocq installation/package decomposition: https://github.com/MetaRocq/metarocq/blob/9.1/INSTALL.md
+- Official MetaRocq erasure theories: https://github.com/MetaRocq/metarocq/tree/9.1/erasure/theories
+- Official MetaRocq self-erasure test: https://github.com/MetaRocq/metarocq/blob/9.1/test-suite/self_erasure.v
+
+### Peregrine
+
+- Official Peregrine pipeline overview: https://github.com/peregrine-project/peregrine-tool/blob/master/doc/overview.md
+- Exact pinned Peregrine pipeline source: https://github.com/peregrine-project/peregrine-tool/blob/d768b83ffa7dab35b8d72241f0570b5bb6aedae9/theories/Pipeline.v
+- Official Peregrine CakeML backend repository: https://github.com/peregrine-project/cakeml-backend
+- Existing verified LambdaBox -> CakeML compile proof baseline: https://github.com/peregrine-project/cakeml-backend/blob/5baed0b21618480b30711eb9df87e9bf00537372/theories/Backend/CompileCorrect.v
+
+### CakeML
+
+- Official CakeML repository: https://github.com/CakeML/cakeml
+- Exact theorem-producing compiler evaluator API: https://github.com/CakeML/cakeml/blob/e1650fc504837c0fbd3931cc5066914ffdc9d877/cv_translator/eval_cake_compileLib.sig
+- Exact x64 compiler wrapper: https://github.com/CakeML/cakeml/blob/e1650fc504837c0fbd3931cc5066914ffdc9d877/cv_translator/eval_cake_compile_x64Lib.sml
+- Official exact-machine proof composition example using `compile_correct`: https://github.com/CakeML/cakeml/blob/e1650fc504837c0fbd3931cc5066914ffdc9d877/examples/compilation/x64/proofs/helloProofScript.sml
+
+### HOL4
+
+- Official HOL4 repository: https://github.com/HOL-Theorem-Prover/HOL
+- Official theorem/article transport interface: https://github.com/HOL-Theorem-Prover/HOL/blob/40dd5b03de658f4bd9e3f4225fb0f1602ac90467/src/opentheory/postbool/OpenTheoryIO.sig
+- Official OpenTheory import/export implementation: https://github.com/HOL-Theorem-Prover/HOL/blob/40dd5b03de658f4bd9e3f4225fb0f1602ac90467/src/opentheory/postbool/OpenTheoryIO.sml
+- Official OpenTheory reader contract: https://github.com/HOL-Theorem-Prover/HOL/blob/40dd5b03de658f4bd9e3f4225fb0f1602ac90467/src/opentheory/reader/OpenTheoryReader.sig
