@@ -123,6 +123,11 @@ jobs:
         shell: bash
         run: tools/run_unified_e2e_with_traces.sh
 
+      - name: Execute requested Peregrine source-to-machine lane
+        if: ${{ always() && env.E2E_TRACE_DIR != '' }}
+        shell: bash
+        run: tools/o11y_observe.sh requested-peregrine-source-machine bash tools/run_peregrine_requested_e2e.sh
+
       - name: Finalize trace hashes
         if: ${{ always() && env.E2E_TRACE_DIR != '' }}
         shell: bash
