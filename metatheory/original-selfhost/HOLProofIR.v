@@ -6,9 +6,13 @@ Open Scope string_scope.
 
 Module HOLProofIR.
 
+(* A deliberately small simply-typed HOL term language.  More type-operator
+   arities can be added without changing the proof kernel interface. *)
 Inductive hol_type :=
 | HVarType (name : string)
-| HOpType (name : string) (args : list hol_type).
+| HType0 (name : string)
+| HType1 (name : string) (arg : hol_type)
+| HType2 (name : string) (left right : hol_type).
 
 Inductive hol_term :=
 | HVar (name : string) (ty : hol_type)
@@ -16,6 +20,8 @@ Inductive hol_term :=
 | HApp (fn arg : hol_term)
 | HAbs (name : string) (ty : hol_type) (body : hol_term).
 
+(* Only proof-producing OpenTheory kernel rules are represented here.
+   In particular, there is intentionally no source-theorem axiom constructor. *)
 Inductive hol_proof :=
 | HAssume (tm : hol_term)
 | HRefl (tm : hol_term)
@@ -28,109 +34,100 @@ Inductive hol_proof :=
 | HDeductAntisym (left right : hol_proof)
 | HProveHyp (hyp theorem : hol_proof).
 
-Definition emit_token (t : OpenTheoryIR.token)
-  (xs : list OpenTheoryIR.token) : list OpenTheoryIR.token :=
-  xs ++ [t].
+Record export_theorem := {
+  export_proof : hol_proof;
+  export_hypotheses : list hol_term;
+  export_conclusion : hol_term
+}.
 
-Definition emit_opcode (op : OpenTheoryIR.opcode)
-  (xs : list OpenTheoryIR.token) : list OpenTheoryIR.token :=
-  emit_token (OpenTheoryIR.OpcodeToken op) xs.
-
-Definition emit_name (s : string)
-  (xs : list OpenTheoryIR.token) : list OpenTheoryIR.token :=
-  emit_token (OpenTheoryIR.StringToken s) xs.
+Definition op (x : OpenTheoryIR.opcode) : OpenTheoryIR.token :=
+  OpenTheoryIR.OpcodeToken x.
 
 Fixpoint compile_type (ty : hol_type) : list OpenTheoryIR.token :=
   match ty with
   | HVarType name =>
-      [ OpenTheoryIR.StringToken name;
-        OpenTheoryIR.OpcodeToken OpenTheoryIR.VarType ]
-  | HOpType name args =>
-      [ OpenTheoryIR.StringToken name;
-        OpenTheoryIR.OpcodeToken OpenTheoryIR.TypeOp ]
-      ++ compile_type_list args
-      ++ [ OpenTheoryIR.OpcodeToken OpenTheoryIR.OpType ]
-  end
-with compile_type_list (tys : list hol_type) : list OpenTheoryIR.token :=
-  match tys with
-  | [] => [OpenTheoryIR.OpcodeToken OpenTheoryIR.Nil]
-  | ty :: tys =>
-      compile_type ty
-      ++ compile_type_list tys
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Cons]
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.VarType]
+  | HType0 name =>
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp;
+       op OpenTheoryIR.Nil; op OpenTheoryIR.OpType]
+  | HType1 name arg =>
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp]
+      ++ compile_type arg
+      ++ [op OpenTheoryIR.Nil; op OpenTheoryIR.Cons; op OpenTheoryIR.OpType]
+  | HType2 name left right =>
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.TypeOp]
+      ++ compile_type left
+      ++ compile_type right
+      ++ [op OpenTheoryIR.Nil; op OpenTheoryIR.Cons; op OpenTheoryIR.Cons;
+          op OpenTheoryIR.OpType]
   end.
 
 Definition compile_var (name : string) (ty : hol_type)
   : list OpenTheoryIR.token :=
   [OpenTheoryIR.StringToken name]
   ++ compile_type ty
-  ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Var].
+  ++ [op OpenTheoryIR.Var].
 
 Fixpoint compile_term (tm : hol_term) : list OpenTheoryIR.token :=
   match tm with
   | HVar name ty =>
-      compile_var name ty
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.VarTerm]
+      compile_var name ty ++ [op OpenTheoryIR.VarTerm]
   | HConst name ty =>
-      [ OpenTheoryIR.StringToken name;
-        OpenTheoryIR.OpcodeToken OpenTheoryIR.Const ]
+      [OpenTheoryIR.StringToken name; op OpenTheoryIR.Const]
       ++ compile_type ty
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.ConstTerm]
+      ++ [op OpenTheoryIR.ConstTerm]
   | HApp fn arg =>
-      compile_term fn
-      ++ compile_term arg
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.AppTerm]
+      compile_term fn ++ compile_term arg ++ [op OpenTheoryIR.AppTerm]
   | HAbs name ty body =>
-      compile_var name ty
-      ++ compile_term body
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.AbsTerm]
+      compile_var name ty ++ compile_term body ++ [op OpenTheoryIR.AbsTerm]
+  end.
+
+Fixpoint compile_term_list (xs : list hol_term) : list OpenTheoryIR.token :=
+  match xs with
+  | [] => [op OpenTheoryIR.Nil]
+  | x :: xs =>
+      compile_term x ++ compile_term_list xs ++ [op OpenTheoryIR.Cons]
   end.
 
 Fixpoint compile_proof (pf : hol_proof) : list OpenTheoryIR.token :=
   match pf with
   | HAssume tm =>
-      compile_term tm
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Assume]
+      compile_term tm ++ [op OpenTheoryIR.Assume]
   | HRefl tm =>
-      compile_term tm
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Refl]
+      compile_term tm ++ [op OpenTheoryIR.Refl]
   | HBeta tm =>
-      compile_term tm
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.BetaConv]
+      compile_term tm ++ [op OpenTheoryIR.BetaConv]
   | HAppThm fn_eq arg_eq =>
-      compile_proof fn_eq
-      ++ compile_proof arg_eq
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.AppThm]
+      compile_proof fn_eq ++ compile_proof arg_eq ++ [op OpenTheoryIR.AppThm]
   | HAbsThm name ty body_eq =>
-      compile_var name ty
-      ++ compile_proof body_eq
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.AbsThm]
+      compile_var name ty ++ compile_proof body_eq ++ [op OpenTheoryIR.AbsThm]
   | HSym eq =>
-      compile_proof eq
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Sym]
+      compile_proof eq ++ [op OpenTheoryIR.Sym]
   | HTrans left right =>
-      compile_proof left
-      ++ compile_proof right
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.Trans]
+      compile_proof left ++ compile_proof right ++ [op OpenTheoryIR.Trans]
   | HEqMp eq proposition =>
-      compile_proof eq
-      ++ compile_proof proposition
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.EqMp]
+      compile_proof eq ++ compile_proof proposition ++ [op OpenTheoryIR.EqMp]
   | HDeductAntisym left right =>
-      compile_proof left
-      ++ compile_proof right
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.DeductAntisym]
+      compile_proof left ++ compile_proof right
+      ++ [op OpenTheoryIR.DeductAntisym]
   | HProveHyp hyp theorem =>
-      compile_proof hyp
-      ++ compile_proof theorem
-      ++ [OpenTheoryIR.OpcodeToken OpenTheoryIR.ProveHyp]
+      compile_proof hyp ++ compile_proof theorem ++ [op OpenTheoryIR.ProveHyp]
   end.
 
-Definition proof_article (pf : hol_proof) : OpenTheoryIR.article :=
+(* The [thm] command is essential: the verified reader compares the theorem
+   produced by the proof program with this declared sequent via ALPHA_THM.
+   Therefore a bad compiler cannot obtain an exported theorem merely by leaving
+   an unrelated proof object on the VM stack. *)
+Definition compile_export (th : export_theorem) : list OpenTheoryIR.token :=
+  compile_proof th.(export_proof)
+  ++ compile_term_list th.(export_hypotheses)
+  ++ compile_term th.(export_conclusion)
+  ++ [op OpenTheoryIR.Thm].
+
+Definition theorem_article (th : export_theorem) : OpenTheoryIR.article :=
   {| OpenTheoryIR.article_version := 6;
      OpenTheoryIR.article_tokens :=
-       [ OpenTheoryIR.IntegerToken 6;
-         OpenTheoryIR.OpcodeToken OpenTheoryIR.Version ]
-       ++ compile_proof pf |}.
+       [OpenTheoryIR.IntegerToken 6; op OpenTheoryIR.Version]
+       ++ compile_export th |}.
 
 End HOLProofIR.
