@@ -1,4 +1,5 @@
 name: Unified CakeML Peregrine + MetaRocq E2E
+run-name: Unified E2E ${{ inputs.target_ref || github.event.comment.body || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
 
 on:
   workflow_dispatch:
@@ -8,6 +9,13 @@ on:
         required: true
         default: experiment/cakeml-unified-e2e-03-cachyos-docs
         type: string
+  workflow_call:
+    inputs:
+      target_ref:
+        description: E2E branch to check out and run
+        required: false
+        default: experiment/cakeml-unified-e2e-03-cachyos-docs
+        type: string
   issue_comment:
     types: [created]
 
@@ -15,40 +23,73 @@ permissions:
   contents: write
 
 concurrency:
-  group: unified-cakeml-e2e-${{ inputs.target_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
+  group: unified-cakeml-e2e-${{ inputs.target_ref || github.event.comment.id || 'manual' }}
   cancel-in-progress: false
 
 jobs:
   explicit-e2e:
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'workflow_call' ||
       (github.event_name == 'issue_comment' &&
        github.event.issue.title == 'Manual Unified CakeML E2E dispatch control' &&
-       github.event.comment.body == '/run-unified-e2e' &&
-       github.actor == github.repository_owner)
+       github.actor == github.repository_owner &&
+       (github.event.comment.body == '/run-unified-e2e' ||
+        startsWith(github.event.comment.body, '/run-unified-e2e ')))
     runs-on: ubuntu-22.04
     timeout-minutes: 360
     env:
       E2E_TARGET_REF: ${{ inputs.target_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
+      E2E_ISSUE_COMMAND: ${{ github.event.comment.body || '' }}
       CAKEML_REGRESSION_DIR: ${{ github.workspace }}/.aegis/references/cakeml-regression
 
     steps:
-      - name: Validate explicit E2E target branch
+      - name: Bootstrap repository checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Resolve and validate explicit E2E target branch
         shell: bash
         run: |
-          case "$E2E_TARGET_REF" in
+          set -euo pipefail
+          target="$E2E_TARGET_REF"
+          if [[ "${GITHUB_EVENT_NAME}" == "issue_comment" ]]; then
+            case "$E2E_ISSUE_COMMAND" in
+              "/run-unified-e2e")
+                target="experiment/cakeml-unified-e2e-03-cachyos-docs"
+                ;;
+              "/run-unified-e2e "*)
+                target="${E2E_ISSUE_COMMAND#"/run-unified-e2e "}"
+                ;;
+              *)
+                echo "Invalid manual E2E command." >&2
+                exit 2
+                ;;
+            esac
+          fi
+          if [[ -z "$target" || "$target" =~ [[:space:]] ]]; then
+            echo "Refusing malformed E2E target branch: '$target'" >&2
+            exit 2
+          fi
+          case "$target" in
             experiment/cakeml-unified-e2e-*) ;;
             *)
-              echo "Refusing non-E2E target branch: $E2E_TARGET_REF" >&2
+              echo "Refusing non-E2E target branch: $target" >&2
               exit 2
               ;;
           esac
+          echo "E2E_TARGET_REF=$target" >> "$GITHUB_ENV"
+          echo "Resolved E2E target: $target"
 
       - name: Checkout selected E2E branch with full history
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          ref: ${{ env.E2E_TARGET_REF }}
-          fetch-depth: 0
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$E2E_TARGET_REF"
+          git checkout --force -B "$E2E_TARGET_REF" "origin/$E2E_TARGET_REF"
+          git branch --set-upstream-to="origin/$E2E_TARGET_REF" "$E2E_TARGET_REF"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse "origin/$E2E_TARGET_REF")"
 
       - name: Synchronize origin and open unique trace directory
         shell: bash
