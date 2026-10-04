@@ -1,22 +1,57 @@
-name: Incident cancellation shim
+name: Original MetaRocq selfhost snapshot
 
 on:
   push:
     branches:
       - experiment/original-metarocq-selfhost-02-snapshot-opentheory
     paths:
+      - 'metatheory/original-selfhost/**'
+      - 'spec/original-metarocq-selfhost.json'
+      - 'tools/bootstrap.py'
+      - 'tools/install_extraction.sh'
       - '.github/workflows/original-metarocq-selfhost-snapshot.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
   group: original-metarocq-selfhost-snapshot-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  cancel-shim:
-    if: ${{ false }}
-    runs-on: ubuntu-22.04
+  materialize:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
     steps:
-      - run: echo unreachable
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install bootstrap prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
+          python3 tools/bootstrap.py sources
+          bash tools/install_extraction.sh
+
+      - name: Compile MetaRocq-owned selfhost IR and snapshot
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
+          rocq compile $Q metatheory/original-selfhost/PipelineIR.v
+          rocq compile $Q metatheory/original-selfhost/OpenTheoryIR.v
+          rocq compile $Q metatheory/original-selfhost/PCUICModuleManifest.v
+          rocq compile $Q metatheory/original-selfhost/SelfSnapshot.v
+          rocq compile $Q metatheory/original-selfhost/MaterializeSnapshot.v
+
+      - name: Preserve materialized MetaRocq object evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: original-metarocq-selfhost-snapshot-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            metatheory/original-selfhost/*.vo
+            metatheory/original-selfhost/*.vos
+            metatheory/original-selfhost/*.glob
+          if-no-files-found: warn
