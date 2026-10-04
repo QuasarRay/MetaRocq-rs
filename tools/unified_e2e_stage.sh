@@ -192,12 +192,15 @@ case "$ID" in
     receipt "Pinned MetaRocq/HOL4/CakeML toolchain contract reproduced."
     ;;
   13)
+    require_cmd python3
+    python3 tools/retention_inventory.py --check
     require_file spec/source-inventory.json
     require_file metatheory/original-selfhost/PCUICModuleManifest.v
     require_file metatheory/original-selfhost/SelfSnapshot.v
     require_file metatheory/original-selfhost/RetainedPayload.v
     sha256sum spec/source-inventory.json metatheory/original-selfhost/PCUICModuleManifest.v       metatheory/original-selfhost/SelfSnapshot.v metatheory/original-selfhost/RetainedPayload.v       > "$STAGE_DIR/source-proof-corpus.sha256"
-    receipt "Complete source/specification/proof-corpus inputs bound."
+    receipt "Complete pinned tracked-file inventory identity checked."
+    receipt "Quotation, executable replay, and semantic coverage still require their own evidence."
     ;;
   14)
     require_file metatheory/original-selfhost/HOL4SelfHostEntrypoint.v
