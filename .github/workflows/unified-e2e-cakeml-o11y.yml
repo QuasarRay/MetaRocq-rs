@@ -1,0 +1,253 @@
+name: Unified CakeML E2E with regression traces
+
+on:
+  push:
+    branches:
+      - experiment/unified-e2e-cakeml-regression-o11y
+    paths-ignore:
+      - '.o11y/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unified-e2e-cakeml-o11y-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  unified-e2e:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+      OPAMJOBS: "4"
+      METAROCQ_DIR: ${{ github.workspace }}/.aegis/references/metarocq
+      HOL4_DIR: ${{ github.workspace }}/.aegis/references/hol4
+      CAKEML_DIR: ${{ github.workspace }}/.aegis/references/cakeml
+      PEREGRINE_DIR: ${{ github.workspace }}/.aegis/references/peregrine
+      CAKEML_BACKEND_DIR: ${{ github.workspace }}/.aegis/references/cakeml-backend
+      REGRESSION_DIR: ${{ github.workspace }}/.aegis/references/cakeml-regression
+
+    steps:
+      - name: Checkout MetaRocq-rs with trace history
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Synchronize local branch with origin and allocate append-only run key
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          git merge --ff-only "origin/${GITHUB_REF_NAME}"
+          RUN_KEY="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_SHA}"
+          O11Y_RUN_DIR="$GITHUB_WORKSPACE/.o11y/runs/$RUN_KEY"
+          if [ -e "$O11Y_RUN_DIR" ]; then
+            echo "run directory collision: $O11Y_RUN_DIR" >&2
+            exit 73
+          fi
+          mkdir -p "$O11Y_RUN_DIR/workflow" generated/unified-e2e
+          echo "RUN_KEY=$RUN_KEY" >> "$GITHUB_ENV"
+          echo "O11Y_RUN_DIR=$O11Y_RUN_DIR" >> "$GITHUB_ENV"
+          {
+            echo "run_id=${GITHUB_RUN_ID}"
+            echo "run_attempt=${GITHUB_RUN_ATTEMPT}"
+            echo "trigger_sha=${GITHUB_SHA}"
+            echo "branch=${GITHUB_REF_NAME}"
+            echo "runner=${RUNNER_NAME}"
+            echo "origin_head_at_start=$(git rev-parse HEAD)"
+          } > "$O11Y_RUN_DIR/workflow.txt"
+
+      - name: Checkout pinned MetaRocq recursively
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: MetaRocq/metarocq
+          ref: 7197056adbb9c15288b4c8d43407bf25786f723e
+          path: .aegis/references/metarocq
+          submodules: recursive
+
+      - name: Checkout pinned Peregrine recursively
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: peregrine-project/peregrine-tool
+          ref: d768b83ffa7dab35b8d72241f0570b5bb6aedae9
+          path: .aegis/references/peregrine
+          submodules: recursive
+
+      - name: Checkout pinned Peregrine CakeML backend
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: peregrine-project/cakeml-backend
+          ref: cc20d1a2986bd2fec7c6eb0864c8c9a806188b58
+          path: .aegis/references/cakeml-backend
+
+      - name: Checkout pinned CakeML proof source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: CakeML/cakeml
+          ref: c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9
+          path: .aegis/references/cakeml
+
+      - name: Checkout pinned HOL4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: HOL-Theorem-Prover/HOL
+          ref: 40dd5b03de658f4bd9e3f4225fb0f1602ac90467
+          path: .aegis/references/hol4
+
+      - name: Checkout pinned CakeML regression infrastructure
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: CakeML/regression
+          ref: 23cfeba74d0cef77f7274ab41a2e8e87d4032995
+          path: .aegis/references/cakeml-regression
+
+      - name: Install host prerequisites with durable trace
+        run: |
+          d="$O11Y_RUN_DIR/workflow/host-prerequisites"
+          mkdir -p "$d"
+          echo RUNNING > "$d/status.txt"
+          set +e
+          {
+            sudo apt-get update &&
+            sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml curl time
+          } > "$d/regression.log" 2>&1
+          rc=$?
+          set -e
+          printf '%s\n' "$rc" > "$d/exit-code.txt"
+          if [ "$rc" -eq 0 ]; then echo SUCCESS > "$d/status.txt"; else echo FAILED > "$d/status.txt"; fi
+          exit "$rc"
+
+      - name: Restore MetaRocq-rs producer toolchain cache
+        id: opam-cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: metarocq-extraction-${{ runner.os }}-${{ hashFiles('spec/toolchain.lock.json', 'tools/install_extraction.sh') }}
+
+      - name: Record producer cache state
+        run: |
+          d="$O11Y_RUN_DIR/workflow/producer-cache"
+          mkdir -p "$d"
+          {
+            echo "cache_hit=${{ steps.opam-cache.outputs.cache-hit }}"
+            test -x .aegis/opam/_opam/bin/rocq && echo 'rocq_cached=true' || echo 'rocq_cached=false'
+            test -x .aegis/opam/_opam/bin/peregrine && echo 'peregrine_cached=true' || echo 'peregrine_cached=false'
+          } | tee "$d/cache-state.txt"
+          echo SUCCESS > "$d/status.txt"
+
+      - name: Build CakeML planner compiler and emit exact 23-stage plan
+        run: |
+          d="$O11Y_RUN_DIR/workflow/cakeml-planner"
+          mkdir -p "$d"
+          echo RUNNING > "$d/status.txt"
+          set +e
+          (
+            set -euo pipefail
+            CAKE_BOOT="$GITHUB_WORKSPACE/.aegis/cake-v3479"
+            mkdir -p "$CAKE_BOOT"
+            curl -L --fail --retry 3 \
+              https://github.com/CakeML/cakeml/releases/download/v3479/cake-x64-64.tar.gz \
+              -o "$CAKE_BOOT/cake-x64-64.tar.gz"
+            echo 'e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a  '"$CAKE_BOOT/cake-x64-64.tar.gz" | sha256sum -c -
+            tar -xzf "$CAKE_BOOT/cake-x64-64.tar.gz" -C "$CAKE_BOOT"
+            test -f "$CAKE_BOOT/Makefile"
+            cp cakeml/peregrine-selfhost/UnifiedE2EPipeline.cml "$CAKE_BOOT/unified_e2e_planner.cml"
+            make -C "$CAKE_BOOT" unified_e2e_planner.cake
+            "$CAKE_BOOT/unified_e2e_planner.cake" > generated/unified-e2e/pipeline.tsv
+            test "$(wc -l < generated/unified-e2e/pipeline.tsv)" -eq 23
+            awk -F '\t' 'NF != 6 { exit 1 } { printf "%02d\n", NR }' generated/unified-e2e/pipeline.tsv > generated/unified-e2e/expected.ids
+            cut -f1 generated/unified-e2e/pipeline.tsv > generated/unified-e2e/actual.ids
+            cmp generated/unified-e2e/expected.ids generated/unified-e2e/actual.ids
+            cp generated/unified-e2e/pipeline.tsv "$O11Y_RUN_DIR/cakeml-generated-pipeline.tsv"
+            sha256sum cakeml/peregrine-selfhost/UnifiedE2EPipeline.cml generated/unified-e2e/pipeline.tsv \
+              > "$O11Y_RUN_DIR/cakeml-planner.sha256"
+          ) > "$d/regression.log" 2>&1
+          rc=$?
+          set -e
+          printf '%s\n' "$rc" > "$d/exit-code.txt"
+          if [ "$rc" -eq 0 ]; then echo SUCCESS > "$d/status.txt"; else echo FAILED > "$d/status.txt"; fi
+          cat "$d/regression.log"
+          exit "$rc"
+
+      - name: Validate trace topology for every pipeline failure position
+        run: |
+          root="$O11Y_RUN_DIR/failure-model"
+          mkdir -p "$root"
+          for stage in $(seq -w 1 23); do
+            d="$root/$stage"
+            mkdir -p "$d"
+            set +e
+            UNIFIED_E2E_TRACE_DRY_RUN=true \
+            UNIFIED_E2E_TRACE_COMPACT=true \
+            UNIFIED_E2E_FAIL_STAGE="$stage" \
+              poly --script tools/regression_trace_runner.sml generated/unified-e2e/pipeline.tsv "$d"
+            rc=$?
+            set -e
+            test "$rc" -ne 0
+            failed="$(find "$d" -maxdepth 1 -type d -name "${stage}-*" -print -quit)"
+            test -n "$failed"
+            grep -qx FAILED "$failed/status.txt"
+            test "$(find "$d" -mindepth 2 -maxdepth 2 -name status.txt | wc -l)" -eq 23
+            if [ "$stage" != 23 ]; then
+              report="$(find "$d" -maxdepth 1 -type d -name '23-*' -print -quit)"
+              grep -qx SUCCESS "$report/status.txt"
+            fi
+          done
+          echo 'all 23 injected failure positions captured correctly' > "$root/validation.txt"
+
+      - name: Execute exact plan with CakeML regression trace worker
+        id: pipeline
+        continue-on-error: true
+        run: |
+          export O11Y_RUN_DIR
+          set +e
+          poly --script tools/regression_trace_runner.sml \
+            generated/unified-e2e/pipeline.tsv "$O11Y_RUN_DIR"
+          rc=$?
+          set -e
+          echo "pipeline_rc=$rc" >> "$GITHUB_OUTPUT"
+          echo "PIPELINE_RC=$rc" >> "$GITHUB_ENV"
+
+      - name: Save rebuilt producer cache
+        if: always() && steps.opam-cache.outputs.cache-hit != 'true' && hashFiles('.aegis/opam/_opam/bin/rocq') != ''
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: |
+            .aegis/opam-root
+            .aegis/opam
+          key: ${{ steps.opam-cache.outputs.cache-primary-key }}
+
+      - name: Capture generated evidence into run directory
+        if: always()
+        run: |
+          mkdir -p "$O11Y_RUN_DIR/generated"
+          for d in unified-e2e peregrine-selfhost original-selfhost hol4; do
+            if [ -d "generated/$d" ]; then cp -a "generated/$d" "$O11Y_RUN_DIR/generated/"; fi
+          done
+          git rev-parse HEAD > "$O11Y_RUN_DIR/final-local-head.txt"
+          git status --porcelain > "$O11Y_RUN_DIR/final-worktree-status.txt"
+          find "$O11Y_RUN_DIR" -type f -printf '%P\n' | LC_ALL=C sort > "$O11Y_RUN_DIR/file-index.txt"
+
+      - name: Upload trace artifact independently of git persistence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: unified-e2e-o11y-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.O11Y_RUN_DIR }}
+          if-no-files-found: error
+
+      - name: Persist append-only .o11y run to GitHub origin
+        if: always()
+        run: bash tools/persist_o11y.sh "$O11Y_RUN_DIR" "$GITHUB_REF_NAME"
+
+      - name: Enforce fail-closed pipeline result
+        if: always()
+        run: |
+          rc="${PIPELINE_RC:-99}"
+          if [ "$rc" -ne 0 ]; then
+            echo "Unified E2E pipeline failed closed with status $rc"
+            exit "$rc"
+          fi
