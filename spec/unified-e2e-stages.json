@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "status": "FAIL_CLOSED",
+  "controller": "cakeml/unified-e2e/UnifiedE2EPipeline.cml",
+  "instruction_root": "docs/unified-peregrine-metarocq-e2e",
+  "manual_source_branch": "docs/unified-e2e-02-metarocq",
+  "manual_source_commit": "8f6010b6528e5b3695d5f197be6117a5c7cb5553",
+  "stage_count": 23,
+  "controller_compiler": {
+    "role": "orchestration-only; not formal proof evidence",
+    "release": "CakeML v3479 x64-64",
+    "archive_sha256": "e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a"
+  },
+  "proof_cakeml_commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+  "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "peregrine_commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+  "metarocq_commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+  "rules": [
+    "stages execute exactly in numeric order",
+    "first non-zero stage blocks all later stages",
+    "producer success is never semantic proof evidence",
+    "known admitted/trust escape markers fail proof stages",
+    "Part II consumes the theorem-bound Part-I Peregrine bridge"
+  ]
+}
