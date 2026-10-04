@@ -8,7 +8,7 @@ Module OpenTheoryIR.
 (* This command vocabulary is intentionally kept isomorphic to the verified
    CakeML OpenTheory reader in examples/opentheory/readerScript.sml. *)
 Inductive opcode :=
-| AbsTerm | AbsThm | AppTerm | AppThm | Assume | AxiomOp | BetaConv
+| AbsTerm | AbsThm | AppTerm | AppThm | Assume | OTAxiom | BetaConv
 | Cons | Const | ConstTerm | DeductAntisym | Def | DefineConst
 | DefineConstList | DefineTypeOp | EqMp | HdTl | Nil | OpType | Pop
 | Pragma | ProveHyp | Ref | Refl | Remove | Subst | Sym | Thm | Trans
@@ -26,7 +26,7 @@ Definition opcode_name (op : opcode) : string :=
   | AppTerm => "appTerm"
   | AppThm => "appThm"
   | Assume => "assume"
-  | AxiomOp => "axiom"
+  | OTAxiom => "axiom"
   | BetaConv => "betaConv"
   | Cons => "cons"
   | Const => "const"
