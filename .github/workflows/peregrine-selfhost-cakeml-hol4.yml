@@ -1,11 +1,7 @@
 name: Peregrine selfhost LambdaBox -> CakeML -> HOL4
 
 on:
-  pull_request:
-    branches:
-      - experiment/original-metarocq-selfhost-09-hol4-kernel-e2e
   workflow_dispatch:
-
 permissions:
   contents: read
 
