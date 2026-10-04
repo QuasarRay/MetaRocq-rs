@@ -1,5 +1,6 @@
 From Stdlib Require Import String List.
 From MetaRocq.Template Require Import Loader.
+From MetaRocq.Common Require Import Kernames.
 
 Import ListNotations.
 
