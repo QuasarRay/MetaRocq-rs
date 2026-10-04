@@ -5,7 +5,7 @@ Status: **experimental; primary representation decision for this branch**.
 ## Decision
 
 The canonical target of HOL4 proof migration is **PCUIC**, represented as
-`MetaRocq.PCUIC.PCUICAst.Env.program`.
+`MetaRocq.PCUIC.PCUICProgram.pcuic_program` (`global_env_ext_map * term`).
 
 The required migration order is:
 
@@ -16,7 +16,7 @@ HOL4 theorem
   -> independently checked Dedukti/Lambdapi
   -> Rocq kernel
   -> MetaRocq tmQuoteRecTransp
-  -> PCUIC program
+  -> PCUICProgram.pcuic_program
 ```
 
 OpenTheory, Dedukti and generated Rocq source are provenance and replay
