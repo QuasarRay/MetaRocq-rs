@@ -1,0 +1,1 @@
+bash -lc $'\n  sudo apt-get update &&\n  sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml curl git time\n' 

@@ -1,0 +1,2 @@
+Pinned source checkouts bootstrapped from spec/toolchain.lock.json.
+Pinned Peregrine/source contract verified.
