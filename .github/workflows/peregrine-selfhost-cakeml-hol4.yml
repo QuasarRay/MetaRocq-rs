@@ -109,6 +109,17 @@ jobs:
           "$HOL4_DIR/bin/Holmake"
           find . -name 'PeregrineSelfHostContractTheory.dat' -print -quit | grep -q .
 
+      - name: Compile exact Peregrine CakeML AST inside HOL4
+        run: |
+          cp formal/hol4/PeregrineGeneratedCompileScript.sml "$CAKEML_DIR/examples/compilation/x64/"
+          export PEREGRINE_CAKEML_SEXP="$GITHUB_WORKSPACE/generated/peregrine-selfhost/peregrine-selfhost.cakeml"
+          export PEREGRINE_MACHINE_ASM="$GITHUB_WORKSPACE/generated/peregrine-selfhost/peregrine-selfhost.S"
+          cd "$CAKEML_DIR/examples/compilation/x64"
+          "$HOL4_DIR/bin/Holmake" PeregrineGeneratedCompileTheory
+          test -s "$PEREGRINE_MACHINE_ASM"
+          sha256sum "$PEREGRINE_MACHINE_ASM" > "$GITHUB_WORKSPACE/generated/peregrine-selfhost/peregrine-selfhost.S.sha256"
+          cp PeregrineGeneratedCompileTheory.dat "$GITHUB_WORKSPACE/generated/hol4/"
+
       - name: Require exact recursive Peregrine source-to-machine theorem
         run: |
           theorem=formal/hol4/PeregrineSelfHostE2EScript.sml
