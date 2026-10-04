@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fail-closed provenance/policy checks for Selfhost 9.
 
-This script does not prove semantic preservation.  It verifies that the exact
+This script does not prove semantic preservation. It verifies that the exact
 pinned producer/kernel sources and the Candle-free active MetaRocq modules are
 the objects the formal proof pipeline expects.
 """
@@ -24,6 +24,8 @@ ACTIVE_V_FILES = [
     "metatheory/original-selfhost/IntegratedPeregrineCakeML.v",
     "metatheory/original-selfhost/HOL4MachineRefinement.v",
     "metatheory/original-selfhost/HOL4ProofLedger.v",
+    "metatheory/original-selfhost/HOL4CertificateReplayIR.v",
+    "metatheory/original-selfhost/HOL4RecursiveSelfIdentity.v",
     "metatheory/original-selfhost/HOL4SelfHostEntrypoint.v",
     "metatheory/original-selfhost/ExtractHOL4SelfHost.v",
 ]
@@ -81,10 +83,7 @@ def main() -> int:
         check_blob(dirs["cakeml"], binding["path"], binding["blob"], binding["symbol"])
 
     for binding in spec["peregrine_bindings"]:
-        if binding["path"] == "theories/PAst.v":
-            base = dirs["peregrine"]
-        else:
-            base = dirs["cakeml_backend"]
+        base = dirs["peregrine"] if binding["path"] == "theories/PAst.v" else dirs["cakeml_backend"]
         check_blob(base, binding["path"], binding["blob"], binding["symbol"])
 
     peregrine_backend = dirs["peregrine"] / "theories/backends/CakeMLBackend.v"
@@ -108,8 +107,12 @@ def main() -> int:
 
     entrypoint = (ROOT / "metatheory/original-selfhost/HOL4SelfHostEntrypoint.v").read_text()
     require("HOL4SelfVerified" in entrypoint, "HOL4 verification response missing")
-    require("accept_hol4_certificate_evidence" in entrypoint,
-            "HOL4 entrypoint no longer gates acceptance on certificate evidence")
+    require("accept_hol4_self_evidence" in entrypoint,
+            "HOL4 entrypoint no longer gates acceptance on full self evidence")
+    require("accept_original_hol4_certificate_corpus" in entrypoint,
+            "HOL4 entrypoint no longer requires the entire certificate corpus")
+    require("accept_hol4_recursive_identity" in entrypoint,
+            "HOL4 entrypoint no longer requires recursive installed-image identity")
 
     extraction = (ROOT / "metatheory/original-selfhost/ExtractHOL4SelfHost.v").read_text()
     require("HOL4SelfHostEntrypoint.hol4_selfhost_entrypoint" in extraction,
