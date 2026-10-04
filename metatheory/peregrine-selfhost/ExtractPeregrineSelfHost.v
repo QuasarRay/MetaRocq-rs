@@ -4,4 +4,4 @@ From MetaRocqRs.PeregrineSelfHost Require Import
 
 Peregrine Extract
   "generated/peregrine-selfhost/peregrine-selfhost.ast"
-  MetaRocqRs.PeregrineSelfHost.PeregrineSelfHostEntrypoint.peregrine_selfhost_entrypoint.
+  MetaRocqRs.PeregrineSelfHost.PeregrineSelfHostEntrypoint.peregrine_selfhost_runtime_root.
