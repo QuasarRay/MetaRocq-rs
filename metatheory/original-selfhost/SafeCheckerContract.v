@@ -1,6 +1,7 @@
 From Stdlib Require Import String List Bool.
 From MetaRocqRs.OriginalSelfHost Require Import PCUICCertificateIR.
 
+Import ListNotations.
 Open Scope string_scope.
 
 Inductive checker_assumption_kind :=
