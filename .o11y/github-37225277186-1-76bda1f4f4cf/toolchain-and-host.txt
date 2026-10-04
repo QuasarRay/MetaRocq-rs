@@ -1,0 +1,5 @@
+Linux runnervma94yk 6.8.0-1064-azure #72~22.04.1-Ubuntu SMP Wed Jul 22 23:39:45 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+git version 2.55.0
+GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+time (GNU Time) UNKNOWN
+cakeml_regression_commit=23cfeba74d0cef77f7274ab41a2e8e87d4032995

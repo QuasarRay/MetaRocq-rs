@@ -1,0 +1,7 @@
+commit 76bda1f4f4cf8950709228d4cf1513d7f305f9bb
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 05:39:16 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 05:39:16 2026 +1100
+
+    ci: keep branch-selectable manual E2E dispatch
