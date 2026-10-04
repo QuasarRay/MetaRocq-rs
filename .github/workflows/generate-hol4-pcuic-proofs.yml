@@ -1,22 +1,7 @@
 name: Generate HOL4 to PCUIC proof artifacts
 
 on:
-  push:
-    branches:
-      - generated/hol4-pcuic-proof-migration
-    paths:
-      - 'formal/hol4/**'
-      - 'tools/harvest_hol4_pcuic.py'
-      - 'tools/original_cakeml_replay_gate.py'
-      - 'tools/hol4_opentheory_pcuic.py'
-      - 'tools/hol4_pcuic_core.py'
-      - 'tools/hol4_pcuic_translate.py'
-      - 'spec/hol4-opentheory-pcuic.lock.json'
-      - 'spec/pcuic-first-metatheory.json'
-      - 'metatheory/bootstrap/OriginalCheckerUntyped.v'
-      - '.github/workflows/generate-hol4-pcuic-proofs.yml'
   workflow_dispatch:
-
 permissions:
   contents: write
 
