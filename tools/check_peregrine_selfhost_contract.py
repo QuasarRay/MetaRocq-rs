@@ -120,9 +120,11 @@ def main() -> int:
             "replay_peregrine_runtime_program" in replay,
             "runtime replay no longer quotes and checks the retained Peregrine program")
     inventory = (ROOT / "metatheory/peregrine-selfhost/PeregrineReplayRootInventory.v").read_text()
-    require("tmQuoteModule q" in inventory and
+    enumerator = (ROOT / "metatheory/original-selfhost/DeclarationReplayInventory.v").read_text()
+    require("tmQuoteModule q" in enumerator and
+            "emit_declaration_inventory peregrine_inventory_markers" in inventory and
             "PeregrineSourceManifest.peregrine_modules" in inventory and
-            "VarRef id => tmFail" in inventory and
+            "VarRef id => tmFail" in enumerator and
             "PEREGRINE_REPLAY_COMPLETE" in inventory and
             "replay_corpus_has_all_retained_bodies" in replay,
             "replay root inventory must enumerate every pinned module and reject open variables")
