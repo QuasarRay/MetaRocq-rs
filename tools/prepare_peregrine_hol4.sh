@@ -10,8 +10,8 @@ CAKEML_SOURCE_DIR="${CAKEML_SOURCE_DIR:-${CAKEML_DIR:-$ROOT/.aegis/references/ca
 compat_key="$(python3 - "$CAKEML_SOURCE_DIR/misc/preamble.sml" <<'PY'
 import hashlib, pathlib, sys
 sys.path.insert(0, 'tools')
-from materialize_cakeml_context_compat import compatible_preamble
-print(hashlib.sha256(compatible_preamble(pathlib.Path(sys.argv[1]).read_text()).encode()).hexdigest()[:16])
+from materialize_cakeml_context_compat import compatibility_key
+print(compatibility_key(pathlib.Path(sys.argv[1]).parents[1]))
 PY
 )"
 CAKEML_DIR="${CAKEML_COMPAT_DIR:-$ROOT/.aegis/derived/cakeml-context-$compat_key}"
@@ -66,4 +66,13 @@ sha256sum "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/toolchain.env" \
   "$CAKEML_DIR/misc/preamble.sml" "$HOL4_DIR/src/1/Tactical.sig" \
   tools/materialize_cakeml_context_compat.py tools/prepare_peregrine_hol4.sh \
   > "$HOLGEN/compiler-preparation-inputs.sha256"
+python3 - "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/compiler-preparation-inputs.sha256" <<'PY'
+import json, pathlib, subprocess, sys
+recipe = json.loads(pathlib.Path(sys.argv[1]).read_text())
+paths = [str(pathlib.Path(recipe['derived_source']) / n)
+         for n in recipe['modified_files'] if n != 'misc/preamble.sml']
+if paths:
+    with open(sys.argv[2], 'a') as output:
+        subprocess.run(['sha256sum', *paths], check=True, stdout=output)
+PY
 printf 'HOL4_DIR=%s\nCAKEML_DIR=%s\n' "$HOL4_DIR" "$CAKEML_DIR"
