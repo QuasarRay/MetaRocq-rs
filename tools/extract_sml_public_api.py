@@ -136,6 +136,14 @@ def classify_value(type_text: str, opaque: set[str]) -> tuple[str, int]:
     return "direct", arity
 
 
+def component_for(rel: str) -> str:
+    if rel.startswith("src/HolSmt/"):
+        return "z3_tac"
+    if rel.startswith("src/tactictoe/"):
+        return "tactictoe"
+    return "hol4"
+
+
 def parse_signature(path: pathlib.Path, root: pathlib.Path, opaque: set[str]) -> dict:
     data = path.read_bytes()
     text = strip_nested_comments(data.decode("utf-8"))
@@ -172,9 +180,11 @@ def parse_signature(path: pathlib.Path, root: pathlib.Path, opaque: set[str]) ->
         elif kind in {"datatype", "exception", "include", "structure", "sharing"}:
             item.update(name=first.split(None, 1)[1] if " " in first else first)
         declarations.append(item)
+    rel = str(path.relative_to(root))
     return {
         "signature": sig_name,
-        "path": str(path.relative_to(root)),
+        "component": component_for(rel),
+        "path": rel,
         "sha256": sha256(data),
         "declarations": declarations,
     }
@@ -229,6 +239,16 @@ def main() -> int:
             "value_count": len(values),
             "unsupported_count": len(unsupported) + len(failures),
         },
+        "components": {
+            name: {
+                "signature_count": sum(1 for s in signatures if s["component"] == name),
+                "value_count": sum(
+                    1 for s in signatures if s["component"] == name
+                    for d in s["declarations"] if d["kind"] == "val"
+                ),
+            }
+            for name in ("hol4", "z3_tac", "tactictoe")
+        },
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps(canonical, indent=2, sort_keys=True) + "\n"
@@ -236,6 +256,29 @@ def main() -> int:
     (args.out.with_suffix(args.out.suffix + ".sha256")).write_text(
         f"{sha256(payload.encode())}  {args.out.name}\n"
     )
+
+    for component in ("hol4", "z3_tac", "tactictoe"):
+        subset = dict(canonical)
+        subset["signatures"] = [
+            s for s in signatures if s["component"] == component
+        ]
+        subset_decls = [
+            d for s in subset["signatures"] for d in s["declarations"]
+        ]
+        subset["summary"] = {
+            "signature_count": len(subset["signatures"]),
+            "declaration_count": len(subset_decls),
+            "value_count": sum(1 for d in subset_decls if d["kind"] == "val"),
+            "unsupported_count": sum(
+                1 for d in subset_decls if d["kind"] == "unsupported"
+            ),
+        }
+        component_path = args.out.with_name(
+            args.out.stem + "." + component + args.out.suffix
+        )
+        component_path.write_text(
+            json.dumps(subset, indent=2, sort_keys=True) + "\n"
+        )
 
     if args.strict and canonical["summary"]["unsupported_count"]:
         return 2
