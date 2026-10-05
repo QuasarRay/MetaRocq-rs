@@ -31,6 +31,7 @@ def main() -> int:
             if d["kind"] != "val":
                 continue
             rows.append((
+                sig.get("component", "hol4"),
                 sig["signature"], d["name"], d["operation_id"],
                 cake_name(d["operation_id"]), d["type"], d["lowering"],
             ))
