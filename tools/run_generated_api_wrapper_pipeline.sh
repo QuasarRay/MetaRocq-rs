@@ -78,7 +78,7 @@ export GENERATED_API_WRAPPER_ASM="$OUT/GeneratedApiWrapper-hol.S"
   "$HOLDIR/bin/Holmake"
 )
 
-for theory in   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
+for theory in   GeneratedApiBridgeAbiTheory.dat   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
 do
   [[ -s "formal/hol4/api-wrapper/$theory" ]] || {
     echo "missing HOL4 qualification artifact: $theory" >&2

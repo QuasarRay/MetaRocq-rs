@@ -9,7 +9,7 @@ fun emit_cakeml_one
       (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
   "(* " ^ operation_id ^ " : " ^ type_text ^ " [" ^ lowering ^ "] *)\n" ^
   "fun " ^ cake_name ^
-  " buffer = let val _ = #(api_bridge) \"" ^ operation_id ^ "\" buffer in buffer end;\n";
+  " buffer = generated_api_call \"" ^ operation_id ^ "\" buffer;\n";
 
 fun emit_sml_sig_one
       (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
@@ -34,7 +34,17 @@ fun filter_component "" xs = xs
       else filter_component wanted xs;
 
 fun emit_cakeml contract =
-  "(* MACHINE GENERATED. Canonical ABI: mutable byte_array via the single #(api_bridge) FFI. *)\n" ^
+  "(* MACHINE GENERATED. Canonical ABI: fixed envelope + opaque handles. *)\n" ^
+  "fun generated_error code = let\n" ^
+  "  val out = Word8Array.array 16 (Word8.fromInt 0)\n" ^
+  "  val _ = Word8Array.update out 0 (Word8.fromInt code)\n" ^
+  "  in out end;\n\n" ^
+  "fun generated_api_call operation_id buffer =\n" ^
+  "  if Word8Array.length buffer < 16\n" ^
+  "  then generated_error 1\n" ^
+  "  else let val _ = #(api_bridge) operation_id buffer in buffer end;\n\n" ^
+  "(* Every successful foreign transition must preserve buffer length; results that\n" ^
+  "   do not fit are represented by fixed-size opaque handles in the envelope. *)\n" ^
   "(* Native Poly/ML objects never cross this boundary; only operation-id bytes and payload bytes do. *)\n\n" ^
   emit_map emit_cakeml_one contract ^
   "\nval generated_api_operation_count = " ^
