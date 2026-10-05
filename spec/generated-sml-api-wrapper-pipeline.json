@@ -7,14 +7,13 @@
   "inputs": {
     "hol4": {
       "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
-      "commit": "d456022724bd61e57303339e998313b6580c592d",
-      "role": "production wrapper proof stack corresponding to CakeML v3400"
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+      "role": "production wrapper proof stack; same qualified HOL4 pin reused from PR #59"
     },
     "cakeml": {
       "repo": "https://github.com/CakeML/cakeml.git",
-      "commit": "ccfc23cbadf4fadf8c82a7ac60e813ea5906218a",
-      "release": "v3400",
-      "role": "production generated-wrapper target; includes Runtime.customFFI"
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+      "role": "production wrapper target; same in-logic compiler pin qualified in PR #58/#59"
     },
     "public_roots": [
       "src"
@@ -25,16 +24,6 @@
       "src/1/Abbrev.sig",
       "src/0/Term.sig"
     ],
-    "cakeml_legacy_meta_rocq": {
-      "repo": "https://github.com/CakeML/cakeml.git",
-      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
-      "role": "historical MetaRocq E2E compatibility/reference only"
-    },
-    "hol4_legacy_meta_rocq": {
-      "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
-      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
-      "role": "historical PR #59 qualification/reference only"
-    },
     "components": {
       "hol4": {
         "include": [
@@ -94,7 +83,8 @@
     "generated wrapper theorem is closed except for the declared foreign-contract premise",
     "exact CakeML compiler theorem is checked by HOL4",
     "final production gate rejects axioms or oracle tags other than DISK_THM",
-    "production wrappers require a CakeML revision with Runtime.customFFI"
+    "generated wrapper calls use CakeML #(custom) with the exact canonical operation id as FFI configuration bytes",
+    "the single native runtime entry is fficustom; no per-operation native ABI symbol is required"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
