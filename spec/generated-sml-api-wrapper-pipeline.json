@@ -7,7 +7,8 @@
   "inputs": {
     "hol4": {
       "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
-      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+      "commit": "d456022724bd61e57303339e998313b6580c592d",
+      "role": "production wrapper proof stack corresponding to CakeML v3400"
     },
     "cakeml": {
       "repo": "https://github.com/CakeML/cakeml.git",
@@ -35,6 +36,11 @@
       "repo": "https://github.com/CakeML/cakeml.git",
       "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
       "role": "historical MetaRocq E2E compatibility/reference only"
+    },
+    "hol4_legacy_meta_rocq": {
+      "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+      "role": "historical PR #59 qualification/reference only"
     }
   },
   "lowering_classes": {
