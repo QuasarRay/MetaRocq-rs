@@ -1,0 +1,10 @@
+finished_utc=2026-10-05T08:04:25Z
+repository_head_at_finalize=4329ddedd3bd2e97402df99d8b9ff29ec6712db7
+result=FAIL_CLOSED
+failure_files_begin
+.o11y/github-37273745935-1-4329ddedd3bd/preflight/cake-controller/complete
+.o11y/github-37273745935-1-4329ddedd3bd/preflight/original-tactician-qualification/complete
+.o11y/github-37273745935-1-4329ddedd3bd/preflight/requested-peregrine-source-machine/complete
+.o11y/github-37273745935-1-4329ddedd3bd/preflight/three-project-retained-candidate/complete
+.o11y/github-37273745935-1-4329ddedd3bd/stages/03/regression-result.txt
+failure_files_end

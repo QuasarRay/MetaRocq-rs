@@ -1,0 +1,7 @@
+commit 4329ddedd3bd2e97402df99d8b9ff29ec6712db7
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 17:41:20 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 17:41:20 2026 +1100
+
+    Integrate checked original compiler-output automation and pinned Tactician
