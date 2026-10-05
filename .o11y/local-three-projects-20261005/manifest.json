@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "claim": "physical source materialization and recorded blocked candidate attempt only; no replay or source-to-machine correctness proof",
+  "recipe": "901324d949102cc7",
+  "files": {
+    "UnifiedLoadAll.v": {
+      "sha256": "07a416c2d4af4a94304a673b009a6434780dff475c57ace8db6ad843c5183a08",
+      "bytes": 67058
+    },
+    "UnifiedModuleManifest.v": {
+      "sha256": "f15902e468867c773b210fdeccf26856d437e5e94ba2a8b48a45069118e188c9",
+      "bytes": 56755
+    },
+    "candidate-build.log": {
+      "sha256": "f9c7437484471f3ee0aeb71ac50eb1f322e4f002eccaadbab30a100723cae19c",
+      "bytes": 1183
+    },
+    "source-bundle-regressions.log": {
+      "sha256": "28c1e3f95394acfc42bea89ef0a2ce13a2500406262a5d63715e8e04fc78c770",
+      "bytes": 1403
+    },
+    "source-inventory.json.gz.b64": {
+      "sha256": "f5f24335e264f0cf1eb8eb66c5d296860c668086560351db8fed88cfb17060c9",
+      "bytes": 775357
+    }
+  },
+  "decompressed_inventory_sha256": "79df4c67634d12c168649d7b60df31eaa35f21348ee250fa3e5ed1054d0d92bf",
+  "decompressed_inventory_bytes": 2574975,
+  "candidate_exit": 69
+}

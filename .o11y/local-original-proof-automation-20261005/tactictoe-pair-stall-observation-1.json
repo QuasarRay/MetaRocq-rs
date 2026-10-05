@@ -1,0 +1,37 @@
+{
+  "time": 1791181312.9987338,
+  "processes": [
+    {
+      "pid": 7818,
+      "ppid": 7815,
+      "state": "S",
+      "ticks": 0,
+      "start": 529217,
+      "cmd": "bash tools/record_original_compiler_tactictoe.sh OriginalBootstrapCompilerProbe formal/hol4 "
+    },
+    {
+      "pid": 7843,
+      "ppid": 7818,
+      "state": "S",
+      "ticks": 0,
+      "start": 529225,
+      "cmd": "bash tools/record_original_compiler_tactictoe.sh OriginalBootstrapCompilerProbe formal/hol4 "
+    },
+    {
+      "pid": 7844,
+      "ppid": 7843,
+      "state": "S",
+      "ticks": 5143,
+      "start": 529225,
+      "cmd": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/hol --gcthreads=1 --zero "
+    },
+    {
+      "pid": 9102,
+      "ppid": 7844,
+      "state": "S",
+      "ticks": 0,
+      "start": 543389,
+      "cmd": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/hol --gcthreads=1 --zero "
+    }
+  ]
+}

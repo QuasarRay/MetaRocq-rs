@@ -48,6 +48,7 @@ peregrine --help > "$GEN/peregrine-help.txt"
 Q0=(-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost)
 compile_rocq "${Q0[@]}" metatheory/original-selfhost/PCUICModuleManifest.v
 compile_rocq "${Q0[@]}" metatheory/original-selfhost/SelfSnapshot.v
+compile_rocq "${Q0[@]}" metatheory/original-selfhost/DeclarationReplayInventory.v
 
 Q=(
   -Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost

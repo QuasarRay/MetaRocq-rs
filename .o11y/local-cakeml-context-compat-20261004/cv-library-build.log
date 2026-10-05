@@ -1,0 +1,198 @@
+Scanning $(CAKEMLDIR)/developers
+Scanning $(HOLDIR)/src/TeX
+Scanning $(HOLDIR)/src/bag
+Scanning $(HOLDIR)/src/sort
+Scanning $(HOLDIR)/src/string
+Scanning $(HOLDIR)/src/n-bit
+Scanning $(HOLDIR)/src/res_quan/src
+Scanning $(HOLDIR)/src/finite_maps
+Scanning $(HOLDIR)/examples/formal-languages/context-free
+Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Scanning $(HOLDIR)/src/transfer
+Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Scanning $(HOLDIR)/src/coalgebras
+Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Scanning $(CAKEMLDIR)/misc
+Scanning $(HOLDIR)/src/integer
+Scanning $(HOLDIR)/src/algebra/base
+Scanning $(HOLDIR)/src/algebra/construction
+Scanning $(HOLDIR)/src/algebra
+Scanning $(HOLDIR)/src/hol88
+Scanning $(HOLDIR)/src/rational
+Scanning $(HOLDIR)/src/real
+Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Scanning $(HOLDIR)/examples/formal-languages
+Scanning $(HOLDIR)/src/search
+Scanning $(HOLDIR)/examples/formal-languages/regular
+Scanning $(CAKEMLDIR)/basis/pure
+Scanning $(CAKEMLDIR)/semantics/ffi
+Scanning $(CAKEMLDIR)/semantics
+Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Scanning $(HOLDIR)/src/floating-point
+Scanning $(HOLDIR)/src/monad/more_monads
+Scanning $(HOLDIR)/src/update
+Scanning $(HOLDIR)/examples/l3-machine-code/common
+Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Scanning $(CAKEMLDIR)/semantics/proofs
+Scanning $(HOLDIR)/examples/algorithms
+Scanning $(HOLDIR)/examples/machine-code/multiword
+Scanning $(CAKEMLDIR)/compiler/backend
+Scanning $(CAKEMLDIR)/compiler/parsing
+Scanning $(CAKEMLDIR)/translator
+Scanning $(CAKEMLDIR)/characteristic
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Scanning $(HOLDIR)/src/transfer/examples
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Scanning $(CAKEMLDIR)/compiler/inference
+Scanning $(CAKEMLDIR)/compiler/printing
+Scanning $(CAKEMLDIR)/translator/monadic
+Scanning $(CAKEMLDIR)/basis
+Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Scanning $(HOLDIR)/examples/machine-code/decompiler
+Scanning $(HOLDIR)/examples/l3-machine-code
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Scanning $(CAKEMLDIR)/compiler/backend/x64
+Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Scanning $(HOLDIR)/examples/bootstrap
+Scanned 80 directories
+Building 161 theory files
+Starting work on lprefix_lubTheory
+Starting work on set_sepTheory
+lprefix_lubTheory   $(HOLDIR)/.../pl-semantics/lprefix_lub  (2s)  [↓160]     OK
+Starting work on tailrecTheory
+Finished $(HOLDIR)/examples/pl-semantics/lprefix_lub [#theories: 1]    (2.920s) 
+set_sepTheory $(HOLDIR)/examples/machine-code/hoare-triple  (3s)  [↓159]     OK
+Starting work on x64Theory
+tailrecTheory $(HOLDIR)/examples/machine-code/hoare-triple  (0s)  [↓158]     OK
+Starting work on progTheory
+progTheory    $(HOLDIR)/examples/machine-code/hoare-triple  (2s)  [↓157]     OK
+Starting work on addressTheory
+addressTheory $(HOLDIR)/examples/machine-code/hoare-triple  (5s)  [↓156]     OK
+Starting work on temporalTheory
+temporalTheory     $(HOLDIR)/.../machine-code/hoare-triple  (2s)  [↓155]     OK
+Starting work on utilsLibSupportTheory
+x64Theory     $(HOLDIR)/examples/l3-machine-code/x64/model (14s)  [↓154]     OK
+Starting work on decompilerLibSupportTheory
+utilsLibSupportTheory $(HOLDIR)/.../l3-machine-code/common  (1s)  [↓153]     OK
+Starting work on balanced_mapTheory
+decompilerLibSupportTheory        $(HOLDIR)/.../decompiler  (1s)  [↓152]     OK
+Starting work on l3-heap
+Finished $(HOLDIR)/examples/machine-code/hoare-triple [#theories: 5]  (14.331s) 
+Finished $(HOLDIR)/examples/l3-machine-code/common [#theories: 1]      (1.694s) 
+Finished $(HOLDIR)/examples/machine-code/decompiler [#theories: 1]     (1.365s) 
+l3-heap                 $(HOLDIR)/examples/l3-machine-code  (9s)             OK
+Finished $(HOLDIR)/examples/l3-machine-code                            (9.427s) 
+Starting work on x64-heap
+Finished $(HOLDIR)/examples/l3-machine-code/lib                        (0.000s) 
+Finished $(HOLDIR)/examples/l3-machine-code/x64/model [#theories: 1]  (14.343s) 
+x64-heap       $(HOLDIR)/examples/l3-machine-code/x64/step  (7s)             OK
+Starting work on x64_stepTheory
+balanced_mapTheory              $(HOLDIR)/.../balanced_bst (64s)  [↓151]     OK
+Starting work on multiwordTheory
+multiwordTheory  $(HOLDIR)/examples/machine-code/multiword (19s)  [↓150]     OK
+Starting work on charsetTheory
+x64_stepTheory $(HOLDIR)/examples/l3-machine-code/x64/step (76s)  [↓149]     OK
+Starting work on FormalLangTheory
+charsetTheory  $(HOLDIR)/examples/formal-languages/regular  (7s)  [↓148]     OK
+Starting work on mc_multiwordTheory
+FormalLangTheory       $(HOLDIR)/examples/formal-languages  (3s)  [↓147]     OK
+Starting work on regexpTheory
+Finished $(HOLDIR)/examples/formal-languages [#theories: 1]            (3.860s) 
+regexpTheory   $(HOLDIR)/examples/formal-languages/regular (13s)  [↓146]     OK
+Starting work on osetTheory
+osetTheory $(HOLDIR)/examples/data-structures/balanced_bst  (3s)  [↓145]     OK
+Starting work on locationTheory
+locationTheory $(HOLDIR)/.../formal-languages/context-free  (1s)  [↓144]     OK
+Starting work on grammarTheory
+grammarTheory  $(HOLDIR)/.../formal-languages/context-free  (2s)  [↓143]     OK
+Starting work on regexp_mapTheory
+Finished $(HOLDIR)/examples/data-structures/balanced_bst [#theories: 2] (68.302s) 
+mc_multiwordTheory    $(HOLDIR)/.../machine-code/multiword (29s)  [↓142]     OK
+Starting work on pegTheory
+regexp_mapTheory    $(HOLDIR)/.../formal-languages/regular  (3s)  [↓141]     OK
+Starting work on vec_mapTheory
+vec_mapTheory  $(HOLDIR)/examples/formal-languages/regular  (1s)  [↓140]     OK
+Starting work on regexp_compilerTheory
+pegTheory $(HOLDIR)/examples/formal-languages/context-free  (5s)  [↓139]     OK
+Starting work on commonUnifTheory
+commonUnifTheory      $(HOLDIR)/.../unification/triangular  (0s)  [↓138]     OK
+Starting work on pegexecTheory
+pegexecTheory  $(HOLDIR)/.../formal-languages/context-free  (2s)  [↓137]     OK
+Starting work on termTheory
+Finished $(HOLDIR)/examples/algorithms/unification/triangular [#theories: 1] (0.785s) 
+termTheory            $(HOLDIR)/.../triangular/first-order  (1s)  [↓136]     OK
+Starting work on substTheory
+substTheory           $(HOLDIR)/.../triangular/first-order  (2s)  [↓135]     OK
+Starting work on walkTheory
+walkTheory            $(HOLDIR)/.../triangular/first-order  (2s)  [↓134]     OK
+Starting work on walkstarTheory
+regexp_compilerTheory                $(HOLDIR)/.../regular (14s)  [↓133]     OK
+Starting work on spt_closureTheory
+Finished $(HOLDIR)/examples/formal-languages/context-free [#theories: 4] (10.766s) 
+walkstarTheory        $(HOLDIR)/.../triangular/first-order  (1s)  [↓132]     OK
+Starting work on unifDefTheory
+spt_closureTheory            $(HOLDIR)/examples/algorithms  (1s)  [↓131]     OK
+Starting work on fmspTheory
+fmspTheory                 $(HOLDIR)/src/transfer/examples  (1s)  [↓130]     OK
+Starting work on cpsTheory
+Finished $(HOLDIR)/examples/algorithms [#theories: 1]                  (1.579s) 
+Finished $(HOLDIR)/examples/formal-languages/regular [#theories: 5]   (40.520s) 
+unifDefTheory         $(HOLDIR)/.../triangular/first-order  (3s)  [↓129]     OK
+Starting work on rmfmapTheory
+cpsTheory                  $(HOLDIR)/src/transfer/examples  (0s)  [↓128]     OK
+Starting work on unifPropsTheory
+rmfmapTheory         $(HOLDIR)/.../first-order/compilation  (2s)  [↓127]     OK
+Starting work on tcallUnifTheory
+Finished $(HOLDIR)/src/transfer/examples [#theories: 2]                (1.794s) 
+unifPropsTheory       $(HOLDIR)/.../triangular/first-order  (2s)  [↓126]     OK
+Starting work on collapseTheory
+collapseTheory        $(HOLDIR)/.../triangular/first-order  (1s)  [↓125]     OK
+Starting work on miscTheory
+tcallUnifTheory      $(HOLDIR)/.../first-order/compilation  (4s)  [↓124]     OK
+Finished $(CAKEMLDIR)/unverified/reg_alloc                             (0.000s) 
+Finished $(HOLDIR)/examples/machine-code/multiword [#theories: 2]     (48.127s) 
+Finished $(HOLDIR)/examples/algorithms/unification/triangular/first-order [#theories: 7] (15.412s) 
+Finished $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation [#theories: 2] (6.453s) 
+Finished $(HOLDIR)/examples/l3-machine-code/x64/step [#theories: 1]   (83.921s) 
+miscTheory                               $(CAKEMLDIR)/misc (21s)  [↓123]     OK
+Starting work on cakeml-heap
+Starting work on pattern_commonTheory
+cakeml-heap                              $(CAKEMLDIR)/misc  (7s)        FAIL<1>
+Finished $(CAKEMLDIR)/misc [#theories: 1]                             (28.767s) 
+pattern_commonTheory     $(CAKEMLDIR)/.../pattern_matching  (6s)         killed
+*** Holmake aborted - 1 target failed:
+*** cakeml-heap in $(CAKEMLDIR)/misc (status 1)
+ Loading preamble.uo
+ /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml/misc/preamble.sml:27: error: Type error in function application.
+    Function: Tactical.set_prover :
+       (Context.t -> goal * tactic -> thm) -> unit
+    Argument: clear_cache_prover : goal * tactic -> thm
+    Reason: Can't unify Context.t to goal * tactic (Incompatible types)
+ Found near Tactical.set_prover clear_cache_prover
+ error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml/misc/preamble.sml : Fail "Static Errors"
+ error in load preamble : Fail "Static Errors"
+ Loading preamble.uo: Fail "Static Errors"
+ Full log: /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml/misc/.hol/logs/cakeml-heap

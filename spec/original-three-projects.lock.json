@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scope": "Original Rocq/MetaRocq/Peregrine bootstrap; excludes canonical Rust-native formalization",
+  "repositories": {
+    "metarocq": {
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "destination": ".",
+      "module_projects": "_RocqProject*"
+    },
+    "rocq": {
+      "repository": "https://github.com/rocq-prover/rocq.git",
+      "commit": "bf9f3f827c0fb8cf542f6b068fa1658f4663e25c",
+      "release": "V9.1.1",
+      "tag_object": "0e4320e151b568317c17482734db323417c39157",
+      "destination": "vendor/rocq",
+      "module_roots": {
+        "theories/Corelib": "Corelib",
+        "theories/Ltac2": "Ltac2"
+      }
+    },
+    "peregrine": {
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+      "destination": "vendor/peregrine",
+      "module_projects": "_CoqProject"
+    },
+    "rocq-stdlib": {
+      "repository": "https://github.com/rocq-prover/stdlib.git",
+      "commit": "fda356e01346f7766b282ef9f44080cce2be23b3",
+      "release": "V9.0.0",
+      "destination": "vendor/rocq-stdlib",
+      "module_roots": {
+        "theories": "Stdlib"
+      },
+      "role": "separate source repository for the already-required rocq-stdlib.9.0.0"
+    }
+  },
+  "checker": {
+    "project": "metarocq",
+    "path": "safechecker/theories/PCUICSafeChecker.v",
+    "language": "Gallina",
+    "policy": "Retain the real checker and its metatheory. A closed verified guard implementation and source-to-machine refinement remain required."
+  },
+  "coverage_policy": {
+    "source_vendoring": "Every tracked source file, including original licenses and non-Gallina files, is present in an independent pinned worktree inside the MetaRocq source bundle.",
+    "module_names": "Build load paths identify modules only; they do not select or accept theorems.",
+    "proof_roots": "Rocq tmQuoteModule emits every global reference for every declared module. Missing modules or open variables block quotation.",
+    "unmapped_gallina": "Report every file lacking a declared load path. Full source coverage cannot be claimed while any remain.",
+    "non_gallina": "Keep original source bytes. They are not silently treated as extracted Gallina or as certified kernel code.",
+    "certification": "Source inventory and vendoring receipts never constitute proof acceptance."
+  }
+}

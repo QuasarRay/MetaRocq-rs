@@ -1,0 +1,514 @@
+{
+  "schema": 1,
+  "base_commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+  "original_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/cakeml",
+  "derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376",
+  "modified_files": [
+    "basis/CommandLineProofScript.sml",
+    "basis/HashtableProofScript.sml",
+    "basis/MarshallingProgScript.sml",
+    "basis/MarshallingScript.sml",
+    "basis/RatProgScript.sml",
+    "basis/TextIOProofScript.sml",
+    "basis/Word64ProgScript.sml",
+    "basis/Word8ProgScript.sml",
+    "basis/pure/basis_cvScript.sml",
+    "basis/pure/mlintScript.sml",
+    "candle/prover/compute/computeScript.sml",
+    "candle/prover/compute/compute_execScript.sml",
+    "candle/prover/compute/compute_syntaxProofScript.sml",
+    "candle/prover/compute/compute_syntaxScript.sml",
+    "candle/set-theory/setModelScript.sml",
+    "compiler/backend/ag32/ag32_memoryScript.sml",
+    "compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml",
+    "compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml",
+    "compiler/backend/ag32/proofs/ag32_memoryProofScript.sml",
+    "compiler/backend/backend_commonScript.sml",
+    "compiler/backend/backend_passesScript.sml",
+    "compiler/backend/bvl_to_bviScript.sml",
+    "compiler/backend/clos_to_bvlScript.sml",
+    "compiler/backend/cv_compute/backend_asmScript.sml",
+    "compiler/backend/data_to_wordScript.sml",
+    "compiler/backend/exportScript.sml",
+    "compiler/backend/jsonLangScript.sml",
+    "compiler/backend/presLangScript.sml",
+    "compiler/backend/proofs/backendProofScript.sml",
+    "compiler/backend/proofs/bvi_tailrecProofScript.sml",
+    "compiler/backend/proofs/bvl_to_bviProofScript.sml",
+    "compiler/backend/proofs/clos_to_bvlProofScript.sml",
+    "compiler/backend/proofs/data_to_word_assignProofScript.sml",
+    "compiler/backend/proofs/data_to_word_gcProofScript.sml",
+    "compiler/backend/proofs/data_to_word_memoryProofScript.sml",
+    "compiler/backend/proofs/lab_to_targetProofScript.sml",
+    "compiler/backend/proofs/stack_removeProofScript.sml",
+    "compiler/backend/proofs/stack_to_labProofScript.sml",
+    "compiler/backend/proofs/word_allocProofScript.sml",
+    "compiler/backend/proofs/word_to_stackProofScript.sml",
+    "compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml",
+    "compiler/backend/reg_alloc/reg_allocScript.sml",
+    "compiler/backend/semantics/labPropsScript.sml",
+    "compiler/backend/semantics/labSemScript.sml",
+    "compiler/backend/semantics/stackSemScript.sml",
+    "compiler/backend/semantics/targetSemScript.sml",
+    "compiler/backend/semantics/target_itreeEquivScript.sml",
+    "compiler/backend/semantics/target_itreePropsScript.sml",
+    "compiler/backend/semantics/target_itreeSemScript.sml",
+    "compiler/backend/semantics/wordSemScript.sml",
+    "compiler/backend/serialiser/num_list_enc_decScript.sml",
+    "compiler/backend/word_allocScript.sml",
+    "compiler/bootstrap/translation/caml_lexProgScript.sml",
+    "compiler/bootstrap/translation/explorerProgScript.sml",
+    "compiler/bootstrap/translation/x64ProgScript.sml",
+    "compiler/dafny/proofs/dafny_to_cakemlProofScript.sml",
+    "compiler/encoders/ag32/proofs/ag32_targetProofScript.sml",
+    "compiler/encoders/arm7/proofs/arm7_targetProofScript.sml",
+    "compiler/encoders/arm8/proofs/arm8_targetProofScript.sml",
+    "compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml",
+    "compiler/encoders/asm/asmLib.sml",
+    "compiler/encoders/asm/asmPropsScript.sml",
+    "compiler/encoders/asm/asmSemScript.sml",
+    "compiler/encoders/mips/proofs/mips_targetProofScript.sml",
+    "compiler/encoders/monadic_enc/monadic_enc32Script.sml",
+    "compiler/encoders/monadic_enc/monadic_enc64Script.sml",
+    "compiler/encoders/monadic_enc/monadic_encScript.sml",
+    "compiler/encoders/riscv/proofs/riscv_targetProofScript.sml",
+    "compiler/encoders/x64/x64_eval_encodeScript.sml",
+    "compiler/parsing/cmlPEGScript.sml",
+    "compiler/parsing/fromSexpScript.sml",
+    "cv_translator/backend_cvScript.sml",
+    "cv_translator/eval_cake_compileLib.sml",
+    "examples/deflate/deflateScript.sml",
+    "examples/deflate/ringBufferScript.sml",
+    "examples/diffScript.sml",
+    "examples/divScript.sml",
+    "examples/grepProgScript.sml",
+    "examples/lispProgScript.sml",
+    "examples/lpr_checker/array/lpr_listScript.sml",
+    "examples/lpr_checker/lpr_parsingScript.sml",
+    "examples/pseudo_bool/array/npbc_listScript.sml",
+    "examples/pseudo_bool/pbc_normaliseScript.sml",
+    "examples/queueProgScript.sml",
+    "examples/scpog_checker/array/scpog_listScript.sml",
+    "examples/xlrup_checker/array/xlrup_listScript.sml",
+    "examples/xlrup_checker/xlrupScript.sml",
+    "misc/miscScript.sml",
+    "misc/preamble.sml",
+    "pancake/proofs/pan_to_crepProofScript.sml",
+    "pancake/proofs/pan_to_targetProofScript.sml",
+    "pancake/semantics/loopSemScript.sml",
+    "pancake/semantics/pan_commonPropsScript.sml",
+    "translator/ml_progLib.sml",
+    "translator/ml_translatorScript.sml",
+    "translator/okasaki-examples/BinomialHeapScript.sml",
+    "translator/okasaki-examples/BottomUpMergeSortScript.sml",
+    "translator/other-examples/example_primality_testScript.sml"
+  ],
+  "source_digests": {
+    "basis/CommandLineProofScript.sml": {
+      "original": "6733f95684bea622d708ddeadbbe63be3a9c05a4082a24157f044c993045da65",
+      "adapted": "0120eefe8f7e03096117af8ed8aa764ff631349b4fae96bf9d02beccfa063297"
+    },
+    "basis/HashtableProofScript.sml": {
+      "original": "7c3370d5003a1f3d7132a9745f4fb4cc07d05904088ac8a46338c72d35f793dd",
+      "adapted": "20bbb845dbbe35df6f15b650deb5a8137c47ce61762988198851f6aea2ea2a44"
+    },
+    "basis/MarshallingProgScript.sml": {
+      "original": "408c2ee881b78f7511df828c467a496ebee24f9ced4df5d93fa9492d756344c6",
+      "adapted": "70a1b110bd1e237a5e7dc0ecde30b46713163864f1991e0db0f1e74bcb92abc0"
+    },
+    "basis/MarshallingScript.sml": {
+      "original": "1e35b71612f32bea3831c104f66a6ffb57b2f59c5db18270d2a58b6db79f1ce5",
+      "adapted": "7a7d899562ca43e1725d52fa69c184b44e5cedb916428fd5c8fe50223b0cecb7"
+    },
+    "basis/RatProgScript.sml": {
+      "original": "7fdc8f05054b91d82be7448b2d93fb2d29242c75f059d88f29b12b5d62cc34f2",
+      "adapted": "187af19ddef527b6edec9d702b14b83af3c51562ea5dee80023941364a7f1221"
+    },
+    "basis/TextIOProofScript.sml": {
+      "original": "02c4ffe96f8b073e48b4d70be18b840d33a6a0b9057633316dca0794b5863463",
+      "adapted": "e32999af5398e545656c66b6a9e7f8f9c1496be5e40e632ef60d40f842633934"
+    },
+    "basis/Word64ProgScript.sml": {
+      "original": "9fc851b398fbced4daaf6f6b39f538a2c9b4f3ed716d92e639a3879a45b47882",
+      "adapted": "ccf6da59fa298e9b221a69180dae751ed99f6d6174e07f557207c87546b3925f"
+    },
+    "basis/Word8ProgScript.sml": {
+      "original": "ec31eabe2d31880a7961ed501765d567b0871ca4e8e15ae78625fbec2a05010f",
+      "adapted": "0756e42fe4e4b963a67015c8373f2dda84285f707922930239b1d63e0bee3005"
+    },
+    "basis/pure/basis_cvScript.sml": {
+      "original": "78bc9801e9a0e2b7ed0ef3fa6a98c6f49595b0feeb3cdeeb4106981f721fe9eb",
+      "adapted": "3c6063e2a02131d1fca1981cf0f72cb5ed40fb1b1ba6a9d1c6831c1ce727b72e"
+    },
+    "basis/pure/mlintScript.sml": {
+      "original": "0653c38e66398e997957b93fa6f08ea3efece2599b94ea8d2ab60b6eabdbbabd",
+      "adapted": "ae9d72a90a6c4132d5df08119c7b15f17bf9a354982e23980683e24883532a50"
+    },
+    "candle/prover/compute/computeScript.sml": {
+      "original": "6c1e774d9a5c40f66384ad61c5fe859e89070778ddd838220c43088bc0304718",
+      "adapted": "fa65fc841fba20c276bc22d2af1669f196c94cd3f89450ca759993b0e6e7526c"
+    },
+    "candle/prover/compute/compute_execScript.sml": {
+      "original": "2dddfeb17388f9fae21d86af6cfdfca8518efeee81a59a12fa523e19031d68c0",
+      "adapted": "3f42b3b08ae0ccfd2b0ecf324a8012871fa9dda34bcea1ff1c0b35fa6ca6f24d"
+    },
+    "candle/prover/compute/compute_syntaxProofScript.sml": {
+      "original": "8bd47ecba0993929f15bd7fb9ffa62275de0c4b7ad319abb3c8e7313c068964c",
+      "adapted": "9f4874472b1651946fcf5a516a15d28878255f7717713bbe4e218208e681470f"
+    },
+    "candle/prover/compute/compute_syntaxScript.sml": {
+      "original": "7e5c6f2bc66a2893828dc865d25566e3d295c623cc6ae5e4b2f10316f80025af",
+      "adapted": "d7323f2cddc4da1d2a595139606b0c197d15cbfda822483ff26176a9509095a3"
+    },
+    "candle/set-theory/setModelScript.sml": {
+      "original": "42d07ebedb603a022d19c432f564d42c143754c80d92e2221842e58878b78b19",
+      "adapted": "1d1057d40a1997f46604dfb0436af1c3bab8cf07481358bbb0795f6aa27c0eb8"
+    },
+    "compiler/backend/ag32/ag32_memoryScript.sml": {
+      "original": "bd29d89dac3deddd17c7f0ac28be9c53d214a0df89370994c89fcf22cb69804f",
+      "adapted": "6624c7cc02afac70a1ab8519f2a029827faf6c10c938edf71450b43cbd713c90"
+    },
+    "compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml": {
+      "original": "c9732f7331f7764f2b388f64acffa2de7c6c3585ffc6c2aa98fae98015ba442f",
+      "adapted": "d82bc8b8620072c83dafd2f3a03930670eef2614dc97dd5857db8374474d1cfc"
+    },
+    "compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml": {
+      "original": "cc6c8ff6f60145fe41db31eef331811f8307fd0652eb7e1807698ae2439c9c96",
+      "adapted": "9bbb845f98cd0b21f93f350d66c99093de58c9dfe7f15cc75c4c8d91a4091b41"
+    },
+    "compiler/backend/ag32/proofs/ag32_memoryProofScript.sml": {
+      "original": "057643e0a1e05b03125379081d713c148b6a930d5f6b6954bbb8d233a6f14f2f",
+      "adapted": "a057221525b34b66641c1b424a8cf980a7c19a63391552f9001bba89dbcb26b3"
+    },
+    "compiler/backend/backend_commonScript.sml": {
+      "original": "1dac56eae70b591f40525dfe83a118cbf524c5bd329fe1d72b4b672567be90a3",
+      "adapted": "a0793a50d1891477f2f44442a98ea1dfa8be1767919920e350305800a3e60833"
+    },
+    "compiler/backend/backend_passesScript.sml": {
+      "original": "e531edc56a614d4c7e62afdb0d3c632d0a499451b38cdc462f2c39c9b95d55b0",
+      "adapted": "c95988e5881b9cbe101c127ab93f6af94698b7a22f72e6d34ab0bb00a8fc30f7"
+    },
+    "compiler/backend/bvl_to_bviScript.sml": {
+      "original": "ee48458e52c2210f20cee9a3318b3a4ba3baa5b6bf20212c21ea5c1d379ee6be",
+      "adapted": "96ae498cf7b8b00d03b022ca2542bdfae4afb1f4b86b87ad7c15f724a109f454"
+    },
+    "compiler/backend/clos_to_bvlScript.sml": {
+      "original": "aadff1479d6f971e307c846d7aeaa9d38f65003e8912a190b0f86ba93430cd59",
+      "adapted": "4bd913fbf57181833111a2bbce3f25c15a8b4ac446fd716b9f47dec8404e34d9"
+    },
+    "compiler/backend/cv_compute/backend_asmScript.sml": {
+      "original": "a91a10d26f49b05670a441471358dcf6f9d715639649428d09384f740e042694",
+      "adapted": "7b2a381e49a1d03330e46caee70bd4c125486c30ed6a03ac60d4b65499d3ba43"
+    },
+    "compiler/backend/data_to_wordScript.sml": {
+      "original": "4ffddc377a566af4b20f2cb5d8a390abc8b8b1743a71b674a63415665d5b64ac",
+      "adapted": "0032d96341b3dda1a1952c646cb130eb0f34d7fd1fcc754ef940faadfc64a4f6"
+    },
+    "compiler/backend/exportScript.sml": {
+      "original": "61bd3c16fa03b960800f4cabe2cccc2b1dc8269f8633747ba19227b33c8a15e7",
+      "adapted": "8c224c22c65c5c8c26b204207185a41bcc0328bb59a50319d59e9a95c5796d4b"
+    },
+    "compiler/backend/jsonLangScript.sml": {
+      "original": "b0b34976e12389f6c12142ddb81f36cb5104f6d4a165983ca11a0ed532ca3fa0",
+      "adapted": "d25d3197d957c6c935801cccb49074774ace5ba6af5e97119b0facfe75fcbf53"
+    },
+    "compiler/backend/presLangScript.sml": {
+      "original": "7caee6616eeff55b3e415e1556a42ddd25805d02ea5d16e5d8f977e42633eeea",
+      "adapted": "3ea2258dcfd68d28c2719cf54dd2deaa48829109d4811adbfa970561434365ad"
+    },
+    "compiler/backend/proofs/backendProofScript.sml": {
+      "original": "53de2e5113101184ddcad8875aa94b1e7ee15312cecac6c7a8da36cecb8c676a",
+      "adapted": "2ea4a805ac60f22a6222282941bc1e408661fe3c0b3575ff89ca87e2e41b2f7a"
+    },
+    "compiler/backend/proofs/bvi_tailrecProofScript.sml": {
+      "original": "056e9bb7ccfc6e93eb0cc116d23e3683c8d10390cf01b7d8d3b226ba240a9beb",
+      "adapted": "34b8e3ba364c13b4444d4344276033fe7be1b77dc494fe9dad41ee83defa63a3"
+    },
+    "compiler/backend/proofs/bvl_to_bviProofScript.sml": {
+      "original": "f86eb3805345c9ce2cb3dccf6be34e582365e239aab0e729efde0fcb8944e07c",
+      "adapted": "550a5d197a221cc223d509112b7f4714f6164a7b441f2258a948dbf012ff3c00"
+    },
+    "compiler/backend/proofs/clos_to_bvlProofScript.sml": {
+      "original": "4586d38611106aefb25e09368b8eb511d5a82f55b871ec6234bd81ea5b09536d",
+      "adapted": "ff67d2d6b8fc4387e743126ea19bab52b23df59909cba5781d2aab4877cf7754"
+    },
+    "compiler/backend/proofs/data_to_word_assignProofScript.sml": {
+      "original": "a225bb2d684cf416f02461c0d7d72aaa78e4163b2c6707a64e1202dc5bbd62ba",
+      "adapted": "3610e7999ccf6f15f944380d53513533a5d076a5064103da25607e0c9bc340ce"
+    },
+    "compiler/backend/proofs/data_to_word_gcProofScript.sml": {
+      "original": "53a8c0ea5108e0e252035bde3d8ac109b80b1a972abd8e736bd030cdc3518487",
+      "adapted": "bc16e52738a45167cb6f9887b02061fa168a5a1c42643938bfaaa9416f71b98e"
+    },
+    "compiler/backend/proofs/data_to_word_memoryProofScript.sml": {
+      "original": "73e9179f1e0b767d1c5d06d9b7eb3243e47a5ae02f6fa67b5b288575677046b8",
+      "adapted": "09eb087ee838bc36fa28095ef6d771be50c34261adf9daf0f21d29e287c18727"
+    },
+    "compiler/backend/proofs/lab_to_targetProofScript.sml": {
+      "original": "998574eddda5e8cbf7c109f068cc75fd1e6478cc4d9fd75a58f284d658ebf47c",
+      "adapted": "b3a90c78e65a824ba413a1c59298a8868af6b0ed5a09e237fd5ef3552616906c"
+    },
+    "compiler/backend/proofs/stack_removeProofScript.sml": {
+      "original": "e31ba91606dc7706f4ebf936f39c1de4398f42696ee99d1079e997537be8bad6",
+      "adapted": "a2035eceacc773b15069d7a54b4e80b3de61cd18aa41a95677f013ea4f86e417"
+    },
+    "compiler/backend/proofs/stack_to_labProofScript.sml": {
+      "original": "87f28f256b68b84e6a16577b2f69d21c8a9691b62485228d03ce3eb08fa8ee04",
+      "adapted": "01173f1bf1677395cd76ca783777aa46a21d1ffc67fc85774d5662af3209e08c"
+    },
+    "compiler/backend/proofs/word_allocProofScript.sml": {
+      "original": "4640eb172d5dda8c6a51348ea3251021d926d8925eeb49268906994e8f1e02db",
+      "adapted": "9fd3380aadc90f9697cb586d498d273c22b48165f70f0950dacea1bf510de409"
+    },
+    "compiler/backend/proofs/word_to_stackProofScript.sml": {
+      "original": "b7408fc8b931df582d2a8e6f2b6d53ecf37e2c3e4cd334bbdd18d7dc80a88459",
+      "adapted": "e2cbc91be4253a211a4cf219bbb176a7a9cf452a1479d55bbd7bef26c688e35f"
+    },
+    "compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml": {
+      "original": "ee2dabf39c54d200a288c889022d6c7a4b1285e5c2661dc93cdbfa62dd671aae",
+      "adapted": "d1e64624c3e43df44690814cba80ea28e09ff9a582c795e7bf426f16c5ed7538"
+    },
+    "compiler/backend/reg_alloc/reg_allocScript.sml": {
+      "original": "92e40a8d27639ca44feb8c9ee7aaba453b6d40d5f6c4076769912195dbddec46",
+      "adapted": "60f14e04f3f4043f95eadd43b8b6ed57af662e01547911659b48847e58ea40c0"
+    },
+    "compiler/backend/semantics/labPropsScript.sml": {
+      "original": "912c313f10a02e6862ce3a11b917a69775bd733f45fefd39b55f85ab4fbb9ce4",
+      "adapted": "4ad44f5f3f4d5ed5e8b6fac2165a9e11b31a2b8de2cb41ab202100ec78cb89c4"
+    },
+    "compiler/backend/semantics/labSemScript.sml": {
+      "original": "27113c958d7923ddbc20227a3bdd6b2f0ca5c054e9ef964c86e23268881ce7f2",
+      "adapted": "9c9273c290f190938e4be2063ad7c7bfd59b05ec742548cbbf3e80a7fc6cd8c0"
+    },
+    "compiler/backend/semantics/stackSemScript.sml": {
+      "original": "db2006b4b3beeaea857479a4c600336fa837ef3b5c48c7e352d066951cc4c2aa",
+      "adapted": "84281cfe297c2b7ca71ff0fd1b4f992420c65b349426f6f8cd25262dab06409d"
+    },
+    "compiler/backend/semantics/targetSemScript.sml": {
+      "original": "0c3059a44aef9369ccabcf2725f94fa052a25572f84b342337be6e141f4e5c48",
+      "adapted": "78ed7dba136d8bf3fd886714612946bcec79f460eae83e51a628f1ee76c5e8ab"
+    },
+    "compiler/backend/semantics/target_itreeEquivScript.sml": {
+      "original": "f63fc3081a3e905c73061930cccb62c623e750af0e3a6fe90847e9844463f7fc",
+      "adapted": "4eec0a4d94d6f1205dce3532991d118680bb26c2ca34b10210ca3354013e3e38"
+    },
+    "compiler/backend/semantics/target_itreePropsScript.sml": {
+      "original": "c2aba328aeba23c5c8d366521b945b11b12ca9aae3ad3be988d2034f2bf8b462",
+      "adapted": "2d89c443468aabc7ebc5168634ce0739eadf837b949e78b931c25eaa32dca33e"
+    },
+    "compiler/backend/semantics/target_itreeSemScript.sml": {
+      "original": "1391f17b2d818e8e1633478344bb2932203613ee6ed2906dfd01ff939e248c72",
+      "adapted": "c72b2088708746e180347226d88993db420c9a9326cc399e3ffc7dcec5961b1c"
+    },
+    "compiler/backend/semantics/wordSemScript.sml": {
+      "original": "1cb10093eb83fb665d3a0aeebb6fc58578ad80f67fbd6aedd0630a48931f42a7",
+      "adapted": "c855aa4b60045cab54041dc471aff60352742b436c1d0b6717f7efc08afe6d0a"
+    },
+    "compiler/backend/serialiser/num_list_enc_decScript.sml": {
+      "original": "a526540d9bbc9fea1e152699bb764a5fc33dfcbe3ccee7cb3bdc19c7e412cb8a",
+      "adapted": "89d546ab2547bf88db4b4263ce5c70085d13d45fddf35837d3157c8744809534"
+    },
+    "compiler/backend/word_allocScript.sml": {
+      "original": "11f95ac32bcd9e0f961f21b7e9b318930cbd919e162f0af04f3118b256a4366d",
+      "adapted": "054e04880d5ee891e9722a4d0a513b616e854c074fb981a6a073d74d3b6681d8"
+    },
+    "compiler/bootstrap/translation/caml_lexProgScript.sml": {
+      "original": "ba025f5c559179442df23791137a9cb540c9cfe892ed662fc2a9597c0acf8cf7",
+      "adapted": "4eaff59c9d6c092aed9f68a2f14fd328bf297e47430d00eaafb1b0139a2dd1ab"
+    },
+    "compiler/bootstrap/translation/explorerProgScript.sml": {
+      "original": "ebb2c0020429b0838fede5bf3c8ffc8baf8745889ff8d3c979a61d42b58aa927",
+      "adapted": "b68542b0015b6aadd2a1f152e453af2db871879caa6d603888eff2398a12cba5"
+    },
+    "compiler/bootstrap/translation/x64ProgScript.sml": {
+      "original": "4e599a812d3fe9dd29192e85fcff566a9a09e581db43167a832d346b12ef30ec",
+      "adapted": "831700c09b135814288e6da81d53898917148f68857ff684704c291db1c3d74e"
+    },
+    "compiler/dafny/proofs/dafny_to_cakemlProofScript.sml": {
+      "original": "a694df3dda5529a30723602eeec474ab1a99ec8d29780f9dc439b26819b0ef69",
+      "adapted": "0902c79d60a662abfff1429836d1ecae7b5cf6ba400c8a6f0e8dc93c506d1593"
+    },
+    "compiler/encoders/ag32/proofs/ag32_targetProofScript.sml": {
+      "original": "2d2a402d8d01e2f3c5889413bc0ac381a2f7b6f4768209d16604e54ed88454a6",
+      "adapted": "a34d7f6fd21428b5061037d8642e1ef7b0f0f5c35f372440ee783520d221d7c4"
+    },
+    "compiler/encoders/arm7/proofs/arm7_targetProofScript.sml": {
+      "original": "9bc8345c5ed2282d48bbf0cd509a03284f964f28e24ca1aa532c46673cd67b04",
+      "adapted": "791d2bf98837b37a588bb6e65eefe671248cf8e37f4a037e28cf4d5f15b2284b"
+    },
+    "compiler/encoders/arm8/proofs/arm8_targetProofScript.sml": {
+      "original": "de5e7e7d98ed72ad9e3c319be43ab97444b7738f0f1b15ddd1cc9bb3068762b4",
+      "adapted": "15cc9ec819cf269314ab12a5220bbc3700b7ac493e127d3d58d52a688e134503"
+    },
+    "compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml": {
+      "original": "a922185ae7389e188b0d21676c4377e27827398056d33e0317d94a5ecf88a31a",
+      "adapted": "abf385fcf5c25e20aacd0aca91bb0fa83eb26aa2d8a340116dab683061dc5f96"
+    },
+    "compiler/encoders/asm/asmLib.sml": {
+      "original": "bcfb3db3f54d7af1e50f087c04543e8a6f6a8c0a1e3dc45cacae5744667c2cdb",
+      "adapted": "40b6d662d5f40e72778808adc81edb147599ad489ea2922b90022ccc53e3447a"
+    },
+    "compiler/encoders/asm/asmPropsScript.sml": {
+      "original": "f14128fdbcf2479e74f26ccbd111850c78257e30e7b8b60bb750caeede956bfa",
+      "adapted": "23d7eba5ba2b290bab7767b7fec6a2183f25179912422143b0ef69b2b8c0cb53"
+    },
+    "compiler/encoders/asm/asmSemScript.sml": {
+      "original": "cfcf2bc0d9ea6cbddf5e52893507386b4d128757a53436ded5712ceebd7f9f0d",
+      "adapted": "3f5ff14b704042794f56e36f596f6465254f8356d4fa24ebc3868153a23db566"
+    },
+    "compiler/encoders/mips/proofs/mips_targetProofScript.sml": {
+      "original": "c189622222c721efe592ce59c3196f042a0a20dbbb65c50662d7a78d655fccf4",
+      "adapted": "d653e693c8a0effbc319ea741b88f55b556862c377cc96b0002d2d42700ac6f0"
+    },
+    "compiler/encoders/monadic_enc/monadic_enc32Script.sml": {
+      "original": "6daebe3006183940d299bff627bd32b905f1cdcd912f4de3679f71322eb05ce9",
+      "adapted": "6e054a4e85076cd743889a56a472c687ccae6b8c5fc3db543dac6d6bdff52f53"
+    },
+    "compiler/encoders/monadic_enc/monadic_enc64Script.sml": {
+      "original": "774895729f86fc6b9ae8dae31e1706ad5fe48548b1866b527bd9197e70c9cfb4",
+      "adapted": "7edd1bdbe51e4036d7d402238fc388d5f568fec921916c9ff813cabccfba0fad"
+    },
+    "compiler/encoders/monadic_enc/monadic_encScript.sml": {
+      "original": "3b1059efe0f5706b137dcb8f31bc38984d7b768050374f4fc15d064bced0ba34",
+      "adapted": "9cfc795629f2380a12f4e1924dba194e7d91f24f389798943e8654b4a85639ff"
+    },
+    "compiler/encoders/riscv/proofs/riscv_targetProofScript.sml": {
+      "original": "8dbb110021d3c24f1519fafe1c61e232460e59a63c368b43fb5a060a0d9c3401",
+      "adapted": "895f0ee56663bbd6665553c3932d4443baaf211ff5b2c807517b4a006871faf6"
+    },
+    "compiler/encoders/x64/x64_eval_encodeScript.sml": {
+      "original": "1dbe44fbcc84462477dab90c662ef850e966539256500f50f8f341ea57748281",
+      "adapted": "daf6c812055afd80a1775272672986195f89b2fb1a9478af1e2587f73a229025"
+    },
+    "compiler/parsing/cmlPEGScript.sml": {
+      "original": "4bc52931abd635f49c1e9dac4d02790b62b8181ff12a52bae7dd1c9899cb933a",
+      "adapted": "8ceba43a3f1e7b9af574172eaad8b4c600e0111c227ea60b05dc240874b525bb"
+    },
+    "compiler/parsing/fromSexpScript.sml": {
+      "original": "b77a4c174049df479fa7aa8e67f8c3dfebcef32fe1034eb1d99472229493ef0b",
+      "adapted": "fcd70f50c8cbb31b2ec8156a7cd75b97e497aa584215c67999a774f3e2dfc762"
+    },
+    "cv_translator/backend_cvScript.sml": {
+      "original": "0dd50c49e0d7494f8c41189539c519122467e17f20337322ac0c3ca120f45252",
+      "adapted": "9cf36c6db95a79680e0aa3a0ec7bafeed6f3aabf7136f9ef2258a6c1c027c528"
+    },
+    "cv_translator/eval_cake_compileLib.sml": {
+      "original": "8850db43c55ba2c025b530864a3cd4dd6dd134af76403beb6d129615782aa599",
+      "adapted": "b0934910066e0e19c995065e7a3f55d6692b07f718d652ece27f455ed4543958"
+    },
+    "examples/deflate/deflateScript.sml": {
+      "original": "4920650f1db26f195e49ccff61e6380701cbbc7979c3016c012c1ccd2a524368",
+      "adapted": "6e1808f4e05fa819ad7cf50e6130b6efc3ed85efda36d2deb2895d20310534e6"
+    },
+    "examples/deflate/ringBufferScript.sml": {
+      "original": "bbfaeedf5bb152a1b91a8aee0d92615d99f3b1f0592a3502a519786fe9672181",
+      "adapted": "4bb25235ec820aede457fb6709e0097b7dcd0e3ef59c32936d3d9e97fba3b7a8"
+    },
+    "examples/diffScript.sml": {
+      "original": "1879688266fe818e7b224b5c93875aa97f8f892671a0231b92068b533e3c20c4",
+      "adapted": "68e4fb9cd82b35e7cd96466e79175371846ef112d697fadd419086bf9a6e171b"
+    },
+    "examples/divScript.sml": {
+      "original": "d8c73db8e21fa64645ea74186ff6ee6d804c9ba17bfcd955482861b0bbd078c6",
+      "adapted": "543b8318b6f40af05e3ebff6240a3901b0b10ddbe0e2331575d529dd9fe55789"
+    },
+    "examples/grepProgScript.sml": {
+      "original": "33630595fc61f59856b583b34cad11a984888478c33ed45600f620a85801e3e0",
+      "adapted": "ba1ac4be560600462f5ca8b3a6c156ed011ec3fe74c80895bf10840734d33408"
+    },
+    "examples/lispProgScript.sml": {
+      "original": "295c58f06b50f265735f43ea99506b3de1b28f50e8ea5df51c1771cc685a53fe",
+      "adapted": "4f56d410b0e343af6d5138eaeccee3d25d70095bd7d5ddbeed6f910504967142"
+    },
+    "examples/lpr_checker/array/lpr_listScript.sml": {
+      "original": "13128e7c1a7117d992b5a072d29b1cec4ee4b4ee8f10ec154343389e208a2344",
+      "adapted": "c53818a618364c23ca09dccb5988cccc363525972df93feb08644c55b5fc5968"
+    },
+    "examples/lpr_checker/lpr_parsingScript.sml": {
+      "original": "3667b070f74cde8f1f3e6fa2f6cbde734ba61e5414883307522eefc3cff6dbc0",
+      "adapted": "f59e73a0104859cf63dec7bf310dc9a355392607173fbfa11888d929437dcdb7"
+    },
+    "examples/pseudo_bool/array/npbc_listScript.sml": {
+      "original": "5d2436091abdf980253404eb34127204835c930782a5ee5a6b049dc59d0af23c",
+      "adapted": "222f9d033480708c72c04cb97cff6305b5fe8a21512180781154a59bc0f55d69"
+    },
+    "examples/pseudo_bool/pbc_normaliseScript.sml": {
+      "original": "65ccc56d9a36edd209c48ac704036901358ef4e1af4821de782563b733524d20",
+      "adapted": "4b2d2a58b4b23300dd2ccb4e91f28d583ef92be4dc0e3cba764ab81ee0d8deb3"
+    },
+    "examples/queueProgScript.sml": {
+      "original": "e9c2ab7a88ac42d77be1fc10f0ac565af2d1819f6cc6a4003a00513833dad8b9",
+      "adapted": "9c9c183ec624945c485c64b2461263b55849f236d27fdc40f10e3a28280421e5"
+    },
+    "examples/scpog_checker/array/scpog_listScript.sml": {
+      "original": "4488b7be12067d0512e070856bff7023de6df667e1152424acfe00d8ad38c6cf",
+      "adapted": "4f31bcb45a52b205c359e223642d3fa1fd08b4d90ce5cd63f6d00ee53619467f"
+    },
+    "examples/xlrup_checker/array/xlrup_listScript.sml": {
+      "original": "2aa10bb5a3bb9ed24686c06e25b38ea200c50cad15cd28eaab0c90d72f6d840a",
+      "adapted": "4b36ce899efd43d640417ee56cd0ae8f73e886cf846f08ecf18b4716f4499d35"
+    },
+    "examples/xlrup_checker/xlrupScript.sml": {
+      "original": "7f7f92ec385b687638aa0cfa69dc844ebcc1c727b9c5aaed2e20daf392dcc08d",
+      "adapted": "a25df3051d4297bad203bef075933b57fa84e3a322b7d5f438fe15f1545144fa"
+    },
+    "misc/miscScript.sml": {
+      "original": "25e415de01edc15190669ae068b6888059fcf5862c5d65ce3a7a8b8b87320d8f",
+      "adapted": "92bc23e33bd9f790701b005a715ca8467b003e692920bf621954d161a60cf6fe"
+    },
+    "misc/preamble.sml": {
+      "original": "16a9d52a6b28a67998295325db936e783a0026fa33675ed9e135b31fed64ec0b",
+      "adapted": "98eda899a91125e8c7d2f97e752c3d72bafea64b9cd364d6e1776bd91f8a1ff8"
+    },
+    "pancake/proofs/pan_to_crepProofScript.sml": {
+      "original": "1bb55b269736b73712327b8e613c7b223751b732e28e65d4db7c0c76bd84dc96",
+      "adapted": "49dd22d2a5660e4055f0b1863590be3c4a27bd335d9fd0c3f224181eb4aeddd7"
+    },
+    "pancake/proofs/pan_to_targetProofScript.sml": {
+      "original": "355b77d592f7d10627a1cb3dc84a3552625ab6d183e1a4f8899af0aecf0dcaf3",
+      "adapted": "b3e06ec33f7f16dea56a5d376f0a7b39521ab80110c6037fcfd4ea32d7428d5a"
+    },
+    "pancake/semantics/loopSemScript.sml": {
+      "original": "e36c3732541fd1ac13b0392649f85626097093f2ac1c3621b2647ef91e1ebd27",
+      "adapted": "114684ccdc11f5b8c45ee69dfc2dd600a5c5125537f2f3739f6e74ff956dce89"
+    },
+    "pancake/semantics/pan_commonPropsScript.sml": {
+      "original": "c7a934a7897de79082d14a67c4a9b999541f6a82159a3429ceefabc1dcb10c5d",
+      "adapted": "9efd739d24af5c63000812182c963d623234306d665ec52bface7351ccd83ead"
+    },
+    "translator/ml_progLib.sml": {
+      "original": "8dc6f5ea871ec67c52fd1050469542cf4d755f677aec85223e4a570823decde3",
+      "adapted": "d79f567d37c200908741ad855c8e2f35ce21d78e9585d004f1e886d006020110"
+    },
+    "translator/ml_translatorScript.sml": {
+      "original": "bc59994baf20d67836ab182d3b145269ef7bf9719c001aa0fc782000b6888451",
+      "adapted": "aa9e9cd04f1c85e375f142ba68f6d0856f462cda6ba882455c10473bb421ac84"
+    },
+    "translator/okasaki-examples/BinomialHeapScript.sml": {
+      "original": "98c4625e9f120a527c07b7f0b7c49f7cc2dc80d49f5c607423cf140dfa652840",
+      "adapted": "7183a94c5abf226a60db85a356f68d5b53a857d278f260f929774d6027548284"
+    },
+    "translator/okasaki-examples/BottomUpMergeSortScript.sml": {
+      "original": "6432a93d7f5c1a796b843a37d2c18664282ca3f0c66c5c19375dbabb11539e67",
+      "adapted": "b336ce1eed86517c0b76482065f3910a019564ad92d45007d3e480dce3817eb7"
+    },
+    "translator/other-examples/example_primality_testScript.sml": {
+      "original": "9f448d50c57d42f305d5d18a2c826fbbc8139582ffb6c504316712beca3d5e8c",
+      "adapted": "a611723a4c246faac6ab5addb75f60eae568731253528f7562dc6f8bcde7f9e8"
+    }
+  },
+  "original_preamble_sha256": "16a9d52a6b28a67998295325db936e783a0026fa33675ed9e135b31fed64ec0b",
+  "adapted_preamble_sha256": "98eda899a91125e8c7d2f97e752c3d72bafea64b9cd364d6e1776bd91f8a1ff8",
+  "patch_sha256": "0bb853a9b9b5a76412588e750d8fcd50b79179cd077a05a03909b6e237b8f440",
+  "patch": "diff --git a/basis/CommandLineProofScript.sml b/basis/CommandLineProofScript.sml\nindex d407962..2d135d3 100644\n--- a/basis/CommandLineProofScript.sml\n+++ b/basis/CommandLineProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   cfMain cfLetAuto ml_translator CommandLineProg clFFI Word8ArrayProof cfMonad\n Libs\n   preamble ml_progLib ml_translatorLib cfLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends\"CommandLineProg\";\n \ndiff --git a/basis/HashtableProofScript.sml b/basis/HashtableProofScript.sml\nindex 476e86d..39835f8 100644\n--- a/basis/HashtableProofScript.sml\n+++ b/basis/HashtableProofScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   MapProg HashtableProg comparison\n Libs\n   preamble ml_translatorLib cfLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"HashtableProg\";\n \ndiff --git a/basis/MarshallingProgScript.sml b/basis/MarshallingProgScript.sml\nindex 969fedb..d9b8f03 100644\n--- a/basis/MarshallingProgScript.sml\n+++ b/basis/MarshallingProgScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   DoubleProg Marshalling Word8ArrayProof ml_translator\n Libs\n   preamble ml_translatorLib ml_progLib basisFunctionsLib cfLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"DoubleProg\";\n \ndiff --git a/basis/MarshallingScript.sml b/basis/MarshallingScript.sml\nindex f97d40d..03191a5 100644\n--- a/basis/MarshallingScript.sml\n+++ b/basis/MarshallingScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   words\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* encode/decode nums as 2 or 8 bytes *)\n (* similar to n2l & l2n but with padding *)\ndiff --git a/basis/RatProgScript.sml b/basis/RatProgScript.sml\nindex 4bcaf2c..9f48854 100644\n--- a/basis/RatProgScript.sml\n+++ b/basis/RatProgScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   PrettyPrinterProg[qualified]\n Libs\n   preamble ml_translatorLib ml_progLib basisFunctionsLib ratLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"PrettyPrinterProg\";\n \ndiff --git a/basis/TextIOProofScript.sml b/basis/TextIOProofScript.sml\nindex ccceffc..b1875b0 100644\n--- a/basis/TextIOProofScript.sml\n+++ b/basis/TextIOProofScript.sml\n@@ -9,6 +9,8 @@ Ancestors\n Libs\n   preamble ml_translatorLib ml_progLib cfLib basisFunctionsLib\n   cfMonadLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\", \"TAKE_LENGTH_ID_rwt2\", \"TAKE_LENGTH_ID_rwt2\"];\n \ndiff --git a/basis/Word64ProgScript.sml b/basis/Word64ProgScript.sml\nindex a54f63b..e091e97 100644\n--- a/basis/Word64ProgScript.sml\n+++ b/basis/Word64ProgScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   CharProg\n Libs\n   preamble ml_translatorLib ml_progLib basisFunctionsLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"CharProg\";\n \ndiff --git a/basis/Word8ProgScript.sml b/basis/Word8ProgScript.sml\nindex 0df404b..28027e6 100644\n--- a/basis/Word8ProgScript.sml\n+++ b/basis/Word8ProgScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   Word64Prog ml_translator\n Libs\n   preamble ml_translatorLib ml_progLib basisFunctionsLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"Word64Prog\";\n \ndiff --git a/basis/pure/basis_cvScript.sml b/basis/pure/basis_cvScript.sml\nindex ae244d9..163b316 100644\n--- a/basis/pure/basis_cvScript.sml\n+++ b/basis/pure/basis_cvScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   mlsexp cv_std\n Libs\n   preamble cv_transLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = cv_memLib.use_long_names := true;\n \ndiff --git a/basis/pure/mlintScript.sml b/basis/pure/mlintScript.sml\nindex ac7776b..8082ffd 100644\n--- a/basis/pure/mlintScript.sml\n+++ b/basis/pure/mlintScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   mlstring gcd\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Definition toChar_def:\n   toChar digit = if digit < 10 then CHR (ORD #\"0\" + digit)\ndiff --git a/candle/prover/compute/computeScript.sml b/candle/prover/compute/computeScript.sml\nindex 06ac398..b47ee06 100644\n--- a/candle/prover/compute/computeScript.sml\n+++ b/candle/prover/compute/computeScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   compute_syntax compute_eval compute_exec\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = numLib.temp_prefer_num ();\ndiff --git a/candle/prover/compute/compute_execScript.sml b/candle/prover/compute/compute_execScript.sml\nindex c3081d8..d6ea128 100644\n--- a/candle/prover/compute/compute_execScript.sml\n+++ b/candle/prover/compute/compute_execScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   compute_syntax compute_eval ml_monadBase mlvector\n Libs\n   preamble ml_monadBaseLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n (* -------------------------------------------------------------------------\ndiff --git a/candle/prover/compute/compute_syntaxProofScript.sml b/candle/prover/compute/compute_syntaxProofScript.sml\nindex cc4af24..0917c68 100644\n--- a/candle/prover/compute/compute_syntaxProofScript.sml\n+++ b/candle/prover/compute/compute_syntaxProofScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   compute_syntax\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = numLib.temp_prefer_num ();\ndiff --git a/candle/prover/compute/compute_syntaxScript.sml b/candle/prover/compute/compute_syntaxScript.sml\nindex c9cb686..1f50333 100644\n--- a/candle/prover/compute/compute_syntaxScript.sml\n+++ b/candle/prover/compute/compute_syntaxScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   holSyntax holSyntaxExtra holSyntaxLib holKernel holKernelProof\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = numLib.temp_prefer_num ();\ndiff --git a/candle/set-theory/setModelScript.sml b/candle/set-theory/setModelScript.sml\nindex 7f035e7..c2dc98f 100644\n--- a/candle/set-theory/setModelScript.sml\n+++ b/candle/set-theory/setModelScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   numposrep bit setSpec\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = diminish_srw_ss [\"ABBREV\"]\ndiff --git a/compiler/backend/ag32/ag32_memoryScript.sml b/compiler/backend/ag32/ag32_memoryScript.sml\nindex 41f8d67..0bacacf 100644\n--- a/compiler/backend/ag32/ag32_memoryScript.sml\n+++ b/compiler/backend/ag32/ag32_memoryScript.sml\n@@ -10,6 +10,8 @@ Ancestors[qualified]\n   lab_to_target\n Libs\n   preamble blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\ndiff --git a/compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml b/compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml\nindex 5cebfed..dd60940 100644\n--- a/compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml\n+++ b/compiler/backend/ag32/proofs/ag32_basis_ffiProofScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   ag32_memoryProof basis_ffi[qualified]\n Libs\n   preamble blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\n \ndiff --git a/compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml b/compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml\nindex c56ee38..75af085 100644\n--- a/compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml\n+++ b/compiler/backend/ag32/proofs/ag32_ffi_codeProofScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   ag32_prog ag32_memory ag32_targetProof[qualified]\n Libs\n   preamble ag32_decompilerLib blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\n \ndiff --git a/compiler/backend/ag32/proofs/ag32_memoryProofScript.sml b/compiler/backend/ag32/proofs/ag32_memoryProofScript.sml\nindex b666e5f..9223e39 100644\n--- a/compiler/backend/ag32/proofs/ag32_memoryProofScript.sml\n+++ b/compiler/backend/ag32/proofs/ag32_memoryProofScript.sml\n@@ -11,6 +11,8 @@ Libs\n   preamble wordsLib[qualified] blastLib[qualified]\n   asmLib[qualified] combinLib[qualified]\n   ag32_targetLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = diminish_srw_ss [\"ABBREV\"]\ndiff --git a/compiler/backend/backend_commonScript.sml b/compiler/backend/backend_commonScript.sml\nindex 189f7fc..8174a48 100644\n--- a/compiler/backend/backend_commonScript.sml\n+++ b/compiler/backend/backend_commonScript.sml\n@@ -6,6 +6,8 @@ Ancestors[qualified]\n   arithmetic integer words\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Datatype:\n   opw = Andw | Orw | Xor | Add | Sub\ndiff --git a/compiler/backend/backend_passesScript.sml b/compiler/backend/backend_passesScript.sml\nindex b896b30..bb1406d 100644\n--- a/compiler/backend/backend_passesScript.sml\n+++ b/compiler/backend/backend_passesScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   backend presLang\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Datatype:\ndiff --git a/compiler/backend/bvl_to_bviScript.sml b/compiler/backend/bvl_to_bviScript.sml\nindex d7d75a4..cf0ab27 100644\n--- a/compiler/backend/bvl_to_bviScript.sml\n+++ b/compiler/backend/bvl_to_bviScript.sml\n@@ -13,6 +13,8 @@ Ancestors\n   bvi_tailrec[qualified] dataLang[qualified]\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = patternMatchesSyntax.temp_enable_pmatch();\n \ndiff --git a/compiler/backend/clos_to_bvlScript.sml b/compiler/backend/clos_to_bvlScript.sml\nindex 14ca5c7..24759e1 100644\n--- a/compiler/backend/clos_to_bvlScript.sml\n+++ b/compiler/backend/clos_to_bvlScript.sml\n@@ -44,6 +44,8 @@ Ancestors\n   clos_annotate[qualified] bvl_jump closLang bvl\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = patternMatchesSyntax.temp_enable_pmatch();\n \ndiff --git a/compiler/backend/cv_compute/backend_asmScript.sml b/compiler/backend/cv_compute/backend_asmScript.sml\nindex 73a28eb..1802f99 100644\n--- a/compiler/backend/cv_compute/backend_asmScript.sml\n+++ b/compiler/backend/cv_compute/backend_asmScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   evaluate_dec\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n (*----------------------------------------------------------------*\ndiff --git a/compiler/backend/data_to_wordScript.sml b/compiler/backend/data_to_wordScript.sml\nindex 2425956..d16dee0 100644\n--- a/compiler/backend/data_to_wordScript.sml\n+++ b/compiler/backend/data_to_wordScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   backend_common[qualified] word_depth[qualified]\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = patternMatchesSyntax.temp_enable_pmatch();\n \ndiff --git a/compiler/backend/exportScript.sml b/compiler/backend/exportScript.sml\nindex c7e1269..31a4b8e 100644\n--- a/compiler/backend/exportScript.sml\n+++ b/compiler/backend/exportScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   mlstring mlvector mlint\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Definition split16_def:\n   (split16 f [] = Nil) /\\\ndiff --git a/compiler/backend/jsonLangScript.sml b/compiler/backend/jsonLangScript.sml\nindex 0d556db..d0eee99 100644\n--- a/compiler/backend/jsonLangScript.sml\n+++ b/compiler/backend/jsonLangScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   mlint mlstring\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Datatype:\n   obj =\ndiff --git a/compiler/backend/presLangScript.sml b/compiler/backend/presLangScript.sml\nindex 386d64a..57cf762 100644\n--- a/compiler/backend/presLangScript.sml\n+++ b/compiler/backend/presLangScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   dataLang wordLang labLang stackLang bvl bvi clos_to_bvl\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* basics *)\n \ndiff --git a/compiler/backend/proofs/backendProofScript.sml b/compiler/backend/proofs/backendProofScript.sml\nindex 32cc296..761a9f3 100644\n--- a/compiler/backend/proofs/backendProofScript.sml\n+++ b/compiler/backend/proofs/backendProofScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   backend_passes[qualified]\n Libs\n   preamble finite_mapSyntax[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\ndiff --git a/compiler/backend/proofs/bvi_tailrecProofScript.sml b/compiler/backend/proofs/bvi_tailrecProofScript.sml\nindex 7ae5c3b..7e9307e 100644\n--- a/compiler/backend/proofs/bvi_tailrecProofScript.sml\n+++ b/compiler/backend/proofs/bvi_tailrecProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   bvi_tailrec bviProps bviSem\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* TODO\n \ndiff --git a/compiler/backend/proofs/bvl_to_bviProofScript.sml b/compiler/backend/proofs/bvl_to_bviProofScript.sml\nindex fa5afe9..b7bd5fe 100644\n--- a/compiler/backend/proofs/bvl_to_bviProofScript.sml\n+++ b/compiler/backend/proofs/bvl_to_bviProofScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   bvl_to_bvi\n Libs\n   preamble helperLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* We want bvi's, not bvl's ML bindings. *)\n open bviPropsTheory\ndiff --git a/compiler/backend/proofs/clos_to_bvlProofScript.sml b/compiler/backend/proofs/clos_to_bvlProofScript.sml\nindex 91697d0..67e30fe 100644\n--- a/compiler/backend/proofs/clos_to_bvlProofScript.sml\n+++ b/compiler/backend/proofs/clos_to_bvlProofScript.sml\n@@ -12,6 +12,8 @@ Ancestors[ignore_grammar]\n   clos_mtiProof[qualified] clos_numberProof[qualified]\n   clos_knownProof[qualified] clos_annotateProof[qualified]\n   clos_callProof[qualified] clos_fvsProof[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* Make sure we get the correct ML bindings (somehow) *)\n open closLangTheory closSemTheory closPropsTheory\ndiff --git a/compiler/backend/proofs/data_to_word_assignProofScript.sml b/compiler/backend/proofs/data_to_word_assignProofScript.sml\nindex e1c26e8..9d06c0a 100644\n--- a/compiler/backend/proofs/data_to_word_assignProofScript.sml\n+++ b/compiler/backend/proofs/data_to_word_assignProofScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   semanticsProps alignment backendProps word_bignum wordLang\n   word_bignumProof gen_gc_partial gc_shared word_gcFunctions\n   gen_gc[qualified] bvi_to_data[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = (max_print_depth := 1);\n \ndiff --git a/compiler/backend/proofs/data_to_word_gcProofScript.sml b/compiler/backend/proofs/data_to_word_gcProofScript.sml\nindex b4c4a8a..bc72e2a 100644\n--- a/compiler/backend/proofs/data_to_word_gcProofScript.sml\n+++ b/compiler/backend/proofs/data_to_word_gcProofScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   finite_map wordProps While set_sep semanticsProps alignment\n   word_bignum wordLang word_bignumProof gen_gc_partial gc_shared\n   word_gcFunctions gen_gc[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\ndiff --git a/compiler/backend/proofs/data_to_word_memoryProofScript.sml b/compiler/backend/proofs/data_to_word_memoryProofScript.sml\nindex 5f71170..08a3a42 100644\n--- a/compiler/backend/proofs/data_to_word_memoryProofScript.sml\n+++ b/compiler/backend/proofs/data_to_word_memoryProofScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   alignment multiword\n Libs\n   preamble helperLib blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val shift_def = backend_commonTheory.word_shift_def;\ndiff --git a/compiler/backend/proofs/lab_to_targetProofScript.sml b/compiler/backend/proofs/lab_to_targetProofScript.sml\nindex b789bd2..d06a8ad 100644\n--- a/compiler/backend/proofs/lab_to_targetProofScript.sml\n+++ b/compiler/backend/proofs/lab_to_targetProofScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   stack_removeProof[qualified]\n Libs\n   preamble BasicProvers\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = diminish_srw_ss [\"ABBREV\"]\ndiff --git a/compiler/backend/proofs/stack_removeProofScript.sml b/compiler/backend/proofs/stack_removeProofScript.sml\nindex cf70504..392ad26 100644\n--- a/compiler/backend/proofs/stack_removeProofScript.sml\n+++ b/compiler/backend/proofs/stack_removeProofScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   stack_remove stackLang stackSem stackProps set_sep\n   semanticsProps\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n val _ = diminish_srw_ss [\"ABBREV\"]\ndiff --git a/compiler/backend/proofs/stack_to_labProofScript.sml b/compiler/backend/proofs/stack_to_labProofScript.sml\nindex e5f0001..a899ee6 100644\n--- a/compiler/backend/proofs/stack_to_labProofScript.sml\n+++ b/compiler/backend/proofs/stack_to_labProofScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   stack_namesProof stack_rawcallProof[qualified]\n   stack_allocProof stack_removeProof stack_to_lab\n   stackSem stackProps stack_alloc  labSem labProps semanticsProps\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* Set up ML bindings *)\n open stackSemTheory stackPropsTheory\ndiff --git a/compiler/backend/proofs/word_allocProofScript.sml b/compiler/backend/proofs/word_allocProofScript.sml\nindex 95de308..889e15b 100644\n--- a/compiler/backend/proofs/word_allocProofScript.sml\n+++ b/compiler/backend/proofs/word_allocProofScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   mllist wordLang wordSem wordProps word_alloc reg_alloc\n   reg_allocProof linear_scan linear_scanProof wordConvs\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* Ensures we have the correct ML bindings *)\n open reg_allocTheory reg_allocProofTheory linear_scanTheory\ndiff --git a/compiler/backend/proofs/word_to_stackProofScript.sml b/compiler/backend/proofs/word_to_stackProofScript.sml\nindex abb4dad..0f1f380 100644\n--- a/compiler/backend/proofs/word_to_stackProofScript.sml\n+++ b/compiler/backend/proofs/word_to_stackProofScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   wordProps stackSem wordSem word_to_stack\n Ancestors[ignore_grammar]\n   wordConvs parmove\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* Set up ML bindings *)\n open preamble semanticsPropsTheory stackSemTheory wordSemTheory\ndiff --git a/compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml b/compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml\nindex a0c1794..e93a9a1 100644\n--- a/compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml\n+++ b/compiler/backend/reg_alloc/proofs/reg_allocProofScript.sml\n@@ -6,6 +6,8 @@ Libs\n   preamble ml_monadBaseLib\n Ancestors\n   mllist state_transformer reg_alloc sorting ml_monadBase\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\n \ndiff --git a/compiler/backend/reg_alloc/reg_allocScript.sml b/compiler/backend/reg_alloc/reg_allocScript.sml\nindex d568f72..1359c25 100644\n--- a/compiler/backend/reg_alloc/reg_allocScript.sml\n+++ b/compiler/backend/reg_alloc/reg_allocScript.sml\n@@ -6,6 +6,8 @@ Libs\n   preamble ml_monadBaseLib\n Ancestors\n   mllist state_transformer ml_monadBase sorting\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = ParseExtras.temp_tight_equality();\ndiff --git a/compiler/backend/semantics/labPropsScript.sml b/compiler/backend/semantics/labPropsScript.sml\nindex 51963e0..249e92c 100644\n--- a/compiler/backend/semantics/labPropsScript.sml\n+++ b/compiler/backend/semantics/labPropsScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   ffi wordSem labSem lab_to_target semanticsProps\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = Parse.hide\"mem\";\n \ndiff --git a/compiler/backend/semantics/labSemScript.sml b/compiler/backend/semantics/labSemScript.sml\nindex 33b6c97..fc07108 100644\n--- a/compiler/backend/semantics/labSemScript.sml\n+++ b/compiler/backend/semantics/labSemScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   labLang wordSem alignment[qualified] targetSem[qualified]\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Datatype:\n   word8_loc = Byte word8 | LocByte num num num\ndiff --git a/compiler/backend/semantics/stackSemScript.sml b/compiler/backend/semantics/stackSemScript.sml\nindex 48ee3a9..20775ce 100644\n--- a/compiler/backend/semantics/stackSemScript.sml\n+++ b/compiler/backend/semantics/stackSemScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   wordSem[qualified] (* for word_loc and word_cmp *)\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Datatype:\ndiff --git a/compiler/backend/semantics/targetSemScript.sml b/compiler/backend/semantics/targetSemScript.sml\nindex 04b4df9..d7d36cd 100644\n--- a/compiler/backend/semantics/targetSemScript.sml\n+++ b/compiler/backend/semantics/targetSemScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   ffi lab_to_target wordSem evaluateProps asmProps\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* -- execute target machine with interference from environment -- *)\n \ndiff --git a/compiler/backend/semantics/target_itreeEquivScript.sml b/compiler/backend/semantics/target_itreeEquivScript.sml\nindex 47ecbe3..096a553 100644\n--- a/compiler/backend/semantics/target_itreeEquivScript.sml\n+++ b/compiler/backend/semantics/target_itreeEquivScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   itree_semanticsProps\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n (*********** evaluate' **********)\ndiff --git a/compiler/backend/semantics/target_itreePropsScript.sml b/compiler/backend/semantics/target_itreePropsScript.sml\nindex f281f85..d170925 100644\n--- a/compiler/backend/semantics/target_itreePropsScript.sml\n+++ b/compiler/backend/semantics/target_itreePropsScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   itree_semanticsProps\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (********** machine_sem_itree **********)\n \ndiff --git a/compiler/backend/semantics/target_itreeSemScript.sml b/compiler/backend/semantics/target_itreeSemScript.sml\nindex eb9bb67..06ae0b9 100644\n--- a/compiler/backend/semantics/target_itreeSemScript.sml\n+++ b/compiler/backend/semantics/target_itreeSemScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   targetSem itree\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Overload get_ffi_string = \u201cMAP (\u03bbx. case x of ExtCall s => s)\u201d;\n \ndiff --git a/compiler/backend/semantics/wordSemScript.sml b/compiler/backend/semantics/wordSemScript.sml\nindex 4487708..4999f77 100644\n--- a/compiler/backend/semantics/wordSemScript.sml\n+++ b/compiler/backend/semantics/wordSemScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   ffi[qualified] (* for call_FFI *)\n   lprefix_lub[qualified] (* for build_lprefix_lub *)\n   machine_ieee[qualified] (* for FP *)\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Datatype:\n   buffer =\ndiff --git a/compiler/backend/serialiser/num_list_enc_decScript.sml b/compiler/backend/serialiser/num_list_enc_decScript.sml\nindex 23d9ac3..8d930dd 100644\n--- a/compiler/backend/serialiser/num_list_enc_decScript.sml\n+++ b/compiler/backend/serialiser/num_list_enc_decScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   integer misc namespace ml_translator\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* definitions of what good enc/dec functions are *)\n \ndiff --git a/compiler/backend/word_allocScript.sml b/compiler/backend/word_allocScript.sml\nindex afc0377..7e314f6 100644\n--- a/compiler/backend/word_allocScript.sml\n+++ b/compiler/backend/word_allocScript.sml\n@@ -13,6 +13,8 @@ Ancestors\n   mllist\n   asm[qualified] (* for arity-2 Const *)\n   reg_alloc misc[qualified] wordLang linear_scan\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = patternMatchesSyntax.temp_enable_pmatch();\n \ndiff --git a/compiler/bootstrap/translation/caml_lexProgScript.sml b/compiler/bootstrap/translation/caml_lexProgScript.sml\nindex e007576..5e065d4 100644\n--- a/compiler/bootstrap/translation/caml_lexProgScript.sml\n+++ b/compiler/bootstrap/translation/caml_lexProgScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   caml_lex parserProg ml_translator\n Libs\n   preamble ml_translatorLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n open preamble caml_lexTheory;\n open parserProgTheory ml_translatorLib ml_translatorTheory;\ndiff --git a/compiler/bootstrap/translation/explorerProgScript.sml b/compiler/bootstrap/translation/explorerProgScript.sml\nindex b03342f..45ca2d6 100644\n--- a/compiler/bootstrap/translation/explorerProgScript.sml\n+++ b/compiler/bootstrap/translation/explorerProgScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   inferProg\n Libs\n   preamble ml_translatorLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n open preamble\n      ml_translatorLib\ndiff --git a/compiler/bootstrap/translation/x64ProgScript.sml b/compiler/bootstrap/translation/x64ProgScript.sml\nindex 0b355a8..904dcf8 100644\n--- a/compiler/bootstrap/translation/x64ProgScript.sml\n+++ b/compiler/bootstrap/translation/x64ProgScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   evaluate ml_translator from_pancake64Prog x64_target x64\n Libs\n   preamble ml_translatorLib inliningLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n open preamble;\n open evaluateTheory\ndiff --git a/compiler/dafny/proofs/dafny_to_cakemlProofScript.sml b/compiler/dafny/proofs/dafny_to_cakemlProofScript.sml\nindex 27fc3d1..123eb17 100644\n--- a/compiler/dafny/proofs/dafny_to_cakemlProofScript.sml\n+++ b/compiler/dafny/proofs/dafny_to_cakemlProofScript.sml\n@@ -10,6 +10,8 @@ Ancestors\n   dafny_freshenProof dafny_to_cakeml dafny_ast\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* TODO Remove unused definition / trivialities *)\n \ndiff --git a/compiler/encoders/ag32/proofs/ag32_targetProofScript.sml b/compiler/encoders/ag32/proofs/ag32_targetProofScript.sml\nindex efd8f33..961a1db 100644\n--- a/compiler/encoders/ag32/proofs/ag32_targetProofScript.sml\n+++ b/compiler/encoders/ag32/proofs/ag32_targetProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   ag32_target\n Libs\n   asmLib Import\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val () = wordsLib.guess_lengths()\n \ndiff --git a/compiler/encoders/arm7/proofs/arm7_targetProofScript.sml b/compiler/encoders/arm7/proofs/arm7_targetProofScript.sml\nindex abee705..64d3ce8 100644\n--- a/compiler/encoders/arm7/proofs/arm7_targetProofScript.sml\n+++ b/compiler/encoders/arm7/proofs/arm7_targetProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   arm7_target\n Libs\n   arm_stepLib asmLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val () = wordsLib.guess_lengths ()\n \ndiff --git a/compiler/encoders/arm8/proofs/arm8_targetProofScript.sml b/compiler/encoders/arm8/proofs/arm8_targetProofScript.sml\nindex a40e630..330aa18 100644\n--- a/compiler/encoders/arm8/proofs/arm8_targetProofScript.sml\n+++ b/compiler/encoders/arm8/proofs/arm8_targetProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   arm8_target\n Libs\n   asmLib arm8_stepLib arm8_targetProofLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n \ndiff --git a/compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml b/compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml\nindex 29280f9..4577c2a 100644\n--- a/compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml\n+++ b/compiler/encoders/arm8_asl/proofs/arm8_asl_targetProofScript.sml\n@@ -9,6 +9,8 @@ Ancestors\n Libs\n   BasicProvers dep_rewrite wordsLib asmLib arm8_targetProofLib\n   l3_equivalenceLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = wordsLib.guess_lengths();\n val _ = wordsLib.output_words_as_hex();\ndiff --git a/compiler/encoders/asm/asmLib.sml b/compiler/encoders/asm/asmLib.sml\nindex 4d33197..d44501a 100644\n--- a/compiler/encoders/asm/asmLib.sml\n+++ b/compiler/encoders/asm/asmLib.sml\n@@ -31,6 +31,11 @@ val asm_ok_rwts =\n    [asm_ok_def, inst_ok_def, reg_ok_def, fp_reg_ok_def, arith_ok_def, fp_ok_def,\n     cmp_ok_def, reg_imm_ok_def, offset_ok_def, alignmentTheory.aligned_0]\n \n+(* Preserve the legacy load-time proof call with a scoped context policy. *)\n+fun legacy_library_prove ttac =\n+  if isSome (Context.current_thy (Context.snapshot())) then Tactical.prove ttac\n+  else Feedback.trace (\"TAC_PROOF requires current theory\", 0) Tactical.prove ttac;\n+\n val asm_rwts =\n    [upd_pc_def, upd_reg_def, upd_fp_reg_def, upd_mem_def, read_reg_def,\n     read_fp_reg_def, read_mem_def, assert_def, reg_imm_def, binop_upd_def,\n@@ -39,7 +44,7 @@ val asm_rwts =\n     read_mem_word ``1n``, read_mem_word ``4n``, read_mem_word ``8n``,\n     write_mem_word ``1n``, write_mem_word ``2n``, write_mem_word ``4n``, write_mem_word ``8n``,\n     mem_op_def, inst_def, jump_to_offset_def, asm_def,\n-    prove\n+    legacy_library_prove\n       (\u201c!a b x:'a y. a /\\ (a ==> ~b) ==> ((if b then x else y) = y)\u201d, rw [])\n     ]\n \ndiff --git a/compiler/encoders/asm/asmPropsScript.sml b/compiler/encoders/asm/asmPropsScript.sml\nindex f469f0e..21f3a77 100644\n--- a/compiler/encoders/asm/asmPropsScript.sml\n+++ b/compiler/encoders/asm/asmPropsScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   asmSem\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* -- semantics is deterministic -- *)\n \ndiff --git a/compiler/encoders/asm/asmSemScript.sml b/compiler/encoders/asm/asmSemScript.sml\nindex 154ca1c..054fc4f 100644\n--- a/compiler/encoders/asm/asmSemScript.sml\n+++ b/compiler/encoders/asm/asmSemScript.sml\n@@ -5,6 +5,8 @@ Theory asmSem\n Ancestors\n   asm machine_ieee\n   misc (* for bytes_in_memory *)\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* -- semantics of ASM program -- *)\n \ndiff --git a/compiler/encoders/mips/proofs/mips_targetProofScript.sml b/compiler/encoders/mips/proofs/mips_targetProofScript.sml\nindex 24e28b3..ea693a1 100644\n--- a/compiler/encoders/mips/proofs/mips_targetProofScript.sml\n+++ b/compiler/encoders/mips/proofs/mips_targetProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   mips_target\n Libs\n   realLib asmLib mips_stepLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val () = wordsLib.guess_lengths()\n \ndiff --git a/compiler/encoders/monadic_enc/monadic_enc32Script.sml b/compiler/encoders/monadic_enc/monadic_enc32Script.sml\nindex 725e694..4c17022 100644\n--- a/compiler/encoders/monadic_enc/monadic_enc32Script.sml\n+++ b/compiler/encoders/monadic_enc/monadic_enc32Script.sml\n@@ -6,6 +6,8 @@ Ancestors\n   state_transformer ml_monadBase asm lab_to_target monadic_enc\n Libs\n   preamble ml_monadBaseLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = monadsyntax.temp_add_monadsyntax()\n \ndiff --git a/compiler/encoders/monadic_enc/monadic_enc64Script.sml b/compiler/encoders/monadic_enc/monadic_enc64Script.sml\nindex e09cd54..ea10bbb 100644\n--- a/compiler/encoders/monadic_enc/monadic_enc64Script.sml\n+++ b/compiler/encoders/monadic_enc/monadic_enc64Script.sml\n@@ -6,6 +6,8 @@ Ancestors\n   state_transformer ml_monadBase asm lab_to_target monadic_enc\n Libs\n   preamble ml_monadBaseLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = monadsyntax.temp_add_monadsyntax()\n \ndiff --git a/compiler/encoders/monadic_enc/monadic_encScript.sml b/compiler/encoders/monadic_enc/monadic_encScript.sml\nindex 382f9aa..2a2f342 100644\n--- a/compiler/encoders/monadic_enc/monadic_encScript.sml\n+++ b/compiler/encoders/monadic_enc/monadic_encScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   asm lab_to_target\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (*\n   This hash function is roughly a rolling hash\ndiff --git a/compiler/encoders/riscv/proofs/riscv_targetProofScript.sml b/compiler/encoders/riscv/proofs/riscv_targetProofScript.sml\nindex 553aa29..65b4b87 100644\n--- a/compiler/encoders/riscv/proofs/riscv_targetProofScript.sml\n+++ b/compiler/encoders/riscv/proofs/riscv_targetProofScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   riscv_target\n Libs\n   asmLib riscv_stepLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val () = wordsLib.guess_lengths()\n \ndiff --git a/compiler/encoders/x64/x64_eval_encodeScript.sml b/compiler/encoders/x64/x64_eval_encodeScript.sml\nindex 175504f..62da113 100644\n--- a/compiler/encoders/x64/x64_eval_encodeScript.sml\n+++ b/compiler/encoders/x64/x64_eval_encodeScript.sml\n@@ -4,6 +4,8 @@\n Theory x64_eval_encode[no_sig_docs]\n Ancestors\n   x64 x64_target\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Theorem not_fail[local]:\ndiff --git a/compiler/parsing/cmlPEGScript.sml b/compiler/parsing/cmlPEGScript.sml\nindex d2808b3..38be544 100644\n--- a/compiler/parsing/cmlPEGScript.sml\n+++ b/compiler/parsing/cmlPEGScript.sml\n@@ -29,7 +29,7 @@ in\n end\n \n \n-val _ = (computeLib.the_compset := computeLib.add_thms distinct_ths (!computeLib.the_compset))\n+val _ = computeLib.add_funs distinct_ths\n \n Definition sumID_def:\n   sumID (INL x) = x \u2227\ndiff --git a/compiler/parsing/fromSexpScript.sml b/compiler/parsing/fromSexpScript.sml\nindex b01cea3..2a185e4 100644\n--- a/compiler/parsing/fromSexpScript.sml\n+++ b/compiler/parsing/fromSexpScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   quantHeuristics ASCIInumbers numposrep mlstring\n Libs\n   preamble match_goal\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"lift_disj_eq\", \"lift_imp_disj\"]\n \ndiff --git a/cv_translator/backend_cvScript.sml b/cv_translator/backend_cvScript.sml\nindex 094d259..0de28d3 100644\n--- a/cv_translator/backend_cvScript.sml\n+++ b/cv_translator/backend_cvScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   mllist mergesort cv_std backend to_data_cv export unify_cv\n   infer_cv basis_cv\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = cv_memLib.use_long_names := true;\n \ndiff --git a/cv_translator/eval_cake_compileLib.sml b/cv_translator/eval_cake_compileLib.sml\nindex 6f28286..674b674 100644\n--- a/cv_translator/eval_cake_compileLib.sml\n+++ b/cv_translator/eval_cake_compileLib.sml\n@@ -200,7 +200,7 @@ fun eval_cake_compile_explore_with_conf arch prefix conf_def prog_def filename =\n fun eval_cake_compile_explore arch prefix =\n   eval_cake_compile_explore_with_conf arch prefix (#default_config_def arch);\n \n-val _ = Feedback.set_trace \"TheoryPP.include_docs\" 0;\n+val _ = Feedback.set_trace \"TheoryPP.include_html_docs\" 0;\n \n (* --- for debugging ---\n    val _ = (max_print_depth := 15);\ndiff --git a/examples/deflate/deflateScript.sml b/examples/deflate/deflateScript.sml\nindex 39423ae..8ecb976 100644\n--- a/examples/deflate/deflateScript.sml\n+++ b/examples/deflate/deflateScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   deflateTable\n Libs\n   preamble stringLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Overload END_BLOCK = \u201c256:num\u201d;\ndiff --git a/examples/deflate/ringBufferScript.sml b/examples/deflate/ringBufferScript.sml\nindex 4e6139a..f184346 100644\n--- a/examples/deflate/ringBufferScript.sml\n+++ b/examples/deflate/ringBufferScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   list rich_list arithmetic\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n (* a ringBuffer is a list with the current size and index of the start *)\ndiff --git a/examples/diffScript.sml b/examples/diffScript.sml\nindex 49bc707..933a8f2 100644\n--- a/examples/diffScript.sml\n+++ b/examples/diffScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   lcs mlint mlstring\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\ndiff --git a/examples/divScript.sml b/examples/divScript.sml\nindex e8e72c6..70770a2 100644\n--- a/examples/divScript.sml\n+++ b/examples/divScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   integer cfDiv mlbasicsProg Word8Prog\n Libs\n   preamble basis cfDivLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n \ndiff --git a/examples/grepProgScript.sml b/examples/grepProgScript.sml\nindex 29d85ae..5755ea0 100644\n--- a/examples/grepProgScript.sml\n+++ b/examples/grepProgScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   charset regexp regexp_parser regexp_compiler mlvector\n   cfApp basis_ffi\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_delsimps [\"NORMEQ_CONV\"]\n \ndiff --git a/examples/lispProgScript.sml b/examples/lispProgScript.sml\nindex 8da7fce..269de4f 100644\n--- a/examples/lispProgScript.sml\n+++ b/examples/lispProgScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   misc set_sep list mlstring\n   (* lisp: *) parsing source_values printing\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends \"basisProg\";\n \ndiff --git a/examples/lpr_checker/array/lpr_listScript.sml b/examples/lpr_checker/array/lpr_listScript.sml\nindex 97875c5..5032bcc 100644\n--- a/examples/lpr_checker/array/lpr_listScript.sml\n+++ b/examples/lpr_checker/array/lpr_listScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n   lpr\n Libs\n   preamble basis\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Definition w8z_def:\n   w8z = (0w:word8)\ndiff --git a/examples/lpr_checker/lpr_parsingScript.sml b/examples/lpr_checker/lpr_parsingScript.sml\nindex 104a362..a3c4280 100644\n--- a/examples/lpr_checker/lpr_parsingScript.sml\n+++ b/examples/lpr_checker/lpr_parsingScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   misc lpr mlint\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (*\n   Parses a list of strings (1 per line of a file) in\ndiff --git a/examples/pseudo_bool/array/npbc_listScript.sml b/examples/pseudo_bool/array/npbc_listScript.sml\nindex df4c414..1f59ff3 100644\n--- a/examples/pseudo_bool/array/npbc_listScript.sml\n+++ b/examples/pseudo_bool/array/npbc_listScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   npbc_check\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Theorem any_el_update_resize:\n   any_el n (update_resize fml def v id) def =\ndiff --git a/examples/pseudo_bool/pbc_normaliseScript.sml b/examples/pseudo_bool/pbc_normaliseScript.sml\nindex a44c3c3..84d022e 100644\n--- a/examples/pseudo_bool/pbc_normaliseScript.sml\n+++ b/examples/pseudo_bool/pbc_normaliseScript.sml\n@@ -6,6 +6,8 @@ Libs\n   preamble\n Ancestors\n   pbc npbc mllist mlmap mergesort\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = numLib.temp_prefer_num();\n \ndiff --git a/examples/queueProgScript.sml b/examples/queueProgScript.sml\nindex eacf4e9..2861dec 100644\n--- a/examples/queueProgScript.sml\n+++ b/examples/queueProgScript.sml\n@@ -9,6 +9,8 @@ Ancestors\n   cfApp\n Libs\n   preamble basis\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = translation_extends\"basisProg\";\n \ndiff --git a/examples/scpog_checker/array/scpog_listScript.sml b/examples/scpog_checker/array/scpog_listScript.sml\nindex 0ab7bd9..e3bcbcf 100644\n--- a/examples/scpog_checker/array/scpog_listScript.sml\n+++ b/examples/scpog_checker/array/scpog_listScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   cnf_scpogSem scpog mlvector\n Libs\n   preamble basis\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Definition w8z_def:\n   w8z = (0w:word8)\ndiff --git a/examples/xlrup_checker/array/xlrup_listScript.sml b/examples/xlrup_checker/array/xlrup_listScript.sml\nindex 056f86f..fe8adf1 100644\n--- a/examples/xlrup_checker/array/xlrup_listScript.sml\n+++ b/examples/xlrup_checker/array/xlrup_listScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   xlrup\n Libs\n   preamble basis\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Definition w8z_def:\n   w8z = (0w:word8)\ndiff --git a/examples/xlrup_checker/xlrupScript.sml b/examples/xlrup_checker/xlrupScript.sml\nindex 11bf495..0ecb59f 100644\n--- a/examples/xlrup_checker/xlrupScript.sml\n+++ b/examples/xlrup_checker/xlrupScript.sml\n@@ -7,6 +7,8 @@ Libs\n Ancestors\n   mlvector mllist sptree misc cnf_ext bitstring[qualified]\n   mlstring mergesort\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = temp_bring_to_front_overload \"range\" {Name=\"range\", Thy=\"misc\"};\n \ndiff --git a/misc/miscScript.sml b/misc/miscScript.sml\nindex fa3671a..e4d6326 100644\n--- a/misc/miscScript.sml\n+++ b/misc/miscScript.sml\n@@ -14,6 +14,8 @@ Ancestors\n Libs\n   boolSimps mp_then dep_rewrite wordsLib BasicProvers\n   ASCIInumbersLib bagLib[qualified] blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = ParseExtras.tight_equality()\n \ndiff --git a/misc/preamble.sml b/misc/preamble.sml\nindex 2b5481a..77995ce 100644\n--- a/misc/preamble.sml\n+++ b/misc/preamble.sml\n@@ -13,12 +13,17 @@ open ASCIInumbersTheory BasicProvers Defn HolKernel Parse SatisfySimps Tactic\n      pairTheory pred_setTheory quantHeuristicsLib relationTheory res_quanTheory\n      rich_listTheory sortingTheory sptreeTheory stringTheory sumTheory\n      wordsTheory;\n+(* Preserve the MOD precedence used by this CakeML revision. *)\n+val _ = Parse.set_fixity \"MOD\" (Infixl 650);\n (*Temporary workaround for cache being slow on long files*)\n-fun clear_cache_prover gtac  =\n+fun clear_cache_prover ctxt gtac  =\n  let\n    val _ = List.app Cache.clear_cache [numSimps.arith_cache, intSimps.omega_cache,\n                                        intSimps.cooper_cache]\n-   val res = TAC_PROOF gtac\n+   val res =\n+     if isSome (Context.current_thy ctxt) then Tactical.TAC_PROOF_in ctxt gtac\n+     else Feedback.trace (\"TAC_PROOF requires current theory\", 0)\n+            (Tactical.TAC_PROOF_in ctxt) gtac\n    val _ = List.app Cache.clear_cache [numSimps.arith_cache, intSimps.omega_cache,\n                                        intSimps.cooper_cache]\n  in\ndiff --git a/pancake/proofs/pan_to_crepProofScript.sml b/pancake/proofs/pan_to_crepProofScript.sml\nindex 046c8fc..bdd298b 100644\n--- a/pancake/proofs/pan_to_crepProofScript.sml\n+++ b/pancake/proofs/pan_to_crepProofScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   listRange crepProps pan_commonProps pan_to_crep\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n (* state relation *)\n \ndiff --git a/pancake/proofs/pan_to_targetProofScript.sml b/pancake/proofs/pan_to_targetProofScript.sml\nindex f731fbb..61e6fde 100644\n--- a/pancake/proofs/pan_to_targetProofScript.sml\n+++ b/pancake/proofs/pan_to_targetProofScript.sml\n@@ -9,6 +9,8 @@ Ancestors\n   pan_to_wordProof pan_to_target wordConvsProof\n Libs\n   preamble blastLib[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Overload stack_remove_prog_comp[local] = ``stack_remove$prog_comp``\ndiff --git a/pancake/semantics/loopSemScript.sml b/pancake/semantics/loopSemScript.sml\nindex 54547a3..a52d8fd 100644\n--- a/pancake/semantics/loopSemScript.sml\n+++ b/pancake/semantics/loopSemScript.sml\n@@ -8,6 +8,8 @@ Ancestors\n   machine_ieee[qualified] (* for FP *)\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n Datatype:\n   state =\ndiff --git a/pancake/semantics/pan_commonPropsScript.sml b/pancake/semantics/pan_commonPropsScript.sml\nindex a22ecd3..00fbc16 100644\n--- a/pancake/semantics/pan_commonPropsScript.sml\n+++ b/pancake/semantics/pan_commonPropsScript.sml\n@@ -6,6 +6,8 @@ Ancestors\n   misc[qualified] pan_common\n Libs\n   preamble\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n \n Definition ctxt_max_def:\ndiff --git a/translator/ml_progLib.sml b/translator/ml_progLib.sml\nindex a668a12..10551e3 100644\n--- a/translator/ml_progLib.sml\n+++ b/translator/ml_progLib.sml\n@@ -129,7 +129,7 @@ fun nsLookup_conv tm = REPEATC (BETA_CONV ORELSEC FIRST_CONV\n \n val () = computeLib.add_convs\n     (map (fn t => (t, 2, QCHANGED_CONV nsLookup_conv)) nsLookup_pf_tms)\n-val () = (computeLib.the_compset := computeLib.add_thms [nsLookup_eq] (!computeLib.the_compset))\n+val () = computeLib.add_funs [nsLookup_eq]\n \n (* helper functions *)\n \ndiff --git a/translator/ml_translatorScript.sml b/translator/ml_translatorScript.sml\nindex 78cab25..20226fd 100644\n--- a/translator/ml_translatorScript.sml\n+++ b/translator/ml_translatorScript.sml\n@@ -11,6 +11,8 @@ Ancestors\n Libs\n   packLib integer_wordSyntax preamble\n   integer_wordSyntax[qualified]\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n infix \\\\ val op \\\\ = op THEN;\n \ndiff --git a/translator/okasaki-examples/BinomialHeapScript.sml b/translator/okasaki-examples/BinomialHeapScript.sml\nindex 1d87e55..99e7f6b 100644\n--- a/translator/okasaki-examples/BinomialHeapScript.sml\n+++ b/translator/okasaki-examples/BinomialHeapScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   bag okasaki_misc ListProg\n Libs\n   preamble bagLib ml_translatorLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val fs = full_simp_tac (srw_ss ())\n val rw = srw_tac []\ndiff --git a/translator/okasaki-examples/BottomUpMergeSortScript.sml b/translator/okasaki-examples/BottomUpMergeSortScript.sml\nindex 3d25405..4c54c5d 100644\n--- a/translator/okasaki-examples/BottomUpMergeSortScript.sml\n+++ b/translator/okasaki-examples/BottomUpMergeSortScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   okasaki_misc bag sorting ListProg\n Libs\n   preamble bagLib ml_translatorLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n val _ = numLib.temp_prefer_num()\n \ndiff --git a/translator/other-examples/example_primality_testScript.sml b/translator/other-examples/example_primality_testScript.sml\nindex da14dfd..9ea5e06 100644\n--- a/translator/other-examples/example_primality_testScript.sml\n+++ b/translator/other-examples/example_primality_testScript.sml\n@@ -7,6 +7,8 @@ Ancestors\n   miller_rabin arithmetic combin ListProg\n Libs\n   ml_translatorLib\n+(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\n+val _ = Parse.temp_set_fixity \"MOD\" (Parse.Infixl 650);\n \n fun find_def tm = let\n   val thy = #Thy (dest_thy_const tm)\n",
+  "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness",
+  "legacy_library_mode": "Scoped HOL4 compatibility trace only when the supplied context has no current theory, for the preamble wrapper and the single asmLib load-time rewrite proof; kernel proof rules and the original proposition/tactic remain unchanged.",
+  "documentation_trace": "Use the pinned HOL4 TheoryPP.include_html_docs setting in the compiler evaluator; this changes documentation output only.",
+  "mod_grammar": {
+    "fixity": "Infixl 650",
+    "historical_hol4_commit": "bec0b16a8e4efed5c8aa75afe14797543da0eccd",
+    "historical_source": "src/num/theories/arithmeticScript.sml",
+    "reason": "Preserve the existing CakeML statements' original parse; current HOL4 uses Infixl 600.",
+    "theory_contexts": "Restore temporary fixity immediately after each MOD-using theory header. Ancestor loading resets the preamble's earlier grammar setting."
+  }
+}

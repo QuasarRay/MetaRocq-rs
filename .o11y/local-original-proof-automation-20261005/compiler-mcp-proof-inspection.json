@@ -1,0 +1,124 @@
+{
+  "claim": "MCP read-only observation; direct Holmake is the proof boundary",
+  "configuration": {
+    "command": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+    "args": [
+      "--transport",
+      "stdio"
+    ],
+    "env": {
+      "HOLDIR": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4",
+      "HOL4_TACTICTOE_CACHE": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/tactictoe-cache"
+    },
+    "identity": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "sha256": "ffbd2169dc564939b768f3b8f8530a8533133e5a0d3a0df5f9febda367f6a05c"
+      },
+      "hol4-mcp": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+        "sha256": "5fc44c37cea4dd684c66f0b716f1b47c3a0525c80afa60cf369696ec2196f968"
+      },
+      "Z3": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3",
+        "sha256": "112132c9f82751e663f5a5573957c678f9af821aaf376d0c5863e4f076370444"
+      }
+    },
+    "claim": "orchestration only; final acceptance requires direct Holmake"
+  },
+  "calls": [
+    {
+      "tool": "hol_start",
+      "arguments": {
+        "workdir": "/workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation",
+        "name": "original-compiler-inspection",
+        "env": {
+          "CAKEMLDIR": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376"
+        }
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Session 'original-compiler-inspection' started. HOL started (PID 43)\nWorkdir: /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Session 'original-compiler-inspection' started. HOL started (PID 43)\nWorkdir: /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation"
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "tool": "hol_send",
+      "arguments": {
+        "session": "original-compiler-inspection",
+        "timeout": 80,
+        "max_output": 15000,
+        "command": "load \"OriginalCompilerOutputAutomationContractTheory\";\nload \"OriginalCompilerOutputTacticToeTheory\";\nopen OriginalBootstrapCompilerProbeTheory\n     OriginalCompilerOutputAutomationContractTheory\n     OriginalCompilerOutputTacticToeTheory;\nval _ = ((let\n  val inspected = [original_bootstrap_probe_compiled,\n    library_code_length,library_data_length,\n    library_code_address_bounds_z3,library_code_data_offsets_disjoint_z3,\n    probe_code_nonempty_tactictoe]\n  fun inspect th = let val (oracles,axioms) = Tag.dest_tag (Thm.tag th) in\n    if null (Thm.hyp th) andalso null axioms andalso\n       List.all (fn name => name = \"DISK_THM\") oracles\n    then print (term_to_string (concl th) ^ \"\\n\")\n    else raise Fail \"Open or contaminated loaded theorem\" end\nin List.app inspect inspected;\n   print \"ORIGINAL_COMPILER_MCP_INSPECTION_COMPLETE\\n\"\nend) handle e => print (\"ORIGINAL_COMPILER_MCP_INSPECTION_FAILED: \" ^ General.exnMessage e ^ \"\\n\"));\n"
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "<<HOL message: intLib loaded.  Use intLib.deprecate_int() to turn off integer parsing>>\nval it = (): unit\nval it = (): unit\ncompile (set_oracle x64_backend_config original_bootstrap_probe_oracle)\n  original_bootstrap_probe_prog =\nSOME\n  (original_bootstrap_probe_code,original_bootstrap_probe_data,\n   original_bootstrap_probe_info) \u2227\noriginal_bootstrap_probe_ffis =\nffinames_to_string_list\n  (the [] original_bootstrap_probe_info.lab_conf.ffi_names) \u2227\noriginal_bootstrap_probe_syms = original_bootstrap_probe_info.symbols \u2227\nLENGTH original_bootstrap_probe_code = 67910 \u2227\nLENGTH original_bootstrap_probe_data = 354 \u2227\noriginal_bootstrap_probe_info.lab_conf.shmem_extra = [] \u2227\nprog_syntax_ok original_bootstrap_probe_prog \u2227\noriginal_bootstrap_probe_conf =\nencode_backend_config (config_to_inc_config original_bootstrap_probe_info)\nLENGTH original_bootstrap_probe_code = 67910\nLENGTH original_bootstrap_probe_data = 354\n\u2200base i.\n  0 \u2264 base \u2227\n  base +\n  &(LENGTH original_bootstrap_probe_code +\n   8 * LENGTH original_bootstrap_probe_data) < 18446744073709551616 \u2227 0 \u2264 i \u2227\n  i < &LENGTH original_bootstrap_probe_code \u21d2\n  0 \u2264 base + i \u2227 base + i < 18446744073709551616\n\u2200base i j.\n  0 \u2264 i \u2227 i < &LENGTH original_bootstrap_probe_code \u2227 0 \u2264 j \u2227\n  j < &LENGTH original_bootstrap_probe_data \u21d2\n  base + i < base + &LENGTH original_bootstrap_probe_code + 8 * j\noriginal_bootstrap_probe_code \u2260 []\nORIGINAL_COMPILER_MCP_INSPECTION_COMPLETE\n\n\n[28.145s]",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "<<HOL message: intLib loaded.  Use intLib.deprecate_int() to turn off integer parsing>>\nval it = (): unit\nval it = (): unit\ncompile (set_oracle x64_backend_config original_bootstrap_probe_oracle)\n  original_bootstrap_probe_prog =\nSOME\n  (original_bootstrap_probe_code,original_bootstrap_probe_data,\n   original_bootstrap_probe_info) \u2227\noriginal_bootstrap_probe_ffis =\nffinames_to_string_list\n  (the [] original_bootstrap_probe_info.lab_conf.ffi_names) \u2227\noriginal_bootstrap_probe_syms = original_bootstrap_probe_info.symbols \u2227\nLENGTH original_bootstrap_probe_code = 67910 \u2227\nLENGTH original_bootstrap_probe_data = 354 \u2227\noriginal_bootstrap_probe_info.lab_conf.shmem_extra = [] \u2227\nprog_syntax_ok original_bootstrap_probe_prog \u2227\noriginal_bootstrap_probe_conf =\nencode_backend_config (config_to_inc_config original_bootstrap_probe_info)\nLENGTH original_bootstrap_probe_code = 67910\nLENGTH original_bootstrap_probe_data = 354\n\u2200base i.\n  0 \u2264 base \u2227\n  base +\n  &(LENGTH original_bootstrap_probe_code +\n   8 * LENGTH original_bootstrap_probe_data) < 18446744073709551616 \u2227 0 \u2264 i \u2227\n  i < &LENGTH original_bootstrap_probe_code \u21d2\n  0 \u2264 base + i \u2227 base + i < 18446744073709551616\n\u2200base i j.\n  0 \u2264 i \u2227 i < &LENGTH original_bootstrap_probe_code \u2227 0 \u2264 j \u2227\n  j < &LENGTH original_bootstrap_probe_data \u21d2\n  base + i < base + &LENGTH original_bootstrap_probe_code + 8 * j\noriginal_bootstrap_probe_code \u2260 []\nORIGINAL_COMPILER_MCP_INSPECTION_COMPLETE\n\n\n[28.145s]"
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "tool": "hol_stop",
+      "arguments": {
+        "session": "original-compiler-inspection"
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Session 'original-compiler-inspection' stopped.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Session 'original-compiler-inspection' stopped."
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    }
+  ],
+  "status": "ORCHESTRATION_READY"
+}

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "source": "src/AI/sml_inspection/smlExecScripts.sml",
+  "original_sha256": "81ce2558876a935b2f71eeacb4e8bb59faf9a6fbb09dee375ec437421bc6f0c4",
+  "adapted_sha256": "96f1c643f521a870791275f4d46fd50c6df973ebd75ac5e13d0855298e69dbef",
+  "scope": "serial TacticToe recording only; private-group launch rejected",
+  "claim": "process-launch compatibility; not proof evidence"
+}

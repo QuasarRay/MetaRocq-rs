@@ -1,13 +1,15 @@
 From Stdlib Require Import String List.
+From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad.
-From Peregrine Require Import PAst.
+From Peregrine Require Import Utils PAst.
 From CakeML Require Import ast.
 From CakeML.Backend Require Import Compile.
 
 Import MonadNotation.
+Local Open Scope monad.
 
 Definition candidate_cakeml_ast : Type :=
-  list (string * option exp) * exp.
+  list (Stdlib.Strings.String.string * option exp) * exp.
 
 (* Pure syntax producer only.  This deliberately bypasses
    Peregrine.CakeMLBackend.cakeml_pipeline, its Admitted obligation,

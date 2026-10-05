@@ -36,6 +36,7 @@ grep -Fq 'replay_peregrine_runtime_program' \
   metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
 
 bash tools/prepare_peregrine_hol4.sh
+source "$GEN/hol4/toolchain.env"
 
 export HOL4_DIR="${HOL4_DIR:-$ROOT/.aegis/references/hol4}"
 export CAKEML_DIR="${CAKEML_DIR:-$ROOT/.aegis/references/cakeml}"

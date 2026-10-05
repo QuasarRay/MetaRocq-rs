@@ -1,0 +1,42 @@
+{
+  "status": "FAILED",
+  "tool_identity": {
+    "pins": {
+      "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+      "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+      "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+      "hol4_mcp_version": "0.1.0"
+    },
+    "Holmake": {
+      "path": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+      "sha256": "ffbd2169dc564939b768f3b8f8530a8533133e5a0d3a0df5f9febda367f6a05c"
+    },
+    "Z3": {
+      "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3",
+      "sha256": "112132c9f82751e663f5a5573957c678f9af821aaf376d0c5863e4f076370444"
+    }
+  },
+  "execution": {
+    "argv": [
+      "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+      "--qof",
+      "--no-cache"
+    ],
+    "cwd": "/workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation",
+    "returncode": 1,
+    "stdout": "Scanning $(HOLDIR)/src/hol88\nScanning $(HOLDIR)/src/TeX\nScanning $(HOLDIR)/src/bag\nScanning $(HOLDIR)/src/sort\nScanning $(HOLDIR)/src/string\nScanning $(HOLDIR)/src/n-bit\nScanning $(HOLDIR)/src/res_quan/src\nScanning $(HOLDIR)/src/finite_maps\nScanning $(HOLDIR)/src/integer\nScanning $(HOLDIR)/src/rational\nScanning $(HOLDIR)/src/transfer\nScanning $(HOLDIR)/src/pred_set/src/more_theories\nScanning $(HOLDIR)/src/algebra/base\nScanning $(HOLDIR)/src/algebra/construction\nScanning $(HOLDIR)/src/algebra\nScanning $(HOLDIR)/src/real\nScanning $(HOLDIR)/src/real/analysis\nScanning $(HOLDIR)/src/HolSmt\nScanning $(HOLDIR)/src/tactictoe/src\nScanning ..\nScanned 21 directories\nBuilding 1 theory file\nStarting work on OriginalCompilerOutputAutomationTheory\nOriginalCompilerOutputAutomationTheory                     (11s)        FAIL<1>\n*** Holmake aborted - 1 target failed:\n*** OriginalCompilerOutputAutomationTheory (status 1)\n /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:607: warning: Matches are not exhaustive.\n Found near\n   case prems of\n      [p] =>\n      metis_prove [...] target\n      handle Feedback.HOL_ERR _ => let val ... in ... ... end | _ => raise ...\n /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:624: warning: Matches are not exhaustive.\n Found near\n   case prems of\n      [p] =>\n      metis_prove [...] target\n      handle\n         Feedback.HOL_ERR _ => let val ...; ... in ... ... end |\n         _ => raise ...\n /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1164: warning: Matches are not exhaustive.\n Found near\n   case prems of\n      [p] =>\n      let val ... = ...; val ...; ... in ... ... p end\n      handle Feedback.HOL_ERR _ => ... ... target | _ => ... ...\n /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1155: warning: Matches are not exhaustive.\n Found near\n   case prems of\n      [p] =>\n      Thm.SYM p handle Feedback.HOL_ERR _ => ... ... (... ...) | _ => ... ...\n WARNING: No HOL path for variable CAKEMLDIR in $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory\n Cannot find file $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory.ui\n error in load $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory : Fail \"Cannot find file $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory.ui\"\n error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/OriginalBootstrapCompilerProbeTheory : Fail \"Cannot find file $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory.ui\"\n error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation/OriginalCompilerOutputAutomationScript : Fail \"Cannot find file $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory.ui\"\n Uncaught exception at poly/poly-init2.ML:49: Fail \"Cannot find file $(CAKEMLDIR)/cv_translator/backend_x64_cvTheory.ui\"\n Full log: /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation/.hol/logs/OriginalCompilerOutputAutomationTheory\n",
+    "stderr": "",
+    "stdout_sha256": "10e264e2fe488441c28ff8acb27a3d2fa85185daa56e9e490cc1f0eedc37ffed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 3057,
+    "stderr_bytes": 0,
+    "stdout_truncated": false,
+    "stderr_truncated": false,
+    "timed_out": false,
+    "started_at": "2026-10-05T05:39:16.632335+00:00",
+    "finished_at": "2026-10-05T05:39:30.271800+00:00",
+    "duration_seconds": 13.639240849999624
+  },
+  "claim": "direct Holmake process observation; theorem scope and tags require separate inspection"
+}

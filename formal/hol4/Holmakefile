@@ -1,4 +1,4 @@
-INCLUDES = $(HOLDIR)/src/integer $(HOLDIR)/src/HolSmt
+INCLUDES = $(HOLDIR)/src/integer $(HOLDIR)/src/HolSmt $(HOLDIR)/src/tactictoe/src
 
 ifdef CAKEMLDIR
 INCLUDES += $(CAKEMLDIR)/misc \

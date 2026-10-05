@@ -1,0 +1,10 @@
+{
+  "archive": "generated/peregrine-selfhost/hol4/tactictoe-cache-after-pair-stall.tar.gz",
+  "archive_sha256": "0a3f73f342c538c1efc1bb4f89512bf9c1b52642ab95d80ed2d877edf3c66b34",
+  "lock_holder": "1F\n1791180066.641\n",
+  "old_host_pids_absent": [
+    7844,
+    9102
+  ],
+  "claim": "Preserved search guidance and abandoned recorder lock; not proof evidence"
+}

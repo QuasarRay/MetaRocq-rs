@@ -1,0 +1,12 @@
+test_ambiguous_flat_and_munged_artifacts_are_rejected (test_build_peregrine_hol4_compile.ExactCompileInputs.test_ambiguous_flat_and_munged_artifacts_are_rejected) ... ok
+test_changed_bytes_with_same_mtime_invalidate_and_preserve (test_build_peregrine_hol4_compile.ExactCompileInputs.test_changed_bytes_with_same_mtime_invalidate_and_preserve) ... ok
+test_failed_compilation_has_no_receipt (test_build_peregrine_hol4_compile.ExactCompileInputs.test_failed_compilation_has_no_receipt) ... ok
+test_identical_inputs_reuse_actual_hashed_outputs (test_build_peregrine_hol4_compile.ExactCompileInputs.test_identical_inputs_reuse_actual_hashed_outputs) ... ok
+test_missing_assembler_is_regenerated (test_build_peregrine_hol4_compile.ExactCompileInputs.test_missing_assembler_is_regenerated) ... ok
+test_modified_automation_library_invalidates_previous_output_receipt (test_build_peregrine_hol4_compile.ExactCompileInputs.test_modified_automation_library_invalidates_previous_output_receipt) ... ok
+test_modified_theory_is_not_reused (test_build_peregrine_hol4_compile.ExactCompileInputs.test_modified_theory_is_not_reused) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.476s
+
+OK

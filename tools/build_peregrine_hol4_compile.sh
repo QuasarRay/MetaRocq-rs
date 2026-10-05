@@ -15,6 +15,11 @@ THEORY="PeregrineGeneratedCompileTheory"
 HOLMAKE="${HOL4_DIR:-$ROOT/.aegis/references/hol4}/bin/Holmake"
 mkdir -p "$HOLGEN"
 test -s "$INPUT"
+sha256sum --check "$HOLGEN/compiler-preparation-inputs.sha256"
+if [[ -s "$HOLGEN/proof-automation.env" ]]; then
+  sha256sum --check "$HOLGEN/proof-automation-inputs.sha256"
+  source "$HOLGEN/proof-automation.env"
+fi
 
 # A receipt binds cached outputs to the exact serialized bytes and recipe,
 # including the theory bytes themselves. File modification times are not an
@@ -61,5 +66,9 @@ cmp "$INPUT" "$SNAPSHOT"
 sha256sum "$INPUT" "$SNAPSHOT" "$COMPILE_THEORY" \
   "$PEREGRINE_MACHINE_ASM" spec/toolchain.lock.json \
   formal/hol4/PeregrineGeneratedCompileScript.sml formal/hol4/Holmakefile \
-  tools/build_peregrine_hol4_compile.sh tools/hol4_artifacts.sh > "$RECEIPT"
+  formal/hol4/CompilerOutputAutomationLib.sml formal/hol4/CompilerOutputAutomationLib.sig \
+  tools/prepare_original_proof_automation.sh spec/original-proof-automation.lock.json \
+  tools/build_peregrine_hol4_compile.sh tools/hol4_artifacts.sh \
+  "$HOLGEN/compiler-preparation-inputs.sha256" \
+  "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/toolchain.env" > "$RECEIPT"
 sha256sum --check "$RECEIPT"

@@ -1,0 +1,7 @@
+{
+  "claim": "completed failure observations and exact compatibility recipe; NOT successful full compiler evaluation",
+  "cakeml_pin": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+  "hol4_pin": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "remaining_build": "the revised wrapper passed heap loading; remaining compiler-library theories were still building",
+  "scope": "derived CakeML ML tactic wrapper only; original source and HOL kernel unchanged"
+}

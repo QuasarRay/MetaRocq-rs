@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "source_bundle_recipe": "901324d949102cc7",
+  "full_inventory_sha256": "79df4c67634d12c168649d7b60df31eaa35f21348ee250fa3e5ed1054d0d92bf",
+  "full_inventory_bytes": 2574975,
+  "claim": "complete physical source inventory; NOT complete proof replay or machine correctness",
+  "tracked_file_count": 7281,
+  "module_count": 1327,
+  "unmapped_gallina_count": 2788,
+  "repositories": {
+    "metarocq": {
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "tree": "63c9441199a026a2bfd2a4a944f05280d38e7ac3",
+      "destination": ".",
+      "counts": {
+        "tracked": 755,
+        "Gallina": 596,
+        "OCaml": 23,
+        "other": 136
+      },
+      "mapped_module_count": 594,
+      "unmapped_gallina_count": 2
+    },
+    "rocq": {
+      "commit": "bf9f3f827c0fb8cf542f6b068fa1658f4663e25c",
+      "tree": "ec4ca08fda7eaa5fe7b8b3a6bb644137b137ada3",
+      "destination": "vendor/rocq",
+      "counts": {
+        "tracked": 5244,
+        "Gallina": 2608,
+        "OCaml": 1274,
+        "other": 1362
+      },
+      "mapped_module_count": 103,
+      "unmapped_gallina_count": 2505
+    },
+    "peregrine": {
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+      "tree": "b0c82eded52366ba1b4dcee930ba83e712ec638b",
+      "destination": "vendor/peregrine",
+      "counts": {
+        "tracked": 184,
+        "Gallina": 66,
+        "OCaml": 15,
+        "other": 103
+      },
+      "mapped_module_count": 66,
+      "unmapped_gallina_count": 0
+    },
+    "rocq-stdlib": {
+      "commit": "fda356e01346f7766b282ef9f44080cce2be23b3",
+      "tree": "cc133de840db6ed1732b2daa9a981f547424edbe",
+      "destination": "vendor/rocq-stdlib",
+      "counts": {
+        "tracked": 1098,
+        "Gallina": 845,
+        "OCaml": 2,
+        "other": 251
+      },
+      "mapped_module_count": 564,
+      "unmapped_gallina_count": 281
+    }
+  },
+  "actual_candidate_build": {
+    "exit": 69,
+    "reason": "pinned Rocq toolchain unavailable in local workspace",
+    "lambdabox_produced": false,
+    "cakeml_produced": false,
+    "hol4_source_machine_proof_produced": false
+  },
+  "full_inventory_checkpoint": ".o11y/local-three-projects-20261005/source-inventory.json.gz.b64"
+}

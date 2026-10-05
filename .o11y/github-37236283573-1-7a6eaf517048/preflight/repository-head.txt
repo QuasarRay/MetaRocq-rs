@@ -1,0 +1,7 @@
+commit 7a6eaf517048bb06267d58c043e2db75ba4a278e
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 08:29:09 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 08:29:09 2026 +1100
+
+    Adapt pinned CakeML tactic context without changing original sources

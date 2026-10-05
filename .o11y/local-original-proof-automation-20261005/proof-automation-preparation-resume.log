@@ -1,0 +1,5 @@
+/workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation.env: OK
+/workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation-identity.json: OK
+/workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation-freeze.txt: OK
+spec/original-proof-automation.lock.json: OK
+tools/prepare_original_proof_automation.sh: OK

@@ -1,0 +1,123 @@
+{
+  "claim": "MCP read-only compiler inspection; direct Holmake remains the proof boundary",
+  "configuration": {
+    "command": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+    "args": [
+      "--transport",
+      "stdio"
+    ],
+    "env": {
+      "HOLDIR": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4",
+      "HOL4_TACTICTOE_CACHE": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/tactictoe-cache"
+    },
+    "identity": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "sha256": "ffbd2169dc564939b768f3b8f8530a8533133e5a0d3a0df5f9febda367f6a05c"
+      },
+      "hol4-mcp": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+        "sha256": "5fc44c37cea4dd684c66f0b716f1b47c3a0525c80afa60cf369696ec2196f968"
+      },
+      "Z3": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3",
+        "sha256": "112132c9f82751e663f5a5573957c678f9af821aaf376d0c5863e4f076370444"
+      }
+    },
+    "claim": "orchestration only; final acceptance requires direct Holmake"
+  },
+  "calls": [
+    {
+      "tool": "hol_start",
+      "arguments": {
+        "workdir": "/workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4",
+        "name": "original-compiler-inspection",
+        "env": {
+          "CAKEMLDIR": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376"
+        }
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Session 'original-compiler-inspection' started. HOL started (PID 42)\nWorkdir: /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Session 'original-compiler-inspection' started. HOL started (PID 42)\nWorkdir: /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4"
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "tool": "hol_send",
+      "arguments": {
+        "session": "original-compiler-inspection",
+        "timeout": 30,
+        "max_output": 6000,
+        "command": "load \"OriginalBootstrapCompilerProbeTheory\"; open OriginalBootstrapCompilerProbeTheory; print (term_to_string (concl original_bootstrap_probe_compiled)); print \"\\nCODE LENGTH: \"; print (Int.toString (length (#1 (listSyntax.dest_list (rhs (concl original_bootstrap_probe_code_def)))))); print \"\\nCODE TYPE: \"; print (type_to_string (type_of (rhs (concl original_bootstrap_probe_code_def)))); print \"\\n\";"
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "<<HOL message: intLib loaded.  Use intLib.deprecate_int() to turn off integer parsing>>\nval it = (): unit\ncompile (set_oracle x64_backend_config original_bootstrap_probe_oracle)\n  original_bootstrap_probe_prog =\nSOME\n  (original_bootstrap_probe_code,original_bootstrap_probe_data,\n   original_bootstrap_probe_info) \u2227\noriginal_bootstrap_probe_ffis =\nffinames_to_string_list\n  (the [] original_bootstrap_probe_info.lab_conf.ffi_names) \u2227\noriginal_bootstrap_probe_syms = original_bootstrap_probe_info.symbols \u2227\nLENGTH original_bootstrap_probe_code = 67910 \u2227\nLENGTH original_bootstrap_probe_data = 354 \u2227\noriginal_bootstrap_probe_info.lab_conf.shmem_extra = [] \u2227\nprog_syntax_ok original_bootstrap_probe_prog \u2227\noriginal_bootstrap_probe_conf =\nencode_backend_config (config_to_inc_config original_bootstrap_probe_info)val it = (): unit\n\nCODE LENGTH: val it = (): unit\nException- HOL_ERR (at listSyntax.dest_list: not terminated with nil) raised\n\n\n[28.577s]",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "<<HOL message: intLib loaded.  Use intLib.deprecate_int() to turn off integer parsing>>\nval it = (): unit\ncompile (set_oracle x64_backend_config original_bootstrap_probe_oracle)\n  original_bootstrap_probe_prog =\nSOME\n  (original_bootstrap_probe_code,original_bootstrap_probe_data,\n   original_bootstrap_probe_info) \u2227\noriginal_bootstrap_probe_ffis =\nffinames_to_string_list\n  (the [] original_bootstrap_probe_info.lab_conf.ffi_names) \u2227\noriginal_bootstrap_probe_syms = original_bootstrap_probe_info.symbols \u2227\nLENGTH original_bootstrap_probe_code = 67910 \u2227\nLENGTH original_bootstrap_probe_data = 354 \u2227\noriginal_bootstrap_probe_info.lab_conf.shmem_extra = [] \u2227\nprog_syntax_ok original_bootstrap_probe_prog \u2227\noriginal_bootstrap_probe_conf =\nencode_backend_config (config_to_inc_config original_bootstrap_probe_info)val it = (): unit\n\nCODE LENGTH: val it = (): unit\nException- HOL_ERR (at listSyntax.dest_list: not terminated with nil) raised\n\n\n[28.577s]"
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "tool": "hol_stop",
+      "arguments": {
+        "session": "original-compiler-inspection"
+      },
+      "result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Session 'original-compiler-inspection' stopped.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Session 'original-compiler-inspection' stopped."
+        },
+        "isError": false,
+        "resultType": "complete"
+      }
+    }
+  ]
+}

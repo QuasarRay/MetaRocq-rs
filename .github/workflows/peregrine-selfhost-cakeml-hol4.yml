@@ -120,6 +120,7 @@ jobs:
       - name: Compile exact Peregrine CakeML AST inside HOL4
         run: |
           bash tools/prepare_peregrine_hol4.sh
+          source generated/peregrine-selfhost/hol4/toolchain.env
           export HOLDIR="$HOL4_DIR"
           export CAKEMLDIR="$CAKEML_DIR"
           bash tools/build_peregrine_hol4_compile.sh

@@ -2,7 +2,7 @@ Theory PeregrineGeneratedCompile
 Ancestors
   compiler
 Libs
-  preamble eval_cake_compile_x64Lib
+  preamble eval_cake_compile_x64Lib CompilerOutputAutomationLib
 
 fun require_env name =
   case OS.Process.getEnv name of
@@ -87,5 +87,18 @@ val _ = require_clean_closed "peregrine_selfhost_compiled"
 val peregrine_machine_code_def =
   Define `peregrine_machine_code = peregrine_code`
   |> check_thm;
+
+(* These checked arithmetic facts accelerate downstream layout obligations.
+   They do not supply source-replay or source-to-machine refinement. *)
+val peregrine_image_layout_facts = CompilerOutputAutomationLib.image_layout_facts
+  {compiled = peregrine_selfhost_compiled,
+   code = ``peregrine_code``, data = ``peregrine_data``};
+val _ = List.app (fn (name,_,th) =>
+  ignore (save_thm ("peregrine_" ^ name, th))) peregrine_image_layout_facts;
+val (_,peregrine_code_nonempty_tactictoe) =
+  CompilerOutputAutomationLib.code_nonempty_tactictoe
+    {compiled = peregrine_selfhost_compiled, code = ``peregrine_code``};
+val _ = save_thm ("peregrine_code_nonempty_tactictoe",
+  peregrine_code_nonempty_tactictoe);
 
 val _ = export_theory();

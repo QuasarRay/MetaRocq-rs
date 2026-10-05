@@ -1,0 +1,19 @@
+(theory
+ ("OriginalCompilerOutputTacticToe"
+  ("OriginalCompilerOutputAutomation" .
+   "1a2d59bb5df9d9d5149487c13cc9a630c9903866"))
+ (core-data
+  (tables
+   (string-table "min" "=" "fun" "bool" "list" "fcp" "cart" "bit0" "one"
+    "NIL" "OriginalBootstrapCompilerProbe" "original_bootstrap_probe_code"
+    "~" "probe_code_nonempty_tactictoe" "OriginalCompilerOutputTacticToe"
+    "numeral")
+   (id-table (0 . 1) (0 . 2) (0 . 3) (4 . 4) (5 . 6) (5 . 7) (8 . 8)
+    (4 . 9) (10 . 11) (3 . 12))
+   (type-table (2) (6) (5 1) (5 2) (5 3) (4 0 4) (3 5) (1 6 0) (1 6 7)
+    (1 0 0)) (term-table (0 8) (7 6) (8 6) (9 9))) exports (nil) (nil)
+  ((13 (((14 0) (10 13) (3 25 54 58) (4 121) (15 3 6)) "DISK_THM") (2 0)
+    ("%2%1B0U3")))) (incorporate (incorporate-types) incorporate-consts)
+ (loadable-thydata ("grammardelta")
+  ("grammar" "hol" "OriginalCompilerOutputAutomation"
+   "OriginalBootstrapCompilerProbe" "list")))
