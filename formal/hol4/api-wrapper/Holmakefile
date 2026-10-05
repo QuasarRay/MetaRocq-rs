@@ -1,0 +1,11 @@
+INCLUDES = .. \
+  $(CAKEMLDIR)/compiler \
+  $(CAKEMLDIR)/cv_translator \
+  $(CAKEMLDIR)/compiler/backend/proofs \
+  $(CAKEMLDIR)/compiler/backend/x64/proofs
+
+GeneratedApiWrapperModelTheory.dat: GeneratedApiWrapperModelScript.sml
+GeneratedApiWrapperCompileTheory.dat: GeneratedApiWrapperCompileScript.sml
+GeneratedApiWrapperQualificationTheory.dat: GeneratedApiWrapperQualificationScript.sml
+
+all: GeneratedApiWrapperModelTheory.dat GeneratedApiWrapperCompileTheory.dat GeneratedApiWrapperQualificationTheory.dat
