@@ -90,7 +90,11 @@
     "the single native runtime entry is ffiapi_bridge; no per-operation native ABI symbol is required",
     "CakeML checks the 16-byte minimum frame before invoking api_bridge",
     "api_bridge successful returns preserve the supplied byte-array length",
-    "complex and polymorphic native values cross only as opaque handles"
+    "complex and polymorphic native values cross only as opaque handles",
+    "operation_index is globally contiguous and stored in the canonical API IR",
+    "unified CakeML output contains main; component projections remain library facades",
+    "service dispatch resolves operation_index through the canonical operation-name table",
+    "api_request and api_reply are explicit foreign-contract premises"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
@@ -121,5 +125,23 @@
       "malformed input returns an encoded error",
       "no raw Poly/ML object address crosses the boundary"
     ]
+  },
+  "service": {
+    "mode": "one_request_verified_entrypoint",
+    "frame_bytes": 64,
+    "operation_index_bytes": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "operation_index_endianness": "little",
+    "ffi_names": [
+      "api_request",
+      "api_bridge",
+      "api_reply"
+    ],
+    "invalid_operation_status": 2,
+    "purpose": "Expose generated wrapper behavior to whole-program CakeML semantics and compile_correct."
   }
 }
