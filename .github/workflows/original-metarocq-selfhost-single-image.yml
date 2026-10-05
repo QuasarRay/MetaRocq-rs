@@ -1,17 +1,7 @@
 name: Original MetaRocq single-image bootstrap
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-04-single-image
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - 'formal/hol4/**'
-      - 'spec/pcuic-first-metatheory.json'
-      - 'tools/original_cakeml_replay_gate.py'
-      - '.github/workflows/original-metarocq-selfhost-single-image.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 

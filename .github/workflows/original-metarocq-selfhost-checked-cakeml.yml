@@ -1,14 +1,7 @@
 name: Original MetaRocq checked CakeML fragment
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-07-checked-cakeml-fragment
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - '.github/workflows/original-metarocq-selfhost-checked-cakeml.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 

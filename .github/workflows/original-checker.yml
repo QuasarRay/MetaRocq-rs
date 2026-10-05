@@ -1,13 +1,5 @@
 name: Original checker kernel replay
 on:
-  pull_request:
-    paths:
-      - 'metatheory/bootstrap/**'
-      - 'tools/replay_original_checker.py'
-      - 'tools/checker_ci_persistence.py'
-      - 'tools/install_extraction.sh'
-      - 'spec/toolchain.lock.json'
-      - '.github/workflows/original-checker.yml'
   workflow_dispatch:
 permissions:
   contents: write

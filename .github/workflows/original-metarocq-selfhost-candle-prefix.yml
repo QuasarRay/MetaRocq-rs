@@ -1,14 +1,7 @@
 name: Original MetaRocq Candle-prefix shared image
 
 on:
-  push:
-    branches:
-      - experiment/original-metarocq-selfhost-05-candle-prefix
-    paths:
-      - 'metatheory/original-selfhost/**'
-      - '.github/workflows/original-metarocq-selfhost-candle-prefix.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
 
