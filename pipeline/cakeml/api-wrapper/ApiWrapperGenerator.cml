@@ -34,8 +34,8 @@ fun filter_component "" xs = xs
       else filter_component wanted xs;
 
 fun emit_cakeml contract =
-  "(* MACHINE GENERATED. Canonical ABI: mutable byte_array via Runtime.customFFI. *)\n" ^
-  "(* Native Poly/ML objects never cross this boundary. *)\n\n" ^
+  "(* MACHINE GENERATED. Canonical ABI: mutable byte_array via the single #(custom) FFI. *)\n" ^
+  "(* Native Poly/ML objects never cross this boundary; only operation-id bytes and payload bytes do. *)\n\n" ^
   emit_map emit_cakeml_one contract ^
   "\nval generated_api_operation_count = " ^
   Int.toString generated_api_operation_count ^ ";\n";
