@@ -28,6 +28,14 @@ for name in ('DeclarationReplayInventory.v', 'UnifiedReplayRootInventory.v',
         raise SystemExit('Refusing to overwrite an edited Gallina overlay: ' + str(destination))
     destination.write_bytes(content)
 PY
+# The controller's child process may have installed the exact pinned switch.
+# Activate that existing switch; do not duplicate an installation or substitute
+# a different compiler when the required tools are unavailable.
+SWITCH="$ROOT/.aegis/opam"
+if [[ -x "$SWITCH/_opam/bin/rocq" && -x "$SWITCH/_opam/bin/peregrine" ]]; then
+  export OPAMROOT="${OPAMROOT:-$ROOT/.aegis/opam-root}"
+  eval "$(opam env --switch "$SWITCH" --set-switch)"
+fi
 command -v rocq >/dev/null || {
   printf 'BLOCKED: pinned Rocq/MetaRocq/Peregrine installation unavailable.\n' | tee "$GEN/blocked.txt" >&2
   exit 69
