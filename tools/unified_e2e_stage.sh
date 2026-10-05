@@ -10,7 +10,26 @@ TRACE="${E2E_TRACE_DIR:?E2E_TRACE_DIR must be set by the trace runner}"
 STAGE_DIR="$TRACE/stages/$ID"
 mkdir -p "$STAGE_DIR"
 
-exec > >(tee -a "$STAGE_DIR/stdout-stderr.log") 2>&1
+# Adapt CakeML/regression worker semantics: each stage has a status file,
+# combined stdout/stderr and /usr/bin/time -v resource accounting.  The outer
+# invocation observes the inner invocation so even shell/process failures are
+# retained before the CakeML controller receives the exit code.
+if [[ "${E2E_STAGE_OBS_ACTIVE:-0}" != "1" ]]; then
+  set +e
+  /usr/bin/time -v -o "$STAGE_DIR/time-memory.txt" \
+    env E2E_STAGE_OBS_ACTIVE=1 "$0" "$ID" \
+    >"$STAGE_DIR/stdout-stderr.log" 2>&1
+  rc=$?
+  set -e
+  printf 'exit=%s\n' "$rc" > "$STAGE_DIR/status.txt"
+  if [[ "$rc" -eq 0 ]]; then
+    printf 'SUCCESS\n' > "$STAGE_DIR/regression-result.txt"
+  else
+    printf 'FAILED: stage %s exit=%s\n' "$ID" "$rc" > "$STAGE_DIR/regression-result.txt"
+  fi
+  cat "$STAGE_DIR/stdout-stderr.log"
+  exit "$rc"
+fi
 
 fail() { printf 'FAILED: stage %s: %s\n' "$ID" "$*" | tee "$STAGE_DIR/failure.txt" >&2; exit 1; }
 require_file() { [[ -s "$1" ]] || fail "required file missing or empty: $1"; }

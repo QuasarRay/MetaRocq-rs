@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "model": "CakeML/regression worker-style fail-closed capture",
+  "regression_repository": "https://github.com/CakeML/regression.git",
+  "regression_commit": "23cfeba74d0cef77f7274ab41a2e8e87d4032995",
+  "regression_worker_blob": "c224f0ac983af7e8b252e232b2ecdb9dc4a74d5a",
+  "trace_root": ".o11y",
+  "per_run_unique_directory": true,
+  "capture": [
+    "command",
+    "combined stdout/stderr",
+    "/usr/bin/time -v resource usage",
+    "numeric exit status",
+    "explicit SUCCESS/FAILED marker",
+    "repository and origin identities",
+    "toolchain/host snapshot",
+    "per-stage receipts/failure files",
+    "SHA256SUMS"
+  ],
+  "synchronization": {
+    "before_run": "fetch origin branch and, in GitHub Actions, switch to its newest tip",
+    "after_run": "finalize, commit additions under one unique run directory, non-force push, retry by rebase",
+    "overwrite_existing_trace": false,
+    "delete_existing_trace": false,
+    "force_push": false
+  },
+  "limitation": "Repository administrators can rewrite Git history; absolute irreversibility requires external repository policy or immutable replication."
+}
