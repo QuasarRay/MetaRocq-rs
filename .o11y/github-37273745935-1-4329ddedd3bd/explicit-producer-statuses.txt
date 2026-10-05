@@ -1,0 +1,3 @@
+controller=1
+tactician_qualification=31
+retained_candidate=1
