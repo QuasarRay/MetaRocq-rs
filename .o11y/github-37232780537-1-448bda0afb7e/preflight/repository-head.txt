@@ -1,0 +1,7 @@
+commit 448bda0afb7e90990370963a7e703b95b6ffda35
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 07:36:07 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 07:36:07 2026 +1100
+
+    Preserve generated proof artifacts and prevent duplicate failed production

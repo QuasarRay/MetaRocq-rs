@@ -6,11 +6,24 @@ cd "$ROOT"
 GEN="$ROOT/generated/peregrine-selfhost"
 mkdir -p "$GEN/hol4"
 
+# The controller already attempted candidate generation in this run. Retain
+# its partial objects and diagnostics instead of executing that same failed
+# generation a second time from the workflow's always() lane.
+if [[ -n "${E2E_TRACE_DIR:-}" &&
+      -s "$E2E_TRACE_DIR/stages/03/status.txt" ]] &&
+   ! grep -Fxq 'exit=0' "$E2E_TRACE_DIR/stages/03/status.txt"; then
+  printf '%s\n' 'BLOCKED: stage 03 failed; preserved producer checkpoints must be inspected before retry.' >&2
+  exit 44
+fi
+
 if [[ ! -s "$GEN/peregrine-selfhost.cakeml" ||
       ! -s "$GEN/peregrine-selfhost.checked.cakeml" ||
-      ! -s "$GEN/checked-native-cakeml-equality.txt" ]]; then
+      ! -s "$GEN/checked-native-cakeml-equality.txt" ||
+      ! -s "$GEN/producer-inputs.sha256" ]]; then
   bash tools/peregrine_selfhost_pipeline.sh
 fi
+
+sha256sum --check "$GEN/producer-inputs.sha256"
 
 test -s "$GEN/peregrine-selfhost.ast"
 test -s "$GEN/peregrine-selfhost.cakeml"
@@ -71,10 +84,10 @@ EOF
 )
 test -s "$ROOT/formal/hol4/PeregrineSelfHostContractTheory.dat"
 
-# The final composition theorem is intentionally not synthesized here. Astra
-# remains the authority for the canonical formalization. This engineering lane
-# only composes existing fragments and must fail closed when the source-to-
-# machine theorem is absent.
+# This Original-Peregrine bootstrap is authorized independently of the Astra
+# restriction on canonical Rust-native MetaRocq-rs formalization. Authorization
+# does not supply a missing mathematical theorem: actual source-to-machine
+# composition must exist and be checked before qualification can pass.
 FINAL="$ROOT/formal/hol4/PeregrineSelfHostE2EScript.sml"
 if [[ ! -s "$FINAL" ]]; then
   cat > "$GEN/hol4/final-source-machine.blocked" <<'EOF'

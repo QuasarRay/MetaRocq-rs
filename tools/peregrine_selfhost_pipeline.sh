@@ -5,6 +5,27 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 GEN="$ROOT/generated/peregrine-selfhost"
 mkdir -p "$GEN"
+rm -f "$GEN/producer-inputs.sha256"
+
+compile_rocq() {
+  local source="${@: -1}"
+  local key
+  key="$(printf '%s' "$source" | sha256sum | cut -c1-12)"
+  local obs="$GEN/compilations/$key"
+  mkdir -p "$obs"
+  printf '%s\n' "$source" > "$obs/source.txt"
+  printf 'BEGIN Rocq compile: %s\n' "$source"
+  set +e
+  /usr/bin/time -v -o "$obs/time-memory.txt" rocq compile "$@" \
+    2>&1 | tee "$obs/stdout-stderr.log"
+  local result=("${PIPESTATUS[@]}")
+  set -e
+  local rc="${result[0]}"
+  [[ "$rc" -ne 0 || "${result[1]}" -eq 0 ]] || rc="${result[1]}"
+  printf 'exit=%s\n' "$rc" > "$obs/status.txt"
+  printf 'END Rocq compile: %s exit=%s\n' "$source" "$rc"
+  return "$rc"
+}
 
 export OPAMROOT="${OPAMROOT:-$ROOT/.aegis/opam-root}"
 SWITCH="$ROOT/.aegis/opam"
@@ -25,13 +46,15 @@ rocq -v > "$GEN/rocq-version.txt"
 peregrine --help > "$GEN/peregrine-help.txt"
 
 Q0=(-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost)
-rocq compile "${Q0[@]}" metatheory/original-selfhost/PCUICModuleManifest.v
-rocq compile "${Q0[@]}" metatheory/original-selfhost/SelfSnapshot.v
+compile_rocq "${Q0[@]}" metatheory/original-selfhost/PCUICModuleManifest.v
+compile_rocq "${Q0[@]}" metatheory/original-selfhost/SelfSnapshot.v
 
 Q=(
   -Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost
   -Q metatheory/peregrine-selfhost MetaRocqRs.PeregrineSelfHost
+  -Q generated/peregrine-selfhost/replay-roots MetaRocqRs.PeregrineGenerated
 )
+mkdir -p "$GEN/replay-roots"
 
 # Reuse the previously formalized checked frontend/compiler components.  These
 # are compiled here only so the executable adapter below cannot silently drift
@@ -43,15 +66,15 @@ for f in \
   CakeMLNoRaise.v \
   CheckedCandidateCakeML.v
 do
-  rocq compile "${Q[@]}" "metatheory/original-selfhost/$f"
+  compile_rocq "${Q[@]}" "metatheory/original-selfhost/$f"
 done
 
-rocq compile "${Q[@]}" \
+compile_rocq "${Q[@]}" \
   metatheory/peregrine-selfhost/PeregrineCheckedCakeMLProducer.v
 
 rm -rf "$GEN/checked-extraction"
 mkdir -p "$GEN/checked-extraction"
-rocq compile "${Q[@]}" \
+compile_rocq "${Q[@]}" \
   metatheory/peregrine-selfhost/PeregrineCheckedCakeMLExtraction.v
 bash tools/build_checked_cakeml_producer.sh
 
@@ -60,12 +83,25 @@ for f in \
   PeregrineLoadAll.v \
   PeregrineSnapshot.v \
   MaterializePeregrineSnapshot.v \
-  PeregrineProofCorpus.v \
-  PeregrineRuntimeReplay.v \
-  PeregrineSelfHostEntrypoint.v \
-  ExtractPeregrineSelfHost.v
+  PeregrineProofCorpus.v
 do
-  rocq compile "${Q[@]}" "metatheory/peregrine-selfhost/$f"
+  compile_rocq "${Q[@]}" "metatheory/peregrine-selfhost/$f"
+done
+
+# Rocq/MetaRocq enumerates every module declaration. The renderer only emits
+# those exact references; it never chooses theorem names from source text.
+compile_rocq "${Q[@]}" \
+  metatheory/peregrine-selfhost/PeregrineReplayRootInventory.v \
+  2>&1 | tee "$GEN/replay-roots/module-inventory.log"
+python3 tools/materialize_peregrine_replay_roots.py \
+  "$GEN/replay-roots/module-inventory.log" \
+  --manifest metatheory/peregrine-selfhost/PeregrineSourceManifest.v \
+  --output-dir "$GEN/replay-roots"
+compile_rocq "${Q[@]}" "$GEN/replay-roots/PeregrineReplayAllGlobals.v"
+
+for f in PeregrineRuntimeReplay.v PeregrineSelfHostEntrypoint.v ExtractPeregrineSelfHost.v
+do
+  compile_rocq "${Q[@]}" "metatheory/peregrine-selfhost/$f"
 done
 
 AST="$GEN/peregrine-selfhost.ast"
@@ -90,6 +126,18 @@ if ! cmp -s "$CAKEML" "$CHECKED_CAKEML"; then
   exit 43
 fi
 printf 'byte-identical\n' > "$GEN/checked-native-cakeml-equality.txt"
+
+# Bind reusable producer outputs to their actual source recipe. This is a
+# provenance receipt; later proof replay and HOL4 semantic gates still apply.
+{
+  find metatheory/original-selfhost metatheory/peregrine-selfhost \
+    "$GEN/replay-roots" -maxdepth 1 -type f -name '*.v' -print0
+  printf '%s\0' spec/toolchain.lock.json \
+    tools/peregrine_selfhost_pipeline.sh tools/build_checked_cakeml_producer.sh \
+    tools/materialize_peregrine_replay_roots.py \
+    "$AST" "$CAKEML" "$CHECKED_CAKEML" \
+    "$GEN/checked-native-cakeml-equality.txt"
+} | sort -z | xargs -0 sha256sum > "$GEN/producer-inputs.sha256"
 
 cat > "$GEN/producer-boundary.txt" <<'EOF'
 The prebuilt Rocq/MetaRocq and Peregrine executables produced these artifacts.
