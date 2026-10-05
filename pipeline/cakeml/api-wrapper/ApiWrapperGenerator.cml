@@ -5,6 +5,9 @@ fun join [] = ""
   | join [x] = x
   | join (x::xs) = x ^ join xs;
 
+fun list_length [] = 0
+  | list_length (_::xs) = 1 + list_length xs;
+
 fun emit_cakeml_one
       (component, sig_name, original_name, operation_id, cake_name,
        type_text, lowering, operation_index) =
