@@ -32,7 +32,7 @@ End
 Definition generated_wrapper_safe_def:
   generated_wrapper_safe known foreign <=>
     !op payload.
-      MEM op known /
+      ~MEM op known ==>
       generated_wrapper_step known foreign op payload =
         ApiError UnknownOperation
 End
@@ -76,6 +76,5 @@ QED
 Theorem generated_wrapper_safe:
   !known foreign. generated_wrapper_safe known foreign
 Proof
-  rw [generated_wrapper_safe_def]
-  \ metis_tac [generated_wrapper_unknown_fail_closed]
+  simp [generated_wrapper_safe_def, generated_wrapper_step_def]
 QED
