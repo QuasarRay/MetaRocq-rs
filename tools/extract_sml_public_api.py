@@ -299,13 +299,19 @@ def main() -> int:
     unsupported = [d for d in declarations if d["kind"] == "unsupported"]
 
     operation_locations: dict[str, list[str]] = collections.defaultdict(list)
+    cake_name_locations: dict[str, list[str]] = collections.defaultdict(list)
     for s in signatures:
         for d in s["declarations"]:
             if d["kind"] == "val":
                 operation_locations[d["operation_id"]].append(s["path"])
+                cake_name_locations[d["cake_name"]].append(d["operation_id"])
     duplicates = {
         op: sorted(paths) for op, paths in operation_locations.items()
         if len(paths) > 1
+    }
+    cake_name_collisions = {
+        name: sorted(set(ops)) for name, ops in cake_name_locations.items()
+        if len(set(ops)) > 1
     }
 
     canonical = {
@@ -316,6 +322,7 @@ def main() -> int:
         "signatures": signatures,
         "failures": failures,
         "duplicate_operation_ids": duplicates,
+        "cake_name_collisions": cake_name_collisions,
         "source_interface_audit": {
             "signature_count": len(audit_inventory),
             "files": audit_inventory,
@@ -326,6 +333,7 @@ def main() -> int:
             "value_count": len(values),
             "unsupported_count": (
                 len(unsupported) + len(failures) + len(duplicates)
+                + len(cake_name_collisions)
             ),
         },
         "components": {
