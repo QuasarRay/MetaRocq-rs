@@ -21,13 +21,13 @@ jobs:
       - name: Prepare exact HOL4 and CakeML proof stack
         run: bash tools/prepare_generated_api_wrapper_toolchain.sh
 
-      - name: Fetch CakeML v3400 compiler bundle
+      - name: Fetch CakeML v3213 compiler bundle
         run: |
-          mkdir -p .aegis/tools/cake-v3400
-          curl -fL             https://github.com/CakeML/cakeml/releases/download/v3400/cake-x64-64.tar.gz             -o /tmp/cake-v3400.tar.gz
-          tar -xzf /tmp/cake-v3400.tar.gz -C .aegis/tools/cake-v3400 --strip-components=1
-          test -x .aegis/tools/cake-v3400/cake
-          test -f .aegis/tools/cake-v3400/basis_ffi.c
+          mkdir -p .aegis/tools/cake-v3213
+          curl -fL             https://github.com/CakeML/cakeml/releases/download/v3213/cake-x64-64.tar.gz             -o /tmp/cake-v3213.tar.gz
+          tar -xzf /tmp/cake-v3213.tar.gz -C .aegis/tools/cake-v3213 --strip-components=1
+          test -x .aegis/tools/cake-v3213/cake
+          test -f .aegis/tools/cake-v3213/basis_ffi.c
 
       - name: Run extractor regressions
         run: python3 tools/test_generated_api_wrapper_pipeline.py
@@ -35,7 +35,7 @@ jobs:
       - name: Generate wrappers and kernel-check HOL4 artifacts
         run: |
           source generated/api-wrapper/proof-toolchain.env
-          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3400"
+          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3213"
           bash tools/run_generated_api_wrapper_pipeline.sh
 
       - name: Preserve generated proof evidence
