@@ -1,5 +1,6 @@
 From Stdlib Require Import String List.
 From MetaRocq.Utils Require Import ResultMonad.
+From Peregrine Require Import Utils.
 From MetaRocqRs.OriginalSelfHost Require Import
   SharedImageEntrypoint ValidatedCakeMLGateway
   CakeMLBackendTrustLedger CakeMLTranslationCertificate
@@ -7,7 +8,8 @@ From MetaRocqRs.OriginalSelfHost Require Import
 
 Inductive validated_shared_command :=
 | RunSharedImage (cmd : shared_image_command)
-| CandidateCompileCakeML (attrs : list string) (source : string)
+| CandidateCompileCakeML (attrs : list bytestring.String.string)
+    (source : bytestring.String.string)
 | InspectCakeMLBackendTrust
 | InspectCakeMLTranslationCertificate
 | VerifyValidatedCakeMLGateway.

@@ -1,0 +1,2 @@
+Frozen instruction count: 24
+No proof gate is opened by this stage.

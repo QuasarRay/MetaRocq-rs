@@ -1,6 +1,6 @@
 From Stdlib Require Import List.
 From MetaRocq.Utils Require Import ResultMonad bytestring.
-From Peregrine Require Import PAst.
+From Peregrine Require Import Utils PAst.
 From MetaRocqRs.OriginalSelfHost Require Import
   SingleImageEntrypoint CandlePrefixComposition RecursiveSelfIdentity
   EmbeddedPeregrine.

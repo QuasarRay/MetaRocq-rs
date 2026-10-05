@@ -1,6 +1,7 @@
 From Stdlib Require Import String List.
 From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad.
+From Peregrine Require Import Utils.
 From MetaRocqRs.OriginalSelfHost Require Import
   EmbeddedPeregrine CandidateCakeMLCompiler
   CakeMLTranslationCertificate CakeMLBackendTrustLedger.
@@ -9,7 +10,7 @@ Import MonadNotation.
 Local Open Scope monad.
 
 Definition prepare_and_candidate_compile
-  (attrs : list string) (source : string)
+  (attrs : list bytestring.String.string) (source : bytestring.String.string)
   : result' candidate_cakeml_ast :=
   p <- prepare_cakeml attrs source ;;
   candidate_compile_cakeml_ast p.
