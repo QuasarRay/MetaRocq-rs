@@ -1,0 +1,11 @@
+{"source_bundle": "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/derived/metarocq-three-projects-ed17df085e5d22a2", "module_count": 1327, "unmapped_gallina_count": 2788, "repositories": {"metarocq": {"tracked": 755, "Gallina": 596, "OCaml": 23, "other": 136}, "rocq": {"tracked": 5244, "Gallina": 2608, "OCaml": 1274, "other": 1362}, "peregrine": {"tracked": 184, "Gallina": 66, "OCaml": 15, "other": 103}, "rocq-stdlib": {"tracked": 1098, "Gallina": 845, "OCaml": 2, "other": 251}}, "claim": "complete physical source inventory; NOT complete proof replay or machine correctness"}
+File "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/derived/metarocq-three-projects-ed17df085e5d22a2/selfhost/generated/UnifiedLoadAll.v", line 68, characters 0-35:
+Warning: Trying to mask the absolute name "Ltac2.Array"!
+[masking-absolute-name,deprecated-since-8.8,deprecated,default]
+File "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/derived/metarocq-three-projects-ed17df085e5d22a2/selfhost/generated/UnifiedLoadAll.v", line 68, characters 0-35:
+Warning: Trying to mask the absolute name "Ltac2.Array.empty"!
+[masking-absolute-name,deprecated-since-8.8,deprecated,default]
+File "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/derived/metarocq-three-projects-ed17df085e5d22a2/selfhost/generated/UnifiedLoadAll.v", line 134, characters 15-47:
+Error: Unable to locate library
+MetaRocq.Erasure.EGlobalFragment (while searching for a .vos file).
+
