@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "EXPERIMENTAL_FAIL_CLOSED",
+  "scope": "Original MetaRocq self-verification variation only; not the canonical Rust-native MetaRocq-rs MetaTheory",
+  "source": {
+    "metarocq": {
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e",
+      "version": "1.5.1"
+    },
+    "peregrine": {
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "cakeml_candle": {
+      "repository": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+      "release": "v3213",
+      "x64_64_asset_sha256": "e99dc1cdb9e28366f78c7c4ef812dbaab6710eb301ae8c85d1b6ce2a2161b728"
+    }
+  },
+  "bound_candle_files": {
+    "examples/opentheory/readerScript.sml": "362a49c15d9fbd2d90b8fcdc8703c15f9cec2240",
+    "examples/opentheory/readerSoundnessScript.sml": "6960f7a3af3e18187b72bc90ae78fd06320c3407",
+    "examples/opentheory/compilation/proofs/readerProgProofScript.sml": "3abf706794e448f4abce2350ede7712a01118ddb"
+  },
+  "canonical_execution_chain": [
+    "quote Original MetaRocq and its metatheory into a baked PCUIC snapshot",
+    "lower the quoted metatheory through a proof-producing HOL/OpenTheory IR",
+    "serialize an OpenTheory article using the verified reader command vocabulary",
+    "check the article with the Candle-based verified OpenTheory checker",
+    "extract the self-verifying MetaRocq runner to lambda-box",
+    "lower lambda-box to CakeML with pinned Peregrine",
+    "compile with pinned CakeML",
+    "execute the CakeML program and replay the self-verification"
+  ],
+  "trust_policy": {
+    "proof_holes": "forbidden",
+    "admitted": "forbidden",
+    "new_opentheory_axioms_for_source_theorems": "forbidden",
+    "unsupported_lowering": "blocks publication",
+    "external_scripts": "bootstrap, invocation and evidence transport only; they do not select, synthesize, translate or accept proofs",
+    "candle_acceptance": "an OpenTheory artifact is independently accepted only after the pinned verified reader successfully checks it",
+    "semantic_preservation": "tool exit status alone is insufficient; each PCUIC-to-HOL/OpenTheory lowering rule must have an explicit correctness theorem or remain blocked",
+    "canonical_rust_metatheory": "out of scope; only GPT-6 Astra may select the canonical Rust-native MetaRocq-rs MetaTheory"
+  },
+  "known_open_obligation": {
+    "name": "PCUIC proof derivation to HOL/OpenTheory derivation",
+    "status": "UNPROVED",
+    "policy": "the executable architecture may be built around this boundary, but e2e verification may not be reported successful until this lowering is mechanically produced, independently checked by Candle, and justified by a semantics-preservation proof"
+  }
+}
