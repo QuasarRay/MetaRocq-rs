@@ -1,6 +1,7 @@
 From Stdlib Require Import String List Bool.
 From Peregrine Require Import Pipeline Config ConfigUtils.
-From MetaRocqRs.PeregrineSelfHost Require Import PeregrineProofCorpus.
+From MetaRocqRs.PeregrineSelfHost Require Import
+  PeregrineProofCorpus PeregrineRuntimeReplay.
 
 Import ListNotations.
 Open Scope string_scope.
@@ -14,6 +15,7 @@ Inductive peregrine_selfhost_command :=
 | InspectPeregrineProofCorpus
 | InspectPeregrineAssumptions
 | InspectPeregrineReplayJobs
+| ReplayPeregrineRuntimeProofs
 | VerifyRetainedReplayEvidence
     (evidence : list peregrine_replay_evidence).
 
@@ -22,6 +24,7 @@ Inductive peregrine_selfhost_response :=
 | PeregrineProofCorpusResponse (xs : list peregrine_theorem_certificate)
 | PeregrineAssumptionResponse (xs : list peregrine_source_assumption)
 | PeregrineReplayJobsResponse (xs : list peregrine_replay_job)
+| PeregrineRuntimeReplayResult (accepted : bool)
 | PeregrineReplayAccepted
 | PeregrineReplayBlocked.
 
@@ -38,6 +41,8 @@ Definition peregrine_selfhost_entrypoint
       PeregrineAssumptionResponse peregrine_assumption_ledger
   | InspectPeregrineReplayJobs =>
       PeregrineReplayJobsResponse peregrine_replay_jobs
+  | ReplayPeregrineRuntimeProofs =>
+      PeregrineRuntimeReplayResult replay_peregrine_runtime_program
   | VerifyRetainedReplayEvidence evidence =>
       if accept_peregrine_replay_corpus evidence
       then PeregrineReplayAccepted
@@ -47,3 +52,5 @@ Definition peregrine_selfhost_entrypoint
 Definition retained_peregrine_proof_corpus := peregrine_certificate_corpus.
 Definition retained_peregrine_assumption_ledger := peregrine_assumption_ledger.
 Definition retained_peregrine_replay_jobs := peregrine_replay_jobs.
+Definition retained_peregrine_runtime_replay_program :=
+  peregrine_runtime_replay_program.

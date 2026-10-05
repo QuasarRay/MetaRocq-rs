@@ -76,8 +76,21 @@ case "$ID" in
     # candidate production. Run it once; Steps 04-05 consume these exact bytes.
     bash tools/peregrine_selfhost_pipeline.sh
     require_file generated/peregrine-selfhost/peregrine-selfhost.ast
-    sha256sum generated/peregrine-selfhost/peregrine-selfhost.ast > "$STAGE_DIR/lambdabox.sha256"
+    require_file metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v
+    require_file metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v
+    grep -Fq 'replay_peregrine_runtime_program' \
+      metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v ||
+      fail "runtime replay implementation missing"
+    grep -Fq 'ReplayPeregrineRuntimeProofs' \
+      metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v ||
+      fail "runtime replay command missing from extraction root"
+    sha256sum \
+      generated/peregrine-selfhost/peregrine-selfhost.ast \
+      metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v \
+      metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v \
+      > "$STAGE_DIR/lambdabox-replay-inputs.sha256"
     receipt "Selfhost LambdaBox/proof corpus producer completed."
+    receipt "Replay-capable entrypoint retained; diagnostic checker success is not semantic proof."
     ;;
   04)
     require_file generated/peregrine-selfhost/rocq-version.txt
@@ -91,7 +104,13 @@ case "$ID" in
     require_file generated/peregrine-selfhost/peregrine-selfhost.cakeml
     require_file generated/peregrine-selfhost/peregrine-selfhost.cakeml.sha256
     sha256sum --check generated/peregrine-selfhost/peregrine-selfhost.cakeml.sha256
+    sha256sum \
+      generated/peregrine-selfhost/peregrine-selfhost.cakeml \
+      metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v \
+      metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v \
+      > "$STAGE_DIR/cakeml-replay-binding-inputs.sha256"
     receipt "Exact prebuilt Peregrine CakeML candidate identity verified; not accepted as proof."
+    receipt "Replay source identities recorded alongside the exact CakeML candidate."
     ;;
   06)
     proof="metatheory/peregrine-selfhost/PeregrineCakeMLPipelineCorrect.v"

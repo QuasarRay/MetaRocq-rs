@@ -1,0 +1,26 @@
+	Command being timed: "bash -lc 
+  sudo apt-get update &&
+  sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang polyml curl git time
+"
+	User time (seconds): 11.01
+	System time (seconds): 1.63
+	Percent of CPU this job got: 47%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:26.67
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 215696
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 488
+	Minor (reclaiming a frame) page faults: 649167
+	Voluntary context switches: 32997
+	Involuntary context switches: 193
+	Swaps: 0
+	File system inputs: 2624840
+	File system outputs: 2610512
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -47,15 +47,25 @@ Proof
   rw [parse_eval, peregrine_selfhost_prog_def]
 QED
 
-(* This is the exact theorem-producing CakeML compiler evaluation.  It proves
-   what exact target program the exact parsed AST compiles to.  Application
-   semantics and the Peregrine source/replay refinement are composed later;
-   this theorem alone does not authorize the final E2E claim. *)
+(* This is the exact theorem-producing CakeML compiler evaluation.  The
+   non-empty prefix deliberately gives the generated code/data/oracle/info
+   constants stable Peregrine-specific names.  In particular, the helper
+   creates [peregrine_code] as the exact compiler-produced byte object in HOL;
+   [output_asm] is only its exported assembler representation. *)
 val peregrine_selfhost_compiled =
-  eval_cake_compile_x64 "" peregrine_selfhost_prog_def output_asm
+  eval_cake_compile_x64
+    "peregrine_" peregrine_selfhost_prog_def output_asm
   |> check_thm;
 
 val _ =
   save_thm ("peregrine_selfhost_compiled", peregrine_selfhost_compiled);
+
+(* Retain an explicit, stable byte-level alias for downstream source-to-machine
+   composition.  This definition is not a source-semantics theorem; it simply
+   names the exact code object already produced by the checked compiler
+   evaluation above. *)
+val peregrine_machine_code_def =
+  Define `peregrine_machine_code = peregrine_code`
+  |> check_thm;
 
 val _ = export_theory();
