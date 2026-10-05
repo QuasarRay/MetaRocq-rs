@@ -86,6 +86,8 @@ class GeneratedApiWrapperTests(unittest.TestCase):
             self.assertEqual(
                 by_id["HolSmtLib.Z3_PROVE"]["cake_name"],
                 "generated_holsmtlib_z3_prove")
+            indices = sorted(d["operation_index"] for d in vals)
+            self.assertEqual(indices, list(range(len(vals))))
 
             z3 = json.loads((root / "api.z3_tac.json").read_text())
             ttt = json.loads((root / "api.tactictoe.json").read_text())
@@ -146,6 +148,24 @@ class GeneratedApiWrapperTests(unittest.TestCase):
         renderer = (ROOT / "tools/render_api_contract_cml.py").read_text()
         self.assertIn('d["cake_name"]', renderer)
         self.assertNotIn("def cake_name(", renderer)
+
+    def test_unified_generator_emits_service_entrypoint(self):
+        text = (
+            ROOT / "pipeline/cakeml/api-wrapper/ApiWrapperGenerator.cml"
+        ).read_text()
+        self.assertIn("#(api_request)", text)
+        self.assertIn("#(api_reply)", text)
+        self.assertIn("fun generated_service_main", text)
+        self.assertIn("fun main u = generated_service_main u", text)
+        self.assertIn("generated_read_index", text)
+
+    def test_service_protocol_is_machine_readable(self):
+        spec = json.loads(SPEC.read_text())
+        self.assertEqual(spec["service"]["frame_bytes"], 64)
+        self.assertEqual(spec["service"]["operation_index_bytes"], [4,5,6,7])
+        self.assertEqual(
+            spec["service"]["ffi_names"],
+            ["api_request","api_bridge","api_reply"])
 
 
 if __name__ == "__main__":
