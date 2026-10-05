@@ -10,3 +10,5 @@ INCLUDES += $(CAKEMLDIR)/misc \
             $(CAKEMLDIR)/compiler/backend/cv_compute \
             $(CAKEMLDIR)/cv_translator
 endif
+
+PeregrineGeneratedCompileTheory.dat: ../../generated/peregrine-selfhost/hol4/compiler-input.sexp
