@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "status": "FAIL_CLOSED",
+  "branch": "experiment/unified-e2e-cakeml-regression-o11y",
+  "base_branch": "experiment/peregrine-selfhost-cakeml-hol4-e2e",
+  "pipeline_source": "cakeml/peregrine-selfhost/UnifiedE2EPipeline.cml",
+  "instruction_sequence": "uploaded unified Peregrine -> MetaRocq manual, README + Steps 01-23",
+  "cake_compiler_bootstrap": {
+    "release": "v3479",
+    "asset": "cake-x64-64.tar.gz",
+    "sha256": "e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a",
+    "role": "compile the orchestration plan only; not semantic proof evidence"
+  },
+  "regression": {
+    "repository": "https://github.com/CakeML/regression.git",
+    "commit": "23cfeba74d0cef77f7274ab41a2e8e87d4032995",
+    "direct_reuse": "tools/regression_trace_runner.sml loads utilLib.sml from this exact checkout and follows worker.sml command-capture semantics",
+    "capture": [
+      "per-stage command",
+      "per-stage combined stdout/stderr",
+      "per-stage elapsed seconds, max RSS, exit code",
+      "per-stage RUNNING/SUCCESS/FAILED/SKIPPED status",
+      "blocking predecessor for skipped stages",
+      "exact generated CakeML stage plan",
+      "workflow/repository/toolchain provenance",
+      "generated proof/build artefact hashes where each stage produces them",
+      "exact per-stage instruction Markdown plus expected/actual SHA-256 identity"
+    ]
+  },
+  "o11y": {
+    "root": ".o11y/runs",
+    "run_directory_key": "<github.run_id>-<github.run_attempt>-<github.sha>",
+    "append_only": true,
+    "force_push_forbidden": true,
+    "sync_before_run": true,
+    "sync_after_run_even_on_pipeline_failure": true,
+    "trace_push_ignored_by_workflow_trigger": true,
+    "failure_model": "before the real run, inject a failure at every one of the 23 pipeline positions in dry-run mode and persist the complete FAILED/SKIPPED/always-run trace topology"
+  },
+  "stages": [
+    "01 peregrine-freeze-target",
+    "02 peregrine-clone-pin-audit",
+    "03 peregrine-selfhost-lambdabox-proof-corpus",
+    "04 peregrine-bootstrap-prebuilt-metarocq-seed",
+    "05 peregrine-prebuilt-to-cakeml",
+    "06 peregrine-close-lambdabox-cakeml-proof-gap",
+    "07 peregrine-exact-cakeml-machine-hol4",
+    "08 peregrine-embed-noncircular-proof-capsule",
+    "09 peregrine-fresh-independent-hol4-revalidation",
+    "10 peregrine-publication-gate",
+    "11 metarocq-freeze-trust-e2e-criteria",
+    "12 metarocq-reproduce-pinned-toolchain",
+    "13 metarocq-complete-source-spec-proof-corpus",
+    "14 metarocq-self-reflection-lambdabox-retention",
+    "15 metarocq-erasure-correctness-assumption-closure",
+    "16 metarocq-reuse-verified-peregrine-bridge",
+    "17 metarocq-complete-proof-corpus-hol4-replay",
+    "18 metarocq-exact-cakeml-in-hol4",
+    "19 metarocq-unified-source-machine-hol4-theorem",
+    "20 metarocq-recursive-machine-self-replay",
+    "21 metarocq-local-operation-recovery-audit",
+    "22 metarocq-final-audit-publication-gate",
+    "23 unified-reuse-provenance-open-obligations"
+  ],
+  "known_fail_closed_obligations_from_base": [
+    "metatheory/peregrine-selfhost/PeregrineCakeMLPipelineCorrect.v",
+    "metatheory/peregrine-selfhost/PeregrineCakeMLTranslationCertificate.v",
+    "formal/hol4/PeregrineProofCapsuleScript.sml",
+    "formal/hol4/PeregrineIndependentReplayScript.sml",
+    "formal/hol4/PeregrineSelfHostE2EScript.sml",
+    "formal/hol4/MetaRocqProofReplayScript.sml",
+    "formal/hol4/MetaRocqGeneratedCompileScript.sml",
+    "formal/hol4/MetaRocqSelfHostE2EScript.sml",
+    "generated/original-selfhost/metarocq-selfhost.cake with theorem-bound recursive self replay"
+  ],
+  "instruction_manifest": "spec/unified-e2e-instruction-sha256.txt"
+}

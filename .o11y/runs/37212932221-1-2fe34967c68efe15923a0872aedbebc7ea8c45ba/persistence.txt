@@ -1,0 +1,8 @@
+persist_started_utc=2026-10-04T15:26:21Z
+branch=experiment/unified-e2e-cakeml-regression-o11y
+origin_head_before=2fe34967c68efe15923a0872aedbebc7ea8c45ba
+workflow_run_id=37212932221
+workflow_run_attempt=1
+workflow_sha=2fe34967c68efe15923a0872aedbebc7ea8c45ba
+force_push=false
+append_only=true

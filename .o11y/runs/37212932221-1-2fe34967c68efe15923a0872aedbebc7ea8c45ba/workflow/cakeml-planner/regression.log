@@ -1,0 +1,11 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 6964k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 6964k  100 6964k    0     0  14.7M      0 --:--:-- --:--:-- --:--:-- 36.5M
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/cake-v3479/cake-x64-64.tar.gz: OK
+make: Entering directory '/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/cake-v3479/cake-x64-64'
+cc -O2 cake.S basis_ffi.c  -DEVAL -o cake  -lm
+./cake  <unified_e2e_planner.cml >unified_e2e_planner.cake.S
+cc unified_e2e_planner.cake.S basis_ffi.c  -lm -o unified_e2e_planner.cake  -lm
+rm unified_e2e_planner.cake.S
+make: Leaving directory '/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/cake-v3479/cake-x64-64'
