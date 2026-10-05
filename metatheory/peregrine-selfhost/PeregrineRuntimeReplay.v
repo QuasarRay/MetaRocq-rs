@@ -46,7 +46,7 @@ Definition replay_program_contains_certificate
       | Some _ => true
       | None => false
       end
-  | None => false
+  | _ => false
   end.
 
 Definition replay_covers_retained_certificate_corpus : bool :=

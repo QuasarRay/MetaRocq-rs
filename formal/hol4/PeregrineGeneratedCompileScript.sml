@@ -9,7 +9,11 @@ fun require_env name =
     SOME s => s
   | NONE => raise Fail ("missing required environment variable: " ^ name);
 
-val serialized_path = require_env "PEREGRINE_CAKEML_SEXP";
+(* The build wrapper materializes and hashes this exact dependency. Reading a
+   stable path also prevents an unrelated environment value from selecting
+   bytes different from Holmake's declared input. *)
+val serialized_path =
+  "../../generated/peregrine-selfhost/hol4/compiler-input.sexp";
 val output_asm = require_env "PEREGRINE_MACHINE_ASM";
 
 val in_stream = TextIO.openIn serialized_path;
@@ -59,6 +63,22 @@ val peregrine_selfhost_compiled =
 
 val _ =
   save_thm ("peregrine_selfhost_compiled", peregrine_selfhost_compiled);
+
+(* A compiler-evaluation theorem must be closed and free from extra axioms or
+   oracle tags other than HOL4's normal DISK_THM dependency-load marker.
+   This is the same tag policy as CakeML's check_thm. Checking these objects
+   it does not supply the later source-semantics composition theorem. *)
+fun require_clean_closed name th =
+  let val tag = Thm.tag th
+  in
+    if null (Thm.hyp th) andalso (Tag.isEmpty tag orelse Tag.isDisk tag) then ()
+    else raise Fail ("contaminated or open compiler theorem: " ^ name)
+  end;
+
+val _ = require_clean_closed "peregrine_serialized_cakeml_parses"
+  peregrine_serialized_cakeml_parses;
+val _ = require_clean_closed "peregrine_selfhost_compiled"
+  peregrine_selfhost_compiled;
 
 (* Retain an explicit, stable byte-level alias for downstream source-to-machine
    composition.  This definition is not a source-semantics theorem; it simply

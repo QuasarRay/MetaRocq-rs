@@ -1,0 +1,8 @@
+{
+  "claim": "HOL4 qualification contracts only; NOT compiler evaluation or source-to-machine correctness",
+  "hol4_pin": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "polyml_version": "5.7.1",
+  "result": "both qualification theories compiled",
+  "tag_policy": "empty tags or the standard DISK_THM dependency-load marker; no other oracles or additional axioms",
+  "trusted_dependency_boundary": "locally built pinned HOL4 dependency objects; independent full source-to-machine revalidation remains open"
+}
