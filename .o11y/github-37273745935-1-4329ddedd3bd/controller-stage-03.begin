@@ -1,0 +1,3 @@
+stage=03
+title=Peregrine: build selfhost LambdaBox and proof replay corpus
+manual=docs/unified-peregrine-metarocq-e2e/03-peregrine-build-selfhost-lambdabox-and-proof-replay-corpus.md
