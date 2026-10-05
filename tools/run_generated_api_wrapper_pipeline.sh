@@ -20,12 +20,20 @@ actual_cake="$(git -C "$CAKEML_SRC" rev-parse HEAD)"
 [[ "$actual_hol" == "$expected_hol" ]] || { echo "HOL4 pin mismatch" >&2; exit 64; }
 [[ "$actual_cake" == "$expected_cake" ]] || { echo "CakeML pin mismatch" >&2; exit 65; }
 
-# Reuse PR #59's qualified HOL4/MCP/Z3 environment rather than recreating it.
+# Reuse PR #59's qualification environment when available. The production
+# wrapper proof stack remains independently pinned and separately compiled.
 if [[ -x "$ROOT/.aegis/tools/original-proof-automation/bin/python" ]]; then
   "$ROOT/.aegis/tools/original-proof-automation/bin/python"     "$ROOT/.agents/scripts/check_hol4.py"     > "$OUT/reused-hol4-qualification.log" 2>&1
 fi
 
 python3 tools/extract_sml_public_api.py   --hol4-root "$HOL4_SRC"   --config "$SPEC"   --out "$OUT/canonical-api.json"   --strict
+
+for component in hol4 z3_tac tactictoe; do
+  test -s "$OUT/canonical-api.$component.json" || {
+    echo "missing component contract: $component" >&2
+    exit 71
+  }
+done
 
 python3 tools/render_api_contract_cml.py   "$OUT/canonical-api.json"   "$OUT/GeneratedApiContractData.cml"
 
@@ -40,12 +48,27 @@ FFI="$CAKEML_BIN_DIR/basis_ffi.c"
 "$CAKE" < "$OUT/ApiWrapperGeneratorInput.cml" > "$OUT/ApiWrapperGenerator.S"
 cc -O2 -o "$OUT/api-wrapper-generator" "$OUT/ApiWrapperGenerator.S" "$FFI"
 
+# Unified API plus three independently consumable generated facades.
 "$OUT/api-wrapper-generator" cakeml > "$OUT/GeneratedApiWrappers.cml"
 "$OUT/api-wrapper-generator" sml > "$OUT/GeneratedApiAdapter.sml"
 
-# Type-check and compile the generated CakeML facade.  This is engineering
-# evidence only; the authoritative exact-code theorem is produced in HOL4.
-"$CAKE" --types < "$OUT/GeneratedApiWrappers.cml" > "$OUT/GeneratedApiWrappers.types"
+for component in hol4 z3_tac tactictoe; do
+  case "$component" in
+    hol4) stem="Hol4" ;;
+    z3_tac) stem="Z3Tac" ;;
+    tactictoe) stem="TacticToe" ;;
+  esac
+  "$OUT/api-wrapper-generator" cakeml "$component"     > "$OUT/Generated${stem}ApiWrappers.cml"
+  "$OUT/api-wrapper-generator" sml "$component"     > "$OUT/Generated${stem}ApiAdapter.sml"
+done
+
+# Type-check every generated CakeML facade. Only the unified facade is sent
+# through the authoritative exact-code HOL4 lane; component facades are
+# projections of the same canonical contract and generator.
+for cml in   "$OUT/GeneratedApiWrappers.cml"   "$OUT/GeneratedHol4ApiWrappers.cml"   "$OUT/GeneratedZ3TacApiWrappers.cml"   "$OUT/GeneratedTacticToeApiWrappers.cml"
+do
+  "$CAKE" --types < "$cml" > "$cml.types"
+done
 "$CAKE" < "$OUT/GeneratedApiWrappers.cml" > "$OUT/GeneratedApiWrappers.S"
 
 export GENERATED_API_WRAPPER_CML="$OUT/GeneratedApiWrappers.cml"
@@ -56,7 +79,6 @@ export GENERATED_API_WRAPPER_ASM="$OUT/GeneratedApiWrapper-hol.S"
   "$HOLDIR/bin/Holmake"
 )
 
-# Fail closed unless all required theory artifacts exist.
 for theory in   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
 do
   [[ -s "formal/hol4/api-wrapper/$theory" ]] || {
@@ -68,13 +90,21 @@ done
 python3 - "$OUT" <<'PY'
 import hashlib, json, pathlib, sys
 out=pathlib.Path(sys.argv[1])
+api=json.loads((out/"canonical-api.json").read_text())
+components={}
+for name in ("hol4","z3_tac","tactictoe"):
+    data=json.loads((out/f"canonical-api.{name}.json").read_text())
+    components[name]=data["summary"]
 files=sorted(p for p in out.iterdir() if p.is_file())
 manifest={
   "schema":1,
   "status":"KERNEL_ARTIFACTS_PRESENT",
+  "api_summary":api["summary"],
+  "component_summaries":components,
   "files":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+  "claim":"generated wrapper protocol and exact CakeML compilation artifacts; foreign implementation correctness remains the declared contract premise"
 }
 (out/"manifest.json").write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
 PY
 
-echo "Generated API wrapper pipeline completed with HOL4 artifacts present."
+echo "Generated HOL4/Z3_TAC/TacticToe/unified CakeML APIs with HOL4 artifacts present."
