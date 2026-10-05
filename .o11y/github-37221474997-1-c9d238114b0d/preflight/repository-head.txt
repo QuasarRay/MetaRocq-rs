@@ -1,0 +1,7 @@
+commit c9d238114b0dac2a6bffd5e1f503e62b2eccc759
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 04:41:16 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 04:41:16 2026 +1100
+
+    fix(cakeml): use case for recursive stage traversal

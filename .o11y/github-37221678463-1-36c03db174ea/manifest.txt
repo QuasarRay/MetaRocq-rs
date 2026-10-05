@@ -1,0 +1,7 @@
+finished_utc=2026-10-04T17:45:22Z
+repository_head_at_finalize=36c03db174ea24952b70fa29e5f2d12be94df5a1
+result=FAIL_CLOSED
+failure_files_begin
+.o11y/github-37221678463-1-36c03db174ea/preflight/cake-controller/complete
+.o11y/github-37221678463-1-36c03db174ea/stages/02/regression-result.txt
+failure_files_end

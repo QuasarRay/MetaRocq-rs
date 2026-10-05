@@ -1,0 +1,7 @@
+commit c25cf2150b2bdb481591458277883949bffb23ec
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 04:39:32 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 04:39:32 2026 +1100
+
+    fix(cakeml): use native curried constructor syntax

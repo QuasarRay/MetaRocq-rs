@@ -18,11 +18,12 @@
     "SHA256SUMS"
   ],
   "synchronization": {
-    "before_run": "fetch origin branch and, in GitHub Actions, switch to its newest tip",
+    "before_run": "Create trace path first, publish E2E_TRACE_DIR, then fetch/synchronize origin so pre-sync failures are themselves retained.",
     "after_run": "finalize, commit additions under one unique run directory, non-force push, retry by rebase",
     "overwrite_existing_trace": false,
     "delete_existing_trace": false,
     "force_push": false
   },
-  "limitation": "Repository administrators can rewrite Git history; absolute irreversibility requires external repository policy or immutable replication."
+  "limitation": "Repository administrators can rewrite Git history; absolute irreversibility requires external repository policy or immutable replication.",
+  "capture_boundary": "All repository-controlled execution after actions/checkout; checkout/platform failures remain in GitHub Actions' own logs."
 }

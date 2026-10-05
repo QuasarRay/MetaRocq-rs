@@ -1,0 +1,7 @@
+commit d199eebb6c5a74b5d9caaa453efc36e9313ea961
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 04:47:24 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 04:47:24 2026 +1100
+
+    e2e: materialize all pinned selfhost source checkouts

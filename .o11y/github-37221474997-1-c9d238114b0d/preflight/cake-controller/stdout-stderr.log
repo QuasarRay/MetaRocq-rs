@@ -1,0 +1,3 @@
+SUCCESS: stage 01
+Peregrine selfhost source/provenance contract: FAIL: metarocq: missing checkout /home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/metarocq
+FAILED: stage 02 -- Peregrine: clone, pin and audit

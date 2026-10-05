@@ -16,8 +16,14 @@ printf '\n' >> "$dir/command.txt"
 printf 'started_utc=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$dir/status.txt"
 
 set +e
-/usr/bin/time -v -o "$dir/time-memory.txt" "$@" >"$dir/stdout-stderr.log" 2>&1
-rc=$?
+if [[ -x /usr/bin/time ]]; then
+  /usr/bin/time -v -o "$dir/time-memory.txt" "$@" >"$dir/stdout-stderr.log" 2>&1
+  rc=$?
+else
+  printf 'UNAVAILABLE: /usr/bin/time; command still captured\n' > "$dir/time-memory.txt"
+  "$@" >"$dir/stdout-stderr.log" 2>&1
+  rc=$?
+fi
 set -e
 
 {

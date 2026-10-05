@@ -87,3 +87,183 @@ python -B tools/bootstrap.py manifest --generated PATH_TO_GENERATED_HOL4
 
 The resulting manifest is an index, not a refinement proof. Its GPL license remains
 with that checkout. Original MetaRocq/Peregrine sources are MIT; LICENSE.MD is unchanged.
+
+
+## Unified CakeML Peregrine + MetaRocq E2E pipeline
+
+The unified E2E pipeline is implemented as a 23-stage CakeML controller in
+`cakeml/unified-e2e/UnifiedE2EPipeline.cml`.  The exact instruction corpus is
+preserved under `docs/unified-peregrine-metarocq-e2e/`; each CakeML stage maps
+to the correspondingly numbered instruction file.
+
+The pipeline is intentionally fail-closed.  Producer success, generated
+LambdaBox/CakeML files, or a green workflow are not substitutes for the
+required theorem-bound evidence.  Missing formal bridges remain blockers.
+
+All repository workflows on this stack remain free of `pull_request`, `push`,
+or schedule triggers.  The unified workflow supports explicit `workflow_dispatch`
+and reusable `workflow_call` entry points; the default-branch copy is registered
+with GitHub Actions so manual dispatch remains discoverable.
+
+### CachyOS prerequisites
+
+On current x86_64 CachyOS/Arch systems, install the host toolchain from the
+official repositories:
+
+```sh
+sudo pacman -Syu --needed \
+  base-devel curl git gmp m4 opam polyml clang time github-cli
+```
+
+`polyml`, `opam`, and `github-cli` are available in Arch's Extra
+repository.  `base-devel` supplies GCC, make, binutils, pkgconf and the normal
+native build toolchain.
+
+### Install the CakeML compiler binary
+
+The orchestration build is pinned to the official CakeML **v3479 x64-64**
+release archive.  The expected SHA-256 is:
+
+```
+e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a
+```
+
+Install a local `cake` compiler:
+
+```sh
+mkdir -p "$HOME/.local/src" "$HOME/.local/bin"
+cd "$HOME/.local/src"
+
+curl --fail --location --retry 4 \
+  -o cake-x64-64-v3479.tar.gz \
+  https://github.com/CakeML/cakeml/releases/download/v3479/cake-x64-64.tar.gz
+
+printf '%s  %s\n' \
+  e110bfcba19d6524ee4748608a67a275647445a048928cf623c2c9a973e31c9a \
+  cake-x64-64-v3479.tar.gz | sha256sum --check -
+
+rm -rf cakeml-v3479
+mkdir cakeml-v3479
+tar -xzf cake-x64-64-v3479.tar.gz -C cakeml-v3479 --strip-components=1
+make -C cakeml-v3479 cake
+install -m 0755 cakeml-v3479/cake "$HOME/.local/bin/cake"
+```
+
+For fish:
+
+```fish
+fish_add_path "$HOME/.local/bin"
+cake --help
+```
+
+For POSIX shells:
+
+```sh
+export PATH="$HOME/.local/bin:$PATH"
+cake --help
+```
+
+The repository controller builder can also manage the verified release archive
+without installing `cake` globally:
+
+```sh
+bash tools/build_unified_e2e_cakeml.sh
+generated/cakeml-unified-e2e/unified_e2e.cake --help || true
+```
+
+The v3479 compiler above is used to compile the **orchestration controller**.
+It does not replace the theorem-bound CakeML source revision
+`c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9` used by the formal E2E proof
+contract.
+
+### Install the pinned MetaRocq and Peregrine toolchain
+
+From this repository root, materialize the exact source pins first:
+
+```sh
+python -B tools/bootstrap.py sources
+```
+
+Then install the pinned Rocq/MetaRocq/Peregrine packages into the repository
+local opam switch:
+
+```sh
+export OPAMROOT="$PWD/.aegis/opam-root"
+bash tools/install_extraction.sh
+eval "$(opam env --switch "$PWD/.aegis/opam" --set-switch)"
+
+command -v rocq
+command -v peregrine
+rocq -v
+peregrine --help
+opam list --switch "$PWD/.aegis/opam" | grep '^rocq-metarocq'
+```
+
+For fish, activate the same switch with:
+
+```fish
+set -gx OPAMROOT "$PWD/.aegis/opam-root"
+bash tools/install_extraction.sh
+opam env --switch "$PWD/.aegis/opam" --set-switch --shell=fish | source
+
+type -a rocq
+type -a peregrine
+rocq -v
+peregrine --help
+opam list --switch "$PWD/.aegis/opam" | grep '^rocq-metarocq'
+```
+
+Upstream MetaRocq is installed here as the `rocq-metarocq-*` Rocq plugin
+suite, so the stable executable entry point is `rocq`; a standalone command
+named `metarocq` is not assumed.  Peregrine installs the `peregrine` CLI.
+
+The self-host producer automatically prefers the repository-local prebuilt
+`rocq` and `peregrine` binaries and rebuilds the exact pins only when they
+are absent:
+
+```sh
+bash tools/peregrine_selfhost_pipeline.sh
+```
+
+### Run only by explicit CLI command
+
+Authenticate GitHub CLI once:
+
+```sh
+gh auth status
+```
+
+Dispatch the unified workflow explicitly through the registered default-branch
+workflow, while passing the E2E implementation branch as an input:
+
+```sh
+bash tools/dispatch_unified_e2e.sh \
+  experiment/cakeml-unified-e2e-03-cachyos-docs
+```
+
+Equivalent direct GitHub CLI command:
+
+```sh
+gh workflow run unified-cakeml-e2e.yml \
+  --repo QuasarRay/MetaRocq-rs \
+  --ref main \
+  --field target_ref=experiment/cakeml-unified-e2e-03-cachyos-docs
+```
+
+There is deliberately no automatic PR/push build.  A completed run appends one
+unique trace directory to the same branch under `.o11y/<run-id>/`.  Pull that
+trace commit explicitly after the run:
+
+```sh
+git fetch origin experiment/cakeml-unified-e2e-03-cachyos-docs
+git pull --ff-only origin experiment/cakeml-unified-e2e-03-cachyos-docs
+find .o11y -mindepth 1 -maxdepth 1 -type d -print | sort
+```
+
+Each trace directory includes combined stdout/stderr, `/usr/bin/time -v`
+resource accounting, explicit status/failure files, source/toolchain identity,
+controller/stage receipts, and `SHA256SUMS`.  Synchronization rejects an
+existing run ID, commits additions only, and never force-pushes.  Repository
+administrators can still rewrite ordinary Git history; stronger
+irreversibility requires an external GitHub ruleset or immutable archival
+replication.

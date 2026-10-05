@@ -1,0 +1,187 @@
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Get:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3632 B]
+Hit:2 http://azure.archive.ubuntu.com/ubuntu jammy InRelease
+Get:3 http://azure.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:7 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [793 kB]
+Get:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [551 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:5 http://azure.archive.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:9 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3899 kB]
+Get:10 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [575 kB]
+Get:11 http://azure.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6701 kB]
+Get:12 http://azure.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [1287 kB]
+Get:13 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1285 kB]
+Get:14 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [325 kB]
+Get:15 http://azure.archive.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3598 kB]
+Get:16 http://azure.archive.ubuntu.com/ubuntu jammy-security/main Translation-en [504 kB]
+Get:17 http://azure.archive.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6410 kB]
+Get:18 http://azure.archive.ubuntu.com/ubuntu jammy-security/restricted Translation-en [1232 kB]
+Get:19 http://azure.archive.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1052 kB]
+Get:20 http://azure.archive.ubuntu.com/ubuntu jammy-security/universe Translation-en [236 kB]
+Fetched 28.8 MB in 3s (9825 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.9ubuntu3).
+build-essential set to manually installed.
+libgmp-dev is already the newest version (2:6.2.1+dfsg-3ubuntu1).
+m4 is already the newest version (1.4.18-5ubuntu2).
+time is already the newest version (1.9-0.1build2).
+curl is already the newest version (7.81.0-1ubuntu1.29).
+git is already the newest version (1:2.55.0-0ppa1~ubuntu22.04.2).
+The following additional packages will be installed:
+  bubblewrap darcs ledit libamd2 libcolamd2 libglpk40 libpolyml9
+  libsuitesparseconfig5 ocaml ocaml-base ocaml-compiler-libs ocaml-interp
+  ocaml-man opam-installer polyml-modules
+Suggested packages:
+  libiodbc2-dev default-libmysqlclient-dev ocaml-doc elpa-tuareg opam-doc
+The following packages will be REMOVED:
+  pkgconf r-base-dev
+The following NEW packages will be installed:
+  bubblewrap clang darcs ledit libamd2 libcolamd2 libglpk40 libpolyml9
+  libsuitesparseconfig5 ocaml ocaml-base ocaml-compiler-libs ocaml-interp
+  ocaml-man opam opam-installer pkg-config polyml polyml-modules
+0 upgraded, 19 newly installed, 2 to remove and 20 not upgraded.
+Need to get 144 MB of archives.
+After this operation, 508 MB of additional disk space will be used.
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Get:2 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 pkg-config amd64 0.29.2-1ubuntu3 [48.2 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 bubblewrap amd64 0.6.1-1ubuntu0.3 [46.3 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 clang amd64 1:14.0-55~exp2 [3558 B]
+Get:5 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 darcs amd64 2.14.5-1build1 [3779 kB]
+Get:6 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ocaml-base amd64 4.13.1-3ubuntu1 [589 kB]
+Get:7 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ledit all 2.04-6build2 [59.0 kB]
+Get:8 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libsuitesparseconfig5 amd64 1:5.10.1+dfsg-4build1 [10.4 kB]
+Get:9 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 libamd2 amd64 1:5.10.1+dfsg-4build1 [21.6 kB]
+Get:10 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libcolamd2 amd64 1:5.10.1+dfsg-4build1 [18.0 kB]
+Get:11 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 libglpk40 amd64 5.0-1 [361 kB]
+Get:12 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 libpolyml9 amd64 5.7.1-4ubuntu1 [202 kB]
+Get:13 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ocaml-compiler-libs amd64 4.13.1-3ubuntu1 [36.2 MB]
+Get:14 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ocaml-interp amd64 4.13.1-3ubuntu1 [7488 kB]
+Get:15 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ocaml amd64 4.13.1-3ubuntu1 [87.7 MB]
+Get:16 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 ocaml-man all 4.13.1-3ubuntu1 [519 kB]
+Get:17 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 opam-installer amd64 2.1.2-1+deb12u1build0.22.04.1 [1263 kB]
+Get:18 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 opam amd64 2.1.2-1+deb12u1build0.22.04.1 [2579 kB]
+Get:19 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 polyml-modules amd64 5.7.1-4ubuntu1 [678 kB]
+Get:20 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 polyml amd64 5.7.1-4ubuntu1 [2566 kB]
+Fetched 144 MB in 3s (44.8 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 260410 files and directories currently installed.)
+Removing r-base-dev (4.6.1-6.2204.0) ...
+dpkg: pkgconf: dependency problems, but removing anyway as you requested:
+ php8.1-dev depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+ mono-devel depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+ libmagickwand-6.q16-dev:amd64 depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+ libmagickcore-6.q16-dev:amd64 depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+ libglib2.0-dev:amd64 depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+ libfontconfig-dev:amd64 depends on pkg-config; however:
+  Package pkg-config is not installed.
+  Package pkgconf which provides pkg-config is to be removed.
+
+Removing pkgconf (1.8.0-1) ...
+Removing 'diversion of /usr/bin/pkg-config to /usr/bin/pkg-config.real by pkgconf'
+Removing 'diversion of /usr/share/aclocal/pkg.m4 to /usr/share/aclocal/pkg.real.m4 by pkgconf'
+Removing 'diversion of /usr/share/man/man1/pkg-config.1.gz to /usr/share/man/man1/pkg-config.real.1.gz by pkgconf'
+Removing 'diversion of /usr/share/pkg-config-crosswrapper to /usr/share/pkg-config-crosswrapper.real by pkgconf'
+Selecting previously unselected package pkg-config.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 260388 files and directories currently installed.)
+Preparing to unpack .../00-pkg-config_0.29.2-1ubuntu3_amd64.deb ...
+Unpacking pkg-config (0.29.2-1ubuntu3) ...
+Selecting previously unselected package bubblewrap.
+Preparing to unpack .../01-bubblewrap_0.6.1-1ubuntu0.3_amd64.deb ...
+Unpacking bubblewrap (0.6.1-1ubuntu0.3) ...
+Selecting previously unselected package clang.
+Preparing to unpack .../02-clang_1%3a14.0-55~exp2_amd64.deb ...
+Unpacking clang (1:14.0-55~exp2) ...
+Selecting previously unselected package darcs.
+Preparing to unpack .../03-darcs_2.14.5-1build1_amd64.deb ...
+Unpacking darcs (2.14.5-1build1) ...
+Selecting previously unselected package ocaml-base.
+Preparing to unpack .../04-ocaml-base_4.13.1-3ubuntu1_amd64.deb ...
+Unpacking ocaml-base (4.13.1-3ubuntu1) ...
+Selecting previously unselected package ledit.
+Preparing to unpack .../05-ledit_2.04-6build2_all.deb ...
+Unpacking ledit (2.04-6build2) ...
+Selecting previously unselected package libsuitesparseconfig5:amd64.
+Preparing to unpack .../06-libsuitesparseconfig5_1%3a5.10.1+dfsg-4build1_amd64.deb ...
+Unpacking libsuitesparseconfig5:amd64 (1:5.10.1+dfsg-4build1) ...
+Selecting previously unselected package libamd2:amd64.
+Preparing to unpack .../07-libamd2_1%3a5.10.1+dfsg-4build1_amd64.deb ...
+Unpacking libamd2:amd64 (1:5.10.1+dfsg-4build1) ...
+Selecting previously unselected package libcolamd2:amd64.
+Preparing to unpack .../08-libcolamd2_1%3a5.10.1+dfsg-4build1_amd64.deb ...
+Unpacking libcolamd2:amd64 (1:5.10.1+dfsg-4build1) ...
+Selecting previously unselected package libglpk40:amd64.
+Preparing to unpack .../09-libglpk40_5.0-1_amd64.deb ...
+Unpacking libglpk40:amd64 (5.0-1) ...
+Selecting previously unselected package libpolyml9:amd64.
+Preparing to unpack .../10-libpolyml9_5.7.1-4ubuntu1_amd64.deb ...
+Unpacking libpolyml9:amd64 (5.7.1-4ubuntu1) ...
+Selecting previously unselected package ocaml-compiler-libs.
+Preparing to unpack .../11-ocaml-compiler-libs_4.13.1-3ubuntu1_amd64.deb ...
+Unpacking ocaml-compiler-libs (4.13.1-3ubuntu1) ...
+Selecting previously unselected package ocaml-interp.
+Preparing to unpack .../12-ocaml-interp_4.13.1-3ubuntu1_amd64.deb ...
+Unpacking ocaml-interp (4.13.1-3ubuntu1) ...
+Selecting previously unselected package ocaml.
+Preparing to unpack .../13-ocaml_4.13.1-3ubuntu1_amd64.deb ...
+Unpacking ocaml (4.13.1-3ubuntu1) ...
+Selecting previously unselected package ocaml-man.
+Preparing to unpack .../14-ocaml-man_4.13.1-3ubuntu1_all.deb ...
+Unpacking ocaml-man (4.13.1-3ubuntu1) ...
+Selecting previously unselected package opam-installer.
+Preparing to unpack .../15-opam-installer_2.1.2-1+deb12u1build0.22.04.1_amd64.deb ...
+Unpacking opam-installer (2.1.2-1+deb12u1build0.22.04.1) ...
+Selecting previously unselected package opam.
+Preparing to unpack .../16-opam_2.1.2-1+deb12u1build0.22.04.1_amd64.deb ...
+Unpacking opam (2.1.2-1+deb12u1build0.22.04.1) ...
+Selecting previously unselected package polyml-modules:amd64.
+Preparing to unpack .../17-polyml-modules_5.7.1-4ubuntu1_amd64.deb ...
+Unpacking polyml-modules:amd64 (5.7.1-4ubuntu1) ...
+Selecting previously unselected package polyml.
+Preparing to unpack .../18-polyml_5.7.1-4ubuntu1_amd64.deb ...
+Unpacking polyml (5.7.1-4ubuntu1) ...
+Setting up bubblewrap (0.6.1-1ubuntu0.3) ...
+Setting up darcs (2.14.5-1build1) ...
+Setting up clang (1:14.0-55~exp2) ...
+Setting up ocaml-base (4.13.1-3ubuntu1) ...
+Setting up pkg-config (0.29.2-1ubuntu3) ...
+Setting up opam-installer (2.1.2-1+deb12u1build0.22.04.1) ...
+Setting up polyml-modules:amd64 (5.7.1-4ubuntu1) ...
+Setting up ocaml-man (4.13.1-3ubuntu1) ...
+Setting up libpolyml9:amd64 (5.7.1-4ubuntu1) ...
+Setting up polyml (5.7.1-4ubuntu1) ...
+Setting up libsuitesparseconfig5:amd64 (1:5.10.1+dfsg-4build1) ...
+Setting up libamd2:amd64 (1:5.10.1+dfsg-4build1) ...
+Setting up libcolamd2:amd64 (1:5.10.1+dfsg-4build1) ...
+Setting up ledit (2.04-6build2) ...
+update-alternatives: using /usr/bin/ledit to provide /usr/bin/readline-editor (readline-editor) in auto mode
+Setting up libglpk40:amd64 (5.0-1) ...
+Setting up opam (2.1.2-1+deb12u1build0.22.04.1) ...
+Setting up ocaml-interp (4.13.1-3ubuntu1) ...
+Setting up ocaml (4.13.1-3ubuntu1) ...
+Setting up ocaml-compiler-libs (4.13.1-3ubuntu1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.15) ...
+Processing triggers for man-db (2.10.2-1) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for mailcap (3.70+nmu1ubuntu1.22.04.1) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.

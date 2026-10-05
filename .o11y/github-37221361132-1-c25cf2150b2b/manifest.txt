@@ -1,0 +1,6 @@
+finished_utc=2026-10-04T17:40:22Z
+repository_head_at_finalize=c25cf2150b2bdb481591458277883949bffb23ec
+result=FAIL_CLOSED
+failure_files_begin
+.o11y/github-37221361132-1-c25cf2150b2b/preflight/build-cakeml-controller/complete
+failure_files_end

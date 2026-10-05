@@ -1,0 +1,7 @@
+commit 627aa63e666288f7695ea5b573d0efe43903bddb
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 04:36:13 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 04:36:13 2026 +1100
+
+    ci: expose explicit manual E2E dispatch

@@ -1,62 +1,62 @@
 (* Unified Peregrine + MetaRocq E2E controller.
 
-   This file owns the sequential 23-step state machine.  External tool
+   This file owns the sequential 23-step state machine. External tool
    invocation is deliberately confined to one FFI primitive because the pinned
-   CakeML basis has no process-spawning API.  The FFI receives only commands
+   CakeML basis has no process-spawning API. The FFI receives only commands
    constructed from the fixed stage table below.
 
    A non-zero result is a proof/pipeline failure, never success evidence.
 *)
 
-datatype stage = Stage of string * string * string;
+datatype stage = Stage string string string;
 
 val stages = [
-  Stage ("01", "Peregrine: freeze reuse map and E2E target",
-    "docs/unified-peregrine-metarocq-e2e/01-peregrine-freeze-reuse-map-and-e2e-target.md"),
-  Stage ("02", "Peregrine: clone, pin and audit",
-    "docs/unified-peregrine-metarocq-e2e/02-peregrine-clone-pin-and-audit.md"),
-  Stage ("03", "Peregrine: build selfhost LambdaBox and proof replay corpus",
-    "docs/unified-peregrine-metarocq-e2e/03-peregrine-build-selfhost-lambdabox-and-proof-replay-corpus.md"),
-  Stage ("04", "Peregrine: bootstrap with prebuilt MetaRocq seed",
-    "docs/unified-peregrine-metarocq-e2e/04-peregrine-bootstrap-with-prebuilt-metarocq-seed.md"),
-  Stage ("05", "Peregrine: use prebuilt Peregrine to produce CakeML",
-    "docs/unified-peregrine-metarocq-e2e/05-peregrine-use-prebuilt-peregrine-to-produce-cakeml.md"),
-  Stage ("06", "Peregrine: close LambdaBox to CakeML proof gap",
-    "docs/unified-peregrine-metarocq-e2e/06-peregrine-close-lambdabox-to-cakeml-proof-gap.md"),
-  Stage ("07", "Peregrine: prove exact CakeML machine code in HOL4",
-    "docs/unified-peregrine-metarocq-e2e/07-peregrine-prove-exact-cakeml-machine-code-in-hol4.md"),
-  Stage ("08", "Peregrine: embed non-circular proof capsule",
-    "docs/unified-peregrine-metarocq-e2e/08-peregrine-embed-non-circular-proof-capsule.md"),
-  Stage ("09", "Peregrine: revalidate with fresh independent HOL4",
-    "docs/unified-peregrine-metarocq-e2e/09-peregrine-revalidate-with-fresh-independent-hol4.md"),
-  Stage ("10", "Peregrine: run E2E and pass publication gate",
-    "docs/unified-peregrine-metarocq-e2e/10-peregrine-run-e2e-and-pass-publication-gate.md"),
-  Stage ("11", "MetaRocq: freeze trust and E2E completion criteria",
-    "docs/unified-peregrine-metarocq-e2e/11-metarocq-freeze-trust-and-e2e-completion-criteria.md"),
-  Stage ("12", "MetaRocq: reproduce pinned toolchain",
-    "docs/unified-peregrine-metarocq-e2e/12-metarocq-reproduce-pinned-toolchain.md"),
-  Stage ("13", "MetaRocq: capture complete source, specification and proof corpus",
-    "docs/unified-peregrine-metarocq-e2e/13-metarocq-capture-complete-source-specification-and-proof-corpus.md"),
-  Stage ("14", "MetaRocq: self-reflection and LambdaBox retention",
-    "docs/unified-peregrine-metarocq-e2e/14-metarocq-self-reflection-and-lambdabox-retention.md"),
-  Stage ("15", "MetaRocq: prove erasure correctness and assumption closure",
-    "docs/unified-peregrine-metarocq-e2e/15-metarocq-prove-erasure-correctness-and-assumption-closure.md"),
-  Stage ("16", "MetaRocq: reuse verified Peregrine to CakeML bridge",
-    "docs/unified-peregrine-metarocq-e2e/16-metarocq-reuse-verified-peregrine-to-cakeml-bridge.md"),
-  Stage ("17", "MetaRocq: replay complete proof corpus in HOL4",
-    "docs/unified-peregrine-metarocq-e2e/17-metarocq-replay-complete-proof-corpus-in-hol4.md"),
-  Stage ("18", "MetaRocq: compile exact CakeML program inside HOL4",
-    "docs/unified-peregrine-metarocq-e2e/18-metarocq-compile-exact-cakeml-program-inside-hol4.md"),
-  Stage ("19", "MetaRocq: compose unified source-to-machine HOL4 theorem",
-    "docs/unified-peregrine-metarocq-e2e/19-metarocq-compose-unified-source-to-machine-hol4-theorem.md"),
-  Stage ("20", "MetaRocq: prove recursive machine self-replay",
-    "docs/unified-peregrine-metarocq-e2e/20-metarocq-prove-recursive-machine-self-replay.md"),
-  Stage ("21", "MetaRocq: local operation, debugging and recovery",
-    "docs/unified-peregrine-metarocq-e2e/21-metarocq-local-operation-debugging-and-recovery.md"),
-  Stage ("22", "MetaRocq: final audit and publication gate",
-    "docs/unified-peregrine-metarocq-e2e/22-metarocq-final-audit-and-publication-gate.md"),
-  Stage ("23", "Unified reuse, provenance and open proof obligations",
-    "docs/unified-peregrine-metarocq-e2e/23-unified-reuse-provenance-and-open-proof-obligations.md")
+  Stage "01" "Peregrine: freeze reuse map and E2E target"
+    "docs/unified-peregrine-metarocq-e2e/01-peregrine-freeze-reuse-map-and-e2e-target.md",
+  Stage "02" "Peregrine: clone, pin and audit"
+    "docs/unified-peregrine-metarocq-e2e/02-peregrine-clone-pin-and-audit.md",
+  Stage "03" "Peregrine: build selfhost LambdaBox and proof replay corpus"
+    "docs/unified-peregrine-metarocq-e2e/03-peregrine-build-selfhost-lambdabox-and-proof-replay-corpus.md",
+  Stage "04" "Peregrine: bootstrap with prebuilt MetaRocq seed"
+    "docs/unified-peregrine-metarocq-e2e/04-peregrine-bootstrap-with-prebuilt-metarocq-seed.md",
+  Stage "05" "Peregrine: use prebuilt Peregrine to produce CakeML"
+    "docs/unified-peregrine-metarocq-e2e/05-peregrine-use-prebuilt-peregrine-to-produce-cakeml.md",
+  Stage "06" "Peregrine: close LambdaBox to CakeML proof gap"
+    "docs/unified-peregrine-metarocq-e2e/06-peregrine-close-lambdabox-to-cakeml-proof-gap.md",
+  Stage "07" "Peregrine: prove exact CakeML machine code in HOL4"
+    "docs/unified-peregrine-metarocq-e2e/07-peregrine-prove-exact-cakeml-machine-code-in-hol4.md",
+  Stage "08" "Peregrine: embed non-circular proof capsule"
+    "docs/unified-peregrine-metarocq-e2e/08-peregrine-embed-non-circular-proof-capsule.md",
+  Stage "09" "Peregrine: revalidate with fresh independent HOL4"
+    "docs/unified-peregrine-metarocq-e2e/09-peregrine-revalidate-with-fresh-independent-hol4.md",
+  Stage "10" "Peregrine: run E2E and pass publication gate"
+    "docs/unified-peregrine-metarocq-e2e/10-peregrine-run-e2e-and-pass-publication-gate.md",
+  Stage "11" "MetaRocq: freeze trust and E2E completion criteria"
+    "docs/unified-peregrine-metarocq-e2e/11-metarocq-freeze-trust-and-e2e-completion-criteria.md",
+  Stage "12" "MetaRocq: reproduce pinned toolchain"
+    "docs/unified-peregrine-metarocq-e2e/12-metarocq-reproduce-pinned-toolchain.md",
+  Stage "13" "MetaRocq: capture complete source, specification and proof corpus"
+    "docs/unified-peregrine-metarocq-e2e/13-metarocq-capture-complete-source-specification-and-proof-corpus.md",
+  Stage "14" "MetaRocq: self-reflection and LambdaBox retention"
+    "docs/unified-peregrine-metarocq-e2e/14-metarocq-self-reflection-and-lambdabox-retention.md",
+  Stage "15" "MetaRocq: prove erasure correctness and assumption closure"
+    "docs/unified-peregrine-metarocq-e2e/15-metarocq-prove-erasure-correctness-and-assumption-closure.md",
+  Stage "16" "MetaRocq: reuse verified Peregrine to CakeML bridge"
+    "docs/unified-peregrine-metarocq-e2e/16-metarocq-reuse-verified-peregrine-to-cakeml-bridge.md",
+  Stage "17" "MetaRocq: replay complete proof corpus in HOL4"
+    "docs/unified-peregrine-metarocq-e2e/17-metarocq-replay-complete-proof-corpus-in-hol4.md",
+  Stage "18" "MetaRocq: compile exact CakeML program inside HOL4"
+    "docs/unified-peregrine-metarocq-e2e/18-metarocq-compile-exact-cakeml-program-inside-hol4.md",
+  Stage "19" "MetaRocq: compose unified source-to-machine HOL4 theorem"
+    "docs/unified-peregrine-metarocq-e2e/19-metarocq-compose-unified-source-to-machine-hol4-theorem.md",
+  Stage "20" "MetaRocq: prove recursive machine self-replay"
+    "docs/unified-peregrine-metarocq-e2e/20-metarocq-prove-recursive-machine-self-replay.md",
+  Stage "21" "MetaRocq: local operation, debugging and recovery"
+    "docs/unified-peregrine-metarocq-e2e/21-metarocq-local-operation-debugging-and-recovery.md",
+  Stage "22" "MetaRocq: final audit and publication gate"
+    "docs/unified-peregrine-metarocq-e2e/22-metarocq-final-audit-and-publication-gate.md",
+  Stage "23" "Unified reuse, provenance and open proof obligations"
+    "docs/unified-peregrine-metarocq-e2e/23-unified-reuse-provenance-and-open-proof-obligations.md"
 ];
 
 fun write_file path body =
@@ -67,9 +67,9 @@ fun write_file path body =
     TextIO.closeOut out
   end;
 
-fun stage_id (Stage (id, _, _)) = id;
-fun stage_title (Stage (_, title, _)) = title;
-fun stage_manual (Stage (_, _, manual)) = manual;
+fun stage_id (Stage id _ _) = id;
+fun stage_title (Stage _ title _) = title;
+fun stage_manual (Stage _ _ manual) = manual;
 
 fun result_text code abnormal =
   "exit=" ^ Int.toString code ^ "\nabnormal=" ^ Int.toString abnormal ^ "\n";
@@ -102,9 +102,10 @@ fun run_stage trace_dir st =
       end
   end;
 
-fun run_all trace_dir [] = ()
-  | run_all trace_dir (st::rest) =
-      (run_stage trace_dir st; run_all trace_dir rest);
+fun run_all trace_dir xs =
+  case xs of
+      [] => ()
+    | st::rest => (run_stage trace_dir st; run_all trace_dir rest);
 
 fun main () =
   case CommandLine.arguments () of
