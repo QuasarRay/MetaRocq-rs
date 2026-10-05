@@ -11,7 +11,9 @@
     },
     "cakeml": {
       "repo": "https://github.com/CakeML/cakeml.git",
-      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9"
+      "commit": "ccfc23cbadf4fadf8c82a7ac60e813ea5906218a",
+      "release": "v3400",
+      "role": "production generated-wrapper target; includes Runtime.customFFI"
     },
     "public_roots": [
       "src/0",
@@ -28,12 +30,36 @@
       "src/tactictoe/src/tacticToe.sig",
       "src/1/Abbrev.sig",
       "src/0/Term.sig"
-    ]
+    ],
+    "cakeml_legacy_meta_rocq": {
+      "repo": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+      "role": "historical MetaRocq E2E compatibility/reference only"
+    }
   },
   "lowering_classes": {
-    "direct": ["unit", "bool", "int", "string", "char", "word"],
-    "structural": ["tuple", "list", "option", "datatype"],
-    "opaque_handle": ["Thm.thm", "Term.term", "Type.hol_type", "Context.t", "tttSearch.searchtree", "mlTreeNeuralNetwork.tnn"],
+    "direct": [
+      "unit",
+      "bool",
+      "int",
+      "string",
+      "char",
+      "word"
+    ],
+    "structural": [
+      "tuple",
+      "list",
+      "option",
+      "datatype"
+    ],
+    "opaque_handle": [
+      "Thm.thm",
+      "Term.term",
+      "Type.hol_type",
+      "Context.t",
+      "tttSearch.searchtree",
+      "mlTreeNeuralNetwork.tnn"
+    ],
     "mutable_ref": "generate getter and setter operations",
     "higher_order": "defunctionalise to typed callback handle plus apply operation",
     "exception": "map to explicit Error response",
@@ -47,7 +73,8 @@
     "foreign calls are identified by stable operation IDs",
     "generated wrapper theorem is closed except for the declared foreign-contract premise",
     "exact CakeML compiler theorem is checked by HOL4",
-    "final production gate rejects axioms or oracle tags other than DISK_THM"
+    "final production gate rejects axioms or oracle tags other than DISK_THM",
+    "production wrappers require a CakeML revision with Runtime.customFFI"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
