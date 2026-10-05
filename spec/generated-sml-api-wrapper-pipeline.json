@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "status": "IMPLEMENTED_NOT_YET_EXECUTED",
+  "branch": "experiment/generated-hol4-cakeml-api-wrappers",
+  "base_commit": "4329ddedd3bd2e97402df99d8b9ff29ec6712db7",
+  "intent": "Generate version-addressed CakeML API wrappers for HOL4, HolSmtLib/Z3_TAC and TacticToe, then kernel-check source/API equivalence and exact wrapper compilation.",
+  "inputs": {
+    "hol4": {
+      "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+    },
+    "cakeml": {
+      "repo": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9"
+    },
+    "public_roots": [
+      "src/0",
+      "src/1",
+      "src/thm",
+      "src/boss",
+      "src/parse",
+      "src/postkernel",
+      "src/HolSmt",
+      "src/tactictoe/src"
+    ],
+    "mandatory_signatures": [
+      "src/HolSmt/HolSmtLib.sig",
+      "src/tactictoe/src/tacticToe.sig",
+      "src/1/Abbrev.sig",
+      "src/0/Term.sig"
+    ]
+  },
+  "lowering_classes": {
+    "direct": ["unit", "bool", "int", "string", "char", "word"],
+    "structural": ["tuple", "list", "option", "datatype"],
+    "opaque_handle": ["Thm.thm", "Term.term", "Type.hol_type", "Context.t", "tttSearch.searchtree", "mlTreeNeuralNetwork.tnn"],
+    "mutable_ref": "generate getter and setter operations",
+    "higher_order": "defunctionalise to typed callback handle plus apply operation",
+    "exception": "map to explicit Error response",
+    "unsupported": "fail production gate"
+  },
+  "invariants": [
+    "every selected public declaration is classified",
+    "source path and blob digest are recorded for every declaration",
+    "no raw Poly/ML pointer or closure crosses the CakeML FFI",
+    "all decoding is total and malformed input returns Error",
+    "foreign calls are identified by stable operation IDs",
+    "generated wrapper theorem is closed except for the declared foreign-contract premise",
+    "exact CakeML compiler theorem is checked by HOL4",
+    "final production gate rejects axioms or oracle tags other than DISK_THM"
+  ],
+  "reused_from_pr59": [
+    ".agents HOL4/MCP qualification",
+    "HolSmtLib.Z3_TAC reconstructed proof policy",
+    "TacticToe cache/recording infrastructure",
+    "CompilerOutputAutomationLib theorem hygiene",
+    "immutable .o11y checkpoint policy"
+  ],
+  "publication_gate": {
+    "complete_api_coverage": true,
+    "unsupported_symbol_count": 0,
+    "generator_regeneration_diff": "clean",
+    "wrapper_hol4_theory": "kernel checked",
+    "exact_compiler_theorem": "kernel checked",
+    "machine_safety_theorem": "kernel checked",
+    "foreign_runtime_correctness": "assumed by explicit contract; not claimed by CakeML"
+  }
+}
