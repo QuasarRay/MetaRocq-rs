@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "status": "FAIL_CLOSED",
+  "branch": "experiment/peregrine-selfhost-cakeml-hol4-e2e",
+  "base_branch": "experiment/original-metarocq-selfhost-09-hol4-kernel-e2e",
+  "intent": "Build one LambdaBox artifact that reaches the real Peregrine pipeline plus the complete quoted Peregrine proof/assumption/replay payload, translate it with the pinned prebuilt Peregrine CLI to CakeML, then require a HOL4-kernel-checked exact source-to-machine theorem before publication.",
+  "repositories": {
+    "metarocq": {
+      "repository": "https://github.com/MetaRocq/metarocq.git",
+      "commit": "7197056adbb9c15288b4c8d43407bf25786f723e"
+    },
+    "peregrine": {
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9",
+      "tree": "b0c82eded52366ba1b4dcee930ba83e712ec638b"
+    },
+    "cakeml_backend": {
+      "repository": "https://github.com/peregrine-project/cakeml-backend.git",
+      "commit": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58"
+    },
+    "cakeml": {
+      "repository": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9"
+    },
+    "hol4": {
+      "repository": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+    }
+  },
+  "peregrine": {
+    "rocq_module_count": 56,
+    "rocq_files": [
+      "theories/PAst.v",
+      "theories/Utils.v",
+      "theories/Config.v",
+      "theories/ConfigUtils.v",
+      "theories/Unicode.v",
+      "theories/UnicodeXID.v",
+      "theories/NameSanitize.v",
+      "theories/CheckWf.v",
+      "theories/EvalBox.v",
+      "theories/CoqToLambdaBox.v",
+      "theories/Extraction.v",
+      "theories/Pipeline.v",
+      "theories/erasure/Erasure.v",
+      "theories/erasure/ErasureTyped.v",
+      "theories/erasure/Transforms.v",
+      "theories/erasure/EImplementLazyForce.v",
+      "theories/backends/RustBackend.v",
+      "theories/backends/ElmBackend.v",
+      "theories/backends/OCamlBackend.v",
+      "theories/backends/CakeMLBackend.v",
+      "theories/backends/CBackend.v",
+      "theories/backends/WasmBackend.v",
+      "theories/backends/CertiRocqBackend.v",
+      "theories/backends/EvalBackend.v",
+      "theories/backends/ASTBackend.v",
+      "theories/serialization/Deserialize.v",
+      "theories/serialization/Serialize.v",
+      "theories/serialization/SerializeComplete.v",
+      "theories/serialization/SerializeSound.v",
+      "theories/serialization/DeserializeCommon.v",
+      "theories/serialization/SerializeCommon.v",
+      "theories/serialization/SerializeCommonComplete.v",
+      "theories/serialization/SerializeCommonSound.v",
+      "theories/serialization/DeserializePrimitives.v",
+      "theories/serialization/SerializePrimitives.v",
+      "theories/serialization/SerializePrimitivesComplete.v",
+      "theories/serialization/SerializePrimitivesSound.v",
+      "theories/serialization/DeserializeEAst.v",
+      "theories/serialization/SerializeEAst.v",
+      "theories/serialization/SerializeEAstComplete.v",
+      "theories/serialization/SerializeEAstSound.v",
+      "theories/serialization/DeserializeExAst.v",
+      "theories/serialization/SerializeExAst.v",
+      "theories/serialization/SerializeExAstComplete.v",
+      "theories/serialization/SerializeExAstSound.v",
+      "theories/serialization/DeserializePAst.v",
+      "theories/serialization/SerializePAst.v",
+      "theories/serialization/SerializePAstComplete.v",
+      "theories/serialization/SerializePAstSound.v",
+      "theories/serialization/DeserializeConfig.v",
+      "theories/serialization/SerializeConfig.v",
+      "theories/serialization/SerializeConfigComplete.v",
+      "theories/serialization/SerializeConfigSound.v",
+      "theories/serialization/SerializeLambdaBoxMut.v",
+      "theories/serialization/SerializeLambdaBoxLocal.v",
+      "theories/serialization/SerializeLambdaANF.v"
+    ],
+    "git_submodules_policy": "clone recursively; the pinned revision currently contains no .gitmodules and no gitlink entries",
+    "expected_git_submodules": []
+  },
+  "producer_preference": [
+    "reuse MetaRocq-rs pinned opam cache containing prebuilt rocq + MetaRocq plugins + peregrine CLI",
+    "reuse any future exact-hash MetaRocq-rs bootstrap artifact if present",
+    "rebuild the exact immutable pins only when no matching prebuilt producer exists"
+  ],
+  "retained_inside_lambdabox": [
+    "real Peregrine.Pipeline.peregrine_pipeline dependency graph",
+    "quoted snapshot of all 56 Peregrine Rocq modules from _CoqProject",
+    "every proof-bearing constant body found in that snapshot",
+    "separate body-less source-assumption ledger",
+    "one replay job per retained proof certificate"
+  ],
+  "forbidden_as_proof_evidence": [
+    "Peregrine CakeMLBackend.trust_coq_kernel",
+    "Peregrine CakeMLBackend.cakeml_pipeline Final Obligation admitted proof",
+    "cakeml-backend assume_can_be_extracted",
+    "cakeml-backend admitted/vacuous final preservation boundary",
+    "native peregrine process success",
+    "CakeML source file existence",
+    "generic CakeML compiler correctness without exact generated-program binding",
+    "a boolean replay-evidence value not constructed and checked by HOL4",
+    "CI success without HOL4 check_thm of the exact final theorem"
+  ],
+  "semantic_authority": "HOL4 is the final proof authority. CakeML does not certify HOL4; HOL4 checks the exact CakeML compilation theorem. The final binary may carry a serialized certificate/proof payload whose correspondence to the checked theorem is itself proved in HOL4.",
+  "required_e2e_obligations": [
+    "complete Peregrine source-module quotation is proved to match the pinned _CoqProject",
+    "every in-scope proof-bearing Peregrine declaration appears exactly once in the retained corpus",
+    "the retained assumption ledger is complete",
+    "PCUIC SafeChecker replay is executed over a faithful dependency environment for every retained proof",
+    "the exact LambdaBox root is semantically related to the pinned Peregrine source and replay behavior",
+    "the exact LambdaBox artifact is related to the exact generated CakeML program without the forbidden backend assumptions",
+    "the exact generated CakeML program has an application semantics theorem in HOL4",
+    "eval_cake_compile_x64 compiles that exact program inside HOL4",
+    "compile_correct/x64 obligations are instantiated for that exact compilation",
+    "the exact machine-code image is bound to the theorem",
+    "the machine program exposes/carries the exact proof/certificate payload used by the theorem",
+    "HOL4 proves that machine behavior refines both Peregrine behavior and the retained validation/replay specification",
+    "a fresh independent HOL4 instance can replay/import the portable certificate representation and recover the same statement under the same explicit assumptions"
+  ],
+  "current_blockers": [
+    "construct a faithful executable PCUIC SafeChecker replay environment for every retained Peregrine proof rather than only retaining proof terms",
+    "prove complete source-to-LambdaBox semantics for the Peregrine selfhost root",
+    "replace/bypass the pinned Peregrine CakeML backend admitted/trust boundaries with a proved LambdaBox-to-CakeML bridge",
+    "construct the exact generated CakeML HOL4 program definition and its Peregrine/replay semantics theorem",
+    "specialize CakeML in-logic compilation and machine correctness to that exact program",
+    "define a portable HOL4 proof-certificate payload and prove its embedding/correspondence to the final machine image",
+    "prove recursive independent-HOL4 replay of the certificate payload"
+  ]
+}
