@@ -6,24 +6,32 @@ fun join [] = ""
   | join (x::xs) = x ^ join xs;
 
 fun emit_cakeml_one
-      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
   "(* " ^ operation_id ^ " : " ^ type_text ^ " [" ^ lowering ^ "] *)\n" ^
   "fun " ^ cake_name ^
   " buffer = Runtime.customFFI \"" ^ operation_id ^ "\" buffer;\n";
 
 fun emit_sml_sig_one
-      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
   "  (* original: " ^ operation_id ^ " : " ^ type_text ^
   " ; lowering=" ^ lowering ^ " *)\n" ^
   "  val " ^ cake_name ^ " : Word8Vector.vector -> Word8Vector.vector\n";
 
 fun emit_sml_impl_one
-      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
   "fun " ^ cake_name ^ " payload = GeneratedApiRuntime.call \"" ^
   operation_id ^ "\" payload;\n";
 
 fun emit_map f [] = ""
   | emit_map f (x::xs) = f x ^ emit_map f xs;
+
+fun filter_component "" xs = xs
+  | filter_component wanted [] = []
+  | filter_component wanted
+      (x as (component,_,_,_,_,_,_)::xs) =
+      if component = wanted
+      then x :: filter_component wanted xs
+      else filter_component wanted xs;
 
 fun emit_cakeml contract =
   "(* MACHINE GENERATED. Canonical ABI: mutable byte_array via Runtime.customFFI. *)\n" ^
@@ -42,7 +50,11 @@ fun emit_sml contract =
 
 fun main u =
   case CommandLine.arguments () of
-    "sml"::_ => print (emit_sml generated_api_contract)
+    "sml"::component::_ =>
+      print (emit_sml (filter_component component generated_api_contract))
+  | "sml"::_ => print (emit_sml generated_api_contract)
+  | "cakeml"::component::_ =>
+      print (emit_cakeml (filter_component component generated_api_contract))
   | _ => print (emit_cakeml generated_api_contract);
 
 main ();
