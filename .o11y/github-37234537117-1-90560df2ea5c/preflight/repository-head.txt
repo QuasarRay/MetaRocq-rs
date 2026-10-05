@@ -1,0 +1,7 @@
+commit 90560df2ea5cd1e0615736885e9300e779de524f
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 08:03:38 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 08:03:38 2026 +1100
+
+    Reuse exact producer cache and validate incremental E2E pull requests
