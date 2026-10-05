@@ -1,0 +1,11 @@
+(theory
+ ("MetaRocqSelfHostKernel"
+  ("hol" . "f87085c438715e4b35e65b3b9654a1c121b2e89f"))
+ (core-data
+  (tables
+   (string-table "min" "bool" "!" "fun" "==>" "kernel_qualified"
+    "MetaRocqSelfHostKernel") (id-table (0 . 1) (1 . 2) (0 . 3) (0 . 4))
+   (type-table (0) (2 0 0) (2 1 0) (2 0 1))
+   (term-table ("p" 0) (1 2) (3 3))) exports (nil) (nil)
+  ((5 (((6 0) (1 25 52)) "DISK_THM") (2 0) ("%0$0$0B2|U1"))))
+ (incorporate (incorporate-types) incorporate-consts) (loadable-thydata))

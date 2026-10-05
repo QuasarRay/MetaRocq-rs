@@ -51,13 +51,28 @@ The theory reads a stable, materialized input that is also a declared Holmake
 dependency. The scripts resolve the pinned Poly/ML layout under `.hol/objs`
 and reject conflicting flat and nested artifacts. The legacy workflow uses the
 same compilation helper instead of copying a script into an upstream checkout.
-The actual parse and compiler-evaluation theorem objects must have no hypotheses,
-oracle tags, or additional axioms.
+The actual parse and compiler-evaluation theorem objects must have no hypotheses
+or additional axioms. The permitted tags are empty or HOL4's standard `DISK_THM`
+dependency-load marker, matching CakeML's `check_thm`; every other oracle tag is
+rejected. Pinned dependency proof objects remain part of the trust boundary.
 
 Six orchestration regressions pass: exact reuse, changed bytes with unchanged
 timestamp, modified theory, missing assembler output, failed compiler, and
 ambiguous artifact layout. These fixtures test orchestration, not HOL semantics.
 Full compiler evaluation and source-to-machine qualification remain pending.
+
+## Executed local kernel qualification
+
+Both `PeregrineSelfHostContractTheory` and `MetaRocqSelfHostKernelTheory` compile
+against the pinned HOL4 built locally with Poly/ML 5.7.1. The original Peregrine
+contract escaped its HOL conjunction incorrectly, and both scripts referenced
+an unavailable `check_thm` helper. Their explicit expected-conclusion, hypothesis,
+and tag checks now execute successfully with the stock disk-load policy.
+
+The exact scripts, two emitted theory objects, compilation output, and the
+earlier tag-rejection diagnostic are preserved with checksums under
+`.o11y/local-kernel-qualification-20261004`. These small qualification theorems
+establish neither Peregrine/MetaRocq semantics nor machine-code correctness.
 
 ## Remaining mathematical and executable boundaries
 
