@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Adapt the pinned CakeML tactic wrapper to HOL4's context-aware API.
 
-Keep the pinned source unchanged. Only the two audited wrapper locations differ
+Keep the pinned source unchanged. Only the audited wrapper and grammar differ
 in the derived worktree; neither HOL kernel code nor logical definitions change.
 """
 from __future__ import annotations
@@ -27,6 +27,10 @@ def compatible_preamble(original: str) -> str:
      if isSome (Context.current_thy ctxt) then Tactical.TAC_PROOF_in ctxt gtac
      else Feedback.trace ("TAC_PROOF requires current theory", 0)
             (Tactical.TAC_PROOF_in ctxt) gtac"""),
+        ("(*Temporary workaround for cache being slow on long files*)",
+         """(* Preserve the MOD precedence used by this CakeML revision. *)
+val _ = Parse.set_fixity "MOD" (Infixl 650);
+(*Temporary workaround for cache being slow on long files*)"""),
     )
     for before, after in substitutions:
         if original.count(before) != 1:
@@ -74,6 +78,12 @@ def materialize(source: Path, target: Path, expected: str) -> dict:
         "patch": patch,
         "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness",
         "legacy_library_mode": "Scoped HOL4 compatibility trace only when the supplied context has no current theory; kernel proof rules remain unchanged.",
+        "mod_grammar": {
+            "fixity": "Infixl 650",
+            "historical_hol4_commit": "bec0b16a8e4efed5c8aa75afe14797543da0eccd",
+            "historical_source": "src/num/theories/arithmeticScript.sml",
+            "reason": "Preserve the existing CakeML statements' original parse; current HOL4 uses Infixl 600.",
+        },
     }
 
 

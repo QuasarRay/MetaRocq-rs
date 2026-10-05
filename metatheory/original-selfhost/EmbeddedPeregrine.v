@@ -1,9 +1,11 @@
 From Stdlib Require Import List.
+From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad bytestring.
 From Peregrine Require Import
   Pipeline ConfigUtils PAst NameSanitize.
 
 Import MonadNotation.
+Local Open Scope monad.
 Local Open Scope bs_scope.
 
 (* The self image uses Peregrine's real Rocq implementation for parsing,

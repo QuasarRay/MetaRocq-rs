@@ -1,4 +1,5 @@
 From Stdlib Require Import String List Bool.
+From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad bytestring.
 From Peregrine Require Import PAst.
 From CakeML.Backend Require Import Compile.
@@ -7,6 +8,7 @@ From MetaRocqRs.OriginalSelfHost Require Import
   EAstSupportedFragment CakeMLNoRaise.
 
 Import MonadNotation.
+Local Open Scope monad.
 Local Open Scope bs_scope.
 
 Definition checked_candidate_compile_past

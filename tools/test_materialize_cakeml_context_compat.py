@@ -7,7 +7,7 @@ import unittest
 
 from materialize_cakeml_context_compat import git, materialize
 
-ORIGINAL = "fun clear_cache_prover gtac  =\n let val res = TAC_PROOF gtac in res end\n"
+ORIGINAL = "(*Temporary workaround for cache being slow on long files*)\nfun clear_cache_prover gtac  =\n let val res = TAC_PROOF gtac in res end\n"
 
 
 class ContextWorktreeTests(unittest.TestCase):
@@ -35,6 +35,7 @@ class ContextWorktreeTests(unittest.TestCase):
         self.assertEqual(self.original.read_text(), ORIGINAL)
         self.assertEqual(git(self.source, "status", "--porcelain"), "")
         self.assertIn("Tactical.TAC_PROOF_in ctxt gtac", (self.target / "misc/preamble.sml").read_text())
+        self.assertIn('Parse.set_fixity "MOD" (Infixl 650)', (self.target / "misc/preamble.sml").read_text())
         self.assertEqual(git(self.target, "diff", "HEAD", "--name-only"), "misc/preamble.sml")
 
     def test_unexpected_derived_progress_is_never_overwritten(self):

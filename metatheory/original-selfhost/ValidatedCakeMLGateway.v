@@ -1,10 +1,12 @@
 From Stdlib Require Import String List.
+From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad.
 From MetaRocqRs.OriginalSelfHost Require Import
   EmbeddedPeregrine CandidateCakeMLCompiler
   CakeMLTranslationCertificate CakeMLBackendTrustLedger.
 
 Import MonadNotation.
+Local Open Scope monad.
 
 Definition prepare_and_candidate_compile
   (attrs : list string) (source : string)

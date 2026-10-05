@@ -1,4 +1,5 @@
 From Stdlib Require Import List.
+From ExtLib Require Import Monads.
 From MetaRocq.Utils Require Import ResultMonad bytestring.
 From MetaRocq.Common Require Import Kernames.
 From MetaRocq.Erasure Require Import EAst.
@@ -10,6 +11,7 @@ From MetaRocqRs.OriginalSelfHost Require Import
 
 Import ListNotations.
 Import MonadNotation.
+Local Open Scope monad.
 Local Open Scope bs_scope.
 
 (*
