@@ -1,6 +1,6 @@
 Theory GeneratedApiWrapperModel
 Ancestors
-  list words
+  GeneratedApiContract list words
 Libs
   preamble
 
@@ -22,11 +22,18 @@ Definition generated_wrapper_step_def:
       else ApiError UnknownOperation
 End
 
+Definition generated_api_step_def:
+  generated_api_step foreign op payload =
+    generated_wrapper_step generated_api_operations foreign op payload
+End
+
 Definition generated_foreign_refines_original_def:
   generated_foreign_refines_original
     (original:string -> word8 list -> api_result)
     (foreign:string -> word8 list -> api_result) <=>
-      !op payload. foreign op payload = original op payload
+      !op payload.
+        MEM op generated_api_operations ==>
+        foreign op payload = original op payload
 End
 
 Definition generated_wrapper_safe_def:
@@ -62,19 +69,44 @@ Proof
   simp [generated_wrapper_step_def]
 QED
 
-Theorem generated_wrapper_refines_original:
-  !known original foreign op payload.
+Theorem generated_api_unknown_fail_closed:
+  !foreign op payload.
+    ~MEM op generated_api_operations ==>
+    generated_api_step foreign op payload =
+      ApiError UnknownOperation
+Proof
+  simp [generated_api_step_def,generated_wrapper_step_def]
+QED
+
+Theorem generated_api_known_is_exact_foreign_call:
+  !foreign op payload.
+    MEM op generated_api_operations ==>
+    generated_api_step foreign op payload =
+      foreign op payload
+Proof
+  simp [generated_api_step_def,generated_wrapper_step_def]
+QED
+
+Theorem generated_api_refines_original:
+  !original foreign op payload.
     generated_foreign_refines_original original foreign /\
-    MEM op known ==>
-    generated_wrapper_step known foreign op payload =
+    MEM op generated_api_operations ==>
+    generated_api_step foreign op payload =
       original op payload
 Proof
   simp [generated_foreign_refines_original_def,
-        generated_wrapper_step_def]
+        generated_api_step_def,generated_wrapper_step_def]
 QED
 
 Theorem generated_wrapper_safe:
   !known foreign. generated_wrapper_safe known foreign
 Proof
-  simp [generated_wrapper_safe_def, generated_wrapper_step_def]
+  simp [generated_wrapper_safe_def,generated_wrapper_step_def]
+QED
+
+Theorem generated_api_step_total:
+  !foreign op payload. ?r. generated_api_step foreign op payload = r
+Proof
+  simp [generated_api_step_def]
+  \\ metis_tac [generated_wrapper_step_total]
 QED
