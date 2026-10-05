@@ -70,7 +70,7 @@ HOL4 theorem hygiene, MCP inspection and proof-artifact preservation.
 The production wrapper target deliberately reuses the exact CakeML and HOL4
 pins already qualified by PR #58/#59. A newer CakeML release is unnecessary:
 the pinned CakeML runtime already provides the generic `fficustom` entry and
-the language already supports direct `#(custom)` FFI calls.
+the language already supports direct `#(api_bridge)` FFI calls.
 
 Each generated wrapper therefore has the uniform shape:
 
@@ -86,3 +86,7 @@ fun generated_operation buffer =
 This keeps the foreign ABI to one runtime symbol and exposes the exact original
 operation identifier as FFI configuration bytes, which is directly visible to
 CakeML's characteristic-formula `xffi` rule.
+
+## Dedicated FFI name
+
+Generated wrappers use only `#(api_bridge)`.  The CakeML compiler turns this into the single native symbol `ffiapi_bridge`.  The native bridge is an explicit foreign-contract premise; it is not silently identified with CakeML's basis FFI implementation.
