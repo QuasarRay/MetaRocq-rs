@@ -34,14 +34,32 @@ val _ =
   if same_const parse_ctor `INR` then ()
   else raise Fail "Generated CakeML wrapper source failed verified parsing";
 
+val generated_api_wrapper_library_prog_def =
+  Define `generated_api_wrapper_library_prog = ^parsed_prog_tm`;
+
+val main_name_tm = mlstringSyntax.fromMLstring "main";
+val main_call_tm =
+  ``Dlet unknown_loc (Pcon NONE [])
+      (App Opapp [Var (Short ^main_name_tm); Con NONE []])``;
+val called_prog_tm =
+  listSyntax.mk_snoc (parsed_prog_tm, main_call_tm);
+
 val generated_api_wrapper_prog_def =
-  Define `generated_api_wrapper_prog = ^parsed_prog_tm`;
+  Define `generated_api_wrapper_prog = ^called_prog_tm`;
 
 Theorem generated_api_wrapper_parses:
   parse_cml_input generated_api_wrapper_source =
-  INR generated_api_wrapper_prog
+  INR generated_api_wrapper_library_prog
 Proof
-  rw [parse_eval, generated_api_wrapper_prog_def]
+  rw [parse_eval, generated_api_wrapper_library_prog_def]
+QED
+
+Theorem generated_api_wrapper_prog_has_main_call:
+  generated_api_wrapper_prog =
+  SNOC ^main_call_tm generated_api_wrapper_library_prog
+Proof
+  rw [generated_api_wrapper_prog_def,
+      generated_api_wrapper_library_prog_def]
 QED
 
 val generated_api_wrapper_compiled =
@@ -64,6 +82,8 @@ fun require_clean_closed name th =
 
 val _ = require_clean_closed "generated_api_wrapper_parses"
   generated_api_wrapper_parses;
+val _ = require_clean_closed "generated_api_wrapper_prog_has_main_call"
+  generated_api_wrapper_prog_has_main_call;
 val _ = require_clean_closed "generated_api_wrapper_compiled"
   generated_api_wrapper_compiled;
 
