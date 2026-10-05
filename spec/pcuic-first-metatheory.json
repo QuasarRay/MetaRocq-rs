@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "EXPERIMENTAL_POLICY",
+  "canonical_representation": "MetaRocq.PCUIC.PCUICProgram.pcuic_program",
+  "principles": {
+    "hol4_migration": "HOL4 and OpenTheory/Dedukti are migration inputs/intermediates. Accepted migrated proof material is recursively quoted by MetaRocq into PCUIC and retained as a PCUICProgram.pcuic_program.",
+    "dedukti": "Dedukti/Lambdapi terms are independently checked provenance artifacts, not the final project metatheory representation.",
+    "rocq_transport": "Generated Rocq source is a kernel-checking transport shell. It is not the canonical stored semantics when an equivalent PCUIC program is available.",
+    "rust_native_metatheory": "The Rust-native MetaRocq-rs metatheory should be specified directly over PCUIC-compatible syntax, environments, universes, typing and operational relations. HOL4 must not become a parallel authoritative metatheory.",
+    "hol4_role": "HOL4 remains a later independent verification/replay substrate after primary PCUIC formalization and implementation, except where prior HOL4 work is mechanically harvested into PCUIC.",
+    "implementation": "Implementation roadmaps and proof-transport certificates should consume the PCUIC canonical contract rather than HOL4 theory files."
+  },
+  "required_migration_chain": [
+    "HOL4 kernel theorem",
+    "OpenTheory article",
+    "Holide translation",
+    "independent Lambdapi/Dedukti check",
+    "Rocq kernel check",
+    "MetaRocq recursive quotation",
+    "PCUICProgram.pcuic_program"
+  ],
+  "acceptance": {
+    "no_admitted": true,
+    "no_new_untracked_axioms": true,
+    "preserve_assumption_ledger": true,
+    "final_type": "MetaRocq.PCUIC.PCUICProgram.pcuic_program"
+  },
+  "cakeml_toolchain": {
+    "release": "v3213",
+    "source_commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+    "x64_64_asset": "cake-x64-64.tar.gz",
+    "x64_64_sha256": "e99dc1cdb9e28366f78c7c4ef812dbaab6710eb301ae8c85d1b6ce2a2161b728",
+    "compile_flags": [
+      "--sexp=true",
+      "--exclude_prelude=true",
+      "--skip_type_inference=true"
+    ],
+    "provenance": "Official CakeML GitHub release metadata; flags copied from pinned Peregrine CakeML test harness."
+  }
+}
