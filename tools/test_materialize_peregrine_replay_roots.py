@@ -19,6 +19,30 @@ LOG = "\n".join([
 
 
 class CorpusRootTests(unittest.TestCase):
+    def test_unified_protocol_reuses_complete_renderer_and_retains_assumptions(self):
+        manifest = MANIFEST.replace("peregrine_modules", "unified_modules")
+        log = LOG.replace("PEREGRINE_REPLAY", "UNIFIED_REPLAY")
+        log = log.replace("ROOT CONST Peregrine.B.unrelated_proof", "ROOT ASSUMPTION Peregrine.B.unrelated_proof")
+        source, receipt = materialize(log, manifest, module_list="unified_modules",
+                                     marker_prefix="UNIFIED_REPLAY", root_prefix="unified",
+                                     import_module="MetaRocqRs.UnifiedGenerated.UnifiedLoadAll", coverage_ledger=True)
+        self.assertEqual(receipt["unique_declaration_roots"], 3)
+        self.assertIn("Definition unified_all_declarations_root", source)
+        self.assertIn('"Peregrine.A.opaque_proof"%bs', source)
+        self.assertIn("Definition unified_expected_assumption_names", source)
+        self.assertIn('"Peregrine.B.unrelated_proof"%bs', source)
+
+    def test_generated_namespace_and_identifiers_cannot_inject_code(self):
+        for option in ({"module_list": "x;Admitted."}, {"root_prefix": "../x"},
+                       {"import_module": "X;Admitted."}, {"marker_prefix": "x\nUNIFIED_REPLAY"}):
+            with self.subTest(option=option), self.assertRaises(ValueError):
+                materialize(LOG, MANIFEST, **option)
+
+    def test_contradictory_body_classification_is_rejected(self):
+        changed = LOG.replace("PEREGRINE_REPLAY_MODULE Peregrine.B\nPEREGRINE_REPLAY_ROOT CONST", "PEREGRINE_REPLAY_MODULE Peregrine.B\nPEREGRINE_REPLAY_ROOT ASSUMPTION")
+        with self.assertRaisesRegex(ValueError, "contradictory"):
+            materialize(changed, MANIFEST)
+
     def test_opaque_and_unrelated_proofs_survive_without_duplicate_roots(self):
         source, receipt = materialize(LOG, MANIFEST)
         self.assertEqual(receipt["unique_declaration_roots"], 3)

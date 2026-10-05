@@ -1,47 +1,16 @@
-From Stdlib Require Import List.
 From MetaRocq.Utils Require Import utils.
-From MetaRocq.Common Require Import Kernames.
-From MetaRocq.Template Require Import Loader TemplateMonad.
+From MetaRocqRs.OriginalSelfHost Require Import DeclarationReplayInventory.
 From MetaRocqRs.PeregrineSelfHost Require Import
   PeregrineSourceManifest PeregrineLoadAll.
 
-(* The source of the root list is Rocq's loaded module environment, not a
-   regexp over theorem declarations. Constructor references target their
-   mutual inductive declaration. Open variables block the
-   build; they are never dropped from a claimed closed source corpus. *)
-Definition emit_replay_root (r : global_reference) : TemplateMonad unit :=
-  match r with
-  | ConstRef kn =>
-      tmMsg ("PEREGRINE_REPLAY_ROOT CONST " ^ string_of_kername kn)
-  | IndRef ind =>
-      tmMsg ("PEREGRINE_REPLAY_ROOT IND " ^
-        string_of_kername ind.(inductive_mind))
-  | ConstructRef ind _ =>
-      tmMsg ("PEREGRINE_REPLAY_ROOT IND " ^
-        string_of_kername ind.(inductive_mind))
-  | VarRef id => tmFail ("Open source variable in proof corpus: " ^ id)
-  end.
+(* Preserve the established Peregrine inventory protocol and reuse the
+   Rocq declaration enumerator for the larger original-source bundle. *)
+Definition peregrine_inventory_markers : replay_inventory_markers :=
+  {| inventory_module_marker := "PEREGRINE_REPLAY_MODULE ";
+     inventory_root_marker := "PEREGRINE_REPLAY_ROOT ";
+     inventory_done_marker := "PEREGRINE_REPLAY_MODULE_DONE ";
+     inventory_complete_marker := "PEREGRINE_REPLAY_COMPLETE";
+     inventory_classify_bodies := false |}.
 
-Fixpoint emit_replay_roots (rs : list global_reference)
-  : TemplateMonad unit :=
-  match rs with
-  | nil => tmReturn tt
-  | r :: rs => tmBind (emit_replay_root r) (fun _ => emit_replay_roots rs)
-  end.
-
-Definition emit_replay_module (q : qualid) : TemplateMonad unit :=
-  tmBind (tmMsg ("PEREGRINE_REPLAY_MODULE " ^ q))
-    (fun _ => tmBind (tmQuoteModule q)
-      (fun rs => tmBind (emit_replay_roots rs)
-        (fun _ => tmMsg ("PEREGRINE_REPLAY_MODULE_DONE " ^ q ^ " " ^
-          string_of_nat (List.length rs))))).
-
-Fixpoint emit_replay_modules (qs : list qualid) : TemplateMonad unit :=
-  match qs with
-  | nil => tmReturn tt
-  | q :: qs => tmBind (emit_replay_module q) (fun _ => emit_replay_modules qs)
-  end.
-
-MetaRocq Run
-  (tmBind (emit_replay_modules PeregrineSourceManifest.peregrine_modules)
-    (fun _ => tmMsg "PEREGRINE_REPLAY_COMPLETE")).
+MetaRocq Run (emit_declaration_inventory peregrine_inventory_markers
+  PeregrineSourceManifest.peregrine_modules).
