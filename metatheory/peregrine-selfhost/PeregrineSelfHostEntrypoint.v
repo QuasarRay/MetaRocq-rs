@@ -54,3 +54,24 @@ Definition retained_peregrine_assumption_ledger := peregrine_assumption_ledger.
 Definition retained_peregrine_replay_jobs := peregrine_replay_jobs.
 Definition retained_peregrine_runtime_replay_program :=
   peregrine_runtime_replay_program.
+
+
+(*
+  Closed runtime root for the generated CakeML program.
+
+  CakeML's serialized module evaluates the extracted root as the body of its
+  top-level [main] declaration.  Therefore this conditional forces the
+  retained replay checker to run during program initialization.  The normal
+  dispatcher is only retained in the resulting value when that replay
+  succeeds.  This is an executable fail-closed gate, not a replacement for the
+  later HOL4 source-to-machine theorem.
+*)
+Inductive peregrine_selfhost_runtime :=
+| PeregrineRuntimeReady
+    (dispatch : peregrine_selfhost_command -> peregrine_selfhost_response)
+| PeregrineRuntimeReplayRejected.
+
+Definition peregrine_selfhost_runtime_root : peregrine_selfhost_runtime :=
+  if replay_peregrine_runtime_program
+  then PeregrineRuntimeReady peregrine_selfhost_entrypoint
+  else PeregrineRuntimeReplayRejected.
