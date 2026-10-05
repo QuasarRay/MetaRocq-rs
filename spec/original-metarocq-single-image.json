@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "status": "EXPERIMENTAL_FAIL_CLOSED",
+  "purpose": "One reflective Original-MetaRocq lambda-box/CakeML image containing MetaRocq self verification, Peregrine regeneration, Candle/OpenTheory checking, and the verified CakeML compiler/REPL path.",
+  "cakeml": {
+    "repository": "https://github.com/CakeML/cakeml.git",
+    "revision": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+    "release": "v3213",
+    "x64_64_asset_sha256": "e99dc1cdb9e28366f78c7c4ef812dbaab6710eb301ae8c85d1b6ce2a2161b728",
+    "anchors": [
+      {
+        "path": "examples/opentheory/compilation/proofs/readerProgProofScript.sml",
+        "blob_sha1": "3abf706794e448f4abce2350ede7712a01118ddb",
+        "theorem": "readerProgProof.machine_code_sound"
+      },
+      {
+        "path": "candle/prover/candle_prover_semanticsScript.sml",
+        "blob_sha1": "5b3a22644c604619aeb5039684ac8c5789c9622c",
+        "theorem": "candle_prover_semantics.semantics_thm"
+      },
+      {
+        "path": "compiler/bootstrap/translation/compiler64ProgScript.sml",
+        "blob_sha1": "c3cecc7f72250a3d30df442b9198f13c1b4d2e36",
+        "theorem": "compiler64Prog.semantics_compiler64_prog",
+        "note": "same source defines has_repl_flag with --repl OR --candle and routes --candle to the interactive compiler REPL"
+      },
+      {
+        "path": "compiler/bootstrap/compilation/x64/64/proofs/replProofScript.sml",
+        "blob_sha1": "436c95b6dc64236f33bc2fd7826c841803c11854",
+        "theorem": "replProof.semantics_prog_compiler64_prog"
+      },
+      {
+        "path": "compiler/bootstrap/compilation/x64/64/proofs/x64BootstrapProofScript.sml",
+        "blob_sha1": "71255c97591eef9717739e310b20c65dc509a671",
+        "theorem": "x64BootstrapProof.candle_top_level_soundness",
+        "related_theorem": "x64BootstrapProof.compiler64_prog_eq_candle_code_append"
+      }
+    ]
+  },
+  "trust_policy": {
+    "recursive_reflection_allowed": true,
+    "circular_trust_allowed": false,
+    "bootstrap_seed_required": true,
+    "peregrine_trust_coq_kernel_allowed": false,
+    "opentheory_acceptance_root": "readerProgProof.machine_code_sound",
+    "single_image_ready_only_after_pcuic_hol_lowering_proved": true
+  },
+  "current_blocker": "proof-producing semantics-preserving PCUIC/MetaRocq metatheory derivation to HOL/OpenTheory derivation remains unproved"
+}
