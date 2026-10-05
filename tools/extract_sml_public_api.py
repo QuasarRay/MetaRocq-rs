@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
-"""Extract public Standard ML signature declarations into a canonical API IR.
+"""Extract HOL4-family public Standard ML interfaces into canonical API IR.
 
-This tool is intentionally outside the trust base.  Its output is source-hashed,
-coverage-counted, regenerated deterministically and then checked by HOL4-facing
-proof/qualification stages.
+Trust policy:
+- this extractor is NOT trusted proof evidence;
+- production public API comes from HOL4's build-generated sigobj surface,
+  unioned with explicitly mandatory proof-automation signatures;
+- every src/**/*.sig file is still hashed into a source-interface audit;
+- deterministic regeneration, source hashes and HOL4 kernel checks gate use.
 """
 
 from __future__ import annotations
 
 import argparse
+import collections
 import hashlib
 import json
 import pathlib
@@ -17,7 +21,7 @@ from typing import Iterable
 
 DECL = re.compile(r"^(val|type|eqtype|datatype|exception|include|structure|sharing)\b")
 SIG = re.compile(r"\bsignature\s+([A-Za-z_][A-Za-z0-9_']*)\s*=\s*sig\b", re.S)
-VAL = re.compile(r"^val\s+([^\s:]+)\s*:\s*(.*)$", re.S)
+VAL = re.compile(r"^val\s+(?:op\s+)?([^\s:]+)\s*:\s*(.*)$", re.S)
 TYPE = re.compile(r"^(?:eqtype|type)\s+(.*)$", re.S)
 
 DEFAULT_OPAQUE = {
@@ -106,37 +110,47 @@ def split_top_level_arrows(type_text: str) -> list[str]:
     return pieces
 
 
-def classify_value(type_text: str, opaque: set[str]) -> tuple[str, int]:
+def classify_type(type_text: str, opaque: set[str]) -> str:
+    t = " ".join(type_text.split())
+    if len(split_top_level_arrows(t)) > 1:
+        return "callback_handle"
+    if re.search(r"\bref\b", t):
+        return "remote_ref"
+    if any(name in t for name in opaque):
+        return "opaque_handle"
+    direct = {"unit", "bool", "int", "string", "char", "real"}
+    # word/word8/etc are kept direct when they are the complete named type.
+    if t in direct or re.fullmatch(r"(?:Word\d*\.word|word\d*|word)", t, re.I):
+        return "direct"
+    if any(tok in t for tok in (" list", " option", " vector", " array", "*", "{", "}")):
+        return "structural"
+    # Type variables and named SML/HOL4 types are safe as typed opaque values.
+    return "opaque_handle"
+
+
+def classify_value(type_text: str, opaque: set[str]) -> tuple[str, int, list[str], str]:
     t = " ".join(type_text.split())
     parts = split_top_level_arrows(t)
     arity = max(0, len(parts) - 1)
-    if re.search(r"\bref\b", t):
-        return "mutable_ref", arity
-    if any("->" in p for p in parts):
-        return "higher_order", arity
-    if any(name in t for name in opaque):
-        return "opaque_handle", arity
-    direct_tokens = {"unit", "bool", "int", "string", "char", "word", "real"}
-    names = set(re.findall(r"[A-Za-z_][A-Za-z0-9_'.]*", t))
-    structural_words = {"list", "option", "vector", "array"}
-    unknown = {
-        n for n in names
-        if n not in direct_tokens
-        and n not in structural_words
-        and not n.startswith("'")
-        and n not in {"NONE", "SOME"}
-    }
-    if unknown:
-        # Unknown named SML values are represented opaquely by default.  This
-        # is safe and complete; override metadata may later select a richer
-        # structural codec.
-        return "opaque_handle", arity
-    if names & structural_words or any(c in t for c in "*{}"):
-        return "structural", arity
-    return "direct", arity
+    args = parts[:-1]
+    result = parts[-1]
+    arg_classes = [classify_type(x, opaque) for x in args]
+    result_class = classify_type(result, opaque)
+    if arity == 0 and result_class == "remote_ref":
+        lowering = "mutable_ref"
+    elif "callback_handle" in arg_classes or result_class == "callback_handle":
+        lowering = "higher_order"
+    elif "opaque_handle" in arg_classes or result_class == "opaque_handle":
+        lowering = "opaque_handle"
+    elif "structural" in arg_classes or result_class == "structural":
+        lowering = "structural"
+    else:
+        lowering = "direct"
+    return lowering, arity, arg_classes, result_class
 
 
 def component_for(rel: str) -> str:
+    rel = rel.replace("\\", "/")
     if rel.startswith("src/HolSmt/"):
         return "z3_tac"
     if rel.startswith("src/tactictoe/"):
@@ -144,7 +158,7 @@ def component_for(rel: str) -> str:
     return "hol4"
 
 
-def parse_signature(path: pathlib.Path, root: pathlib.Path, opaque: set[str]) -> dict:
+def parse_signature(path: pathlib.Path, source_rel: str, opaque: set[str]) -> dict:
     data = path.read_bytes()
     text = strip_nested_comments(data.decode("utf-8"))
     sig_name, body = signature_body(text)
@@ -166,12 +180,21 @@ def parse_signature(path: pathlib.Path, root: pathlib.Path, opaque: set[str]) ->
                 item.update(kind="unsupported", reason="malformed val declaration")
             else:
                 name, ty = m.group(1), m.group(2).strip()
-                lowering, arity = classify_value(ty, opaque)
+                normalized = " ".join(ty.split())
+                lowering, arity, arg_classes, result_class = classify_value(
+                    normalized, opaque
+                )
+                parts = split_top_level_arrows(normalized)
                 item.update(
                     name=name,
-                    type=" ".join(ty.split()),
+                    type=normalized,
+                    arguments=parts[:-1],
+                    result_type=parts[-1],
+                    argument_lowerings=arg_classes,
+                    result_lowering=result_class,
                     lowering=lowering,
                     arity=arity,
+                    original_symbol=f"{sig_name}.{name}",
                     operation_id=f"{sig_name}.{name}",
                 )
         elif kind in {"type", "eqtype"}:
@@ -180,14 +203,24 @@ def parse_signature(path: pathlib.Path, root: pathlib.Path, opaque: set[str]) ->
         elif kind in {"datatype", "exception", "include", "structure", "sharing"}:
             item.update(name=first.split(None, 1)[1] if " " in first else first)
         declarations.append(item)
-    rel = str(path.relative_to(root))
     return {
         "signature": sig_name,
-        "component": component_for(rel),
-        "path": rel,
+        "component": component_for(source_rel),
+        "path": source_rel,
         "sha256": sha256(data),
         "declarations": declarations,
     }
+
+
+def signature_paths(root: pathlib.Path, roots: list[str]) -> list[pathlib.Path]:
+    paths: set[pathlib.Path] = set()
+    for rel in roots:
+        base = root / rel
+        if base.is_file() and base.suffix == ".sig":
+            paths.add(base)
+        elif base.exists():
+            paths.update(p for p in base.rglob("*.sig") if p.is_file() or p.is_symlink())
+    return sorted(paths)
 
 
 def main() -> int:
@@ -202,42 +235,89 @@ def main() -> int:
     root = args.hol4_root.resolve()
     opaque = set(DEFAULT_OPAQUE)
     opaque.update(config.get("opaque_types", []))
+    inputs = config["inputs"]
 
-    paths: set[pathlib.Path] = set()
-    for rel in config["inputs"]["public_roots"]:
-        base = root / rel
-        if base.is_file() and base.suffix == ".sig":
-            paths.add(base)
-        elif base.exists():
-            paths.update(base.rglob("*.sig"))
-    for rel in config["inputs"]["mandatory_signatures"]:
+    audit_paths = signature_paths(root, inputs.get("audit_roots", ["src"]))
+    audit_inventory = []
+    audit_by_hash: dict[str, list[str]] = collections.defaultdict(list)
+    for p in audit_paths:
+        data = p.read_bytes()
+        rel = str(p.relative_to(root))
+        digest = sha256(data)
+        audit_inventory.append({"path": rel, "sha256": digest})
+        audit_by_hash[digest].append(rel)
+
+    public_dir = root / inputs.get("public_interface_dir", "sigobj")
+    if not public_dir.exists():
+        raise SystemExit(
+            f"missing HOL4 public interface directory {public_dir}; build HOL4 first"
+        )
+
+    public_candidates = [
+        p for p in public_dir.rglob("*.sig") if p.is_file() or p.is_symlink()
+    ]
+    mandatory = []
+    for rel in inputs["mandatory_signatures"]:
         p = root / rel
         if not p.exists():
             raise SystemExit(f"missing mandatory signature: {rel}")
-        paths.add(p)
+        mandatory.append((p, rel))
+
+    # Resolve sigobj entries back to their source identities by content hash.
+    selected: dict[tuple[str, str], tuple[pathlib.Path, str, str]] = {}
+    for p in sorted(public_candidates):
+        data = p.read_bytes()
+        digest = sha256(data)
+        matches = sorted(audit_by_hash.get(digest, []))
+        source_rel = matches[0] if len(matches) == 1 else str(p.relative_to(root))
+        selected[(source_rel, digest)] = (p, source_rel, "sigobj")
+    for p, rel in mandatory:
+        digest = sha256(p.read_bytes())
+        selected[(rel, digest)] = (p, rel, "mandatory")
 
     signatures = []
     failures = []
-    for p in sorted(paths):
+    for _, (p, source_rel, origin) in sorted(selected.items()):
         try:
-            signatures.append(parse_signature(p, root, opaque))
+            parsed = parse_signature(p, source_rel, opaque)
+            parsed["public_origin"] = origin
+            signatures.append(parsed)
         except Exception as exc:
-            failures.append({"path": str(p.relative_to(root)), "error": str(exc)})
+            failures.append({"path": source_rel, "error": str(exc)})
 
     declarations = [d for s in signatures for d in s["declarations"]]
     values = [d for d in declarations if d["kind"] == "val"]
     unsupported = [d for d in declarations if d["kind"] == "unsupported"]
+
+    operation_locations: dict[str, list[str]] = collections.defaultdict(list)
+    for s in signatures:
+        for d in s["declarations"]:
+            if d["kind"] == "val":
+                operation_locations[d["operation_id"]].append(s["path"])
+    duplicates = {
+        op: sorted(paths) for op, paths in operation_locations.items()
+        if len(paths) > 1
+    }
+
     canonical = {
-        "schema": 1,
+        "schema": 2,
+        "public_interface": "HOL4 sigobj plus mandatory proof-automation signatures",
         "source_root": str(root),
-        "source_commit": config["inputs"]["hol4"]["commit"],
+        "source_commit": inputs["hol4"]["commit"],
         "signatures": signatures,
         "failures": failures,
+        "duplicate_operation_ids": duplicates,
+        "source_interface_audit": {
+            "signature_count": len(audit_inventory),
+            "files": audit_inventory,
+        },
         "summary": {
             "signature_count": len(signatures),
             "declaration_count": len(declarations),
             "value_count": len(values),
-            "unsupported_count": len(unsupported) + len(failures),
+            "unsupported_count": (
+                len(unsupported) + len(failures) + len(duplicates)
+            ),
         },
         "components": {
             name: {
@@ -250,6 +330,7 @@ def main() -> int:
             for name in ("hol4", "z3_tac", "tactictoe")
         },
     }
+
     args.out.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps(canonical, indent=2, sort_keys=True) + "\n"
     args.out.write_text(payload)
