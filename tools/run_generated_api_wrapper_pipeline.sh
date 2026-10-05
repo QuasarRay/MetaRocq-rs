@@ -5,8 +5,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 : "${HOL4_SRC:?Set HOL4_SRC to the pinned HOL4 checkout}"
-: "${CAKEML_SRC:?Set CAKEML_SRC to the CakeML v3400 checkout}"
-: "${CAKEML_BIN_DIR:?Set CAKEML_BIN_DIR to a v3400 compiler bundle containing cake and basis_ffi.c}"
+: "${CAKEML_SRC:?Set CAKEML_SRC to the pinned CakeML checkout}"
+: "${CAKEML_BIN_DIR:?Set CAKEML_BIN_DIR to the pinned CakeML compiler bundle containing cake and basis_ffi.c}"
 : "${HOLDIR:?Set HOLDIR to the HOL4 build used for kernel checking}"
 
 SPEC="$ROOT/spec/generated-sml-api-wrapper-pipeline.json"
@@ -20,8 +20,7 @@ actual_cake="$(git -C "$CAKEML_SRC" rev-parse HEAD)"
 [[ "$actual_hol" == "$expected_hol" ]] || { echo "HOL4 pin mismatch" >&2; exit 64; }
 [[ "$actual_cake" == "$expected_cake" ]] || { echo "CakeML pin mismatch" >&2; exit 65; }
 
-# Reuse PR #59's qualification environment when available. The production
-# wrapper proof stack remains independently pinned and separately compiled.
+# Reuse PR #59's qualification environment and exact HOL4/CakeML pins when available.
 if [[ -x "$ROOT/.aegis/tools/original-proof-automation/bin/python" ]]; then
   "$ROOT/.aegis/tools/original-proof-automation/bin/python"     "$ROOT/.agents/scripts/check_hol4.py"     > "$OUT/reused-hol4-qualification.log" 2>&1
 fi
