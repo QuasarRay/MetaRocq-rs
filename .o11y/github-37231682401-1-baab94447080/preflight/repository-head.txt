@@ -1,0 +1,7 @@
+commit baab94447080bcdd1a430dbd1153023fb15c533d
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 07:09:10 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 07:09:10 2026 +1100
+
+    Preserve the executable mode of the recovered bootstrap producer

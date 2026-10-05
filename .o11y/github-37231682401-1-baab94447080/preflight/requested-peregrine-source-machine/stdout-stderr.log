@@ -1,0 +1,11 @@
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/rocq
+/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/peregrine
+File "./metatheory/original-selfhost/SelfSnapshot.v", line 2, characters 0-50:
+Warning: Notation "<% _ %>" was already used.
+[notation-overridden,parsing,default]
+File "./metatheory/original-selfhost/SelfSnapshot.v", line 2, characters 0-50:
+Warning: Notation "<# _ #>" was already used.
+[notation-overridden,parsing,default]
+File "./metatheory/original-selfhost/EmbeddedPeregrine.v", line 6, characters 7-20:
+Error: Cannot find module MonadNotation
+

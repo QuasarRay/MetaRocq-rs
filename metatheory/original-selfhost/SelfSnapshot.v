@@ -1,7 +1,9 @@
 From Stdlib Require Import List.
 From MetaRocq.TemplatePCUIC Require Import Loader.
+From MetaRocq.Template Require Import TemplateMonad.
 From MetaRocq.PCUIC Require Import PCUICAst PCUICProgram.
 From MetaRocq.Common Require Import Kernames.
+From MetaRocq.Utils Require Import utils.
 From MetaRocqRs.OriginalSelfHost Require Import PCUICModuleManifest.
 
 Import ListNotations MonadNotation.
@@ -74,8 +76,12 @@ Definition quote_pinned_pcuic_metatheory
   quote_modules PCUICModuleManifest.pcuic_metatheory_modules.
 
 Definition materialize_pinned_pcuic_metatheory : TemplateMonad unit :=
-  snapshots <- quote_pinned_pcuic_metatheory ;;
-  MetaRocq.Template.TemplateMonad.Core.tmDefinition
-    "original_pcuic_metatheory_snapshot"%bs snapshots.
+  MetaRocq.Template.TemplateMonad.Core.tmBind
+    quote_pinned_pcuic_metatheory
+    (fun snapshots =>
+       MetaRocq.Template.TemplateMonad.Core.tmBind
+         (MetaRocq.Template.TemplateMonad.Core.tmDefinition
+            "original_pcuic_metatheory_snapshot"%bs snapshots)
+         (fun _ => MetaRocq.Template.TemplateMonad.Core.tmReturn tt)).
 
 End SelfSnapshot.
