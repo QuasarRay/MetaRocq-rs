@@ -115,9 +115,17 @@ def main() -> int:
     require(replay_path.is_file(), "runtime replay module missing")
     replay = replay_path.read_text()
     require("tmQuoteRecTransp" in replay and
+            "peregrine_all_declarations_root true" in replay and
             "MetaRocq.Template.Checker.typecheck_program" in replay and
             "replay_peregrine_runtime_program" in replay,
             "runtime replay no longer quotes and checks the retained Peregrine program")
+    inventory = (ROOT / "metatheory/peregrine-selfhost/PeregrineReplayRootInventory.v").read_text()
+    require("tmQuoteModule q" in inventory and
+            "PeregrineSourceManifest.peregrine_modules" in inventory and
+            "VarRef id => tmFail" in inventory and
+            "PEREGRINE_REPLAY_COMPLETE" in inventory and
+            "replay_corpus_has_all_retained_bodies" in replay,
+            "replay root inventory must enumerate every pinned module and reject open variables")
     require("ReplayPeregrineRuntimeProofs" in entry and
             "PeregrineRuntimeReplayResult" in entry,
             "LambdaBox root no longer exposes runtime replay")

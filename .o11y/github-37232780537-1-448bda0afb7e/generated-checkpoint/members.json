@@ -1,0 +1,486 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "formal/hol4/MetaRocqBootstrapScript.sml",
+      "bytes": 599,
+      "sha256": "0d5c8f3df44eaa624c457063ede559a59874bef4bdd0e6258a03d99dd20a6e4b"
+    },
+    {
+      "path": "formal/hol4/MetaRocqMigrationSmokeScript.sml",
+      "bytes": 1048,
+      "sha256": "9d6df8932fc0587afd2f9fb5670da4793db4f69a84770726728419776ccc75d1"
+    },
+    {
+      "path": "formal/hol4/MetaRocqSelfHostKernelScript.sml",
+      "bytes": 793,
+      "sha256": "3864a9247a327a948b9e1a96a94be5f4d9a0a39dc399d9d122ac31909fe4d1a7"
+    },
+    {
+      "path": "formal/hol4/PeregrineGeneratedCompileScript.sml",
+      "bytes": 2525,
+      "sha256": "17e1d0cb031dcd9f7eb60d47fa977169c87488df0d97514637ff935393cdd000"
+    },
+    {
+      "path": "formal/hol4/PeregrineSelfHostContractScript.sml",
+      "bytes": 878,
+      "sha256": "8383ed79c686930116b59c2c946db4d8d1febe7c07a463069286c8118befbfb5"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/8cb4380a19d1/source.txt",
+      "bytes": 51,
+      "sha256": "a8774ad41e7704237eee47e054ea2236976df116d37de4c519fb4883433f6923"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/8cb4380a19d1/status.txt",
+      "bytes": 7,
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/8cb4380a19d1/stdout-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/8cb4380a19d1/time-memory.txt",
+      "bytes": 844,
+      "sha256": "b7d235abcfb26c866c267e675c81d97c202040be74bff38ef6cf3ecac9f102f8"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/b5265efad82f/source.txt",
+      "bytes": 44,
+      "sha256": "70168787ff8f0dec63a934d84432f2123a5bef9263204e628ffb8dde31686c15"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/b5265efad82f/status.txt",
+      "bytes": 7,
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/b5265efad82f/stdout-stderr.log",
+      "bytes": 326,
+      "sha256": "66b3fccbccd073ebb006a0d3a92cdf86a237563ae2f4339470b818c91b2376fb"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/b5265efad82f/time-memory.txt",
+      "bytes": 837,
+      "sha256": "7353f67f2c6d058f064567b66a926c4f60aad0accfad055dc3c054d596d22f01"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/c7ea84988ec9/source.txt",
+      "bytes": 49,
+      "sha256": "534f48185393e2d9c4d30a60c20e942e4b473774c4d9ac6e397b110ef9aeff44"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/c7ea84988ec9/status.txt",
+      "bytes": 7,
+      "sha256": "cf205dbb8cea84897b488abcc281bf96698d5e94b1096b16657b4caba9082a22"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/c7ea84988ec9/stdout-stderr.log",
+      "bytes": 125,
+      "sha256": "72d226835be6f1cd1208588c6696c4886fec040504ecea1473361354db0cff56"
+    },
+    {
+      "path": "generated/peregrine-selfhost/compilations/c7ea84988ec9/time-memory.txt",
+      "bytes": 1017,
+      "sha256": "dff541cf82ccae99be815b4707ee5ec4562a777ca17313ef8312a3acee373bd8"
+    },
+    {
+      "path": "generated/peregrine-selfhost/peregrine-help.txt",
+      "bytes": 2273,
+      "sha256": "bc23e9b03afb2af4f315df846b51285104abec9c39f3a45b73a3747a885a1eb6"
+    },
+    {
+      "path": "generated/peregrine-selfhost/rocq-version.txt",
+      "bytes": 58,
+      "sha256": "19dc9933a9591e785dd8edbb90a5ff421a5189b4b922067736a90203e786bb76"
+    },
+    {
+      "path": "metatheory/original-selfhost/CakeMLBackendTrustLedger.v",
+      "bytes": 4007,
+      "sha256": "3f843e3f1fe7b1751d580db7ed21d188b71ceb051e54f65d24d96a960e2956bd"
+    },
+    {
+      "path": "metatheory/original-selfhost/CakeMLNoRaise.v",
+      "bytes": 1320,
+      "sha256": "732a74bd60d2617a75d31c024ef209dbe814a17e46d737ce6ebffc73d7c46246"
+    },
+    {
+      "path": "metatheory/original-selfhost/CakeMLTranslationCertificate.v",
+      "bytes": 1992,
+      "sha256": "7758b53ad029cb41f16d1dbb67a7779c08738c38414d1c8656872158283e3614"
+    },
+    {
+      "path": "metatheory/original-selfhost/CandidateCakeMLCompiler.v",
+      "bytes": 642,
+      "sha256": "4101f2b5658452111c8661ea22a033468264550e383989f3fcc79c728f83d307"
+    },
+    {
+      "path": "metatheory/original-selfhost/CandleExportContract.v",
+      "bytes": 2685,
+      "sha256": "d14fdd10bbfdbd8dd51b5010a4593ae2f3ff94b9b8e8b8950aaac2e761826943"
+    },
+    {
+      "path": "metatheory/original-selfhost/CandleMachineChain.v",
+      "bytes": 2575,
+      "sha256": "fd9e3427f29c336a0c039346d4220ad1de28da49a05468983c40f9e34aed3d07"
+    },
+    {
+      "path": "metatheory/original-selfhost/CandlePrefixComposition.v",
+      "bytes": 1580,
+      "sha256": "b533cd68d626a0a3bdc4da8b26ef2b895ef53c16f7b63e8c18d51f59dd77f31b"
+    },
+    {
+      "path": "metatheory/original-selfhost/CandlePrefixManifest.v",
+      "bytes": 1687,
+      "sha256": "4f2023e253c30b1ac690820a93017f74904551fdbc4e211668c33f7323a6effc"
+    },
+    {
+      "path": "metatheory/original-selfhost/CertificateReplayIR.v",
+      "bytes": 3202,
+      "sha256": "fd799593e53f7aea0969db287d2a36470a4c4ca0227265df195199276877ee17"
+    },
+    {
+      "path": "metatheory/original-selfhost/CheckedCandidateCakeML.v",
+      "bytes": 2809,
+      "sha256": "861c91edbe778b7192c8893c26d8f85ca20746652a03ddbf634f6ca8fe3375fd"
+    },
+    {
+      "path": "metatheory/original-selfhost/CheckedSharedImageEntrypoint.v",
+      "bytes": 1030,
+      "sha256": "0bb7fe8c98aebd4eec0c45313fc993b69bbf1b2aee0574a7e6a931f669ecc95a"
+    },
+    {
+      "path": "metatheory/original-selfhost/DeepEmbeddingStatus.v",
+      "bytes": 988,
+      "sha256": "ecbba7b84202991d2457073ec939d1e47f4daad20b6a21351a410d244c129eb1"
+    },
+    {
+      "path": "metatheory/original-selfhost/DualProofLedger.v",
+      "bytes": 5533,
+      "sha256": "c4288811b7d5842298dc345313327f3c75a94db0e5f231c370e15a55f542c004"
+    },
+    {
+      "path": "metatheory/original-selfhost/EAstSupportedFragment.v",
+      "bytes": 2153,
+      "sha256": "7fafc79f7b8cfd4b40ad6ef31ac6538b8c79000f203092528d17e97d85237023"
+    },
+    {
+      "path": "metatheory/original-selfhost/EmbeddedPeregrine.glob",
+      "bytes": 364,
+      "sha256": "2340a86bf35bbc205f8fb913cd2fe29a4a187a025ba8378931e0a85e780b7645"
+    },
+    {
+      "path": "metatheory/original-selfhost/EmbeddedPeregrine.v",
+      "bytes": 1581,
+      "sha256": "51b4b39e0078bbe2e49307314691cfc248c891d04824b4729cd9465fd88d203d"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractCheckedSharedImage.v",
+      "bytes": 291,
+      "sha256": "b26e053ee45092bf15ed89d66fded8048b89920585bf078d50461e29eba0fdc4"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractHOL4SelfHost.v",
+      "bytes": 265,
+      "sha256": "115f783ef02794f893bcee9e1629d1b8e8dd1d0a6b977bccef0c67c0c3775208"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractReconciledSelfHost.v",
+      "bytes": 289,
+      "sha256": "67d1b3d6ee3f9525cd1ed7b0ea9c855fdece9621b30a9eb6c0324d9ec256647c"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractSelfHost.v",
+      "bytes": 453,
+      "sha256": "14e2877086b423cf4fbc4095fdcbf7cf2ebacd96d477f616e1aae06c4f17d1d9"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractSharedImage.v",
+      "bytes": 261,
+      "sha256": "027f3163a4658cc0e458f904db61beff10ec6ff27669d9d27ae9aaf19e16522a"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractSingleImage.v",
+      "bytes": 261,
+      "sha256": "68648865f4c4ba42c646c5650953be5fac7d6734fdb9b076f0de4e8d2a7a2f4f"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractValidatedSharedImage.v",
+      "bytes": 299,
+      "sha256": "0aea06cdc42435e1078a5b6ea5f83d16bf52fd837e3bde9f43eb47ac1586dc89"
+    },
+    {
+      "path": "metatheory/original-selfhost/ExtractionRoot.v",
+      "bytes": 726,
+      "sha256": "55a474d1ad9ce55be30fda5bff38a216ee672e4acde8a307a6708184c0391861"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4CertificateReplayIR.v",
+      "bytes": 1467,
+      "sha256": "85959472b59e43f6803439a2139be8b6d79d5929c359e6c04edbc04491a0c823"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4KernelContract.v",
+      "bytes": 1999,
+      "sha256": "4ddca76851188863e05a0ff4c33fb99817c915e8b5e23e06c719df88418014fa"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4MachineRefinement.v",
+      "bytes": 4755,
+      "sha256": "1ab5118aadf29c482a653480b4f1dc5a41b352ce30e201e6392061687963090a"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4ProofLedger.v",
+      "bytes": 3581,
+      "sha256": "700625b239ffb841dfda5a436aeb05d1f9503c92f19b89b48d28108a7bb30061"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4RecursiveSelfIdentity.v",
+      "bytes": 2573,
+      "sha256": "d4a2e7426d65a9c2dd5f7c90fed456c7b5f514cf37284e4ec5ab296b1c50c8d5"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4ReuseManifest.v",
+      "bytes": 1727,
+      "sha256": "f71a738e02f10264caf9bc4c2b4fec2c64ec1bb874384937b241050a4559bd8d"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4RoundTripIR.v",
+      "bytes": 3467,
+      "sha256": "f5fce0ba117cf5563c15078896c8b7c5d5764544fffdea543d0b2a6f6b779614"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOL4SelfHostEntrypoint.v",
+      "bytes": 3201,
+      "sha256": "d4259ef9ed85e14fc0873b69f274ecdaf636b89ee88eff7bbab23b9a4fb077d0"
+    },
+    {
+      "path": "metatheory/original-selfhost/HOLProofIR.v",
+      "bytes": 4848,
+      "sha256": "8ae985d7bc45d481440e2d9e516d3fce96a76b8504cfe49f37ff1611e9b6c854"
+    },
+    {
+      "path": "metatheory/original-selfhost/IntegratedPeregrineCakeML.v",
+      "bytes": 2059,
+      "sha256": "8c2ff36435f18a25ac0a4609a31ba553f21f0149ad905b1d46819a656122b7e0"
+    },
+    {
+      "path": "metatheory/original-selfhost/MaterializeSnapshot.v",
+      "bytes": 219,
+      "sha256": "9bfd186c8581ef90fb7a3c290df26a5618762fc011b7c45e38125572e8c3b54c"
+    },
+    {
+      "path": "metatheory/original-selfhost/MetaRocqSuffixSafety.v",
+      "bytes": 1440,
+      "sha256": "16ab82323d96913ceea4cb54a2164b58f839783aad3131cc2aaeee9369374deb"
+    },
+    {
+      "path": "metatheory/original-selfhost/OpenTheoryIR.v",
+      "bytes": 2847,
+      "sha256": "e9decdb6d105fd09a46b98242eecd093b01bbabc5f4009d6a84ad8d4964005d5"
+    },
+    {
+      "path": "metatheory/original-selfhost/OpenTheorySerialize.v",
+      "bytes": 2129,
+      "sha256": "f5f6fb63fa54c297b784f4afb267f113b098a7874980fec58b19465be0889075"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICCertificateIR.v",
+      "bytes": 2362,
+      "sha256": "3d48efb0079ef45a45f97be02678e58d1bc02c4f821cef581972e5b409c94a9e"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICDeepEmbeddingSchema.v",
+      "bytes": 3046,
+      "sha256": "7f8951f049559e016ece61e9fd42af2c268143bc0fffdf634e85e7d789da6aa2"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICModuleManifest.glob",
+      "bytes": 10843,
+      "sha256": "8eac71acb3ec4f2d4097b53a28a00f8d9ad9599f779a32cad8435bfb4ba60cd8"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICModuleManifest.v",
+      "bytes": 5334,
+      "sha256": "ef5fd205bc899acd4dc565f25ecfc1bde2ae748c2234cb43d0da2071b3fddba7"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICModuleManifest.vo",
+      "bytes": 41685,
+      "sha256": "8feb53635a45e53c48af62484e8bc3d274baec53306a5c0b3662481b260846b6"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICModuleManifest.vok",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "metatheory/original-selfhost/PCUICModuleManifest.vos",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "metatheory/original-selfhost/PipelineIR.v",
+      "bytes": 3417,
+      "sha256": "718e32dc0d670cec93918c7a9e30c95ef97a1b232db6e3ba0f223ed1e689f175"
+    },
+    {
+      "path": "metatheory/original-selfhost/ReconciledSelfHostEntrypoint.v",
+      "bytes": 3195,
+      "sha256": "30ede37dc751053ea21667be43d74a41c3eddccb3d2652ec098c796fd681636e"
+    },
+    {
+      "path": "metatheory/original-selfhost/RecursiveSelfIdentity.v",
+      "bytes": 1551,
+      "sha256": "2faf71700399d579d41badaf53df8f4d575a174fa6db1ed0ba419dbe138b964a"
+    },
+    {
+      "path": "metatheory/original-selfhost/ReflectiveDualRecursion.v",
+      "bytes": 1777,
+      "sha256": "6718f88325aaad6ea13632770d47bf4f172f2bf1023dc0554e7d647bc60cbe9c"
+    },
+    {
+      "path": "metatheory/original-selfhost/RetainedPayload.v",
+      "bytes": 1534,
+      "sha256": "2222a67d9455cab1067bb76333f3fdec2f59e88a33ca361e1f338aac593ff556"
+    },
+    {
+      "path": "metatheory/original-selfhost/RuntimeImage.v",
+      "bytes": 3505,
+      "sha256": "2e0c637e926493a7d94a342faa4404e072fdd7d0f3456cd293e5a228b34fd7ff"
+    },
+    {
+      "path": "metatheory/original-selfhost/SafeCheckerContract.v",
+      "bytes": 2129,
+      "sha256": "bd9e7b5b1f95bbf8c0cf3db3734a5ed10112206aa5f57a5c07a8346f58279d8b"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfCICD.v",
+      "bytes": 2843,
+      "sha256": "5bbebc01d50463b09890367b92ece88c290f0484a947a96ae621e6ceecc07bcd"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfCICDInterpreter.v",
+      "bytes": 3580,
+      "sha256": "d88d182626afb9e8590890d77dfce2343347084f6b85b6a416a47f327534cbb5"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfHostRunner.v",
+      "bytes": 2130,
+      "sha256": "79e813bf71299bab8b135916873f806a1f9b2606568a9bc5e02f413643471e1a"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfSnapshot.glob",
+      "bytes": 10070,
+      "sha256": "4e3fe829e10d2a6eb3f85a1c40ef88d69bd98ea6959ad6f50165cf2419eb4f87"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfSnapshot.v",
+      "bytes": 2775,
+      "sha256": "2b4185aa20bb1915c9cdd67c8571cbb966bd3ac2b51931867bb28b7425338300"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfSnapshot.vo",
+      "bytes": 11086,
+      "sha256": "c02f17b1d867dc4b4abd9fe475ed75ab6bdbd56ee0b3ae33ed26471d5de2ffcc"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfSnapshot.vok",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "metatheory/original-selfhost/SelfSnapshot.vos",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "metatheory/original-selfhost/SharedImageEntrypoint.v",
+      "bytes": 1433,
+      "sha256": "f0cf4b96a3e4a56fcc8b3fe7099e47c01f4b2a09881d78a5581261fc471da1e8"
+    },
+    {
+      "path": "metatheory/original-selfhost/SingleImageContract.v",
+      "bytes": 2315,
+      "sha256": "66bb944c372d28bf54269cad19178bf4dddb59f1a85d56c8681364483d47532e"
+    },
+    {
+      "path": "metatheory/original-selfhost/SingleImageEntrypoint.v",
+      "bytes": 1170,
+      "sha256": "82955415bc68e9344af6466c2e88850cdb2b13129c9efff2bafbe94b2752c1df"
+    },
+    {
+      "path": "metatheory/original-selfhost/SourceLambdaBoxRefinement.v",
+      "bytes": 2331,
+      "sha256": "ba374885eefa71076ca11b97cd1a08cf0645c1985e8c869fa70e99d90b6d25cb"
+    },
+    {
+      "path": "metatheory/original-selfhost/ValidatedCakeMLGateway.v",
+      "bytes": 1283,
+      "sha256": "de0fb8cad9a6e81f1804af0db963156eeb5251eaa60f97c689db55317589b72d"
+    },
+    {
+      "path": "metatheory/original-selfhost/ValidatedSharedImageEntrypoint.v",
+      "bytes": 1708,
+      "sha256": "737a029b6b3c90cfaf4bec46da87bf149f00801e8adeb8dcf9e5b71b21636cac"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/ExtractPeregrineSelfHost.v",
+      "bytes": 321,
+      "sha256": "c66dfac94f3bac912ab335b86d33ad8c8776b18c7fc3348cfaea3129b052dd12"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/MaterializePeregrineSnapshot.v",
+      "bytes": 239,
+      "sha256": "fb095a6e29bc41ac4daec0ea964ca78ae62ab211b2f41b474a62b331a5946e83"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineCheckedCakeMLExtraction.v",
+      "bytes": 498,
+      "sha256": "3635115c6e40268e832da8e9a79105f6d7e4502715fdf9afdb5a554cdb928ffe"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineCheckedCakeMLProducer.v",
+      "bytes": 1581,
+      "sha256": "1de96ef810f2104099a851b431017286be1d0e4fc8ce77234ff74e48eb156be9"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineLoadAll.v",
+      "bytes": 1047,
+      "sha256": "5e52853eb2bd933df85cee7320c826e4193fcd25956c4df6ae695d9303f60561"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineProofCorpus.v",
+      "bytes": 4485,
+      "sha256": "cf6f6b38cd1d1ef12b61fd983ba9989ef75160543f0e44da67cc3e59dbe9a625"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineReplayRootInventory.v",
+      "bytes": 1897,
+      "sha256": "f359e6018491ae2e2dda0f48c07891fafb760774cb768f8a8a0318ee270bfd0f"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v",
+      "bytes": 3053,
+      "sha256": "5ce246d32af302f5d912235fca16dc19ace7fd5f76ec7482c21c18ad44605a83"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineSelfHostEntrypoint.v",
+      "bytes": 3092,
+      "sha256": "412607903c06b181b287939d1d782db2a6f295dc951fd1f292d4037c0511d8ef"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineSnapshot.v",
+      "bytes": 884,
+      "sha256": "853ec0b7695016aaa101647b2cb38579fbdd9ffec67f1f368300877ad0e1b1fa"
+    },
+    {
+      "path": "metatheory/peregrine-selfhost/PeregrineSourceManifest.v",
+      "bytes": 3103,
+      "sha256": "f3e770d3996cccf90fc504dd1773a38deeb03f039c40414a7ecd265d4215e2bc"
+    }
+  ],
+  "claim": "exact captured producer artifacts; no theorem or proof acceptance is inferred"
+}
