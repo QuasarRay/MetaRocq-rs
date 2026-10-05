@@ -65,12 +65,13 @@ val _ =
   save_thm ("peregrine_selfhost_compiled", peregrine_selfhost_compiled);
 
 (* A compiler-evaluation theorem must be closed and free from extra axioms or
-   oracle tags. Kernel checking here concerns these actual theorem objects;
+   oracle tags other than HOL4's normal DISK_THM dependency-load marker.
+   This is the same tag policy as CakeML's check_thm. Checking these objects
    it does not supply the later source-semantics composition theorem. *)
 fun require_clean_closed name th =
-  let val (oracles, axioms) = Tag.dest_tag (Thm.tag th)
+  let val tag = Thm.tag th
   in
-    if null (Thm.hyp th) andalso null oracles andalso null axioms then ()
+    if null (Thm.hyp th) andalso (Tag.isEmpty tag orelse Tag.isDisk tag) then ()
     else raise Fail ("contaminated or open compiler theorem: " ^ name)
   end;
 
