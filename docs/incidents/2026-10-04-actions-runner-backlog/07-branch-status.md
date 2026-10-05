@@ -44,6 +44,19 @@
 - 37180664360: **Supervision preflight** — queued — `72fb0ba0`
 - 37180644050: **Original MetaRocq single-image contract** — queued — `72fb0ba0`
 
-This documentation commit uses `[skip ci]` to avoid contributing to the incident.
+## `experiment/original-metarocq-selfhost-04-single-image`
+
+- Pre-report head: `f355197d0dcba1107ff762710374f3f433531bf7`
+- Active runs at report snapshot: **2**
+
+- 37181775710: **Supervision preflight** — queued — `f355197d`
+- 37181746966: **Original MetaRocq single-image bootstrap** — queued — `f355197d`
+
+## `experiment/original-metarocq-selfhost-05-candle-prefix`
+
+- Pre-report head: `7a9ae3f9dcb5fbdaa3342cba95a55e5c9b7ad245`
+- Active runs at report snapshot: **1**
+
+- 37182097643: **Original MetaRocq Candle-prefix shared image** — in_progress — `7a9ae3f9`
 
 These documentation commits use `[skip ci]` to avoid contributing to the incident.

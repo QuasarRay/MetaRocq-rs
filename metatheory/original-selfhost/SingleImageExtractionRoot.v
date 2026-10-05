@@ -6,10 +6,13 @@ Definition single_image_entrypoint
   : single_image_response :=
   run_single_image cmd ev.
 
-(* Keep the proof architecture and exact theorem anchors computationally
-   reachable from the one extraction root. *)
+(* Retain both parallel single-image proof architectures. *)
 Definition retained_single_image_contract : single_image_contract :=
-  original_metarocq_single_image_contract.
+  original_metarocq_single_image.
+
+Definition retained_anchored_single_image_contract :
+  anchored_single_image_contract :=
+  original_metarocq_anchored_single_image_contract.
 
 Definition retained_machine_theorem_anchors :
   list verified_theorem_anchor :=
