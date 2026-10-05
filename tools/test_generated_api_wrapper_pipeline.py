@@ -167,6 +167,14 @@ class GeneratedApiWrapperTests(unittest.TestCase):
             spec["service"]["ffi_names"],
             ["api_request","api_bridge","api_reply"])
 
+    def test_service_invalid_dispatch_is_in_place(self):
+        text = (ROOT / "pipeline/cakeml/api-wrapper/ApiWrapperGenerator.cml").read_text()
+        self.assertIn("fun generated_status_error frame code", text)
+        self.assertIn("None => generated_status_error frame 2", text)
+        self.assertNotIn("None => generated_error 2", text)
+        spec = json.loads(SPEC.read_text())
+        self.assertTrue(spec["service"]["uniform_frame_invariant"])
+
 
 if __name__ == "__main__":
     unittest.main()
