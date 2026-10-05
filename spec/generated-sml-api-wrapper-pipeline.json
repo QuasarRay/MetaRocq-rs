@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "IMPLEMENTED_NOT_YET_EXECUTED",
+  "status": "IMPLEMENTED_PENDING_MANUAL_CI",
   "branch": "experiment/generated-hol4-cakeml-api-wrappers",
   "base_commit": "4329ddedd3bd2e97402df99d8b9ff29ec6712db7",
   "intent": "Generate version-addressed CakeML API wrappers for HOL4, HolSmtLib/Z3_TAC and TacticToe, then kernel-check source/API equivalence and exact wrapper compilation.",
@@ -15,9 +15,6 @@
       "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
       "role": "production wrapper target; same in-logic compiler pin qualified in PR #58/#59"
     },
-    "public_roots": [
-      "src"
-    ],
     "mandatory_signatures": [
       "src/HolSmt/HolSmtLib.sig",
       "src/tactictoe/src/tacticToe.sig",
@@ -44,7 +41,11 @@
           "src/tactictoe/src/**/*.sig"
         ]
       }
-    }
+    },
+    "public_interface_dir": "sigobj",
+    "audit_roots": [
+      "src"
+    ]
   },
   "lowering_classes": {
     "direct": [
@@ -75,6 +76,8 @@
     "unsupported": "fail production gate"
   },
   "invariants": [
+    "production facade is generated from HOL4 sigobj plus explicit mandatory proof-automation signatures",
+    "all src/**/*.sig files are retained as a hashed audit inventory even when not public",
     "every selected public declaration is classified",
     "source path and blob digest are recorded for every declaration",
     "no raw Poly/ML pointer or closure crosses the CakeML FFI",
@@ -99,7 +102,7 @@
     "generator_regeneration_diff": "clean",
     "wrapper_hol4_theory": "kernel checked",
     "exact_compiler_theorem": "kernel checked",
-    "machine_safety_theorem": "kernel checked",
+    "machine_safety_theorem": "pending source-semantics/compile_correct composition; fail closed until kernel checked",
     "foreign_runtime_correctness": "assumed by explicit contract; not claimed by CakeML"
   }
-}
+}\n
