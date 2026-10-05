@@ -87,6 +87,24 @@ def main() -> int:
             "retained_peregrine_replay_jobs" in entry,
             "LambdaBox root no longer retains complete proof/replay payload")
 
+    checked_producer_path = ROOT / "metatheory/peregrine-selfhost/PeregrineCheckedCakeMLProducer.v"
+    require(checked_producer_path.is_file(), "checked CakeML producer adapter missing")
+    checked_producer = checked_producer_path.read_text()
+    require("EmbeddedPeregrine.prepare_cakeml" in checked_producer and
+            "CheckedCandidateCakeML.checked_candidate_compile_past" in checked_producer and
+            "Serialize_module" in checked_producer,
+            "checked CakeML producer no longer reuses the audited checked path/printer")
+    for forbidden in ("Admitted", "trust_coq_kernel", "assume_can_be_extracted"):
+        require(forbidden not in checked_producer,
+                f"checked CakeML producer contains forbidden trust escape: {forbidden}")
+
+    checked_extraction_path = ROOT / "metatheory/peregrine-selfhost/PeregrineCheckedCakeMLExtraction.v"
+    require(checked_extraction_path.is_file(), "checked CakeML extraction wrapper missing")
+    checked_extraction = checked_extraction_path.read_text()
+    require("From Peregrine Require Import Extraction." in checked_extraction and
+            "checked_lambdabox_to_serialized_cakeml" in checked_extraction,
+            "checked CakeML extraction no longer reuses Peregrine's pinned extraction configuration")
+
     replay_path = ROOT / "metatheory/peregrine-selfhost/PeregrineRuntimeReplay.v"
     require(replay_path.is_file(), "runtime replay module missing")
     replay = replay_path.read_text()

@@ -137,5 +137,11 @@
     "specialize CakeML in-logic compilation and machine correctness to that exact program",
     "define a portable HOL4 proof-certificate payload and prove its embedding/correspondence to the final machine image",
     "prove recursive independent-HOL4 replay of the certificate payload"
+  ],
+  "engineering_evidence": [
+    "an extracted checked-adapter producer reuses EmbeddedPeregrine.prepare_cakeml, CheckedCandidateCakeML.checked_candidate_compile_past, and the pinned CakeML Serialize_module printer",
+    "the pipeline requires native Peregrine CakeML bytes and checked-adapter CakeML bytes to be byte-for-byte identical before HOL4 compilation",
+    "HOL4 parses and compiles the checked-adapter CakeML bytes directly and retains the exact compiler-produced peregrine_machine_code object",
+    "the checked/native byte equality is provenance and regression evidence only; it does not discharge LambdaBox-to-CakeML semantic preservation"
   ]
 }
