@@ -25,12 +25,19 @@ def main() -> int:
     if data["summary"]["unsupported_count"]:
         raise SystemExit("refusing HOL4 contract with unsupported declarations")
 
-    ops=sorted(
-        d["operation_id"]
+    indexed_ops=sorted(
+        (
+            d["operation_index"], d["operation_id"]
+        )
         for s in data["signatures"]
         for d in s["declarations"]
         if d["kind"] == "val"
     )
+    expected=list(range(len(indexed_ops)))
+    actual=[i for i,_ in indexed_ops]
+    if actual != expected:
+        raise SystemExit("canonical operation indices are not contiguous")
+    ops=[op for _,op in indexed_ops]
     files=sorted((s["path"],s["sha256"]) for s in data["signatures"])
     digest=hashlib.sha256(raw).hexdigest()
     commit=data["source_commit"]
@@ -73,6 +80,22 @@ Theorem generated_api_operation_count:
   LENGTH generated_api_operations = {len(ops)}
 Proof
   EVAL_TAC
+QED
+
+Definition generated_api_operation_at_def:
+  generated_api_operation_at n =
+    if n < LENGTH generated_api_operations
+    then SOME (EL n generated_api_operations)
+    else NONE
+End
+
+Theorem generated_api_operation_at_bound:
+  !n op.
+    generated_api_operation_at n = SOME op ==>
+    n < LENGTH generated_api_operations /\
+    EL n generated_api_operations = op
+Proof
+  simp [generated_api_operation_at_def]
 QED
 
 Theorem generated_api_source_file_count:
