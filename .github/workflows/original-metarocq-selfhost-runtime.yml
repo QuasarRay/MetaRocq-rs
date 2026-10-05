@@ -38,8 +38,21 @@ jobs:
       - name: Compile MetaRocq-owned retained runtime
         run: |
           eval "$(opam env --switch .aegis/opam --set-switch)"
+          mkdir -p generated/original-selfhost
           Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
-          for f in             PipelineIR.v OpenTheoryIR.v PCUICModuleManifest.v SelfSnapshot.v             MaterializeSnapshot.v HOLProofIR.v OpenTheorySerialize.v             RuntimeImage.v RetainedPayload.v SelfHostRunner.v ExtractionRoot.v             ExtractSelfHost.v
+          for f in \
+            PipelineIR.v \
+            OpenTheoryIR.v \
+            PCUICModuleManifest.v \
+            SelfSnapshot.v \
+            MaterializeSnapshot.v \
+            HOLProofIR.v \
+            OpenTheorySerialize.v \
+            RuntimeImage.v \
+            RetainedPayload.v \
+            SelfHostRunner.v \
+            ExtractionRoot.v \
+            ExtractSelfHost.v
           do
             rocq compile $Q "metatheory/original-selfhost/$f"
           done
@@ -48,10 +61,12 @@ jobs:
       - name: Produce CakeML source without trusting backend axiom
         run: |
           eval "$(opam env --switch .aegis/opam --set-switch)"
-          mkdir -p generated/original-selfhost
-          peregrine cakeml generated/original-selfhost/selfhost.ast             -o generated/original-selfhost/selfhost.cml
+          peregrine cakeml generated/original-selfhost/selfhost.ast \
+            -o generated/original-selfhost/selfhost.cml
           test -s generated/original-selfhost/selfhost.cml
-          printf '%s\n'             'Peregrine output is a translation artifact only; trust_coq_kernel is forbidden as proof evidence.'             > generated/original-selfhost/PEREGRINE-TRUST-BOUNDARY.txt
+          printf '%s\n' \
+            'Peregrine output is a translation artifact only; trust_coq_kernel is forbidden as proof evidence.' \
+            > generated/original-selfhost/PEREGRINE-TRUST-BOUNDARY.txt
 
       - name: Preserve lambda-box and CakeML evidence
         if: always()
