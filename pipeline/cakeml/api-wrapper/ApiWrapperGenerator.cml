@@ -58,6 +58,9 @@ fun common_cakeml_prelude () =
   "  if Word8Array.length buffer < 16\n" ^
   "  then generated_error 1\n" ^
   "  else let val _ = #(api_bridge) operation_id buffer in buffer end;\n\n" ^
+  "fun generated_status_error frame code = let\n" ^
+  "  val _ = Word8Array.update frame 0 (Word8.fromInt code)\n" ^
+  "  in frame end;\n\n" ^
   "(* Successful FFI transitions preserve frame length. Complex results stay\n" ^
   "   native and cross this boundary only as opaque handles. *)\n\n";
 
@@ -82,7 +85,7 @@ fun emit_service contract =
   "  in b0 + 256 * b1 + 65536 * b2 + 16777216 * b3 end;\n\n" ^
   "fun generated_dispatch index frame =\n" ^
   "  case generated_lookup generated_operation_names index of\n" ^
-  "    None => generated_error 2\n" ^
+  "    None => generated_status_error frame 2\n" ^
   "  | Some operation_id => generated_api_call operation_id frame;\n\n" ^
   "fun generated_service_main u =\n" ^
   "  case u of () => let\n" ^
