@@ -86,8 +86,8 @@
     "generated wrapper theorem is closed except for the declared foreign-contract premise",
     "exact CakeML compiler theorem is checked by HOL4",
     "final production gate rejects axioms or oracle tags other than DISK_THM",
-    "generated wrapper calls use CakeML #(custom) with the exact canonical operation id as FFI configuration bytes",
-    "the single native runtime entry is fficustom; no per-operation native ABI symbol is required"
+    "generated wrapper calls use CakeML #(api_bridge) with the exact canonical operation id as FFI configuration bytes",
+    "the single native runtime entry is ffiapi_bridge; no per-operation native ABI symbol is required"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
