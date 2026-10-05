@@ -176,6 +176,17 @@ Proof
   \ simp [generated_api_service_io_has_ffi]
 QED
 
+Theorem generated_api_main_exists_post_has_ffi:
+  !bytes s u.
+    FFI_part_hprop
+      (SEP_EXISTS av.
+        W8ARRAY av bytes * generated_api_service_io s u)
+Proof
+  rpt strip_tac
+  \ irule FFI_part_hprop_SEP_EXISTS
+  \ simp [generated_api_main_post_has_ffi]
+QED
+
 Theorem generated_status_error_spec:
   !p av bytes code cv.
     bytes <> [] /\ NUM code cv ==>
@@ -423,7 +434,7 @@ val generated_api_service_semantics =
                (LAND_CONV EVAL THENC SIMP_CONV std_ss [])))
       |> CONV_RULE (HO_REWR_CONV UNWIND_FORALL_THM1)
       |> C HO_MATCH_MP app_th
-      |> C HO_MATCH_MP generated_api_main_post_has_ffi
+      |> C HO_MATCH_MP generated_api_main_exists_post_has_ffi
       |> REWRITE_RULE
            [generated_api_wrapper_prog_has_main_call,
             GSYM generated_api_service_library_matches_compile]
