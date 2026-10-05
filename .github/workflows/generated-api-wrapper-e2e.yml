@@ -1,0 +1,53 @@
+name: generated-api-wrapper-e2e
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-and-prove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install host prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git curl polyml python3
+
+      - name: Prepare exact HOL4 and CakeML proof stack
+        run: bash tools/prepare_generated_api_wrapper_toolchain.sh
+
+      - name: Fetch untrusted CakeML generator runner
+        run: |
+          mkdir -p .aegis/tools/cake-v3213
+          curl -fL             https://github.com/CakeML/cakeml/releases/download/v3213/cake-x64-64.tar.gz             -o /tmp/cake-v3213.tar.gz
+          tar -xzf /tmp/cake-v3213.tar.gz -C .aegis/tools/cake-v3213 --strip-components=1
+          test -x .aegis/tools/cake-v3213/cake
+          test -f .aegis/tools/cake-v3213/basis_ffi.c
+
+      - name: Run extractor regressions
+        run: python3 tools/test_generated_api_wrapper_pipeline.py
+
+      - name: Generate wrappers and kernel-check HOL4 artifacts
+        run: |
+          source generated/api-wrapper/proof-toolchain.env
+          # This runner only executes the untrusted code generator and
+          # engineering type checks. HOL4 recompiles the exact generated source
+          # with the separately pinned/qualified CakeML proof stack above.
+          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3213"
+          bash tools/run_generated_api_wrapper_pipeline.sh
+
+      - name: Preserve generated proof evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-api-wrapper-proof-evidence
+          path: |
+            generated/api-wrapper/
+            formal/hol4/api-wrapper/*Theory.*
+            formal/hol4/api-wrapper/GeneratedApiContractScript.sml
+            formal/hol4/api-wrapper/GeneratedApiWrapperFfiScript.sml
