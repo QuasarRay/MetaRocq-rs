@@ -26,4 +26,14 @@
 - 37179283265: **Original MetaRocq selfhost snapshot** — pending — `d2a1cb43`
 - 37179077102: **Original MetaRocq selfhost snapshot** — in_progress — `03a97e7b`
 
+## `experiment/original-metarocq-selfhost-03-retained-runtime`
+
+- Pre-report head: `c54f3ffb8d19e384bf1f27a3754828f48c5f2db7`
+- Active runs at report snapshot: **4**
+
+- 37181578958: **Supervision preflight** — queued — `c54f3ffb`
+- 37181576566: **Original MetaRocq retained selfhost runtime** — pending — `c54f3ffb`
+- 37180325800: **Supervision preflight** — queued — `09ef6836`
+- 37180300695: **Original MetaRocq retained selfhost runtime** — in_progress — `09ef6836`
+
 These documentation commits use `[skip ci]` to avoid contributing to the incident.
