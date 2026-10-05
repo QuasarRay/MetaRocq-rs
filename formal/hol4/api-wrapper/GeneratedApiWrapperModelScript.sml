@@ -1,0 +1,81 @@
+Theory GeneratedApiWrapperModel
+Ancestors
+  list words
+Libs
+  preamble
+
+Datatype:
+  api_error = UnknownOperation | ForeignRejected
+End
+
+Datatype:
+  api_result = ApiOk (word8 list) | ApiError api_error
+End
+
+Definition generated_wrapper_step_def:
+  generated_wrapper_step
+    (known:string list)
+    (foreign:string -> word8 list -> api_result)
+    (op:string)
+    (payload:word8 list) =
+      if MEM op known then foreign op payload
+      else ApiError UnknownOperation
+End
+
+Definition generated_foreign_refines_original_def:
+  generated_foreign_refines_original
+    (original:string -> word8 list -> api_result)
+    (foreign:string -> word8 list -> api_result) <=>
+      !op payload. foreign op payload = original op payload
+End
+
+Definition generated_wrapper_safe_def:
+  generated_wrapper_safe known foreign <=>
+    !op payload.
+      MEM op known /
+      generated_wrapper_step known foreign op payload =
+        ApiError UnknownOperation
+End
+
+Theorem generated_wrapper_step_total:
+  !known foreign op payload.
+    ?r. generated_wrapper_step known foreign op payload = r
+Proof
+  rw [generated_wrapper_step_def]
+QED
+
+Theorem generated_wrapper_unknown_fail_closed:
+  !known foreign op payload.
+    ~MEM op known ==>
+    generated_wrapper_step known foreign op payload =
+      ApiError UnknownOperation
+Proof
+  simp [generated_wrapper_step_def]
+QED
+
+Theorem generated_wrapper_known_is_exact_foreign_call:
+  !known foreign op payload.
+    MEM op known ==>
+    generated_wrapper_step known foreign op payload =
+      foreign op payload
+Proof
+  simp [generated_wrapper_step_def]
+QED
+
+Theorem generated_wrapper_refines_original:
+  !known original foreign op payload.
+    generated_foreign_refines_original original foreign /\
+    MEM op known ==>
+    generated_wrapper_step known foreign op payload =
+      original op payload
+Proof
+  simp [generated_foreign_refines_original_def,
+        generated_wrapper_step_def]
+QED
+
+Theorem generated_wrapper_safe:
+  !known foreign. generated_wrapper_safe known foreign
+Proof
+  rw [generated_wrapper_safe_def]
+  \ metis_tac [generated_wrapper_unknown_fail_closed]
+QED
