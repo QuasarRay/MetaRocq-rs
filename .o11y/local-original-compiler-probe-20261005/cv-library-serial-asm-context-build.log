@@ -1,0 +1,1245 @@
+{"derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376", "patch_sha256": "8d524ecc85c7a68e82ea92dc81b96c1ad5453373b9a0dc4610b833e089c8f371", "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness"}
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Holmake: Scanning $(HOLDIR)/examples/bootstrap
+Holmake: Scanned 80 directories
+Holmake: Building 5 theory files
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/x64/x64_targetScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: ∀a b x y. a ∧ (a ⇒ ¬b) ⇒ (if b then x else y) = y [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "x64_target">>
+Saved definition ____ "x64_next_def"
+Saved definition ____ "x64_ok_def"
+Saved definition ____ "total_num2Zreg_def"
+Saved definition ____ "x64_bop_def"
+Saved definition ____ "x64_sh_def"
+Saved definition ____ "x64_cmp_def"
+Saved definition ____ "x64_ast_def"
+Saved induction _____ "x64_ast_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 28 clauses to the original specification.>>
+Saved definition ____ "x64_encode_def"
+Saved induction _____ "x64_encode_ind"
+Saved definition ____ "x64_dec_fail_def"
+Saved definition ____ "x64_enc_def"
+Saved definition ____ "x64_config_def"
+Saved definition ____ "x64_proj_def"
+Saved definition ____ "x64_target_def"
+Saved theorem _______ "x64_config"
+Saved theorem _______ "x64_asm_ok"
+Exporting theory "x64_target" ... done.
+Theory "x64_target" took 3.3s to build
+Holmake: [1/5] x64_target
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/x64/x64_eval_encodeScript.uo to produce theory-builder executable
+<<HOL message: Created theory "x64_eval_encode">>
+Proved triviality ___ "not_fail"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in x64_eval_encode)>>
+Proved triviality ___ "lem"
+Proved triviality ___ "xmm_reg2"
+Saved theorem _______ "x64_encode_rwts"
+Exporting theory "x64_eval_encode" ... done.
+Theory "x64_eval_encode" took 3.1s to build
+Holmake: [2/5] x64_eval_encode
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/backend/cv_compute/backend_x64Script.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "backend_x64">>
+Saved theorem _______ "compile_0_x64_def"
+Saved theorem _______ "to_word_0_x64_def"
+Saved theorem _______ "inst_select_exp_x64_def"
+Saved theorem _______ "inst_select_x64_def"
+Saved theorem _______ "get_forced_x64_def"
+Saved theorem _______ "to_livesets_0_x64_def"
+Saved theorem _______ "to_livesets_x64_def"
+Saved theorem _______ "to_livesets_x64_thm"
+Saved theorem _______ "enc_line_x64_def"
+Saved theorem _______ "enc_sec_x64_def"
+Saved theorem _______ "enc_sec_list_x64_def"
+Saved theorem _______ "enc_lines_again_x64_def"
+Saved theorem _______ "enc_secs_again_x64_def"
+Saved theorem _______ "reg_ok_x64_def"
+Saved theorem _______ "fp_reg_ok_x64_def"
+Saved theorem _______ "fp_ok_x64_def"
+Saved theorem _______ "reg_imm_ok_x64_def"
+Saved theorem _______ "arith_ok_x64_def"
+Saved theorem _______ "inst_ok_x64_def"
+Saved theorem _______ "cmp_ok_x64_def"
+Saved theorem _______ "asm_ok_x64_def"
+Saved theorem _______ "line_ok_light_x64_def"
+Saved theorem _______ "sec_ok_light_x64_def"
+Saved theorem _______ "remove_labels_loop_x64_def"
+Saved theorem _______ "remove_labels_x64_def"
+Saved theorem _______ "compile_lab_x64_def"
+Saved theorem _______ "lab_to_target_x64_def"
+Saved theorem _______ "from_lab_x64_def"
+Saved theorem _______ "from_stack_x64_def"
+Saved theorem _______ "comp_x64_def"
+Saved theorem _______ "compile_prog_x64_def"
+Saved theorem _______ "compile_word_to_stack_x64_def"
+Saved theorem _______ "from_word_x64_def"
+Saved theorem _______ "word_alloc_inlogic_x64_def"
+Saved theorem _______ "each_inlogic_x64_def"
+Saved theorem _______ "word_to_word_inlogic_x64_def"
+Saved theorem _______ "from_word_0_x64_def"
+Saved theorem _______ "compile_cake_x64_def"
+Saved theorem _______ "compile_cake_x64_thm"
+Saved theorem _______ "word_internal_x64_def"
+Saved theorem _______ "to_word_all_x64_def"
+Saved theorem _______ "to_stack_all_x64_def"
+Saved theorem _______ "to_lab_all_x64_def"
+Saved theorem _______ "compile_cake_explore_x64_def"
+Exporting theory "backend_x64" ... done.
+Theory "backend_x64" took 1.9s to build
+Holmake: [3/5] backend_x64
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/backend/x64/x64_configScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: ∀a b x y. a ∧ (a ⇒ ¬b) ⇒ (if b then x else y) = y [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "x64_config">>
+Saved definition ____ "x64_names_def"
+<<HOL warning: ThmSetData.revise_data: 
+  Theorems in set "compute":
+    ADD<x64_config$x64_names_def>
+  invalidated by NewBinding("x64_names_def", {private=false,loc=Located{scriptpath="$(CAKEMLDIR)/compiler/backend/x64/x64_configScript.sml",linenum=38,exact=true},class=Thm})>>
+Saved theorem _______ "x64_names_def"
+Saved definition ____ "x64_backend_config_def"
+Exporting theory "x64_config" ... done.
+Theory "x64_config" took 1.2s to build
+Holmake: [4/5] x64_config
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/cv_translator/backend_x64_cvScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "backend_x64_cv">>
+Proved triviality ___ "IN_INSERT"
+Proved triviality ___ "NOT_IN_EMPTY"
+Saved theorem _______ "cv_is_test_thm"
+Finished translating is_test, stored in cv_is_test_thm
+Proved triviality ___ "total_num2Zreg"
+Saved theorem _______ "num2Zreg_w2n"
+Saved theorem _______ "num2Zreg_w2n_w3"
+Saved definition ____ "from_x64_x64_Zreg_def"
+Saved theorem _______ "from_x64_Zreg_def"
+Saved theorem _______ "to_x64_Zreg_def"
+Saved theorem _______ "from_x64_to_x64_Zreg_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zreg_datatype"
+Saved theorem _______ "cv_total_num2Zreg_thm"
+Finished translating total_num2Zreg, stored in cv_total_num2Zreg_thm
+Saved definition ____ "from_x64_x64_Zbinop_name_def"
+Saved theorem _______ "from_x64_Zbinop_name_def"
+Saved theorem _______ "to_x64_Zbinop_name_def"
+Saved theorem _______ "from_x64_to_x64_Zbinop_name_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zbinop_name_datatype"
+Saved theorem _______ "cv_x64_sh_thm"
+Finished translating x64_sh, stored in cv_x64_sh_thm
+Saved definition ____ "from_x64_x64_Zcond_def"
+Saved theorem _______ "from_x64_Zcond_def"
+Saved theorem _______ "to_x64_Zcond_def"
+Saved theorem _______ "from_x64_to_x64_Zcond_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zcond_datatype"
+Saved theorem _______ "cv_x64_cmp_thm"
+Finished translating x64_cmp, stored in cv_x64_cmp_thm
+Saved theorem _______ "cv_x64_bop_thm"
+Finished translating x64_bop, stored in cv_x64_bop_thm
+Saved definition ____ "from_x64_x64_sse_compare_def"
+Saved theorem _______ "from_x64_sse_compare_def"
+Saved theorem _______ "to_x64_sse_compare_def"
+Saved theorem _______ "from_x64_to_x64_sse_compare_thm"
+Saved theorem _______ "cv_rep_x64_x64_sse_compare_datatype"
+Saved definition ____ "from_x64_x64_Zbase_def"
+Saved theorem _______ "from_x64_Zbase_def"
+Saved theorem _______ "to_x64_Zbase_def"
+Saved theorem _______ "from_x64_to_x64_Zbase_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zbase_datatype"
+Saved definition ____ "from_x64_x64_xmm_mem_def"
+Saved theorem _______ "from_x64_xmm_mem_def"
+Saved theorem _______ "to_x64_xmm_mem_def"
+Saved theorem _______ "from_x64_to_x64_xmm_mem_thm"
+Saved theorem _______ "cv_rep_x64_x64_xmm_mem_datatype"
+Saved definition ____ "from_x64_x64_Zrm_def"
+Saved theorem _______ "from_x64_Zrm_def"
+Saved theorem _______ "to_x64_Zrm_def"
+Saved theorem _______ "from_x64_to_x64_Zrm_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zrm_datatype"
+Saved definition ____ "from_x64_x64_sse_binop_def"
+Saved theorem _______ "from_x64_sse_binop_def"
+Saved theorem _______ "to_x64_sse_binop_def"
+Saved theorem _______ "from_x64_to_x64_sse_binop_thm"
+Saved theorem _______ "cv_rep_x64_x64_sse_binop_datatype"
+Saved definition ____ "from_x64_x64_sse_logic_def"
+Saved theorem _______ "from_x64_sse_logic_def"
+Saved theorem _______ "to_x64_sse_logic_def"
+Saved theorem _______ "from_x64_to_x64_sse_logic_thm"
+Saved theorem _______ "cv_rep_x64_x64_sse_logic_datatype"
+Saved definition ____ "from_x64_x64_SSE_def"
+Saved theorem _______ "from_x64_SSE_def"
+Saved theorem _______ "to_x64_SSE_def"
+Saved theorem _______ "from_x64_to_x64_SSE_thm"
+Saved theorem _______ "cv_rep_x64_x64_SSE_datatype"
+Saved definition ____ "from_x64_x64_Zsize_def"
+Saved theorem _______ "from_x64_Zsize_def"
+Saved theorem _______ "to_x64_Zsize_def"
+Saved theorem _______ "from_x64_to_x64_Zsize_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zsize_datatype"
+Saved definition ____ "from_x64_x64_Zdest_src_def"
+Saved theorem _______ "from_x64_Zdest_src_def"
+Saved theorem _______ "to_x64_Zdest_src_def"
+Saved theorem _______ "from_x64_to_x64_Zdest_src_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zdest_src_datatype"
+Saved definition ____ "from_x64_x64_Zbit_test_name_def"
+Saved theorem _______ "from_x64_Zbit_test_name_def"
+Saved theorem _______ "to_x64_Zbit_test_name_def"
+Saved theorem _______ "from_x64_to_x64_Zbit_test_name_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zbit_test_name_datatype"
+Saved definition ____ "from_x64_x64_Zimm_rm_def"
+Saved theorem _______ "from_x64_Zimm_rm_def"
+Saved theorem _______ "to_x64_Zimm_rm_def"
+Saved theorem _______ "from_x64_to_x64_Zimm_rm_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zimm_rm_datatype"
+Saved definition ____ "from_x64_x64_Zmonop_name_def"
+Saved theorem _______ "from_x64_Zmonop_name_def"
+Saved theorem _______ "to_x64_Zmonop_name_def"
+Saved theorem _______ "from_x64_to_x64_Zmonop_name_thm"
+Saved theorem _______ "cv_rep_x64_x64_Zmonop_name_datatype"
+Saved definition ____ "from_x64_x64_instruction_def"
+Saved theorem _______ "from_x64_instruction_def"
+Saved theorem _______ "to_x64_instruction_def"
+Saved theorem _______ "from_x64_to_x64_instruction_thm"
+Saved theorem _______ "cv_rep_x64_x64_instruction_datatype"
+Saved theorem _______ "cv_x64_ast_thm"
+Finished translating x64_ast, stored in cv_x64_ast_thm
+Saved theorem _______ "cv_e_imm8_thm"
+Finished translating e_imm8, stored in cv_e_imm8_thm
+Saved theorem _______ "cv_e_imm16_thm"
+Finished translating e_imm16, stored in cv_e_imm16_thm
+Saved theorem _______ "cv_e_imm32_thm"
+Finished translating e_imm32, stored in cv_e_imm32_thm
+Saved theorem _______ "cv_e_imm64_thm"
+Finished translating e_imm64, stored in cv_e_imm64_thm
+Saved theorem _______ "cv_e_imm_8_32_thm"
+Finished translating e_imm_8_32, stored in cv_e_imm_8_32_thm
+Saved theorem _______ "cv_Zreg2num_thm"
+Finished translating Zreg2num, stored in cv_Zreg2num_thm
+Proved triviality ___ "fix_num_case"
+Saved theorem _______ "cv_e_ModRM_thm"
+Finished translating e_ModRM, stored in cv_e_ModRM_thm
+Saved theorem _______ "cv_rex_prefix_thm"
+Finished translating rex_prefix, stored in cv_rex_prefix_thm
+Saved theorem _______ "cv_e_opsize_thm"
+Finished translating e_opsize, stored in cv_e_opsize_thm
+Saved theorem _______ "cv_e_opsize_imm_thm"
+Finished translating e_opsize_imm, stored in cv_e_opsize_imm_thm
+Saved theorem _______ "cv_e_rax_imm_thm"
+Finished translating e_rax_imm, stored in cv_e_rax_imm_thm
+Saved theorem _______ "cv_e_rm_imm_thm"
+Finished translating e_rm_imm, stored in cv_e_rm_imm_thm
+Saved theorem _______ "cv_e_rm_imm8_thm"
+Finished translating e_rm_imm8, stored in cv_e_rm_imm8_thm
+Saved theorem _______ "cv_e_rm_imm8b_thm"
+Finished translating e_rm_imm8b, stored in cv_e_rm_imm8b_thm
+Saved theorem _______ "cv_e_gen_rm_reg_thm"
+Finished translating e_gen_rm_reg, stored in cv_e_gen_rm_reg_thm
+Saved theorem _______ "cv_e_opc_thm"
+Finished translating e_opc, stored in cv_e_opc_thm
+Saved theorem _______ "cv_xmm_mem_to_rm_thm"
+Finished translating xmm_mem_to_rm, stored in cv_xmm_mem_to_rm_thm
+Saved theorem _______ "cv_sse_compare2num_thm"
+Finished translating sse_compare2num, stored in cv_sse_compare2num_thm
+Saved theorem _______ "cv_sse_logic2num_thm"
+Finished translating sse_logic2num, stored in cv_sse_logic2num_thm
+Saved theorem _______ "cv_Zbinop_name2num_thm"
+Finished translating Zbinop_name2num, stored in cv_Zbinop_name2num_thm
+Saved theorem _______ "cv_Zbit_test_name2num_thm"
+Finished translating Zbit_test_name2num, stored in cv_Zbit_test_name2num_thm
+Saved theorem _______ "cv_Zcond2num_thm"
+Finished translating Zcond2num, stored in cv_Zcond2num_thm
+Saved theorem _______ "cv_Zsize_width_thm"
+Finished translating Zsize_width, stored in cv_Zsize_width_thm
+Saved theorem _______ "cv_is_rax_thm"
+Finished translating is_rax, stored in cv_is_rax_thm
+Saved theorem _______ "cv_not_byte_thm"
+Finished translating not_byte, stored in cv_not_byte_thm
+Saved theorem _______ "cv_encode_sse_binop_thm"
+Finished translating encode_sse_binop, stored in cv_encode_sse_binop_thm
+Saved theorem _______ "cv_encode_sse_thm"
+Finished translating encode_sse, stored in cv_encode_sse_thm
+Saved definition ____ "znop_def"
+Saved theorem _______ "cv_znop_thm"
+Finished translating znop, stored in cv_znop_thm
+Proved triviality ___ "to_znop"
+Saved theorem _______ "cv_encode_thm"
+Finished translating encode, stored in cv_encode_thm
+Saved theorem _______ "cv_x64_encode_thm"
+Finished translating x64_encode, stored in cv_x64_encode_thm
+Starting translation of x64_enc from x64_targetTheory.
+Saved definition ____ "MAP_x64_encode_x64_ast_1_def"
+Saved induction _____ "MAP_x64_encode_x64_ast_1_ind"
+Starting translation of MAP_x64_encode_x64_ast from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_x64_encode_x64_ast_def"
+Saved induction _____ "cv_MAP_x64_encode_x64_ast_ind"
+Saved theorem _______ "cv_MAP_x64_encode_x64_ast_thm"
+Finished translating MAP_x64_encode_x64_ast, stored in cv_MAP_x64_encode_x64_ast_thm
+Saved theorem _______ "MAP_x64_encode_x64_ast_ho"
+Starting translation of x64_enc from x64_targetTheory.
+Saved theorem _______ "cv_x64_enc_thm"
+Finished translating x64_enc, stored in cv_x64_enc_thm
+Starting translation of comp_x64 from backend_x64Theory.
+Saved definition ____ "wRegWrite1_lam_Get_1_def"
+Starting translation of wRegWrite1_lam_Get from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_Get_thm"
+Finished translating wRegWrite1_lam_Get, stored in cv_wRegWrite1_lam_Get_thm
+Saved theorem _______ "wRegWrite1_lam_Get_ho"
+Starting translation of comp_x64 from backend_x64Theory.
+Starting translation of stack_free from word_to_stackTheory.
+Saved theorem _______ "cv_stack_free_thm"
+Finished translating stack_free, stored in cv_stack_free_thm
+Starting translation of comp_x64 from backend_x64Theory.
+Starting translation of skip_free from word_to_stackTheory.
+Saved theorem _______ "cv_skip_free_thm"
+Finished translating skip_free, stored in cv_skip_free_thm
+Starting translation of comp_x64 from backend_x64Theory.
+Saved definition ____ "wRegWrite1_lam_OpCurrHeap_1_def"
+Starting translation of wRegWrite1_lam_OpCurrHeap from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_OpCurrHeap_thm"
+Finished translating wRegWrite1_lam_OpCurrHeap, stored in cv_wRegWrite1_lam_OpCurrHeap_thm
+Saved theorem _______ "wRegWrite1_lam_OpCurrHeap_ho"
+Starting translation of comp_x64 from backend_x64Theory.
+Saved definition ____ "wRegWrite1_lam_LocValue_0_1_def"
+Starting translation of wRegWrite1_lam_LocValue_0 from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_LocValue_0_thm"
+Finished translating wRegWrite1_lam_LocValue_0, stored in cv_wRegWrite1_lam_LocValue_0_thm
+Saved theorem _______ "wRegWrite1_lam_LocValue_0_ho"
+Starting translation of comp_x64 from backend_x64Theory.
+Starting translation of exp_to_addr from wordLangTheory.
+Saved theorem _______ "cv_exp_to_addr_thm"
+Finished translating exp_to_addr, stored in cv_exp_to_addr_thm
+Starting translation of comp_x64 from backend_x64Theory.
+Starting translation of wShareInst from word_to_stackTheory.
+Saved definition ____ "wRegWrite1_lam_ShMemOp_Load_Ad_1_def"
+Starting translation of wRegWrite1_lam_ShMemOp_Load_Ad from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_ShMemOp_Load_Ad_thm"
+Finished translating wRegWrite1_lam_ShMemOp_Load_Ad, stored in cv_wRegWrite1_lam_ShMemOp_Load_Ad_thm
+Saved theorem _______ "wRegWrite1_lam_ShMemOp_Load_Ad_ho"
+Starting translation of wShareInst from word_to_stackTheory.
+Saved definition ____ "wRegWrite1_lam_ShMemOp_Load8_A_1_def"
+Starting translation of wRegWrite1_lam_ShMemOp_Load8_A from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_ShMemOp_Load8_A_thm"
+Finished translating wRegWrite1_lam_ShMemOp_Load8_A, stored in cv_wRegWrite1_lam_ShMemOp_Load8_A_thm
+Saved theorem _______ "wRegWrite1_lam_ShMemOp_Load8_A_ho"
+Starting translation of wShareInst from word_to_stackTheory.
+Saved definition ____ "wRegWrite1_lam_ShMemOp_Load16__1_def"
+Starting translation of wRegWrite1_lam_ShMemOp_Load16_ from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_ShMemOp_Load16__thm"
+Finished translating wRegWrite1_lam_ShMemOp_Load16_, stored in cv_wRegWrite1_lam_ShMemOp_Load16__thm
+Saved theorem _______ "wRegWrite1_lam_ShMemOp_Load16__ho"
+Starting translation of wShareInst from word_to_stackTheory.
+Saved definition ____ "wRegWrite1_lam_ShMemOp_Load32__1_def"
+Starting translation of wRegWrite1_lam_ShMemOp_Load32_ from backend_x64_cvTheory.
+Saved theorem _______ "cv_wRegWrite1_lam_ShMemOp_Load32__thm"
+Finished translating wRegWrite1_lam_ShMemOp_Load32_, stored in cv_wRegWrite1_lam_ShMemOp_Load32__thm
+Saved theorem _______ "wRegWrite1_lam_ShMemOp_Load32__ho"
+Starting translation of wShareInst from word_to_stackTheory.
+Saved theorem _______ "cv_wShareInst_thm"
+Finished translating wShareInst, stored in cv_wShareInst_thm
+Starting translation of comp_x64 from backend_x64Theory.
+Saved definition ____ "cv_comp_x64_def"
+Saved induction _____ "cv_comp_x64_ind"
+Saved theorem _______ "comp_x64_pre_rules"
+Saved theorem _______ "comp_x64_pre_ind"
+Saved theorem _______ "comp_x64_pre_strongind"
+Saved theorem _______ "comp_x64_pre_cases"
+Saved theorem _______ "cv_comp_x64_thm"
+Finished translating comp_x64, stored in cv_comp_x64_thm
+
+WARNING: definition of cv_comp_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem comp_x64_pre[cv_pre]:
+  ∀v bs kf. comp_x64_pre v bs kf
+Proof
+  ho_match_mp_tac backend_x64Theory.comp_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "comp_x64_pre"
+Starting translation of compile_prog_x64 from backend_x64Theory.
+Saved theorem _______ "cv_compile_prog_x64_thm"
+Finished translating compile_prog_x64, stored in cv_compile_prog_x64_thm
+Starting translation of compile_word_to_stack_x64 from backend_x64Theory.
+Saved definition ____ "cv_compile_word_to_stack_x64_def"
+Saved induction _____ "cv_compile_word_to_stack_x64_ind"
+Saved theorem _______ "compile_word_to_stack_x64_pre_rules"
+Saved theorem _______ "compile_word_to_stack_x64_pre_ind"
+Saved theorem _______ "compile_word_to_stack_x64_pre_strongind"
+Saved theorem _______ "compile_word_to_stack_x64_pre_cases"
+Saved theorem _______ "cv_compile_word_to_stack_x64_thm"
+Finished translating compile_word_to_stack_x64, stored in cv_compile_word_to_stack_x64_thm
+
+WARNING: definition of cv_compile_word_to_stack_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem compile_word_to_stack_x64_pre[cv_pre]:
+  ∀k v bitmaps. compile_word_to_stack_x64_pre k v bitmaps
+Proof
+  ho_match_mp_tac backend_x64Theory.compile_word_to_stack_x64_ind (* for example *)
+  ...
+QED
+
+Saved theorem _______ "compile_word_to_stack_x64_pre"
+Proved triviality ___ "fp_reg_ok_x64_def"
+Starting translation of inst_ok_x64 from backend_x64Theory.
+Starting translation of reg_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_reg_ok_x64_thm"
+Finished translating reg_ok_x64, stored in cv_reg_ok_x64_thm
+Starting translation of inst_ok_x64 from backend_x64Theory.
+Starting translation of arith_ok_x64 from backend_x64Theory.
+Starting translation of reg_imm_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_reg_imm_ok_x64_thm"
+Finished translating reg_imm_ok_x64, stored in cv_reg_imm_ok_x64_thm
+Starting translation of arith_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_arith_ok_x64_thm"
+Finished translating arith_ok_x64, stored in cv_arith_ok_x64_thm
+Starting translation of inst_ok_x64 from backend_x64Theory.
+Starting translation of fp_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_fp_ok_x64_thm"
+Finished translating fp_ok_x64, stored in cv_fp_ok_x64_thm
+Starting translation of inst_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_inst_ok_x64_thm"
+Finished translating inst_ok_x64, stored in cv_inst_ok_x64_thm
+Starting translation of asm_ok_x64 from backend_x64Theory.
+Starting translation of cmp_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_cmp_ok_x64_thm"
+Finished translating cmp_ok_x64, stored in cv_cmp_ok_x64_thm
+Starting translation of asm_ok_x64 from backend_x64Theory.
+Saved theorem _______ "cv_asm_ok_x64_thm"
+Finished translating asm_ok_x64, stored in cv_asm_ok_x64_thm
+Starting translation of line_ok_light_x64 from backend_x64Theory.
+Saved theorem _______ "cv_line_ok_light_x64_thm"
+Finished translating line_ok_light_x64, stored in cv_line_ok_light_x64_thm
+Starting translation of sec_ok_light_x64 from backend_x64Theory.
+Saved definition ____ "EVERY_line_ok_light_x64_1_def"
+Saved induction _____ "EVERY_line_ok_light_x64_1_ind"
+Starting translation of EVERY_line_ok_light_x64 from backend_x64_cvTheory.
+Saved theorem _______ "cv_EVERY_line_ok_light_x64_thm"
+Finished translating EVERY_line_ok_light_x64, stored in cv_EVERY_line_ok_light_x64_thm
+Saved theorem _______ "EVERY_line_ok_light_x64_ho"
+Starting translation of sec_ok_light_x64 from backend_x64Theory.
+Saved theorem _______ "cv_sec_ok_light_x64_thm"
+Finished translating sec_ok_light_x64, stored in cv_sec_ok_light_x64_thm
+Saved theorem _______ "enc_lines_again_x64_pre_rules"
+Saved theorem _______ "enc_lines_again_x64_pre_ind"
+Saved theorem _______ "enc_lines_again_x64_pre_strongind"
+Saved theorem _______ "enc_lines_again_x64_pre_cases"
+Saved theorem _______ "cv_enc_lines_again_x64_thm"
+Finished translating enc_lines_again_x64, stored in cv_enc_lines_again_x64_thm
+
+WARNING: definition of cv_enc_lines_again_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem enc_lines_again_x64_pre[cv_pre]:
+  ∀labs ffis pos v0 v. enc_lines_again_x64_pre labs ffis pos v0 v
+Proof
+  ho_match_mp_tac backend_x64Theory.enc_lines_again_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "enc_lines_again_x64_pre"
+Saved definition ____ "cv_enc_secs_again_x64_def"
+Saved induction _____ "cv_enc_secs_again_x64_ind"
+Saved theorem _______ "enc_secs_again_x64_pre_rules"
+Saved theorem _______ "enc_secs_again_x64_pre_ind"
+Saved theorem _______ "enc_secs_again_x64_pre_strongind"
+Saved theorem _______ "enc_secs_again_x64_pre_cases"
+Saved theorem _______ "cv_enc_secs_again_x64_thm"
+Finished translating enc_secs_again_x64, stored in cv_enc_secs_again_x64_thm
+
+WARNING: definition of cv_enc_secs_again_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem enc_secs_again_x64_pre[cv_pre]:
+  ∀pos labs ffis v. enc_secs_again_x64_pre pos labs ffis v
+Proof
+  ho_match_mp_tac backend_x64Theory.enc_secs_again_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "enc_secs_again_x64_pre"
+Starting translation of remove_labels_loop_x64 from backend_x64Theory.
+Saved definition ____ "EVERY_sec_ok_light_x64_1_def"
+Saved induction _____ "EVERY_sec_ok_light_x64_1_ind"
+Starting translation of EVERY_sec_ok_light_x64 from backend_x64_cvTheory.
+Saved theorem _______ "cv_EVERY_sec_ok_light_x64_thm"
+Finished translating EVERY_sec_ok_light_x64, stored in cv_EVERY_sec_ok_light_x64_thm
+Saved theorem _______ "EVERY_sec_ok_light_x64_ho"
+Starting translation of remove_labels_loop_x64 from backend_x64Theory.
+Saved theorem _______ "remove_labels_loop_x64_pre_rules"
+Saved theorem _______ "remove_labels_loop_x64_pre_ind"
+Saved theorem _______ "remove_labels_loop_x64_pre_strongind"
+Saved theorem _______ "remove_labels_loop_x64_pre_cases"
+Saved theorem _______ "cv_remove_labels_loop_x64_thm"
+Finished translating remove_labels_loop_x64, stored in cv_remove_labels_loop_x64_thm
+
+WARNING: definition of cv_remove_labels_loop_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem remove_labels_loop_x64_pre[cv_pre]:
+  ∀clock pos init_labs ffis sec_list.
+  remove_labels_loop_x64_pre clock pos init_labs ffis sec_list
+Proof
+  ho_match_mp_tac backend_x64Theory.remove_labels_loop_x64_ind (* for example *)
+  ...
+QED
+
+Saved theorem _______ "remove_labels_loop_x64_pre"
+Saved theorem _______ "cv_enc_line_x64_thm"
+Finished translating enc_line_x64, stored in cv_enc_line_x64_thm
+Starting translation of enc_sec_x64 from backend_x64Theory.
+Saved definition ____ "MAP_enc_line_x64_1_def"
+Saved induction _____ "MAP_enc_line_x64_1_ind"
+Starting translation of MAP_enc_line_x64 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_enc_line_x64_def"
+Saved induction _____ "cv_MAP_enc_line_x64_ind"
+Saved theorem _______ "cv_MAP_enc_line_x64_thm"
+Finished translating MAP_enc_line_x64, stored in cv_MAP_enc_line_x64_thm
+Saved theorem _______ "MAP_enc_line_x64_ho"
+Starting translation of enc_sec_x64 from backend_x64Theory.
+Saved theorem _______ "cv_enc_sec_x64_thm"
+Finished translating enc_sec_x64, stored in cv_enc_sec_x64_thm
+Starting translation of enc_sec_list_x64 from backend_x64Theory.
+Saved definition ____ "MAP_enc_sec_x64_1_def"
+Saved induction _____ "MAP_enc_sec_x64_1_ind"
+Starting translation of MAP_enc_sec_x64 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_enc_sec_x64_def"
+Saved induction _____ "cv_MAP_enc_sec_x64_ind"
+Saved theorem _______ "cv_MAP_enc_sec_x64_thm"
+Finished translating MAP_enc_sec_x64, stored in cv_MAP_enc_sec_x64_thm
+Saved theorem _______ "MAP_enc_sec_x64_ho"
+Starting translation of enc_sec_list_x64 from backend_x64Theory.
+Saved theorem _______ "cv_enc_sec_list_x64_thm"
+Finished translating enc_sec_list_x64, stored in cv_enc_sec_list_x64_thm
+Saved theorem _______ "cv_remove_labels_x64_thm"
+Finished translating remove_labels_x64, stored in cv_remove_labels_x64_thm
+Starting translation of compile_lab_x64 from backend_x64Theory.
+Starting translation of list_subset from miscTheory.
+Saved definition ____ "EVERY_lam_IN_LIST_TO_SET_1_def"
+Saved induction _____ "EVERY_lam_IN_LIST_TO_SET_1_ind"
+Starting translation of EVERY_lam_IN_LIST_TO_SET from backend_x64_cvTheory.
+Saved theorem _______ "cv_EVERY_lam_IN_LIST_TO_SET_thm"
+Finished translating EVERY_lam_IN_LIST_TO_SET, stored in cv_EVERY_lam_IN_LIST_TO_SET_thm
+Saved theorem _______ "EVERY_lam_IN_LIST_TO_SET_ho"
+Starting translation of list_subset from miscTheory.
+Saved theorem _______ "cv_list_subset_thm"
+Finished translating list_subset, stored in cv_list_subset_thm
+Starting translation of compile_lab_x64 from backend_x64Theory.
+Saved definition ____ "MAP_to_inc_shmem_info_1_def"
+Saved induction _____ "MAP_to_inc_shmem_info_1_ind"
+Starting translation of MAP_to_inc_shmem_info from backend_x64_cvTheory.
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Starting translation of recordtype.shmem_rec.seldef.exit_pc from lab_to_targetTheory.
+Saved theorem _______ "cv_recordtype_shmem_rec_seldef_exit_pc_thm"
+Finished translating recordtype.shmem_rec.seldef.exit_pc, stored in cv_recordtype_shmem_rec_seldef_exit_pc_thm
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Starting translation of recordtype.shmem_rec.seldef.reg from lab_to_targetTheory.
+Saved theorem _______ "cv_recordtype_shmem_rec_seldef_reg_thm"
+Finished translating recordtype.shmem_rec.seldef.reg, stored in cv_recordtype_shmem_rec_seldef_reg_thm
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Starting translation of recordtype.shmem_rec.seldef.access_addr from lab_to_targetTheory.
+Saved theorem _______ "cv_recordtype_shmem_rec_seldef_access_addr_thm"
+Finished translating recordtype.shmem_rec.seldef.access_addr, stored in cv_recordtype_shmem_rec_seldef_access_addr_thm
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Starting translation of recordtype.shmem_rec.seldef.entry_pc from lab_to_targetTheory.
+Saved theorem _______ "cv_recordtype_shmem_rec_seldef_entry_pc_thm"
+Finished translating recordtype.shmem_rec.seldef.entry_pc, stored in cv_recordtype_shmem_rec_seldef_entry_pc_thm
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Starting translation of recordtype.shmem_rec.seldef.nbytes from lab_to_targetTheory.
+Saved theorem _______ "cv_recordtype_shmem_rec_seldef_nbytes_thm"
+Finished translating recordtype.shmem_rec.seldef.nbytes, stored in cv_recordtype_shmem_rec_seldef_nbytes_thm
+Starting translation of to_inc_shmem_info from lab_to_targetTheory.
+Saved theorem _______ "cv_to_inc_shmem_info_thm"
+Finished translating to_inc_shmem_info, stored in cv_to_inc_shmem_info_thm
+Starting translation of MAP_to_inc_shmem_info from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_to_inc_shmem_info_def"
+Saved induction _____ "cv_MAP_to_inc_shmem_info_ind"
+Saved theorem _______ "cv_MAP_to_inc_shmem_info_thm"
+Finished translating MAP_to_inc_shmem_info, stored in cv_MAP_to_inc_shmem_info_thm
+Saved theorem _______ "MAP_to_inc_shmem_info_ho"
+Starting translation of compile_lab_x64 from backend_x64Theory.
+Starting translation of get_symbols from lab_to_targetTheory.
+Starting translation of sec_length from lab_to_targetTheory.
+Saved theorem _______ "cv_sec_length_thm"
+Finished translating sec_length, stored in cv_sec_length_thm
+Starting translation of get_symbols from lab_to_targetTheory.
+Saved definition ____ "cv_get_symbols_def"
+Saved induction _____ "cv_get_symbols_ind"
+Saved theorem _______ "cv_get_symbols_thm"
+Finished translating get_symbols, stored in cv_get_symbols_thm
+Starting translation of compile_lab_x64 from backend_x64Theory.
+Saved theorem _______ "cv_compile_lab_x64_thm"
+Finished translating compile_lab_x64, stored in cv_compile_lab_x64_thm
+Saved theorem _______ "cv_lab_to_target_x64_thm"
+Finished translating lab_to_target_x64, stored in cv_lab_to_target_x64_thm
+Saved theorem _______ "cv_from_lab_x64_thm"
+Finished translating from_lab_x64, stored in cv_from_lab_x64_thm
+Saved theorem _______ "cv_from_stack_x64_thm"
+Finished translating from_stack_x64, stored in cv_from_stack_x64_thm
+Starting translation of from_word_x64 from backend_x64Theory.
+Saved definition ____ "MAP_UNCURRY_lam_lam_pair_CASE__1_def"
+Saved induction _____ "MAP_UNCURRY_lam_lam_pair_CASE__1_ind"
+Starting translation of MAP_UNCURRY_lam_lam_pair_CASE_ from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_UNCURRY_lam_lam_pair_CASE__def"
+Saved induction _____ "cv_MAP_UNCURRY_lam_lam_pair_CASE__ind"
+Saved theorem _______ "cv_MAP_UNCURRY_lam_lam_pair_CASE__thm"
+Finished translating MAP_UNCURRY_lam_lam_pair_CASE_, stored in cv_MAP_UNCURRY_lam_lam_pair_CASE__thm
+Saved theorem _______ "MAP_UNCURRY_lam_lam_pair_CASE__ho"
+Starting translation of from_word_x64 from backend_x64Theory.
+Saved theorem _______ "cv_from_word_x64_thm"
+Finished translating from_word_x64, stored in cv_from_word_x64_thm
+Saved definition ____ "cv_get_forced_x64_def"
+Saved induction _____ "cv_get_forced_x64_ind"
+Saved theorem _______ "get_forced_x64_pre_rules"
+Saved theorem _______ "get_forced_x64_pre_ind"
+Saved theorem _______ "get_forced_x64_pre_strongind"
+Saved theorem _______ "get_forced_x64_pre_cases"
+Saved theorem _______ "cv_get_forced_x64_thm"
+Finished translating get_forced_x64, stored in cv_get_forced_x64_thm
+
+WARNING: definition of cv_get_forced_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem get_forced_x64_pre[cv_pre]:
+  ∀v acc. get_forced_x64_pre v acc
+Proof
+  ho_match_mp_tac backend_x64Theory.get_forced_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "get_forced_x64_pre"
+Saved theorem _______ "cv_word_alloc_inlogic_x64_thm"
+Finished translating word_alloc_inlogic_x64, stored in cv_word_alloc_inlogic_x64_thm
+Saved definition ____ "cv_inst_select_exp_x64_def"
+Saved induction _____ "cv_inst_select_exp_x64_ind"
+Saved theorem _______ "inst_select_exp_x64_pre_rules"
+Saved theorem _______ "inst_select_exp_x64_pre_ind"
+Saved theorem _______ "inst_select_exp_x64_pre_strongind"
+Saved theorem _______ "inst_select_exp_x64_pre_cases"
+Saved theorem _______ "cv_inst_select_exp_x64_thm"
+Finished translating inst_select_exp_x64, stored in cv_inst_select_exp_x64_thm
+
+WARNING: definition of cv_inst_select_exp_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem inst_select_exp_x64_pre[cv_pre]:
+  ∀tar temp v. inst_select_exp_x64_pre tar temp v
+Proof
+  ho_match_mp_tac backend_x64Theory.inst_select_exp_x64_ind (* for example *)
+  ...
+QED
+
+Saved theorem _______ "inst_select_exp_x64_pre"
+Saved definition ____ "cv_inst_select_x64_def"
+Saved induction _____ "cv_inst_select_x64_ind"
+Saved theorem _______ "inst_select_x64_pre_rules"
+Saved theorem _______ "inst_select_x64_pre_ind"
+Saved theorem _______ "inst_select_x64_pre_strongind"
+Saved theorem _______ "inst_select_x64_pre_cases"
+Saved theorem _______ "cv_inst_select_x64_thm"
+Finished translating inst_select_x64, stored in cv_inst_select_x64_thm
+
+WARNING: definition of cv_inst_select_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem inst_select_x64_pre[cv_pre]:
+  ∀temp v. inst_select_x64_pre temp v
+Proof
+  ho_match_mp_tac backend_x64Theory.inst_select_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "inst_select_x64_pre"
+Saved definition ____ "cv_each_inlogic_x64_def"
+Saved induction _____ "cv_each_inlogic_x64_ind"
+Saved theorem _______ "each_inlogic_x64_pre_rules"
+Saved theorem _______ "each_inlogic_x64_pre_ind"
+Saved theorem _______ "each_inlogic_x64_pre_strongind"
+Saved theorem _______ "each_inlogic_x64_pre_cases"
+Saved theorem _______ "cv_each_inlogic_x64_thm"
+Finished translating each_inlogic_x64, stored in cv_each_inlogic_x64_thm
+
+WARNING: definition of cv_each_inlogic_x64 has a precondition.
+You can set up the precondition proof as follows:
+
+Theorem each_inlogic_x64_pre[cv_pre]:
+  ∀v. each_inlogic_x64_pre v
+Proof
+  ho_match_mp_tac backend_x64Theory.each_inlogic_x64_ind (* for example *)
+  ...
+QED
+
+Proved triviality ___ "each_inlogic_x64_pre"
+Saved theorem _______ "cv_word_to_word_inlogic_x64_thm"
+Finished translating word_to_word_inlogic_x64, stored in cv_word_to_word_inlogic_x64_thm
+Saved theorem _______ "cv_from_word_0_x64_thm"
+Finished translating from_word_0_x64, stored in cv_from_word_0_x64_thm
+Saved theorem _______ "cv_compile_0_x64_thm"
+Finished translating compile_0_x64, stored in cv_compile_0_x64_thm
+Saved theorem _______ "cv_to_word_0_x64_thm"
+Finished translating to_word_0_x64, stored in cv_to_word_0_x64_thm
+Starting translation of to_livesets_0_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair''_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair''_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair''_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair, stored in cv_MAP_lam_pair_CASE_lam_lam_pair''_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_ho"
+Starting translation of to_livesets_0_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_1_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_1_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_1 from backend_x64_cvTheory.
+Starting translation of get_stack_only from word_allocTheory.
+Starting translation of get_stack_only_aux from word_allocTheory.
+Starting translation of remove_temp_stack from word_allocTheory.
+Saved definition ____ "FOLDR_delete_1_def"
+Saved induction _____ "FOLDR_delete_1_ind"
+Starting translation of FOLDR_delete from backend_x64_cvTheory.
+Saved definition ____ "cv_FOLDR_delete_def"
+Saved induction _____ "cv_FOLDR_delete_ind"
+Saved theorem _______ "cv_FOLDR_delete_thm"
+Finished translating FOLDR_delete, stored in cv_FOLDR_delete_thm
+Saved theorem _______ "FOLDR_delete_ho"
+Starting translation of remove_temp_stack from word_allocTheory.
+Saved theorem _______ "cv_remove_temp_stack_thm"
+Finished translating remove_temp_stack, stored in cv_remove_temp_stack_thm
+Starting translation of get_stack_only_aux from word_allocTheory.
+Saved definition ____ "FOLDR_merge_stack_only_1_def"
+Saved induction _____ "FOLDR_merge_stack_only_1_ind"
+Starting translation of FOLDR_merge_stack_only from backend_x64_cvTheory.
+Starting translation of merge_stack_only from word_allocTheory.
+Starting translation of is_stack_var from reg_allocTheory.
+Saved theorem _______ "cv_is_stack_var_thm"
+Finished translating is_stack_var, stored in cv_is_stack_var_thm
+Starting translation of merge_stack_only from word_allocTheory.
+Saved theorem _______ "cv_merge_stack_only_thm"
+Finished translating merge_stack_only, stored in cv_merge_stack_only_thm
+Starting translation of FOLDR_merge_stack_only from backend_x64_cvTheory.
+Saved definition ____ "cv_FOLDR_merge_stack_only_def"
+Saved induction _____ "cv_FOLDR_merge_stack_only_ind"
+Saved theorem _______ "cv_FOLDR_merge_stack_only_thm"
+Finished translating FOLDR_merge_stack_only, stored in cv_FOLDR_merge_stack_only_thm
+Saved theorem _______ "FOLDR_merge_stack_only_ho"
+Starting translation of get_stack_only_aux from word_allocTheory.
+Starting translation of merge_stack_sets from word_allocTheory.
+Saved theorem _______ "cv_merge_stack_sets_thm"
+Finished translating merge_stack_sets, stored in cv_merge_stack_sets_thm
+Starting translation of get_stack_only_aux from word_allocTheory.
+Saved definition ____ "cv_get_stack_only_aux_def"
+Saved induction _____ "cv_get_stack_only_aux_ind"
+Saved theorem _______ "cv_get_stack_only_aux_thm"
+Finished translating get_stack_only_aux, stored in cv_get_stack_only_aux_thm
+Starting translation of get_stack_only from word_allocTheory.
+Saved theorem _______ "cv_get_stack_only_thm"
+Finished translating get_stack_only, stored in cv_get_stack_only_thm
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_1 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_1''_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_1''_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_1''_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_1, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_1''_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_1_ho"
+Starting translation of to_livesets_0_x64 from backend_x64Theory.
+Saved theorem _______ "cv_to_livesets_0_x64_thm"
+Finished translating to_livesets_0_x64, stored in cv_to_livesets_0_x64_thm
+Starting translation of to_word_all_x64 from backend_x64Theory.
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_2_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_2_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_2 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_2'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_2'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_2'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_2, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_2'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_2_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_3_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_3_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_3 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_3'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_3'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_3'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_3, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_3'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_3_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_4_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_4_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_4 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_4'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_4'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_4'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_4, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_4'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_4_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_5_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_5_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_5 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_5'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_5'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_5'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_5, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_5'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_5_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_6_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_6_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_6 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_6'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_6'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_6'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_6, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_6'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_6_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_7_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_7_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_7 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_7'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_7'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_7'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_7, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_7'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_7_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_8_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_8_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_8 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_8'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_8'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_8'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_8, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_8'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_8_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved definition ____ "MAP_lam_pair_CASE_lam_lam_pair_9_1_def"
+Saved induction _____ "MAP_lam_pair_CASE_lam_lam_pair_9_1_ind"
+Starting translation of MAP_lam_pair_CASE_lam_lam_pair_9 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lam_pair_CASE_lam_lam_pair_9'_def"
+Saved induction _____ "cv_MAP_lam_pair_CASE_lam_lam_pair_9'_ind"
+Saved theorem _______ "cv_MAP_lam_pair_CASE_lam_lam_pair_9'_thm"
+Finished translating MAP_lam_pair_CASE_lam_lam_pair_9, stored in cv_MAP_lam_pair_CASE_lam_lam_pair_9'_thm
+Saved theorem _______ "MAP_lam_pair_CASE_lam_lam_pair_9_ho"
+Starting translation of word_internal_x64 from backend_x64Theory.
+Saved theorem _______ "cv_word_internal_x64_thm"
+Finished translating word_internal_x64, stored in cv_word_internal_x64_thm
+Starting translation of to_word_all_x64 from backend_x64Theory.
+Saved definition ____ "MAP_UNCURRY_lam_lam_pair_CASE__1_1_def"
+Saved induction _____ "MAP_UNCURRY_lam_lam_pair_CASE__1_1_ind"
+Starting translation of MAP_UNCURRY_lam_lam_pair_CASE__1 from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_UNCURRY_lam_lam_pair_CASE__1_def"
+Saved induction _____ "cv_MAP_UNCURRY_lam_lam_pair_CASE__1_ind"
+Saved theorem _______ "cv_MAP_UNCURRY_lam_lam_pair_CASE__1_thm"
+Finished translating MAP_UNCURRY_lam_lam_pair_CASE__1, stored in cv_MAP_UNCURRY_lam_lam_pair_CASE__1_thm
+Saved theorem _______ "MAP_UNCURRY_lam_lam_pair_CASE__1_ho"
+Starting translation of to_word_all_x64 from backend_x64Theory.
+Saved theorem _______ "cv_to_word_all_x64_thm"
+Finished translating to_word_all_x64, stored in cv_to_word_all_x64_thm
+Saved theorem _______ "cv_to_stack_all_x64_thm"
+Finished translating to_stack_all_x64, stored in cv_to_stack_all_x64_thm
+Saved theorem _______ "cv_to_lab_all_x64_thm"
+Finished translating to_lab_all_x64, stored in cv_to_lab_all_x64_thm
+Saved definition ____ "export_funcs_alt_def"
+Saved theorem _______ "export_funcs_alt_thm"
+Starting translation of export_funcs_alt from backend_x64_cvTheory.
+Starting translation of export_func from export_x64Theory.
+Saved theorem _______ "cv_export_func_thm"
+Finished translating export_func, stored in cv_export_func_thm
+Starting translation of export_funcs_alt from backend_x64_cvTheory.
+Saved theorem _______ "cv_export_funcs_alt_thm"
+Finished translating export_funcs_alt, stored in cv_export_funcs_alt_thm
+Starting translation of export_funcs from export_x64Theory.
+Saved definition ____ "FILTER_lam_EXISTS___FST_1_def"
+Saved induction _____ "FILTER_lam_EXISTS___FST_1_ind"
+Starting translation of FILTER_lam_EXISTS___FST from backend_x64_cvTheory.
+Saved definition ____ "EXISTS___FST_1_def"
+Saved induction _____ "EXISTS___FST_1_ind"
+Starting translation of EXISTS___FST from backend_x64_cvTheory.
+Saved theorem _______ "cv_EXISTS___FST_thm"
+Finished translating EXISTS___FST, stored in cv_EXISTS___FST_thm
+Saved theorem _______ "EXISTS___FST_ho"
+Starting translation of FILTER_lam_EXISTS___FST from backend_x64_cvTheory.
+Saved definition ____ "cv_FILTER_lam_EXISTS___FST_def"
+Saved induction _____ "cv_FILTER_lam_EXISTS___FST_ind"
+Saved theorem _______ "cv_FILTER_lam_EXISTS___FST_thm"
+Finished translating FILTER_lam_EXISTS___FST, stored in cv_FILTER_lam_EXISTS___FST_thm
+Saved theorem _______ "FILTER_lam_EXISTS___FST_ho"
+Starting translation of export_funcs from export_x64Theory.
+Saved theorem _______ "cv_export_funcs_thm"
+Finished translating export_funcs, stored in cv_export_funcs_thm
+Starting translation of x64_export from export_x64Theory.
+Starting translation of get_sym_labels from exportTheory.
+Saved definition ____ "FOLDL_get_sym_label___int_of_n_1_def"
+Saved induction _____ "FOLDL_get_sym_label___int_of_n_1_ind"
+Starting translation of FOLDL_get_sym_label___int_of_n from backend_x64_cvTheory.
+Starting translation of get_sym_label from exportTheory.
+Saved definition ____ "MAP_escape_sym_char_explode_1_def"
+Saved induction _____ "MAP_escape_sym_char_explode_1_ind"
+Starting translation of MAP_escape_sym_char_explode from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_escape_sym_char_explode_def"
+Saved induction _____ "cv_MAP_escape_sym_char_explode_ind"
+Saved theorem _______ "cv_MAP_escape_sym_char_explode_thm"
+Finished translating MAP_escape_sym_char_explode, stored in cv_MAP_escape_sym_char_explode_thm
+Saved theorem _______ "MAP_escape_sym_char_explode_ho"
+Starting translation of get_sym_label from exportTheory.
+Saved theorem _______ "cv_get_sym_label_thm"
+Finished translating get_sym_label, stored in cv_get_sym_label_thm
+Starting translation of FOLDL_get_sym_label___int_of_n from backend_x64_cvTheory.
+Saved theorem _______ "cv_FOLDL_get_sym_label___int_of_n_thm"
+Finished translating FOLDL_get_sym_label___int_of_n, stored in cv_FOLDL_get_sym_label___int_of_n_thm
+Saved theorem _______ "FOLDL_get_sym_label___int_of_n_ho"
+Starting translation of get_sym_labels from exportTheory.
+Saved theorem _______ "cv_get_sym_labels_thm"
+Finished translating get_sym_labels, stored in cv_get_sym_labels_thm
+Starting translation of x64_export from export_x64Theory.
+Saved definition ____ "chunks16_words_line_word_strli_1_def"
+Saved induction _____ "chunks16_words_line_word_strli_1_ind"
+Starting translation of chunks16_words_line_word_strli from backend_x64_cvTheory.
+Saved definition ____ "cv_chunks16_words_line_word_strli_def"
+Saved induction _____ "cv_chunks16_words_line_word_strli_ind"
+Saved theorem _______ "cv_chunks16_words_line_word_strli_thm"
+Finished translating chunks16_words_line_word_strli, stored in cv_chunks16_words_line_word_strli_thm
+Saved theorem _______ "chunks16_words_line_word_strli_ho"
+Starting translation of x64_export from export_x64Theory.
+Starting translation of startup from export_x64Theory.
+Saved theorem _______ "cv_startup_thm"
+Finished translating startup, stored in cv_startup_thm
+Starting translation of x64_export from export_x64Theory.
+Starting translation of ffi_asm from export_x64Theory.
+Saved definition ____ "cv_ffi_asm_def"
+Saved induction _____ "cv_ffi_asm_ind"
+Saved theorem _______ "cv_ffi_asm_thm"
+Finished translating ffi_asm, stored in cv_ffi_asm_thm
+Starting translation of x64_export from export_x64Theory.
+Saved definition ____ "chunks16_words_line_byte_strli_1_def"
+Saved induction _____ "chunks16_words_line_byte_strli_1_ind"
+Starting translation of chunks16_words_line_byte_strli from backend_x64_cvTheory.
+Saved definition ____ "cv_chunks16_words_line_byte_strli_def"
+Saved induction _____ "cv_chunks16_words_line_byte_strli_ind"
+Saved theorem _______ "cv_chunks16_words_line_byte_strli_thm"
+Finished translating chunks16_words_line_byte_strli, stored in cv_chunks16_words_line_byte_strli_thm
+Saved theorem _______ "chunks16_words_line_byte_strli_ho"
+Starting translation of x64_export from export_x64Theory.
+Starting translation of windows_ffi_asm from export_x64Theory.
+Saved definition ____ "cv_windows_ffi_asm_def"
+Saved induction _____ "cv_windows_ffi_asm_ind"
+Saved theorem _______ "cv_windows_ffi_asm_thm"
+Finished translating windows_ffi_asm, stored in cv_windows_ffi_asm_thm
+Starting translation of x64_export from export_x64Theory.
+Saved theorem _______ "cv_x64_export_thm"
+Finished translating x64_export, stored in cv_x64_export_thm
+Saved theorem _______ "cv_to_livesets_x64_thm"
+Finished translating to_livesets_x64, stored in cv_to_livesets_x64_thm
+Saved theorem _______ "cv_compile_cake_x64_thm"
+Finished translating compile_cake_x64, stored in cv_compile_cake_x64_thm
+Starting translation of compile_cake_explore_x64 from backend_x64Theory.
+Saved definition ____ "FOLDR_pp_with_title_any_prog_p_1_def"
+Saved induction _____ "FOLDR_pp_with_title_any_prog_p_1_ind"
+Starting translation of FOLDR_pp_with_title_any_prog_p from backend_x64_cvTheory.
+Saved definition ____ "pp_with_title_any_prog_pp_FOLD_1_def"
+Starting translation of pp_with_title_any_prog_pp_FOLD from backend_x64_cvTheory.
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of source_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_thm"
+Finished translating map_to_append_o_str_tree_to_st, stored in cv_map_to_append_o_str_tree_to_st_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_ho"
+Starting translation of source_to_strs from presLangTheory.
+Saved theorem _______ "cv_source_to_strs_thm"
+Finished translating source_to_strs, stored in cv_source_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of flat_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_1_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_1_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_1 from backend_x64_cvTheory.
+Starting translation of flat_to_display_dec from presLangTheory.
+Saved theorem _______ "cv_flat_to_display_dec_thm"
+Finished translating flat_to_display_dec, stored in cv_flat_to_display_dec_thm
+Starting translation of map_to_append_o_str_tree_to_st_1 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_1_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_1_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_1_thm"
+Finished translating map_to_append_o_str_tree_to_st_1, stored in cv_map_to_append_o_str_tree_to_st_1_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_1_ho"
+Starting translation of flat_to_strs from presLangTheory.
+Saved theorem _______ "cv_flat_to_strs_thm"
+Finished translating flat_to_strs, stored in cv_flat_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of clos_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_2_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_2_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_2 from backend_x64_cvTheory.
+Starting translation of clos_fun_to_display from presLangTheory.
+Saved definition ____ "genlist_0_display_num_as_varn_1_def"
+Saved induction _____ "genlist_0_display_num_as_varn_1_ind"
+Starting translation of genlist_0_display_num_as_varn from backend_x64_cvTheory.
+Saved definition ____ "cv_genlist_0_display_num_as_varn_def"
+Saved induction _____ "cv_genlist_0_display_num_as_varn_ind"
+Saved theorem _______ "cv_genlist_0_display_num_as_varn_thm"
+Finished translating genlist_0_display_num_as_varn, stored in cv_genlist_0_display_num_as_varn_thm
+Saved theorem _______ "genlist_0_display_num_as_varn_ho"
+Starting translation of clos_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_clos_fun_to_display_thm"
+Finished translating clos_fun_to_display, stored in cv_clos_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_2 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_2_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_2_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_2_thm"
+Finished translating map_to_append_o_str_tree_to_st_2, stored in cv_map_to_append_o_str_tree_to_st_2_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_2_ho"
+Starting translation of clos_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_3_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_3_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_3 from backend_x64_cvTheory.
+Starting translation of clos_dec_to_display from presLangTheory.
+Saved theorem _______ "cv_clos_dec_to_display_thm"
+Finished translating clos_dec_to_display, stored in cv_clos_dec_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_3 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_3_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_3_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_3_thm"
+Finished translating map_to_append_o_str_tree_to_st_3, stored in cv_map_to_append_o_str_tree_to_st_3_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_3_ho"
+Starting translation of clos_to_strs from presLangTheory.
+Saved theorem _______ "cv_clos_to_strs_thm"
+Finished translating clos_to_strs, stored in cv_clos_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of bvl_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_4_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_4_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_4 from backend_x64_cvTheory.
+Starting translation of bvl_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_bvl_fun_to_display_thm"
+Finished translating bvl_fun_to_display, stored in cv_bvl_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_4 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_4_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_4_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_4_thm"
+Finished translating map_to_append_o_str_tree_to_st_4, stored in cv_map_to_append_o_str_tree_to_st_4_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_4_ho"
+Starting translation of bvl_to_strs from presLangTheory.
+Saved theorem _______ "cv_bvl_to_strs_thm"
+Finished translating bvl_to_strs, stored in cv_bvl_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of bvi_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_5_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_5_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_5 from backend_x64_cvTheory.
+Starting translation of bvi_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_bvi_fun_to_display_thm"
+Finished translating bvi_fun_to_display, stored in cv_bvi_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_5 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_5_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_5_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_5_thm"
+Finished translating map_to_append_o_str_tree_to_st_5, stored in cv_map_to_append_o_str_tree_to_st_5_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_5_ho"
+Starting translation of bvi_to_strs from presLangTheory.
+Saved theorem _______ "cv_bvi_to_strs_thm"
+Finished translating bvi_to_strs, stored in cv_bvi_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of data_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_6_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_6_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_6 from backend_x64_cvTheory.
+Starting translation of data_fun_to_display from presLangTheory.
+Saved definition ____ "genlist_0_num_to_display_1_def"
+Saved induction _____ "genlist_0_num_to_display_1_ind"
+Starting translation of genlist_0_num_to_display from backend_x64_cvTheory.
+Saved definition ____ "cv_genlist_0_num_to_display_def"
+Saved induction _____ "cv_genlist_0_num_to_display_ind"
+Saved theorem _______ "cv_genlist_0_num_to_display_thm"
+Finished translating genlist_0_num_to_display, stored in cv_genlist_0_num_to_display_thm
+Saved theorem _______ "genlist_0_num_to_display_ho"
+Starting translation of data_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_data_fun_to_display_thm"
+Finished translating data_fun_to_display, stored in cv_data_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_6 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_6_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_6_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_6_thm"
+Finished translating map_to_append_o_str_tree_to_st_6, stored in cv_map_to_append_o_str_tree_to_st_6_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_6_ho"
+Starting translation of data_to_strs from presLangTheory.
+Saved theorem _______ "cv_data_to_strs_thm"
+Finished translating data_to_strs, stored in cv_data_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of word_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_7_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_7_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_7 from backend_x64_cvTheory.
+Starting translation of word_fun_to_display from presLangTheory.
+Saved definition ____ "genlist_0_lam_num_to_display___1_def"
+Saved induction _____ "genlist_0_lam_num_to_display___1_ind"
+Starting translation of genlist_0_lam_num_to_display__ from backend_x64_cvTheory.
+Saved definition ____ "cv_genlist_0_lam_num_to_display___def"
+Saved induction _____ "cv_genlist_0_lam_num_to_display___ind"
+Saved theorem _______ "cv_genlist_0_lam_num_to_display___thm"
+Finished translating genlist_0_lam_num_to_display__, stored in cv_genlist_0_lam_num_to_display___thm
+Saved theorem _______ "genlist_0_lam_num_to_display___ho"
+Starting translation of word_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_word_fun_to_display_thm"
+Finished translating word_fun_to_display, stored in cv_word_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_7 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_7_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_7_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_7_thm"
+Finished translating map_to_append_o_str_tree_to_st_7, stored in cv_map_to_append_o_str_tree_to_st_7_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_7_ho"
+Starting translation of word_to_strs from presLangTheory.
+Saved theorem _______ "cv_word_to_strs_thm"
+Finished translating word_to_strs, stored in cv_word_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of stack_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_8_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_8_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_8 from backend_x64_cvTheory.
+Starting translation of stack_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_stack_fun_to_display_thm"
+Finished translating stack_fun_to_display, stored in cv_stack_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_8 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_8_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_8_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_8_thm"
+Finished translating map_to_append_o_str_tree_to_st_8, stored in cv_map_to_append_o_str_tree_to_st_8_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_8_ho"
+Starting translation of stack_to_strs from presLangTheory.
+Saved theorem _______ "cv_stack_to_strs_thm"
+Finished translating stack_to_strs, stored in cv_stack_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Starting translation of lab_to_strs from presLangTheory.
+Saved definition ____ "map_to_append_o_str_tree_to_st_9_1_def"
+Saved induction _____ "map_to_append_o_str_tree_to_st_9_1_ind"
+Starting translation of map_to_append_o_str_tree_to_st_9 from backend_x64_cvTheory.
+Starting translation of lab_fun_to_display from presLangTheory.
+Saved definition ____ "MAP_lab_line_to_display_1_def"
+Saved induction _____ "MAP_lab_line_to_display_1_ind"
+Starting translation of MAP_lab_line_to_display from backend_x64_cvTheory.
+Starting translation of lab_line_to_display from presLangTheory.
+Starting translation of asm_asm_to_display from presLangTheory.
+Saved theorem _______ "cv_asm_asm_to_display_thm"
+Finished translating asm_asm_to_display, stored in cv_asm_asm_to_display_thm
+Starting translation of lab_line_to_display from presLangTheory.
+Starting translation of lab_asm_to_display from presLangTheory.
+Saved theorem _______ "cv_lab_asm_to_display_thm"
+Finished translating lab_asm_to_display, stored in cv_lab_asm_to_display_thm
+Starting translation of lab_line_to_display from presLangTheory.
+Saved theorem _______ "cv_lab_line_to_display_thm"
+Finished translating lab_line_to_display, stored in cv_lab_line_to_display_thm
+Starting translation of MAP_lab_line_to_display from backend_x64_cvTheory.
+Saved definition ____ "cv_MAP_lab_line_to_display_def"
+Saved induction _____ "cv_MAP_lab_line_to_display_ind"
+Saved theorem _______ "cv_MAP_lab_line_to_display_thm"
+Finished translating MAP_lab_line_to_display, stored in cv_MAP_lab_line_to_display_thm
+Saved theorem _______ "MAP_lab_line_to_display_ho"
+Starting translation of lab_fun_to_display from presLangTheory.
+Saved theorem _______ "cv_lab_fun_to_display_thm"
+Finished translating lab_fun_to_display, stored in cv_lab_fun_to_display_thm
+Starting translation of map_to_append_o_str_tree_to_st_9 from backend_x64_cvTheory.
+Saved definition ____ "cv_map_to_append_o_str_tree_to_st_9_def"
+Saved induction _____ "cv_map_to_append_o_str_tree_to_st_9_ind"
+Saved theorem _______ "cv_map_to_append_o_str_tree_to_st_9_thm"
+Finished translating map_to_append_o_str_tree_to_st_9, stored in cv_map_to_append_o_str_tree_to_st_9_thm
+Saved theorem _______ "map_to_append_o_str_tree_to_st_9_ho"
+Starting translation of lab_to_strs from presLangTheory.
+Saved theorem _______ "cv_lab_to_strs_thm"
+Finished translating lab_to_strs, stored in cv_lab_to_strs_thm
+Starting translation of any_prog_pp from backend_passesTheory.
+Saved theorem _______ "cv_any_prog_pp_thm"
+Finished translating any_prog_pp, stored in cv_any_prog_pp_thm
+Starting translation of pp_with_title_any_prog_pp_FOLD from backend_x64_cvTheory.
+Saved theorem _______ "cv_pp_with_title_any_prog_pp_FOLD_thm"
+Finished translating pp_with_title_any_prog_pp_FOLD, stored in cv_pp_with_title_any_prog_pp_FOLD_thm
+Saved theorem _______ "pp_with_title_any_prog_pp_FOLD_ho"
+Starting translation of FOLDR_pp_with_title_any_prog_p from backend_x64_cvTheory.
+Saved definition ____ "cv_FOLDR_pp_with_title_any_prog_p_def"
+Saved induction _____ "cv_FOLDR_pp_with_title_any_prog_p_ind"
+Saved theorem _______ "cv_FOLDR_pp_with_title_any_prog_p_thm"
+Finished translating FOLDR_pp_with_title_any_prog_p, stored in cv_FOLDR_pp_with_title_any_prog_p_thm
+Saved theorem _______ "FOLDR_pp_with_title_any_prog_p_ho"
+Starting translation of compile_cake_explore_x64 from backend_x64Theory.
+Saved theorem _______ "cv_compile_cake_explore_x64_thm"
+Finished translating compile_cake_explore_x64, stored in cv_compile_cake_explore_x64_thm
+Saved theorem _______ "set_asm_conf_x64_backend_config"
+Exporting theory "backend_x64_cv" ... done.
+Theory "backend_x64_cv" took 1m23s to build
+Holmake: [5/5] backend_x64_cv
+HOL4_DIR=/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4
+CAKEML_DIR=/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376

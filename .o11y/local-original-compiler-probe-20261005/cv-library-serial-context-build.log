@@ -1,0 +1,152 @@
+{"derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376", "patch_sha256": "3fe7b8dd2eb06f95819e694a751db5925fdad810f427f204b965b295d59486fd", "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness"}
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Holmake: Scanning $(HOLDIR)/examples/bootstrap
+Holmake: Scanned 80 directories
+Holmake: Building 6 theory files
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/asm/asmPropsScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "asmProps">>
+Saved theorem _______ "asm_deterministic"
+Saved definition ____ "offset_monotonic_def"
+Saved definition ____ "enc_ok_def"
+Saved theorem _______ "datatype_target"
+Saved theorem _______ "target_11"
+Saved theorem _______ "target_nchotomy"
+Saved theorem _______ "target_Axiom"
+Saved theorem _______ "target_induction"
+Saved theorem _______ "target_case_cong"
+Saved theorem _______ "target_case_eq"
+<<HOL message: Defined type: "target">>
+Saved definition ____ "target_state_rel_def"
+Saved definition ____ "target_ok_def"
+Saved definition ____ "interference_ok_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in asmProps)>>
+Saved theorem _______ "all_pcs_compute"
+Saved definition ____ "all_pcs_def"
+Saved induction _____ "all_pcs_ind"
+Saved theorem _______ "all_pcs_thm"
+Saved definition ____ "asserts_def"
+Saved definition ____ "asserts2_def"
+Saved induction _____ "asserts2_ind"
+Saved definition ____ "encoder_correct_def"
+Saved theorem _______ "bytes_in_memory_all_pcs"
+Saved theorem _______ "read_bytearray_IMP_bytes_in_memory"
+Saved theorem _______ "sym_target_state_rel"
+Saved theorem _______ "all_pcs"
+Saved theorem _______ "asserts_eval"
+Saved theorem _______ "asserts_IMP_FOLDR_COUNT_LIST"
+Saved theorem _______ "asserts_IMP_FOLDR_COUNT_LIST_LESS"
+Saved theorem _______ "asserts_WEAKEN"
+Saved theorem _______ "asserts2_eval"
+Saved theorem _______ "asserts2_change_interfer"
+Saved theorem _______ "asserts2_first"
+Saved theorem _______ "asserts2_every"
+Saved theorem _______ "upd_pc_simps"
+Saved theorem _______ "asm_failed_ignore_new_pc"
+Saved theorem _______ "asm_mem_ignore_new_pc"
+Proved triviality ___ "SND_read_mem_word_consts"
+Proved triviality ___ "write_mem_word_consts"
+Saved theorem _______ "binop_upd_consts"
+Saved theorem _______ "arith_upd_consts"
+Saved theorem _______ "fp_upd_consts"
+Saved theorem _______ "asm_consts"
+Saved theorem _______ "RTC_asm_step_consts"
+Saved theorem _______ "read_mem_word_IMP_mem_eq"
+Saved theorem _______ "write_mem_word_mem_domain"
+Saved theorem _______ "write_mem_word_mem_eq"
+Saved theorem _______ "mem_op_outside_mem_domain"
+Saved theorem _______ "inst_outside_mem_domain"
+Saved theorem _______ "asm_outside_mem_domain"
+Saved theorem _______ "asm_step_outside_mem_domain"
+Saved theorem _______ "RTC_asm_step_outside_mem_domain"
+Exporting theory "asmProps" ... done.
+Theory "asmProps" took 4.3s to build
+Holmake: [1/6] asmProps
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/x64/x64_targetScript.uo to produce theory-builder executable
+Proof of 
+
+∀a b x y. a ∧ (a ⇒ ¬b) ⇒ (if b then x else y) = y
+
+failed.
+error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/asm/asmLib.sml : HOL_ERR (HOL_ERROR {message = "no current theory when proving: \226\136\128a b x y. a \226\136\167 (a \226\135\146 \194\172b) \226\135\146 (if b then x else y) = y", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+error in load $(CAKEMLDIR)/compiler/encoders/asm/asmLib : HOL_ERR (HOL_ERROR {message = "no current theory when proving: \226\136\128a b x y. a \226\136\167 (a \226\135\146 \194\172b) \226\135\146 (if b then x else y) = y", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/x64/x64_targetScript : HOL_ERR (HOL_ERROR {message = "no current theory when proving: \226\136\128a b x y. a \226\136\167 (a \226\135\146 \194\172b) \226\135\146 (if b then x else y) = y", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+Uncaught exception at /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/1/Tactical.sml:120: HOL_ERR (HOL_ERROR {message = "no current theory when proving: \226\136\128a b x y. a \226\136\167 (a \226\135\146 \194\172b) \226\135\146 (if b then x else y) = y", origins = [{origin_function = "TAC_PROOF", origin_structure = "Tactical", source_location = Loc_Unknown}]})
+Holmake: Failed script build for /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/x64/x64_targetScript - exited with code 1

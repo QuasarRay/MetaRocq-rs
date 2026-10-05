@@ -63,11 +63,14 @@ case "$ID" in
     # driven bootstrap so a fresh GitHub Actions runner does not assume local
     # reference checkouts already exist.
     python3 -B tools/bootstrap.py sources
+    python3 tools/materialize_original_source_bundle.py --fetch \
+      --evidence-dir generated/peregrine-selfhost/source-bundle
     python3 tools/check_peregrine_selfhost_contract.py
     grep -Fq 'd768b83ffa7dab35b8d72241f0570b5bb6aedae9' spec/peregrine-selfhost-e2e.json ||
       fail "Peregrine pin drift"
     receipt "Pinned source checkouts bootstrapped from spec/toolchain.lock.json."
     receipt "Pinned Peregrine/source contract verified."
+    receipt "Pinned Rocq and Peregrine physically materialized within MetaRocq; complete source inventory archived. No proof acceptance follows."
     ;;
   03)
     require_cmd bash

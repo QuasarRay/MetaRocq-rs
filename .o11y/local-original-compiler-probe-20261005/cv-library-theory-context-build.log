@@ -1,0 +1,336 @@
+Preparing worktree (detached HEAD c98da7f)
+HEAD is now at c98da7f Adds simple optimization of store reads/writes in wordLang (#1327)
+{"derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376", "patch_sha256": "3fe7b8dd2eb06f95819e694a751db5925fdad810f427f204b965b295d59486fd", "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness"}
+Scanning $(CAKEMLDIR)/developers
+Scanning $(HOLDIR)/src/TeX
+Scanning $(HOLDIR)/src/bag
+Scanning $(HOLDIR)/src/sort
+Scanning $(HOLDIR)/src/string
+Scanning $(HOLDIR)/src/n-bit
+Scanning $(HOLDIR)/src/res_quan/src
+Scanning $(HOLDIR)/src/finite_maps
+Scanning $(HOLDIR)/examples/formal-languages/context-free
+Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Scanning $(HOLDIR)/src/transfer
+Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Scanning $(HOLDIR)/src/coalgebras
+Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Scanning $(CAKEMLDIR)/misc
+Scanning $(HOLDIR)/src/integer
+Scanning $(HOLDIR)/src/algebra/base
+Scanning $(HOLDIR)/src/algebra/construction
+Scanning $(HOLDIR)/src/algebra
+Scanning $(HOLDIR)/src/hol88
+Scanning $(HOLDIR)/src/rational
+Scanning $(HOLDIR)/src/real
+Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Scanning $(HOLDIR)/examples/formal-languages
+Scanning $(HOLDIR)/src/search
+Scanning $(HOLDIR)/examples/formal-languages/regular
+Scanning $(CAKEMLDIR)/basis/pure
+Scanning $(CAKEMLDIR)/semantics/ffi
+Scanning $(CAKEMLDIR)/semantics
+Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Scanning $(HOLDIR)/src/floating-point
+Scanning $(HOLDIR)/src/monad/more_monads
+Scanning $(HOLDIR)/src/update
+Scanning $(HOLDIR)/examples/l3-machine-code/common
+Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Scanning $(CAKEMLDIR)/semantics/proofs
+Scanning $(HOLDIR)/examples/algorithms
+Scanning $(HOLDIR)/examples/machine-code/multiword
+Scanning $(CAKEMLDIR)/compiler/backend
+Scanning $(CAKEMLDIR)/compiler/parsing
+Scanning $(CAKEMLDIR)/translator
+Scanning $(CAKEMLDIR)/characteristic
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Scanning $(HOLDIR)/src/transfer/examples
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Scanning $(CAKEMLDIR)/compiler/inference
+Scanning $(CAKEMLDIR)/compiler/printing
+Scanning $(CAKEMLDIR)/translator/monadic
+Scanning $(CAKEMLDIR)/basis
+Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Scanning $(HOLDIR)/examples/machine-code/decompiler
+Scanning $(HOLDIR)/examples/l3-machine-code
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Scanning $(CAKEMLDIR)/compiler/backend/x64
+Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Scanning $(HOLDIR)/examples/bootstrap
+Scanned 80 directories
+Building 124 theory files
+Starting work on miscTheory
+Finished unverified/reg_alloc                                          (0.000s) 
+miscTheory                                            misc (22s)  [↓123]     OK
+Starting work on cakeml-heap
+Starting work on pattern_commonTheory
+cakeml-heap                                           misc (10s)             OK
+Finished misc [#theories: 1]                                          (33.568s) 
+Starting work on mllistTheory
+pattern_commonTheory     compiler/backend/pattern_matching  (9s)  [↓122]     OK
+Starting work on mloptionTheory
+mloptionTheory                                  basis/pure  (2s)  [↓121]     OK
+Starting work on namespaceTheory
+mllistTheory                                    basis/pure  (3s)  [↓120]     OK
+Starting work on mlstringTheory
+namespaceTheory                                  semantics  (1s)  [↓119]     OK
+Starting work on mlvectorTheory
+mlvectorTheory                                  basis/pure  (6s)  [↓118]     OK
+Starting work on parmoveTheory
+mlstringTheory                                  basis/pure (12s)  [↓117]     OK
+Starting work on mlintTheory
+mlintTheory                                     basis/pure  (6s)  [↓116]     OK
+Starting work on mlsexpTheory
+parmoveTheory                   compiler/backend/reg_alloc (18s)  [↓115]     OK
+Starting work on ffiTheory
+mlsexpTheory                                    basis/pure  (8s)  [↓114]     OK
+Starting work on basis_cvTheory
+ffiTheory                                    semantics/ffi  (6s)  [↓113]     OK
+Starting work on astTheory
+Finished semantics/ffi [#theories: 1]                                  (6.538s) 
+basis_cvTheory                                  basis/pure  (9s)  [↓112]     OK
+Starting work on tokensTheory
+Finished basis/pure [#theories: 7]                                    (48.240s) 
+astTheory                                        semantics  (3s)  [↓111]     OK
+Starting work on fpSemTheory
+fpSemTheory                                      semantics  (2s)  [↓110]     OK
+Starting work on semanticPrimitivesTheory
+tokensTheory                                     semantics  (3s)  [↓109]     OK
+Starting work on gramTheory
+gramTheory                                       semantics  (8s)  [↓108]     OK
+Starting work on tokenUtilsTheory
+tokenUtilsTheory                                 semantics  (9s)  [↓107]     OK
+Starting work on cmlPtreeConversionTheory
+semanticPrimitivesTheory                         semantics (19s)  [↓106]     OK
+Starting work on evaluateTheory
+evaluateTheory                                   semantics  (5s)  [↓105]     OK
+Starting work on lexer_funTheory
+lexer_funTheory                                  semantics  (9s)  [↓104]     OK
+Starting work on typeSystemTheory
+cmlPtreeConversionTheory                         semantics (19s)  [↓103]     OK
+Starting work on pattern_semanticsTheory
+typeSystemTheory                                 semantics (10s)  [↓102]     OK
+Starting work on primTypesTheory
+primTypesTheory                                  semantics  (2s)  [↓101]     OK
+Starting work on semanticsTheory
+pattern_semanticsTheory  compiler/backend/pattern_matching (11s)  [↓100]     OK
+Starting work on pattern_compTheory
+semanticsTheory                                  semantics  (4s)   [↓99]     OK
+Starting work on ml_monadBaseTheory
+Finished semantics [#theories: 13]                                    (98.875s) 
+pattern_compTheory       compiler/backend/pattern_matching (14s)   [↓98]     OK
+Starting work on asmTheory
+Finished compiler/backend/pattern_matching [#theories: 3]             (35.976s) 
+ml_monadBaseTheory           translator/monadic/monad_base (15s)   [↓97]     OK
+Starting work on reg_allocTheory
+Finished translator/monadic/monad_base [#theories: 1]                 (15.898s) 
+asmTheory                            compiler/encoders/asm  (9s)   [↓96]     OK
+Starting work on asmSemTheory
+asmSemTheory                         compiler/encoders/asm (10s)   [↓95]     OK
+Starting work on asmPropsTheory
+reg_allocTheory                 compiler/backend/reg_alloc (33s)   [↓94]     OK
+Starting work on linear_scanTheory
+linear_scanTheory               compiler/backend/reg_alloc (29s)   [↓93]     OK
+Starting work on namespacePropsTheory
+Finished compiler/backend/reg_alloc [#theories: 3]                    (81.008s) 
+namespacePropsTheory                      semantics/proofs  (4s)   [↓92]     OK
+Starting work on semanticPrimitivesPropsTheory
+semanticPrimitivesPropsTheory             semantics/proofs (19s)   [↓91]     OK
+Starting work on evaluatePropsTheory
+evaluatePropsTheory                       semantics/proofs (49s)   [↓90]     OK
+Starting work on typeSoundInvariantsTheory
+typeSoundInvariantsTheory                 semantics/proofs  (4s)   [↓89]     OK
+Starting work on typeSysPropsTheory
+typeSysPropsTheory                        semantics/proofs (11s)   [↓88]     OK
+Starting work on primSemEnvTheory
+primSemEnvTheory                          semantics/proofs  (7s)   [↓87]     OK
+Starting work on source_cvTheory
+source_cvTheory                           semantics/proofs  (9s)   [↓86]     OK
+Starting work on backend_commonTheory
+Finished semantics/proofs [#theories: 7]                             (106.216s) 
+backend_commonTheory                      compiler/backend  (3s)   [↓85]     OK
+Starting work on closLangTheory
+closLangTheory                            compiler/backend  (4s)   [↓84]     OK
+Starting work on bviTheory
+bviTheory                                 compiler/backend  (2s)   [↓83]     OK
+Starting work on dataLangTheory
+dataLangTheory                            compiler/backend  (2s)   [↓82]     OK
+Starting work on data_liveTheory
+data_liveTheory                           compiler/backend  (6s)   [↓81]     OK
+Starting work on data_simpTheory
+data_simpTheory                           compiler/backend  (2s)   [↓80]     OK
+Starting work on data_spaceTheory
+data_spaceTheory                          compiler/backend  (6s)   [↓79]     OK
+Starting work on bvi_to_dataTheory
+bvi_to_dataTheory                         compiler/backend (17s)   [↓78]     OK
+Starting work on bvi_letTheory
+bvi_letTheory                             compiler/backend  (4s)   [↓77]     OK
+Starting work on bvi_tailrecTheory
+bvi_tailrecTheory                         compiler/backend (23s)   [↓76]     OK
+Starting work on bvlTheory
+bvlTheory                                 compiler/backend  (3s)   [↓75]     OK
+Starting work on bvl_constTheory
+bvl_constTheory                           compiler/backend (21s)   [↓74]     OK
+Starting work on db_varsTheory
+db_varsTheory                             compiler/backend  (2s)   [↓73]     OK
+Starting work on bvl_handleTheory
+bvl_handleTheory                          compiler/backend (17s)   [↓72]     OK
+Starting work on bvl_inlineTheory
+bvl_inlineTheory                          compiler/backend  (6s)   [↓71]     OK
+Starting work on bvl_to_bviTheory
+bvl_to_bviTheory                          compiler/backend (31s)   [↓70]     OK
+Starting work on bvl_jumpTheory
+bvl_jumpTheory                            compiler/backend  (3s)   [↓69]     OK
+Starting work on clos_annotateTheory
+clos_annotateTheory                       compiler/backend  (5s)   [↓68]     OK
+Starting work on clos_callTheory
+clos_callTheory                           compiler/backend  (6s)   [↓67]     OK
+Starting work on clos_fvsTheory
+clos_fvsTheory                            compiler/backend  (3s)   [↓66]     OK
+Starting work on clos_letopTheory
+clos_letopTheory                          compiler/backend  (4s)   [↓65]     OK
+Starting work on clos_opTheory
+clos_opTheory                             compiler/backend (12s)   [↓64]     OK
+Starting work on clos_ticksTheory
+clos_ticksTheory                          compiler/backend  (3s)   [↓63]     OK
+Starting work on clos_knownTheory
+clos_knownTheory                          compiler/backend (16s)   [↓62]     OK
+Starting work on clos_mtiTheory
+clos_mtiTheory                            compiler/backend  (4s)   [↓61]     OK
+Starting work on clos_numberTheory
+clos_numberTheory                         compiler/backend  (3s)   [↓60]     OK
+Starting work on clos_to_bvlTheory
+clos_to_bvlTheory                         compiler/backend (42s)   [↓59]     OK
+Starting work on stackLangTheory
+stackLangTheory                           compiler/backend  (5s)   [↓58]     OK
+Starting work on wordLangTheory
+wordLangTheory                            compiler/backend  (7s)   [↓57]     OK
+Starting work on word_bignumTheory
+word_bignumTheory                         compiler/backend (24s)   [↓56]     OK
+Starting work on word_depthTheory
+word_depthTheory                          compiler/backend  (5s)   [↓55]     OK
+Starting work on word_allocTheory
+word_allocTheory                          compiler/backend (59s)   [↓54]     OK
+Starting work on word_copyTheory
+word_copyTheory                           compiler/backend  (6s)   [↓53]     OK
+Starting work on word_cseTheory
+word_cseTheory                            compiler/backend  (8s)   [↓52]     OK
+Starting work on word_instTheory
+word_instTheory                           compiler/backend (24s)   [↓51]     OK
+Starting work on word_removeTheory
+word_removeTheory                         compiler/backend  (7s)   [↓50]     OK
+Starting work on word_simpTheory
+word_simpTheory                           compiler/backend (16s)   [↓49]     OK
+Starting work on word_unreachTheory
+word_unreachTheory                        compiler/backend  (4s)   [↓48]     OK
+Starting work on word_to_wordTheory
+word_to_wordTheory                        compiler/backend  (5s)   [↓47]     OK
+Starting work on data_to_wordTheory
+data_to_wordTheory                        compiler/backend (49s)   [↓46]     OK
+Starting work on clos_interpTheory
+clos_interpTheory                         compiler/backend (14s)   [↓45]     OK
+Starting work on flatLangTheory
+flatLangTheory                            compiler/backend  (5s)   [↓44]     OK
+Starting work on flat_to_closTheory
+flat_to_closTheory                        compiler/backend  (9s)   [↓43]     OK
+Starting work on jsonLangTheory
+jsonLangTheory                            compiler/backend  (3s)   [↓42]     OK
+Starting work on labLangTheory
+labLangTheory                             compiler/backend  (2s)   [↓41]     OK
+Starting work on lab_filterTheory
+lab_filterTheory                          compiler/backend  (2s)   [↓40]     OK
+Starting work on lab_to_targetTheory
+lab_to_targetTheory                       compiler/backend (10s)   [↓39]     OK
+Starting work on displayLangTheory
+displayLangTheory                         compiler/backend  (2s)   [↓38]     OK
+Starting work on flat_elimTheory
+flat_elimTheory                           compiler/backend  (6s)   [↓37]     OK
+Starting work on flat_patternTheory
+flat_patternTheory                        compiler/backend  (7s)   [↓36]     OK
+Starting work on source_to_flatTheory
+source_to_flatTheory                      compiler/backend  (8s)   [↓35]     OK
+Starting work on presLangTheory
+presLangTheory                            compiler/backend (23s)   [↓34]     OK
+Starting work on source_letTheory
+source_letTheory                          compiler/backend  (3s)   [↓33]     OK
+Starting work on source_to_sourceTheory
+source_to_sourceTheory                    compiler/backend  (2s)   [↓32]     OK
+Starting work on stack_allocTheory
+stack_allocTheory                         compiler/backend (20s)   [↓31]     OK
+Starting work on stack_namesTheory
+stack_namesTheory                         compiler/backend  (8s)   [↓30]     OK
+Starting work on stack_rawcallTheory
+stack_rawcallTheory                       compiler/backend (34s)   [↓29]     OK
+Starting work on stack_removeTheory
+stack_removeTheory                        compiler/backend  (6s)   [↓28]     OK
+Starting work on word_to_stackTheory
+word_to_stackTheory                       compiler/backend (12s)   [↓27]     OK
+Starting work on stack_to_labTheory
+stack_to_labTheory                        compiler/backend (21s)   [↓26]     OK
+Starting work on backendTheory
+backendTheory                             compiler/backend (21s)   [↓25]     OK
+Starting work on backend_passesTheory
+backend_passesTheory                      compiler/backend (15s)   [↓24]     OK
+Starting work on exportTheory
+exportTheory                              compiler/backend  (5s)   [↓23]     OK
+Starting work on evaluate_decTheory
+Finished compiler/backend [#theories: 63]                            (739.832s) 
+evaluate_decTheory                              translator  (6s)   [↓22]     OK
+Starting work on ml_progTheory
+ml_progTheory                                   translator (10s)   [↓21]     OK
+Starting work on ml_translatorTheory
+ml_translatorTheory                             translator (30s)   [↓20]     OK
+Starting work on infer_tTheory
+Finished translator [#theories: 3]                                    (47.857s) 
+infer_tTheory                           compiler/inference (12s)   [↓19]     OK
+Starting work on unifyTheory
+unifyTheory                             compiler/inference (26s)   [↓18]     OK
+Starting work on inferTheory
+inferTheory                             compiler/inference (41s)   [↓17]     OK
+Starting work on inferPropsTheory
+inferPropsTheory                        compiler/inference (44s)   [↓16]     OK
+Starting work on unify_cvTheory
+unify_cvTheory                          compiler/inference (15s)   [↓15]     OK
+Starting work on infer_cvTheory
+infer_cvTheory                          compiler/inference (42s)   [↓14]     OK
+Starting work on num_list_enc_decTheory
+Finished compiler/inference [#theories: 6]                           (183.223s) 
+num_list_enc_decTheory         compiler/backend/serialiser (20s)   [↓13]     OK
+Starting work on num_tree_enc_decTheory
+num_tree_enc_decTheory         compiler/backend/serialiser (16s)   [↓12]     OK
+Starting work on backend_enc_decTheory
+backend_enc_decTheory          compiler/backend/serialiser (53s)   [↓11]     OK
+Starting work on backend_asmTheory
+Finished compiler/backend/serialiser [#theories: 3]                   (91.374s) 
+backend_asmTheory              compiler/backend/cv_compute (26s)   [↓10]     OK
+Starting work on export_x64Theory
+export_x64Theory                      compiler/backend/x64 (10s)    [↓9]     OK
+Starting work on to_data_cvTheory
+to_data_cvTheory                             cv_translator(314s)    [↓8]     OK
+Starting work on backend_cvTheory
+backend_cvTheory                             cv_translator(182s)    [↓7]     OK
+Starting work on backend_64_cvTheory
+backend_64_cvTheory                          cv_translator(153s)    [↓6]     OK

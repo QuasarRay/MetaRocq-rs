@@ -10,8 +10,8 @@ CAKEML_SOURCE_DIR="${CAKEML_SOURCE_DIR:-${CAKEML_DIR:-$ROOT/.aegis/references/ca
 compat_key="$(python3 - "$CAKEML_SOURCE_DIR/misc/preamble.sml" <<'PY'
 import hashlib, pathlib, sys
 sys.path.insert(0, 'tools')
-from materialize_cakeml_context_compat import compatible_preamble
-print(hashlib.sha256(compatible_preamble(pathlib.Path(sys.argv[1]).read_text()).encode()).hexdigest()[:16])
+from materialize_cakeml_context_compat import compatibility_key
+print(compatibility_key(pathlib.Path(sys.argv[1]).parents[1]))
 PY
 )"
 CAKEML_DIR="${CAKEML_COMPAT_DIR:-$ROOT/.aegis/derived/cakeml-context-$compat_key}"
@@ -45,16 +45,31 @@ export HOLDIR="$HOL4_DIR"
 export CAKEMLDIR="$CAKEML_DIR"
 export PATH="$HOLDIR/bin:$PATH"
 
+# Poly/ML's parallel fork/cache path can stall before a theory process starts.
+# Keep checked products and use the serial path by default; allow an explicit
+# job count for hosts where the parallel path has been qualified.
+HOL4_BUILD_JOBS="${HOL4_BUILD_JOBS:-1}"
+[[ "$HOL4_BUILD_JOBS" =~ ^[1-9][0-9]*$ ]] || {
+  echo 'HOL4_BUILD_JOBS must be a positive integer.' >&2
+  exit 64
+}
+
 # Build only the in-logic x64 compiler evaluator first. Holmake follows the
 # include graph to already-built dependencies; if the checkout is fresh this
 # command exposes the first genuinely missing CakeML theory rather than hiding
 # it behind a native compiler invocation.
 (
   cd "$CAKEML_DIR/cv_translator"
-  "$HOLDIR/bin/Holmake" -j2 eval_cake_compile_x64Lib.uo
+  "$HOLDIR/bin/Holmake" -j"$HOL4_BUILD_JOBS" eval_cake_compile_x64Lib.uo
 )
 
-hol4_artifact_path "$CAKEML_DIR/cv_translator/eval_cake_compile_x64Lib.uo" >/dev/null
+compiler_artifacts=()
+for library in eval_cake_compileLib eval_cake_compile_x64Lib; do
+  compiler_artifacts+=("$(hol4_artifact_path "$CAKEML_DIR/cv_translator/$library.uo")")
+  if [[ -f "$CAKEML_DIR/cv_translator/$library.sig" ]]; then
+    compiler_artifacts+=("$(hol4_artifact_path "$CAKEML_DIR/cv_translator/$library.ui")")
+  fi
+done
 {
   printf 'export HOL4_DIR=%q\n' "$HOL4_DIR"
   printf 'export CAKEML_SOURCE_DIR=%q\n' "$CAKEML_SOURCE_DIR"
@@ -64,6 +79,16 @@ hol4_artifact_path "$CAKEML_DIR/cv_translator/eval_cake_compile_x64Lib.uo" >/dev
 } > "$HOLGEN/toolchain.env"
 sha256sum "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/toolchain.env" \
   "$CAKEML_DIR/misc/preamble.sml" "$HOL4_DIR/src/1/Tactical.sig" \
+  "${compiler_artifacts[@]}" \
   tools/materialize_cakeml_context_compat.py tools/prepare_peregrine_hol4.sh \
   > "$HOLGEN/compiler-preparation-inputs.sha256"
+python3 - "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/compiler-preparation-inputs.sha256" <<'PY'
+import json, pathlib, subprocess, sys
+recipe = json.loads(pathlib.Path(sys.argv[1]).read_text())
+paths = [str(pathlib.Path(recipe['derived_source']) / n)
+         for n in recipe['modified_files'] if n != 'misc/preamble.sml']
+if paths:
+    with open(sys.argv[2], 'a') as output:
+        subprocess.run(['sha256sum', *paths], check=True, stdout=output)
+PY
 printf 'HOL4_DIR=%s\nCAKEML_DIR=%s\n' "$HOL4_DIR" "$CAKEML_DIR"

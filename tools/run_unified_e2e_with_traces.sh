@@ -16,4 +16,22 @@ if [[ -n "${CAKEML_REGRESSION_DIR:-}" ]]; then
 fi
 
 export E2E_TRACE_DIR="$trace"
+set +e
 "$ROOT/tools/o11y_observe.sh" cake-controller "$controller" "$trace"
+controller_status=$?
+set -e
+
+# This retained-image root differs from the legacy Peregrine extraction root.
+# Attempt it once in the explicitly requested run, even if the controller
+# stops earlier. A candidate cannot open the controller's semantic proof gates.
+set +e
+"$ROOT/tools/o11y_observe.sh" three-project-retained-candidate \
+  bash "$ROOT/tools/build_original_three_project_lambdabox.sh"
+retained_status=$?
+set -e
+printf 'controller=%s\nretained_candidate=%s\n' \
+  "$controller_status" "$retained_status" > "$trace/explicit-producer-statuses.txt"
+if [[ "$controller_status" -ne 0 ]]; then
+  exit "$controller_status"
+fi
+exit "$retained_status"

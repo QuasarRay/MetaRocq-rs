@@ -1,17 +1,7 @@
 name: Unified CakeML Peregrine + MetaRocq E2E
-run-name: Unified E2E ${{ inputs.target_ref || github.head_ref || github.event.comment.body || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
+run-name: Unified E2E ${{ inputs.target_ref || github.event.comment.body || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-    branches: ['experiment/cakeml-unified-e2e-*']
-    paths:
-      - '.github/workflows/unified-cakeml-e2e.yml'
-      - 'tools/**'
-      - 'metatheory/**'
-      - 'formal/hol4/**'
-      - 'spec/**'
-      - 'cakeml/**'
   workflow_dispatch:
     inputs:
       target_ref:
@@ -33,7 +23,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: unified-cakeml-e2e-${{ inputs.target_ref || github.head_ref || github.event.comment.id || 'manual' }}
+  group: unified-cakeml-e2e-${{ inputs.target_ref || github.event.comment.id || 'manual' }}
   cancel-in-progress: false
 
 jobs:
@@ -41,8 +31,6 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'workflow_call' ||
-      (github.event_name == 'pull_request' &&
-       github.event.pull_request.head.repo.full_name == github.repository) ||
       (github.event_name == 'issue_comment' &&
        github.event.issue.title == 'Manual Unified CakeML E2E dispatch control' &&
        github.actor == github.repository_owner &&
@@ -51,7 +39,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 360
     env:
-      E2E_TARGET_REF: ${{ inputs.target_ref || github.head_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
+      E2E_TARGET_REF: ${{ inputs.target_ref || 'experiment/cakeml-unified-e2e-03-cachyos-docs' }}
       E2E_ISSUE_COMMAND: ${{ github.event.comment.body || '' }}
       CAKEML_REGRESSION_DIR: ${{ github.workspace }}/.aegis/references/cakeml-regression
 

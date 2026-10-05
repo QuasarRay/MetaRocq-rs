@@ -1,0 +1,7 @@
+commit 7c902b87ee7dff06babb43f79bd54394babf6d81
+Author:     Soren <quvazaray@gmail.com>
+AuthorDate: Mon Oct 5 12:53:54 2026 +1100
+Commit:     Soren <quvazaray@gmail.com>
+CommitDate: Mon Oct 5 12:53:54 2026 +1100
+
+    Resume exact original bootstrap and restore explicit-only CI

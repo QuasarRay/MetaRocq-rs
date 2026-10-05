@@ -1,0 +1,159 @@
+{"derived_source": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-98eda899a91125e8", "patch_sha256": "e35e17f00cc289a556ff3a5c54309bff247d4e43f4923464de527dcfe268c6f8", "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness"}
+Scanning $(CAKEMLDIR)/developers
+Scanning $(HOLDIR)/src/TeX
+Scanning $(HOLDIR)/src/bag
+Scanning $(HOLDIR)/src/sort
+Scanning $(HOLDIR)/src/string
+Scanning $(HOLDIR)/src/n-bit
+Scanning $(HOLDIR)/src/res_quan/src
+Scanning $(HOLDIR)/src/finite_maps
+Scanning $(HOLDIR)/examples/formal-languages/context-free
+Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Scanning $(HOLDIR)/src/transfer
+Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Scanning $(HOLDIR)/src/coalgebras
+Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Scanning $(CAKEMLDIR)/misc
+Scanning $(HOLDIR)/src/integer
+Scanning $(HOLDIR)/src/algebra/base
+Scanning $(HOLDIR)/src/algebra/construction
+Scanning $(HOLDIR)/src/algebra
+Scanning $(HOLDIR)/src/hol88
+Scanning $(HOLDIR)/src/rational
+Scanning $(HOLDIR)/src/real
+Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Scanning $(HOLDIR)/examples/formal-languages
+Scanning $(HOLDIR)/src/search
+Scanning $(HOLDIR)/examples/formal-languages/regular
+Scanning $(CAKEMLDIR)/basis/pure
+Scanning $(CAKEMLDIR)/semantics/ffi
+Scanning $(CAKEMLDIR)/semantics
+Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Scanning $(HOLDIR)/src/floating-point
+Scanning $(HOLDIR)/src/monad/more_monads
+Scanning $(HOLDIR)/src/update
+Scanning $(HOLDIR)/examples/l3-machine-code/common
+Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Scanning $(CAKEMLDIR)/semantics/proofs
+Scanning $(HOLDIR)/examples/algorithms
+Scanning $(HOLDIR)/examples/machine-code/multiword
+Scanning $(CAKEMLDIR)/compiler/backend
+Scanning $(CAKEMLDIR)/compiler/parsing
+Scanning $(CAKEMLDIR)/translator
+Scanning $(CAKEMLDIR)/characteristic
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Scanning $(HOLDIR)/src/transfer/examples
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Scanning $(CAKEMLDIR)/compiler/inference
+Scanning $(CAKEMLDIR)/compiler/printing
+Scanning $(CAKEMLDIR)/translator/monadic
+Scanning $(CAKEMLDIR)/basis
+Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Scanning $(HOLDIR)/examples/machine-code/decompiler
+Scanning $(HOLDIR)/examples/l3-machine-code
+Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Scanning $(CAKEMLDIR)/compiler/backend/x64
+Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Scanning $(HOLDIR)/examples/bootstrap
+Scanned 80 directories
+Building 32 theory files
+Starting work on presLangTheory
+Starting work on stack_allocTheory
+presLangTheory                            compiler/backend (22s)  [1/32]     OK
+Starting work on stack_namesTheory
+stack_allocTheory                         compiler/backend (22s)  [2/32]     OK
+Starting work on stack_rawcallTheory
+stack_namesTheory                         compiler/backend  (8s)  [3/32]     OK
+Starting work on stack_removeTheory
+stack_removeTheory                        compiler/backend  (7s)  [4/32]     OK
+Starting work on word_to_stackTheory
+word_to_stackTheory                       compiler/backend (13s)  [5/32]     OK
+Starting work on exportTheory
+exportTheory                              compiler/backend  (5s)  [6/32]     OK
+Starting work on evaluate_decTheory
+stack_rawcallTheory                       compiler/backend (36s)  [7/32]     OK
+Starting work on stack_to_labTheory
+evaluate_decTheory                              translator  (6s)  [8/32]     OK
+Starting work on ml_progTheory
+ml_progTheory                                   translator (11s)  [9/32]     OK
+Starting work on ml_translatorTheory
+stack_to_labTheory                        compiler/backend (24s) [10/32]     OK
+Starting work on backendTheory
+ml_translatorTheory                             translator (15s)        FAIL<1>
+backendTheory                             compiler/backend  (9s)         killed
+*** Holmake aborted - 1 target failed:
+*** ml_translatorTheory in $(CAKEMLDIR)/translator (status 1)
+ Saved theorem _______ "Eval_INT_MULT"
+ Saved theorem _______ "Eval_INT_DIV"
+ Saved theorem _______ "Eval_INT_MOD"
+ Proved triviality ___ "Eval_INT_CMP"
+ Saved theorem _______ "Eval_INT_LESS"
+ Saved theorem _______ "Eval_INT_LESS_EQ"
+ Saved theorem _______ "Eval_INT_GREATER"
+ Saved theorem _______ "Eval_INT_GREATER_EQ"
+ Saved theorem _______ "Eval_INT_EQ"
+ Saved theorem _______ "Eval_NUM_EQ"
+ Saved theorem _______ "Eval_Num"
+ Saved theorem _______ "Eval_Num_ABS"
+ Saved definition ____ "num_of_int_def"
+ Saved theorem _______ "num_of_int_num"
+ Saved theorem _______ "Eval_num_of_int"
+ Saved theorem _______ "Eval_int_of_num"
+ Saved theorem _______ "Eval_int_of_num_o"
+ Saved theorem _______ "Eval_o_int_of_num"
+ Saved theorem _______ "Eval_int_negate"
+ Saved theorem _______ "Eval_NUM_SUB"
+ Saved theorem _______ "Eval_NUM_ADD"
+ Saved theorem _______ "Eval_NUM_MULT"
+ Saved theorem _______ "Eval_NUM_DIV"
+ Saved theorem _______ "Eval_NUM_MOD"
+ Saved definition ____ "sub_check_def"
+ Saved theorem _______ "Eval_NUM_SUB_check"
+ Saved theorem _______ "Eval_NUM_SUB_check'"
+ Saved theorem _______ "Eval_NUM_LESS"
+ Saved theorem _______ "Eval_NUM_LESS_EQ"
+ Saved theorem _______ "Eval_NUM_GREATER"
+ Saved theorem _______ "Eval_NUM_GREATER_EQ"
+ Saved theorem _______ "Eval_NUM_EQ_0"
+ Saved theorem _______ "Eval_word_and"
+ Saved theorem _______ "Eval_word_or"
+ Saved theorem _______ "Eval_word_xor"
+ Proved triviality ___ "DISTRIB_ANY"
+ Proof of 
+ 
+ ∀n p q.
+   0 < n ∧ 0 < q ⇒
+   n * p MOD (n * q) = n * p MOD q ∧ p * n MOD (n * q) = n * p MOD q ∧
+   n * p MOD (q * n) = n * p MOD q ∧ p * n MOD (q * n) = n * p MOD q
+ 
+ failed.
+ First unsolved sub-goal is
+ 
+ ∀n p q. 0 < n ∧ 0 < q ⇒ n * (p MOD q) = n * p MOD q
+ 
+ Tactic failure proving "MOD_COMMON_FACTOR_ANY"; heap saved to ml_translator.MOD_COMMON_FACTOR_ANY.dumpedheap.
+ Resume with: bin/hol --holstate=ml_translator.MOD_COMMON_FACTOR_ANY.dumpedheap
+ Full log: /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-98eda899a91125e8/translator/.hol/logs/ml_translatorTheory
