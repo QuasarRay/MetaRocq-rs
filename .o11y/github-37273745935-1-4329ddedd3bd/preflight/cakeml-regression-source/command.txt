@@ -1,0 +1,1 @@
+bash -lc $'\n  rm -rf "$CAKEML_REGRESSION_DIR" &&\n  git clone https://github.com/CakeML/regression.git "$CAKEML_REGRESSION_DIR" &&\n  git -C "$CAKEML_REGRESSION_DIR" checkout --detach 23cfeba74d0cef77f7274ab41a2e8e87d4032995 &&\n  test "$(git -C "$CAKEML_REGRESSION_DIR" rev-parse HEAD)" = 23cfeba74d0cef77f7274ab41a2e8e87d4032995\n' 
