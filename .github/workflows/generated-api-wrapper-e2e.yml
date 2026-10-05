@@ -23,11 +23,11 @@ jobs:
 
       - name: Fetch untrusted CakeML generator runner
         run: |
-          mkdir -p .aegis/tools/cake-v3400
-          curl -fL             https://github.com/CakeML/cakeml/releases/download/v3400/cake-x64-64.tar.gz             -o /tmp/cake-v3400.tar.gz
-          tar -xzf /tmp/cake-v3400.tar.gz -C .aegis/tools/cake-v3400 --strip-components=1
-          test -x .aegis/tools/cake-v3400/cake
-          test -f .aegis/tools/cake-v3400/basis_ffi.c
+          mkdir -p .aegis/tools/cake-v3213
+          curl -fL             https://github.com/CakeML/cakeml/releases/download/v3213/cake-x64-64.tar.gz             -o /tmp/cake-v3213.tar.gz
+          tar -xzf /tmp/cake-v3213.tar.gz -C .aegis/tools/cake-v3213 --strip-components=1
+          test -x .aegis/tools/cake-v3213/cake
+          test -f .aegis/tools/cake-v3213/basis_ffi.c
 
       - name: Run extractor regressions
         run: python3 tools/test_generated_api_wrapper_pipeline.py
@@ -35,7 +35,10 @@ jobs:
       - name: Generate wrappers and kernel-check HOL4 artifacts
         run: |
           source generated/api-wrapper/proof-toolchain.env
-          # This newer binary only executes the untrusted code generator and\n          # engineering type checks. HOL4 recompiles the exact generated source\n          # with the separately pinned/qualified CakeML proof stack above.\n          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3400"
+          # This runner only executes the untrusted code generator and
+          # engineering type checks. HOL4 recompiles the exact generated source
+          # with the separately pinned/qualified CakeML proof stack above.
+          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3213"
           bash tools/run_generated_api_wrapper_pipeline.sh
 
       - name: Preserve generated proof evidence
@@ -45,4 +48,6 @@ jobs:
           name: generated-api-wrapper-proof-evidence
           path: |
             generated/api-wrapper/
-            formal/hol4/api-wrapper/*Theory.*\n            formal/hol4/api-wrapper/GeneratedApiContractScript.sml\n            formal/hol4/api-wrapper/GeneratedApiWrapperFfiScript.sml
+            formal/hol4/api-wrapper/*Theory.*
+            formal/hol4/api-wrapper/GeneratedApiContractScript.sml
+            formal/hol4/api-wrapper/GeneratedApiWrapperFfiScript.sml
