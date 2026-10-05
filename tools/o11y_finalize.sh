@@ -5,6 +5,9 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 trace="${E2E_TRACE_DIR:?E2E_TRACE_DIR is required}"
 [[ "$trace" == .o11y/* && -d "$trace" ]] || { echo "invalid trace directory: $trace" >&2; exit 1; }
+[[ ! -e "$trace/FINALIZED" ]] || { echo "refusing to modify a finalized trace" >&2; exit 1; }
+
+bash tools/o11y_capture_generated.sh
 
 {
   echo "finished_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
