@@ -28,10 +28,12 @@ def main() -> int:
                 sig.get("component", "hol4"),
                 sig["signature"], d["name"], d["operation_id"],
                 d["cake_name"], d["type"], d["lowering"],
+                d["operation_index"],
             ))
-    rows.sort(key=lambda r: r[2])
+    rows.sort(key=lambda r: r[7])
     body = ",\n    ".join(
-        "(" + ",".join(q(x) for x in row) + ")" for row in rows
+        "(" + ",".join(q(x) for x in row[:-1]) + "," + str(row[-1]) + ")"
+        for row in rows
     )
     out = (
         "(* machine-generated canonical API data; do not edit *)\n"
