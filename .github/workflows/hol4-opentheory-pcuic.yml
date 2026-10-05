@@ -1,0 +1,115 @@
+name: HOL4 OpenTheory PCUIC bridge
+
+on:
+  workflow_dispatch:
+    inputs:
+      theory_dir:
+        description: Repository-relative directory containing the HOL4 theory
+        required: false
+        default: formal/hol4
+        type: string
+      hol4_theory:
+        description: HOL4 theory name to export
+        required: false
+        type: string
+      hol4_theorem:
+        description: HOL4 theorem name to export
+        required: false
+        type: string
+      rocq_symbol:
+        description: Qualified Rocq theorem produced by the translation
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - 'tools/hol4_opentheory_pcuic.py'
+      - 'tools/hol4_pcuic_core.py'
+      - 'tools/hol4_pcuic_translate.py'
+      - 'tools/test_hol4_opentheory_pcuic.py'
+      - 'spec/hol4-opentheory-pcuic.lock.json'
+      - 'metatheory/bootstrap/Hol4ImportedQuote.v.in'
+      - 'docs/adr/0006-hol4-opentheory-pcuic-bridge.md'
+      - '.github/workflows/hol4-opentheory-pcuic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  policy-and-pins:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Static syntax and fail-closed policy tests
+        run: |
+          python -m py_compile tools/hol4_opentheory_pcuic.py tools/hol4_pcuic_core.py tools/hol4_pcuic_translate.py tools/test_hol4_opentheory_pcuic.py
+          python -m unittest -v tools/test_hol4_opentheory_pcuic.py
+      - name: Fetch and verify immutable upstream sources
+        run: |
+          python tools/hol4_opentheory_pcuic.py sources
+          python tools/hol4_opentheory_pcuic.py preflight
+
+  # Heavy proof migration is manual until a concrete preserved HOL4 theorem is selected.
+  # A generic smoke test must not be mistaken for MetaRocq semantic preservation.
+  full-translation:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.hol4_theory != '' && inputs.hol4_theorem != '' && inputs.rocq_symbol != '' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y opam polyml libpolyml-dev build-essential m4 pkg-config libgmp-dev zlib1g-dev clang
+      - name: Fetch pinned sources
+        run: python tools/hol4_opentheory_pcuic.py sources
+      - name: Reuse project installer for pinned Rocq and MetaRocq
+        env:
+          OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+          OPAMSKIPUPDATE: 'true'
+        run: |
+          bash tools/install_extraction.sh
+          eval $(opam env --switch .aegis/opam)
+          opam install --yes ocamlbuild ocamlfind
+          rm -rf .aegis/build/hol4-pcuic/lambdapi-src
+          mkdir -p .aegis/build/hol4-pcuic
+          cp -a .aegis/references/hol4-pcuic/lambdapi .aegis/build/hol4-pcuic/lambdapi-src
+          rm -rf .aegis/build/hol4-pcuic/lambdapi-src/.git
+          cd .aegis/build/hol4-pcuic/lambdapi-src
+          opam install --yes .
+      - name: Build pinned Holide
+        run: |
+          export OPAMROOT=${{ github.workspace }}/.aegis/opam-root
+          eval $(opam env --switch .aegis/opam)
+          python tools/hol4_opentheory_pcuic.py build-holide
+      - name: Build pinned HOL4 using the Aegis-qualified recipe
+        run: |
+          cd .aegis/references/hol4-pcuic/hol4
+          poly_archive="$(find /usr/lib -name libpolymain.a -print -quit)"
+          test -n "$poly_archive"
+          poly_dir="$(dirname "$poly_archive")"
+          printf 'val polymllibdir = "%s";\n' "$poly_dir" > tools-poly/poly-includes.ML
+          poly --script tools/smart-configure.sml
+          bin/build --seq tools/sequences/upto-parallel -j2
+      - name: Run full fail-closed translation
+        env:
+          HOLDIR: ${{ github.workspace }}/.aegis/references/hol4-pcuic/hol4
+          HOLIDE_BIN: ${{ github.workspace }}/.aegis/build/hol4-pcuic/holide/holide
+        run: |
+          export OPAMROOT=${{ github.workspace }}/.aegis/opam-root
+          eval $(opam env --switch .aegis/opam)
+          export LAMBDAPI_BIN=$(command -v lambdapi)
+          export ROCQ_BIN=$(command -v rocq)
+          python tools/hol4_opentheory_pcuic.py all \
+            --theory-dir '${{ inputs.theory_dir }}' \
+            --hol4-theory '${{ inputs.hol4_theory }}' \
+            --hol4-theorem '${{ inputs.hol4_theorem }}' \
+            --rocq-symbol '${{ inputs.rocq_symbol }}'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: hol4-opentheory-pcuic-evidence
+          path: |
+            .metarocq/evidence/hol4-opentheory-pcuic/
+            .metarocq/hol4-pcuic/
