@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "status": "FAIL_CLOSED",
+  "branch": "experiment/original-metarocq-selfhost-09-hol4-kernel-e2e",
+  "base_branch": "experiment/original-metarocq-selfhost-08-pcuic-certificate-reconciled",
+  "intent": "Replace the active Candle acceptance path with a pinned HOL4-kernel path while retaining prior Candle history for audit.",
+  "repositories": {
+    "hol4": {
+      "repository": "https://github.com/HOL-Theorem-Prover/HOL.git",
+      "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+    },
+    "cakeml": {
+      "repository": "https://github.com/CakeML/cakeml.git",
+      "commit": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9"
+    },
+    "peregrine": {
+      "repository": "https://github.com/peregrine-project/peregrine-tool.git",
+      "commit": "d768b83ffa7dab35b8d72241f0570b5bb6aedae9"
+    },
+    "cakeml_backend": {
+      "repository": "https://github.com/peregrine-project/cakeml-backend.git",
+      "commit": "cc20d1a2986bd2fec7c6eb0864c8c9a806188b58"
+    }
+  },
+  "cakeml_hol4_bindings": [
+    {
+      "path": "cv_translator/eval_cake_compile_x64Lib.sml",
+      "blob": "71f472af47a1a46d58d3ac6935d062e1f3d70c70",
+      "symbol": "eval_cake_compile_x64"
+    },
+    {
+      "path": "compiler/backend/proofs/backendProofScript.sml",
+      "blob": "32cc296f38650a98ddb633c6bb834263019becb2",
+      "symbol": "compile_correct"
+    },
+    {
+      "path": "compiler/backend/x64/proofs/x64_configProofScript.sml",
+      "blob": "c82ce0d7913e4f19f3d45c28579b8e32627ec653",
+      "symbol": "x64_compile_correct"
+    },
+    {
+      "path": "examples/compilation/x64/proofs/helloProofScript.sml",
+      "blob": "8c5104adeb6342d31d33b3f4123be58595e175a9",
+      "symbol": "hello_compiled_thm",
+      "role": "reference concrete E2E composition only"
+    }
+  ],
+  "peregrine_bindings": [
+    {
+      "path": "theories/PAst.v",
+      "blob": "45306f7c193eaa4e47cfe1b7b0f63e211de948b8",
+      "symbol": "PAst_to_EAst"
+    },
+    {
+      "path": "theories/Backend/Compile.v",
+      "blob": "b22338bc3113a972bcf793f79be7887bc59153e8",
+      "symbol": "compile_program"
+    }
+  ],
+  "forbidden_as_proof_evidence": [
+    "Peregrine CakeMLBackend.trust_coq_kernel",
+    "cakeml-backend assume_can_be_extracted",
+    "cakeml-backend compile_to_malfunction admitted/vacuous preservation contract",
+    "generic CakeML compiler correctness without exact MetaRocq program and byte binding",
+    "CI success without HOL4 check_thm of the exact generated theorem"
+  ],
+  "required_e2e_obligations": [
+    "pinned MetaRocq source snapshot is completely and recursively quoted",
+    "MetaRocq source semantics are related to the exact retained LambdaBox program",
+    "checked Peregrine PAst_to_EAst and pure CakeML compile_program are used for the exact LambdaBox input",
+    "EAst-to-CakeML observational preservation is proved for the admitted supported fragment",
+    "the exact generated CakeML program is represented by a HOL4 program definition",
+    "a source-semantics theorem is proved for that exact CakeML program",
+    "eval_cake_compile_x64 produces the exact compilation theorem for that program",
+    "compile_correct/x64 machine obligations are instantiated for that exact theorem",
+    "the theorem is bound to the concrete emitted bytes and installed image",
+    "HOL4 check_thm accepts the final source-to-machine theorem with the expected assumptions and no unexpected oracle/axiom",
+    "the installed image replays the retained self-reflection claims and identity"
+  ],
+  "current_blockers": [
+    "faithful PCUIC/HOL4 encoding and checker soundness",
+    "source-to-LambdaBox semantic refinement theorem",
+    "EAst-to-CakeML observational preservation",
+    "exact generated CakeML HOL4 program definition and source semantics theorem",
+    "concrete machine bytes and installed-image binding",
+    "recursive installed-image replay"
+  ]
+}
