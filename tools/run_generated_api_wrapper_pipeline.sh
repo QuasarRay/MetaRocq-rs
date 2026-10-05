@@ -36,6 +36,13 @@ done
 
 python3 tools/render_api_contract_cml.py   "$OUT/canonical-api.json"   "$OUT/GeneratedApiContractData.cml"
 
+python3 tools/render_api_contract_hol4.py \
+  "$OUT/canonical-api.json" \
+  "formal/hol4/api-wrapper/GeneratedApiContractScript.sml"
+python3 tools/render_api_wrapper_bindings_hol4.py \
+  "$OUT/canonical-api.json" \
+  "formal/hol4/api-wrapper/GeneratedApiWrapperBindingsScript.sml"
+
 cat "$OUT/GeneratedApiContractData.cml"     pipeline/cakeml/api-wrapper/ApiWrapperGenerator.cml     > "$OUT/ApiWrapperGeneratorInput.cml"
 
 CAKE="$CAKEML_BIN_DIR/cake"
@@ -78,7 +85,7 @@ export GENERATED_API_WRAPPER_ASM="$OUT/GeneratedApiWrapper-hol.S"
   "$HOLDIR/bin/Holmake"
 )
 
-for theory in   GeneratedApiBridgeAbiTheory.dat   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
+for theory in   GeneratedApiBridgeAbiTheory.dat   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperSourceTheory.dat   GeneratedApiWrapperBindingsTheory.dat   GeneratedApiWrapperQualificationTheory.dat
 do
   [[ -s "formal/hol4/api-wrapper/$theory" ]] || {
     echo "missing HOL4 qualification artifact: $theory" >&2
