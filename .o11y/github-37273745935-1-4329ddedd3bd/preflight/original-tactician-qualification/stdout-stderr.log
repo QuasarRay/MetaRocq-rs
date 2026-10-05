@@ -1,0 +1,203 @@
+Cloning into '/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/tactician'...
+HEAD is now at 59ca1a9 Merge branch 'coq9.0' into coq9.1
+[coq-tactician.dev] synchronised (file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/tactician)
+coq-tactician is now pinned to git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/tactician#HEAD (version dev)
+
+<><> Synchronising pinned packages ><><><><><><><><><><><><><><><><><><><><><><>
+[coq-tactician.dev] synchronised (git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/tactician#HEAD)
+
+[NOTE] Package rocq-stdlib is already installed (current version is 9.0.0).
+[NOTE] Package rocq-core is already installed (current version is 9.1.1).
+[NOTE] Package coq-core is already installed (current version is 9.1.1).
+The following actions will be performed:
+  ∗ install fpath              0.7.3  [required by bos]
+  ∗ install base64             3.5.2  [required by opam-client]
+  ∗ install spdx_licenses      1.6.0  [required by opam-state]
+  ∗ install ocamlgraph         2.2.0  [required by dose3]
+  ∗ install fs-io              3.23.1 [required by stdune]
+  ∗ install swhid_core         0.1    [required by opam-core]
+  ∗ install opam-file-format   2.2.0  [required by opam-format]
+  ∗ install uutf               1.0.4  [required by opam-core]
+  ∗ install conf-c++           1.0    [required by mccs]
+  ∗ install extlib             1.8.0  [required by cudf, dose3]
+  ∗ install optint             0.3.0  [required by checkseum, decompress]
+  ∗ install sha                1.15.4 [required by opam-core]
+  ∗ install conf-git           1.1    [required by coq-tactician]
+  ∗ install 0install-solver    2.18   [required by opam-0install-cudf]
+  ∗ install patch              3.1.2  [required by opam-repository, opam-state]
+  ∗ install top-closure        3.23.1 [required by stdune]
+  ∗ install pp                 2.0.0  [required by dune-private-libs]
+  ∗ install ordering           3.23.1 [required by dyn, stdune]
+  ∗ install rresult            0.7.0  [required by bos]
+  ∗ install jsonm              1.0.2  [required by opam-core]
+  ∗ install cudf               0.10   [required by opam-solver]
+  ∗ install checkseum          0.5.4  [required by opam-repository]
+  ∗ install dyn                3.23.1 [required by dune-private-libs]
+  ∗ install bos                0.3.0  [required by coq-tactician]
+  ∗ install opam-core          2.6.0  [required by opam-format]
+  ∗ install opam-0install-cudf 0.5.0  [required by opam-solver]
+  ∗ install mccs               1.1+19 [required by opam-solver]
+  ∗ install dose3              7.0.0  [required by opam-solver]
+  ∗ install decompress         1.6.1  [required by opam-repository]
+  ∗ install stdune             3.23.1 [required by dune-private-libs]
+  ∗ install opam-format        2.6.0  [required by opam-repository, opam-solver]
+  ∗ install tar                3.5.0  [required by opam-repository]
+  ∗ install dune-private-libs  3.23.1 [required by dune-site]
+  ∗ install opam-solver        2.6.0  [required by opam-client]
+  ∗ install opam-repository    2.6.0  [required by opam-client]
+  ∗ install dune-site          3.23.1 [required by coq-tactician]
+  ∗ install opam-state         2.6.0  [required by opam-client]
+  ∗ install opam-client        2.6.0  [required by coq-tactician]
+  ∗ install coq-tactician      dev*
+===== ∗ 39 =====
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+⬇ retrieved base64.3.5.2  (https://opam.ocaml.org/cache)
+⬇ retrieved bos.0.3.0  (https://opam.ocaml.org/cache)
+⬇ retrieved conf-c++.1.0  (cached)
+⬇ retrieved checkseum.0.5.4  (https://opam.ocaml.org/cache)
+⬇ retrieved 0install-solver.2.18  (https://opam.ocaml.org/cache)
+⬇ retrieved coq-tactician.dev  (no changes)
+∗ installed conf-c++.1.0
+∗ installed base64.3.5.2
+∗ installed conf-git.1.1
+⬇ retrieved cudf.0.10  (https://opam.ocaml.org/cache)
+∗ installed 0install-solver.2.18
+⬇ retrieved dune-private-libs.3.23.1  (cached)
+⬇ retrieved dose3.7.0.0  (https://opam.ocaml.org/cache)
+⬇ retrieved decompress.1.6.1  (https://opam.ocaml.org/cache)
+⬇ retrieved dune-site.3.23.1  (cached)
+⬇ retrieved dyn.3.23.1  (cached)
+⬇ retrieved extlib.1.8.0  (https://opam.ocaml.org/cache)
+⬇ retrieved fpath.0.7.3  (https://opam.ocaml.org/cache)
+⬇ retrieved jsonm.1.0.2  (https://opam.ocaml.org/cache)
+⬇ retrieved fs-io.3.23.1  (cached)
+∗ installed extlib.1.8.0
+∗ installed fpath.0.7.3
+⬇ retrieved mccs.1.1+19  (https://opam.ocaml.org/cache)
+⬇ retrieved opam-0install-cudf.0.5.0  (https://opam.ocaml.org/cache)
+⬇ retrieved ocamlgraph.2.2.0  (https://opam.ocaml.org/cache)
+∗ installed fs-io.3.23.1
+⬇ retrieved opam-file-format.2.2.0  (https://opam.ocaml.org/cache)
+∗ installed cudf.0.10
+⬇ retrieved opam-client.2.6.0  (https://opam.ocaml.org/cache)
+⬇ retrieved opam-repository.2.6.0  (cached)
+∗ installed opam-file-format.2.2.0
+⬇ retrieved opam-solver.2.6.0  (cached)
+⬇ retrieved opam-state.2.6.0  (cached)
+⬇ retrieved optint.0.3.0  (https://opam.ocaml.org/cache)
+⬇ retrieved opam-format.2.6.0  (https://opam.ocaml.org/cache)
+⬇ retrieved ordering.3.23.1  (cached)
+⬇ retrieved patch.3.1.2  (https://opam.ocaml.org/cache)
+⬇ retrieved opam-core.2.6.0  (https://opam.ocaml.org/cache)
+⬇ retrieved pp.2.0.0  (https://opam.ocaml.org/cache)
+⬇ retrieved rresult.0.7.0  (https://opam.ocaml.org/cache)
+⬇ retrieved sha.1.15.4  (https://opam.ocaml.org/cache)
+∗ installed ocamlgraph.2.2.0
+⬇ retrieved spdx_licenses.1.6.0  (https://opam.ocaml.org/cache)
+⬇ retrieved swhid_core.0.1  (https://opam.ocaml.org/cache)
+∗ installed opam-0install-cudf.0.5.0
+⬇ retrieved stdune.3.23.1  (cached)
+⬇ retrieved tar.3.5.0  (https://opam.ocaml.org/cache)
+⬇ retrieved top-closure.3.23.1  (cached)
+⬇ retrieved uutf.1.0.4  (https://opam.ocaml.org/cache)
+∗ installed dose3.7.0.0
+∗ installed optint.0.3.0
+∗ installed ordering.3.23.1
+∗ installed checkseum.0.5.4
+∗ installed patch.3.1.2
+∗ installed decompress.1.6.1
+∗ installed pp.2.0.0
+∗ installed rresult.0.7.0
+∗ installed mccs.1.1+19
+∗ installed dyn.3.23.1
+∗ installed sha.1.15.4
+∗ installed spdx_licenses.1.6.0
+∗ installed swhid_core.0.1
+∗ installed bos.0.3.0
+∗ installed tar.3.5.0
+∗ installed top-closure.3.23.1
+∗ installed uutf.1.0.4
+∗ installed jsonm.1.0.2
+∗ installed stdune.3.23.1
+∗ installed opam-core.2.6.0
+∗ installed dune-private-libs.3.23.1
+∗ installed dune-site.3.23.1
+∗ installed opam-format.2.6.0
+∗ installed opam-repository.2.6.0
+∗ installed opam-solver.2.6.0
+∗ installed opam-state.2.6.0
+∗ installed opam-client.2.6.0
+[ERROR] The compilation of coq-tactician.dev failed at "dune build -p coq-tactician -j 2 --promote-install-files=false @install".
+
+#=== ERROR while compiling coq-tactician.dev ==================================#
+# context              2.1.2 | linux/x86_64 | ocaml-base-compiler.4.14.2 | pinned(git+file:///home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/references/tactician#HEAD#59ca1a9b)
+# path                 ~/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/.opam-switch/build/coq-tactician.dev
+# command              ~/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/bin/dune build -p coq-tactician -j 2 --promote-install-files=false @install
+# exit-code            1
+# env-file             ~/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam-root/log/coq-tactician-102113-97fc90.env
+# output-file          ~/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam-root/log/coq-tactician-102113-97fc90.out
+### output ###
+# [...]
+# File "./theories/Ltac1/Term.v", line 5, characters 0-42:
+# Warning: "coq-core" has been renamed to "rocq-runtime".
+# [coq-core-plugin,deprecated-since-9.0,deprecated,default]
+# File "./theories/Ltac1/Term.v", line 6, characters 0-48:
+# Warning: "coq-core" has been renamed to "rocq-runtime".
+# [coq-core-plugin,deprecated-since-9.0,deprecated,default]
+# File "./theories/Ltac1/Term.v", line 7, characters 0-48:
+# Warning: "coq-core" has been renamed to "rocq-runtime".
+# [coq-core-plugin,deprecated-since-9.0,deprecated,default]
+# File "./theories/Ltac1/Term.v", line 8, characters 0-44:
+# Warning: "coq-core" has been renamed to "rocq-runtime".
+# [coq-core-plugin,deprecated-since-9.0,deprecated,default]
+
+
+
+<><> Error report <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+┌─ The following actions failed
+│ λ build coq-tactician dev
+└─ 
+┌─ The following changes have been performed
+│ ∗ install 0install-solver    2.18
+│ ∗ install base64             3.5.2
+│ ∗ install bos                0.3.0
+│ ∗ install checkseum          0.5.4
+│ ∗ install conf-c++           1.0
+│ ∗ install conf-git           1.1
+│ ∗ install cudf               0.10
+│ ∗ install decompress         1.6.1
+│ ∗ install dose3              7.0.0
+│ ∗ install dune-private-libs  3.23.1
+│ ∗ install dune-site          3.23.1
+│ ∗ install dyn                3.23.1
+│ ∗ install extlib             1.8.0
+│ ∗ install fpath              0.7.3
+│ ∗ install fs-io              3.23.1
+│ ∗ install jsonm              1.0.2
+│ ∗ install mccs               1.1+19
+│ ∗ install ocamlgraph         2.2.0
+│ ∗ install opam-0install-cudf 0.5.0
+│ ∗ install opam-client        2.6.0
+│ ∗ install opam-core          2.6.0
+│ ∗ install opam-file-format   2.2.0
+│ ∗ install opam-format        2.6.0
+│ ∗ install opam-repository    2.6.0
+│ ∗ install opam-solver        2.6.0
+│ ∗ install opam-state         2.6.0
+│ ∗ install optint             0.3.0
+│ ∗ install ordering           3.23.1
+│ ∗ install patch              3.1.2
+│ ∗ install pp                 2.0.0
+│ ∗ install rresult            0.7.0
+│ ∗ install sha                1.15.4
+│ ∗ install spdx_licenses      1.6.0
+│ ∗ install stdune             3.23.1
+│ ∗ install swhid_core         0.1
+│ ∗ install tar                3.5.0
+│ ∗ install top-closure        3.23.1
+│ ∗ install uutf               1.0.4
+└─ 
+
+The former state can be restored with:
+    /usr/bin/opam switch import "/home/runner/work/MetaRocq-rs/MetaRocq-rs/.aegis/opam/_opam/.opam-switch/backup/state-20261005080259.export"
