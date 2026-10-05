@@ -5,35 +5,50 @@ fun join [] = ""
   | join [x] = x
   | join (x::xs) = x ^ join xs;
 
+fun list_length [] = 0
+  | list_length (_::xs) = 1 + list_length xs;
+
 fun emit_cakeml_one
-      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
-  "(* " ^ operation_id ^ " : " ^ type_text ^ " [" ^ lowering ^ "] *)\n" ^
+      (component, sig_name, original_name, operation_id, cake_name,
+       type_text, lowering, operation_index) =
+  "(* #" ^ Int.toString operation_index ^ " " ^ operation_id ^ " : " ^
+  type_text ^ " [" ^ lowering ^ "] *)\n" ^
   "fun " ^ cake_name ^
   " buffer = generated_api_call \"" ^ operation_id ^ "\" buffer;\n";
 
 fun emit_sml_sig_one
-      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
-  "  (* original: " ^ operation_id ^ " : " ^ type_text ^
-  " ; lowering=" ^ lowering ^ " *)\n" ^
+      (component, sig_name, original_name, operation_id, cake_name,
+       type_text, lowering, operation_index) =
+  "  (* #" ^ Int.toString operation_index ^ " original: " ^ operation_id ^
+  " : " ^ type_text ^ " ; lowering=" ^ lowering ^ " *)\n" ^
   "  val " ^ cake_name ^ " : Word8Vector.vector -> Word8Vector.vector\n";
 
 fun emit_sml_impl_one
-      (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+      (component, sig_name, original_name, operation_id, cake_name,
+       type_text, lowering, operation_index) =
   "fun " ^ cake_name ^ " payload = GeneratedApiRuntime.call \"" ^
   operation_id ^ "\" payload;\n";
 
 fun emit_map f [] = ""
   | emit_map f (x::xs) = f x ^ emit_map f xs;
 
+fun emit_csv f [] = ""
+  | emit_csv f [x] = f x
+  | emit_csv f (x::xs) = f x ^ "," ^ emit_csv f xs;
+
 fun filter_component "" xs = xs
   | filter_component wanted [] = []
   | filter_component wanted
-      (x as (component,_,_,_,_,_,_)::xs) =
+      (x as (component,_,_,_,_,_,_,_)::xs) =
       if component = wanted
       then x :: filter_component wanted xs
       else filter_component wanted xs;
 
-fun emit_cakeml contract =
+fun operation_name
+      (_,_,_,operation_id,_,_,_,_) =
+  "\"" ^ operation_id ^ "\"";
+
+fun common_cakeml_prelude () =
   "(* MACHINE GENERATED. Canonical ABI: fixed envelope + opaque handles. *)\n" ^
   "fun generated_error code = let\n" ^
   "  val out = Word8Array.array 16 (Word8.fromInt 0)\n" ^
@@ -43,12 +58,44 @@ fun emit_cakeml contract =
   "  if Word8Array.length buffer < 16\n" ^
   "  then generated_error 1\n" ^
   "  else let val _ = #(api_bridge) operation_id buffer in buffer end;\n\n" ^
-  "(* Every successful foreign transition must preserve buffer length; results that\n" ^
-  "   do not fit are represented by fixed-size opaque handles in the envelope. *)\n" ^
-  "(* Native Poly/ML objects never cross this boundary; only operation-id bytes and payload bytes do. *)\n\n" ^
+  "(* Successful FFI transitions preserve frame length. Complex results stay\n" ^
+  "   native and cross this boundary only as opaque handles. *)\n\n";
+
+fun emit_cakeml_facade contract =
+  common_cakeml_prelude () ^
   emit_map emit_cakeml_one contract ^
   "\nval generated_api_operation_count = " ^
-  Int.toString generated_api_operation_count ^ ";\n";
+  Int.toString (length contract) ^ ";\n";
+
+fun emit_service contract =
+  "\n(* Executable one-request service used for whole-program verification. *)\n" ^
+  "val generated_operation_names = [" ^
+  emit_csv operation_name contract ^ "];\n\n" ^
+  "fun generated_lookup [] n = None\n" ^
+  "  | generated_lookup (x::xs) n =\n" ^
+  "      if n = 0 then Some x else generated_lookup xs (n - 1);\n\n" ^
+  "fun generated_read_index buffer = let\n" ^
+  "  val b0 = Word8.toInt (Word8Array.sub buffer 4)\n" ^
+  "  val b1 = Word8.toInt (Word8Array.sub buffer 5)\n" ^
+  "  val b2 = Word8.toInt (Word8Array.sub buffer 6)\n" ^
+  "  val b3 = Word8.toInt (Word8Array.sub buffer 7)\n" ^
+  "  in b0 + 256 * b1 + 65536 * b2 + 16777216 * b3 end;\n\n" ^
+  "fun generated_dispatch index frame =\n" ^
+  "  case generated_lookup generated_operation_names index of\n" ^
+  "    None => generated_error 2\n" ^
+  "  | Some operation_id => generated_api_call operation_id frame;\n\n" ^
+  "fun generated_service_main u =\n" ^
+  "  case u of () => let\n" ^
+  "    val frame = Word8Array.array 64 (Word8.fromInt 0)\n" ^
+  "    val _ = #(api_request) \"\" frame\n" ^
+  "    val index = generated_read_index frame\n" ^
+  "    val result = generated_dispatch index frame\n" ^
+  "    val _ = #(api_reply) \"\" result\n" ^
+  "    in () end;\n\n" ^
+  "fun main u = generated_service_main u;\n";
+
+fun emit_unified_cakeml contract =
+  emit_cakeml_facade contract ^ emit_service contract;
 
 fun emit_sml contract =
   "(* MACHINE GENERATED. Adapter requires GeneratedApiRuntime.call. *)\n" ^
@@ -64,7 +111,8 @@ fun main u =
       print (emit_sml (filter_component component generated_api_contract))
   | "sml"::_ => print (emit_sml generated_api_contract)
   | "cakeml"::component::_ =>
-      print (emit_cakeml (filter_component component generated_api_contract))
-  | _ => print (emit_cakeml generated_api_contract);
+      print (emit_cakeml_facade
+        (filter_component component generated_api_contract))
+  | _ => print (emit_unified_cakeml generated_api_contract);
 
 main ();

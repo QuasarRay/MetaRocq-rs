@@ -298,6 +298,12 @@ def main() -> int:
     values = [d for d in declarations if d["kind"] == "val"]
     unsupported = [d for d in declarations if d["kind"] == "unsupported"]
 
+    # One stable global operation index is part of the canonical contract.
+    # Every downstream generator consumes this persisted order rather than
+    # independently sorting public symbols.
+    for index, d in enumerate(sorted(values, key=lambda x: x["operation_id"])):
+        d["operation_index"] = index
+
     operation_locations: dict[str, list[str]] = collections.defaultdict(list)
     cake_name_locations: dict[str, list[str]] = collections.defaultdict(list)
     for s in signatures:
