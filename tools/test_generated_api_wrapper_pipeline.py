@@ -9,6 +9,8 @@ import subprocess
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 EXTRACT = ROOT / "tools/extract_sml_public_api.py"
 RENDER = ROOT / "tools/render_api_contract_cml.py"
+RENDER_HOL4 = ROOT / "tools/render_api_contract_hol4.py"
+RENDER_FFI = ROOT / "tools/render_api_wrapper_ffi_hol4.py"
 SPEC = ROOT / "spec/generated-sml-api-wrapper-pipeline.json"
 
 
@@ -83,6 +85,9 @@ class GeneratedApiWrapperTests(unittest.TestCase):
                 by_id["HolSmtLib.Z3_PROVE"]["arguments"], ["term"])
             self.assertEqual(
                 by_id["HolSmtLib.Z3_PROVE"]["result_type"], "thm")
+            self.assertEqual(
+                by_id["HolSmtLib.Z3_PROVE"]["cake_name"],
+                "generated_holsmtlib_z3_prove")
 
             z3 = json.loads((root / "api.z3_tac.json").read_text())
             ttt = json.loads((root / "api.tactictoe.json").read_text())
@@ -96,6 +101,20 @@ class GeneratedApiWrapperTests(unittest.TestCase):
             text = cml.read_text()
             self.assertIn('"z3_tac","HolSmtLib","Z3_PROVE"', text)
             self.assertIn('"tactictoe","tacticToe","tactictoe"', text)
+
+            hol4 = root / "GeneratedApiContractScript.sml"
+            ffi = root / "GeneratedApiWrapperFfiScript.sml"
+            subprocess.run(
+                ["python3", str(RENDER_HOL4), str(out), str(hol4)],
+                check=True)
+            subprocess.run(
+                ["python3", str(RENDER_FFI), str(out), str(ffi)],
+                check=True)
+            self.assertIn("generated_api_bindings", hol4.read_text())
+            self.assertIn("generated_holsmtlib_z3_prove", hol4.read_text())
+            self.assertIn(
+                "generated_holsmtlib_z3_prove_ffi_spec",
+                ffi.read_text())
 
     def test_unterminated_public_signature_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
