@@ -34,6 +34,13 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def cake_name(operation_id: str) -> str:
+    name = re.sub(r"[^A-Za-z0-9_']", "_", operation_id).lower()
+    if not name or not name[0].isalpha():
+        name = "api_" + name
+    return "generated_" + name
+
+
 def strip_nested_comments(text: str) -> str:
     out: list[str] = []
     i = 0
@@ -185,6 +192,7 @@ def parse_signature(path: pathlib.Path, source_rel: str, opaque: set[str]) -> di
                     normalized, opaque
                 )
                 parts = split_top_level_arrows(normalized)
+                operation_id = f"{sig_name}.{name}"
                 item.update(
                     name=name,
                     type=normalized,
@@ -194,8 +202,9 @@ def parse_signature(path: pathlib.Path, source_rel: str, opaque: set[str]) -> di
                     result_lowering=result_class,
                     lowering=lowering,
                     arity=arity,
-                    original_symbol=f"{sig_name}.{name}",
-                    operation_id=f"{sig_name}.{name}",
+                    original_symbol=operation_id,
+                    operation_id=operation_id,
+                    cake_name=cake_name(operation_id),
                 )
         elif kind in {"type", "eqtype"}:
             m = TYPE.match(first)
@@ -299,6 +308,16 @@ def main() -> int:
         if len(paths) > 1
     }
 
+    generated_name_locations: dict[str, list[str]] = collections.defaultdict(list)
+    for s in signatures:
+        for d in s["declarations"]:
+            if d["kind"] == "val":
+                generated_name_locations[d["cake_name"]].append(d["operation_id"])
+    duplicate_generated_names = {
+        name: sorted(ops) for name, ops in generated_name_locations.items()
+        if len(set(ops)) > 1
+    }
+
     canonical = {
         "schema": 2,
         "public_interface": "HOL4 sigobj plus mandatory proof-automation signatures",
@@ -307,6 +326,7 @@ def main() -> int:
         "signatures": signatures,
         "failures": failures,
         "duplicate_operation_ids": duplicates,
+        "duplicate_generated_names": duplicate_generated_names,
         "source_interface_audit": {
             "signature_count": len(audit_inventory),
             "files": audit_inventory,
@@ -317,6 +337,7 @@ def main() -> int:
             "value_count": len(values),
             "unsupported_count": (
                 len(unsupported) + len(failures) + len(duplicates)
+                + len(duplicate_generated_names)
             ),
         },
         "components": {
