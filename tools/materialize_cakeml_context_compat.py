@@ -15,6 +15,14 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 PREAMBLE = "misc/preamble.sml"
+ASM_LIBRARY = "compiler/encoders/asm/asmLib.sml"
+EVALUATOR_LIBRARY = "cv_translator/eval_cake_compileLib.sml"
+ASM_PROVE_PREFIX = '''(* Preserve the legacy load-time proof call with a scoped context policy. *)
+fun legacy_library_prove ttac =
+  if isSome (Context.current_thy (Context.snapshot())) then Tactical.prove ttac
+  else Feedback.trace ("TAC_PROOF requires current theory", 0) Tactical.prove ttac;
+
+'''
 THEORY_HEADER = re.compile(r"(?m)^Theory[^\n]*\n(?:(?:Ancestors|Libs)[^\n]*\n(?:[ \t]+[^\n]*\n)*)*")
 MOD_PREFIX = '(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\nval _ = Parse.temp_set_fixity "MOD" (Parse.Infixl 650);\n'
 
@@ -51,8 +59,26 @@ def compatible_theory(original: str) -> str:
     return original[:header.end()] + MOD_PREFIX + original[header.end():]
 
 
+def compatible_asm_library(original: str) -> str:
+    anchor = "val asm_rwts =\n"
+    proof = "    prove\n      (“!a b x:'a y. a /\\ (a ==> ~b) ==> ((if b then x else y) = y)”, rw [])"
+    if original.count(anchor) != 1 or original.count(proof) != 1:
+        raise ValueError("pinned asm library proof call changed; compatibility patch requires re-audit")
+    return original.replace(anchor, ASM_PROVE_PREFIX + anchor).replace(
+        proof, proof.replace("prove\n", "legacy_library_prove\n", 1))
+
+
+def compatible_evaluator_library(original: str) -> str:
+    old = 'Feedback.set_trace "TheoryPP.include_docs" 0'
+    if original.count(old) != 1:
+        raise ValueError("pinned evaluator documentation trace changed; compatibility patch requires re-audit")
+    return original.replace(old, 'Feedback.set_trace "TheoryPP.include_html_docs" 0')
+
+
 def adapted_sources(source: Path) -> dict[str, str]:
     result = {PREAMBLE: compatible_preamble((source / PREAMBLE).read_text())}
+    result[ASM_LIBRARY] = compatible_asm_library((source / ASM_LIBRARY).read_text())
+    result[EVALUATOR_LIBRARY] = compatible_evaluator_library((source / EVALUATOR_LIBRARY).read_text())
     for name in git(source, "ls-files", "*Script.sml").splitlines():
         original = (source / name).read_text()
         adapted = compatible_theory(original)
@@ -114,7 +140,8 @@ def materialize(source: Path, target: Path, expected: str) -> dict:
         "patch_sha256": hashlib.sha256(patch.encode()).hexdigest(),
         "patch": patch,
         "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness",
-        "legacy_library_mode": "Scoped HOL4 compatibility trace only when the supplied context has no current theory; kernel proof rules remain unchanged.",
+        "legacy_library_mode": "Scoped HOL4 compatibility trace only when the supplied context has no current theory, for the preamble wrapper and the single asmLib load-time rewrite proof; kernel proof rules and the original proposition/tactic remain unchanged.",
+        "documentation_trace": "Use the pinned HOL4 TheoryPP.include_html_docs setting in the compiler evaluator; this changes documentation output only.",
         "mod_grammar": {
             "fixity": "Infixl 650",
             "historical_hol4_commit": "bec0b16a8e4efed5c8aa75afe14797543da0eccd",

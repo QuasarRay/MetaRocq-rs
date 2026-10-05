@@ -1,0 +1,611 @@
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(CAKEMLDIR)/pancake
+Holmake: Scanning $(CAKEMLDIR)/pancake/parser
+Holmake: Scanning $(CAKEMLDIR)/compiler
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Holmake: Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Holmake: Scanning $(HOLDIR)/examples/bootstrap
+Holmake: Scanning $(CAKEMLDIR)/cv_translator
+Holmake: Scanning $(HOLDIR)/src/real/analysis
+Holmake: Scanning $(HOLDIR)/src/HolSmt
+Holmake: Scanned 89 directories
+Holmake: Building 113 theory files
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/examples/formal-languages/context-free/simpleSexpScript.uo to produce theory-builder executable
+<<HOL message: Created theory "simpleSexp">>
+Saved theorem _______ "datatype_sexp"
+Saved theorem _______ "sexp_11"
+Saved theorem _______ "sexp_distinct"
+Saved theorem _______ "sexp_nchotomy"
+Saved theorem _______ "sexp_Axiom"
+Saved theorem _______ "sexp_induction"
+Saved theorem _______ "sexp_case_cong"
+Saved theorem _______ "sexp_case_eq"
+<<HOL message: Defined type: "sexp">>
+Saved definition ____ "valid_first_symchar_def"
+Saved definition ____ "valid_symchar_def"
+Saved definition ____ "valid_symbol_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in simpleSexp)>>
+Saved definition ____ "valid_sexp_def"
+Saved induction _____ "valid_sexp_ind"
+Saved definition ____ "arb_sexp_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "destSXNUM_def"
+Saved induction _____ "destSXNUM_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "destSXSYM_def"
+Saved induction _____ "destSXSYM_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "destSXCONS_def"
+Saved induction _____ "destSXCONS_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "strip_sxcons_def"
+Saved induction _____ "strip_sxcons_ind"
+Saved theorem _______ "strip_sxcons_thm"
+Saved definition ____ "sxMEM_def"
+Saved theorem _______ "sexp_size_def"
+Saved theorem _______ "sxMEM_sizelt"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "dstrip_sexp_def"
+Saved induction _____ "dstrip_sexp_ind"
+Saved theorem _______ "num2sexpNT_sexpNT2num"
+Saved theorem _______ "sexpNT2num_num2sexpNT"
+Saved theorem _______ "num2sexpNT_11"
+Saved theorem _______ "sexpNT2num_11"
+Saved theorem _______ "num2sexpNT_ONTO"
+Saved theorem _______ "sexpNT2num_ONTO"
+Saved theorem _______ "num2sexpNT_thm"
+Saved theorem _______ "sexpNT2num_thm"
+Saved theorem _______ "sexpNT_EQ_sexpNT"
+Saved theorem _______ "sexpNT_case_def"
+Saved theorem _______ "datatype_sexpNT"
+Saved theorem _______ "sexpNT_nchotomy"
+Saved theorem _______ "sexpNT_Axiom"
+Saved theorem _______ "sexpNT_induction"
+Saved theorem _______ "sexpNT_case_cong"
+Saved theorem _______ "sexpNT_case_eq"
+<<HOL message: Defined type: "sexpNT">>
+Saved definition __ "sexpG_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "ptree_digit_def"
+Saved induction _____ "ptree_digit_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "ptree_sexpnum_def"
+Saved induction _____ "ptree_sexpnum_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "ptree_WS_def"
+Saved induction _____ "ptree_WS_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "ptree_grabWS_def"
+Saved induction _____ "ptree_grabWS_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+Saved definition ____ "ptree_normstrchar_def"
+Saved induction _____ "ptree_normstrchar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+Saved definition ____ "ptree_escapablechar_def"
+Saved induction _____ "ptree_escapablechar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 5 clauses to the original specification.>>
+Saved definition ____ "ptree_escapedstrchar_def"
+Saved induction _____ "ptree_escapedstrchar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "ptree_strchar_def"
+Saved induction _____ "ptree_strchar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "ptree_strcontents_def"
+Saved induction _____ "ptree_strcontents_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 9 clauses to the original specification.>>
+Saved definition ____ "ptree_sexpstr_def"
+Saved induction _____ "ptree_sexpstr_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+Saved definition ____ "ptree_first_symchar_def"
+Saved induction _____ "ptree_first_symchar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+Saved definition ____ "ptree_symchar_def"
+Saved induction _____ "ptree_symchar_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "ptree_symchars_def"
+Saved induction _____ "ptree_symchars_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "ptree_sexpsym_def"
+Saved induction _____ "ptree_sexpsym_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 20 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "ptree_sexp_def"
+Saved induction _____ "ptree_sexp_ind"
+Exporting theory "simpleSexp" ... done.
+Theory "simpleSexp" took 2.4s to build
+Holmake: [↓112] simpleSexp
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/examples/formal-languages/context-free/simpleSexpPEGScript.uo to produce theory-builder executable
+<<HOL message: Created theory "simpleSexpPEG">>
+Saved definition ____ "tokeq_def"
+Saved definition ____ "grabWS_def"
+Saved theorem _______ "peg0_tokeq"
+Saved definition ____ "pnt_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in simpleSexpPEG)>>
+Saved definition ____ "replace_nil_def"
+Saved induction _____ "replace_nil_ind"
+Saved definition ____ "sumID_def"
+Saved definition ____ "choicel_def"
+Saved definition ____ "pegf_def"
+Saved theorem _______ "peg_eval_choicel_NIL"
+Saved theorem _______ "peg_eval_choicel_CONS"
+Saved theorem _______ "peg0_choicel"
+Saved theorem _______ "peg0_pegf"
+Saved definition ____ "sexpPEG_def"
+Saved theorem _______ "sexpPEG_start"
+Saved theorem _______ "sexpPEG_notFAIL"
+Saved theorem _______ "sexpPEG_exec_thm"
+Saved theorem _______ "FDOM_sexpPEG"
+Saved theorem _______ "sexpPEG_applied"
+Proved triviality ___ "frange_image"
+Proved triviality ___ "sexpPEG_range"
+Proved triviality ___ "wfpeg_pnt"
+Proved triviality ___ "wfpeg_grabWS"
+Saved theorem _______ "peg0_sxnt_symchars"
+Saved theorem _______ "peg0_sxnt_symchar"
+Saved theorem _______ "peg0_sxnt_strchar"
+Saved theorem _______ "peg0_sxnt_sexpsym"
+Saved theorem _______ "peg0_sxnt_sexpstr"
+Saved theorem _______ "peg0_sxnt_sexpnum"
+Saved theorem _______ "peg0_sxnt_normstrchar"
+Saved theorem _______ "peg0_sxnt_grabWS"
+Saved theorem _______ "peg0_sxnt_first_symchar"
+Saved theorem _______ "peg0_sxnt_escapedstrchar"
+Saved theorem _______ "peg0_sxnt_escapablechar"
+Saved theorem _______ "peg0_sxnt_digit"
+Saved theorem _______ "peg0_sxnt_WS"
+Proved triviality ___ "npeg0_sexp0"
+Proved triviality ___ "npeg0_WSsexp"
+Proved triviality ___ "peg0_grabWS"
+Proved triviality ___ "subexprs_pnt"
+Saved theorem _______ "Gexprs_sexpPEG"
+Saved theorem _______ "wfG_sexpPEG"
+Exporting theory "simpleSexpPEG" ... done.
+Theory "simpleSexpPEG" took 1.7s to build
+Holmake: [↓111] simpleSexpPEG
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/examples/formal-languages/context-free/simpleSexpParseScript.uo to produce theory-builder executable
+<<HOL message: Created theory "simpleSexpParse">>
+Saved definition ____ "option_sequence_def"
+Saved theorem _______ "option_sequence_SOME"
+Saved theorem _______ "isDigit_HEX"
+Saved theorem _______ "EVERY_isDigit_n2s"
+Saved theorem _______ "EVERY_isDigit_num_to_dec_string"
+Saved theorem _______ "n2s_not_null"
+Saved theorem _______ "num_to_dec_string_not_null"
+Saved theorem _______ "l2n_APPEND"
+Saved theorem _______ "isDigit_ORD_MOD_10"
+Saved theorem _______ "isDigit_UNHEX_alt"
+Saved theorem _______ "s2n_UNHEX_alt"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in simpleSexpParse)>>
+Saved theorem _______ "num_to_dec_string_eq_cons"
+Saved theorem _______ "peg_eval_list_tok_nil"
+Saved theorem _______ "peg_eval_list_tok_imp_every"
+Saved theorem _______ "peg_eval_list_tok_every_imp"
+Proved triviality ___ "FOLDR_STRCAT_destSXSYM"
+Proved triviality ___ "FOLDR_STRCAT_destSXSYM_FST"
+Saved definition ____ "parse_sexp_def"
+Saved definition ____ "escape_string_def"
+Saved induction _____ "escape_string_ind"
+Saved definition ____ "print_space_separated_def"
+Saved induction _____ "print_space_separated_ind"
+Saved theorem _______ "print_space_separated_cons"
+Saved definition ____ "strip_dot_def"
+Saved theorem _______ "strip_dot_strip_sxcons"
+Saved theorem _______ "strip_dot_last_sizeleq"
+Saved theorem _______ "strip_dot_last_sizelt"
+Saved theorem _______ "strip_dot_MEM_sizelt"
+Saved theorem _______ "strip_dot_valid_sexp"
+Saved definition ____ "print_sexp_def"
+Saved induction _____ "print_sexp_ind"
+Proved triviality ___ "peg_eval_list_valid_symchars"
+Proved triviality ___ "peg_eval_valid_symchars"
+Saved theorem _______ "sexpnum_never_symbol"
+Saved theorem _______ "sexpdigit_nondigit_fails"
+Saved theorem _______ "sexpnum_nondigit_fails"
+Saved theorem _______ "seqtokP"
+Saved theorem _______ "seqtokeq"
+Saved theorem _______ "result_case_elim"
+Saved theorem _______ "peg_eval_seq_ASSOC"
+Saved theorem _______ "gen_peg_eval_seqtok"
+Saved theorem _______ "gen_peg_eval_tok"
+Saved theorem _______ "peg_eval_not"
+Saved theorem _______ "peg_eval_any"
+Proved triviality ___ "peg_eval_valid_symbol"
+Saved theorem _______ "valid_symbol_no_spaces"
+Saved theorem _______ "peg_eval_list_digits"
+Saved theorem _______ "peg_eval_list_chars"
+<<HOL message: mk_functional: 
+  pattern completion has added 10 clauses to the original specification.>>
+Saved definition ____ "nt_rank_def"
+Saved induction _____ "nt_rank_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 5 clauses to the original specification.>>
+Saved definition ____ "dest_quote_def"
+Saved induction _____ "dest_quote_ind"
+Saved theorem _______ "dest_quote_sizelt"
+<<HOL message: mk_functional: 
+  pattern completion has added 29 clauses to the original specification.>>
+Saved definition ____ "print_nt_def"
+Saved induction _____ "print_nt_ind"
+Saved theorem _______ "print_nt_sexp0_no_leading_space"
+Saved theorem _______ "print_nt_sexp0_no_leading_rparen"
+Saved theorem _______ "sexpnum_requires_digits"
+Saved theorem _______ "sexpsym_no_rparen"
+Saved theorem _______ "sexpsym_no_dot"
+Saved theorem _______ "peg_eval_sexp0_NONE"
+Saved definition ____ "stoppers_def"
+Saved theorem _______ "peg_eval_tokNIL"
+Saved theorem _______ "peg_eval_seqtokNIL"
+Saved theorem _______ "peg_eval_seq"
+Saved theorem _______ "seqgrabWS"
+Saved theorem _______ "grabWS_grabs"
+Saved theorem _______ "sxnt_normstrcharNIL"
+Saved theorem _______ "strip_dot_EQ_NILNONE"
+Saved theorem _______ "strip_dot_EQ_E"
+Saved theorem _______ "option_sequence_EQ_NIL"
+Saved theorem _______ "peg_eval_rpt_never_fails"
+Saved theorem _______ "print_nt_sym_consequences"
+Saved theorem _______ "peg_eval_print_nt"
+Saved theorem _______ "print_nt_print_sexp"
+Saved theorem _______ "peg_eval_print_sexp"
+Saved theorem _______ "parse_print"
+Exporting theory "simpleSexpParse" ... done.
+Theory "simpleSexpParse" took 6.9s to build
+Holmake: [↓110] simpleSexpParse
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/basis/pure/mlmapScript.uo to produce theory-builder executable
+<<HOL message: Created theory "mlmap">>
+Saved theorem _______ "datatype_map"
+Saved theorem _______ "map_11"
+Saved theorem _______ "map_nchotomy"
+Saved theorem _______ "map_Axiom"
+Saved theorem _______ "map_induction"
+Saved theorem _______ "map_case_cong"
+Saved theorem _______ "map_case_eq"
+<<HOL message: Defined type: "map">>
+Saved definition ____ "lookup_def"
+Saved definition ____ "insert_def"
+Saved definition ____ "delete_def"
+Saved definition ____ "null_def"
+Saved definition ____ "size_def"
+Saved definition ____ "empty_def"
+Saved definition ____ "union_def"
+Saved induction _____ "union_ind"
+Saved definition ____ "unionWith_def"
+Saved induction _____ "unionWith_ind"
+Saved definition ____ "unionWithKey_def"
+Saved induction _____ "unionWithKey_ind"
+Saved definition ____ "foldrWithKey_def"
+Saved definition ____ "filter_def"
+Saved definition ____ "filterWithKey_def"
+Saved definition ____ "map_def"
+Saved definition ____ "mapWithKey_def"
+Saved definition ____ "toAscList_def"
+Saved definition ____ "fromList_def"
+Saved definition ____ "isSubmapBy_def"
+Saved induction _____ "isSubmapBy_ind"
+Saved definition ____ "isSubmap_def"
+Saved definition ____ "all_def"
+Saved definition ____ "exists_def"
+Saved definition ____ "member_def"
+Saved definition ____ "singleton_def"
+Saved definition ____ "compare_def"
+Saved induction _____ "compare_ind"
+Saved definition ____ "map_ok_def"
+Saved definition ____ "cmp_of_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in mlmap)>>
+Saved definition ____ "to_fmap_def"
+Saved induction _____ "to_fmap_ind"
+Saved theorem _______ "lookup_insert"
+Saved theorem _______ "lookup_delete"
+Saved theorem _______ "cmp_of_insert"
+Saved theorem _______ "cmp_of_delete"
+Saved theorem _______ "cmp_of_empty"
+Proved triviality ___ "fmap_FLOOKUP_EQ"
+Saved theorem _______ "TotOrd_key_set"
+Saved theorem _______ "to_fmap_thm"
+Saved theorem _______ "empty_thm"
+Saved theorem _______ "size_thm"
+Saved theorem _______ "MAP_KEYS_sing_set"
+Saved theorem _______ "MAP_KEYS_sing_set_UPDATE"
+Saved theorem _______ "MAP_KEYS_sing_set_DOMSUB"
+Saved theorem _______ "MAP_KEYS_sing_set_FUNION"
+Saved theorem _______ "insert_thm"
+Saved theorem _______ "delete_thm"
+Saved theorem _______ "union_thm"
+Saved theorem _______ "FMERGE_WITH_KEY_MAP_KEYS"
+Saved theorem _______ "unionWithKey_thm"
+Saved theorem _______ "unionWith_lemma"
+Saved theorem _______ "unionWith_thm"
+Saved theorem _______ "all_thm"
+Saved theorem _______ "exists_thm"
+Saved theorem _______ "FDIFF_MAP_KEYS"
+Saved theorem _______ "filterWithKey_thm"
+Saved theorem _______ "filter_lemma"
+Saved theorem _______ "filter_thm"
+Saved theorem _______ "lookup_thm"
+Saved theorem _______ "filterWithKey_all"
+Saved theorem _______ "MAP_FST_toAscList"
+Saved theorem _______ "MEM_toAscList"
+Exporting theory "mlmap" ... done.
+Theory "mlmap" took 2.5s to build
+Holmake: [↓109] mlmap
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/basis/pure/mlprettyprinterScript.uo to produce theory-builder executable
+<<HOL message: Created theory "mlprettyprinter">>
+Saved theorem _______ "datatype_pp_data"
+Saved theorem _______ "pp_data_11"
+Saved theorem _______ "pp_data_nchotomy"
+Saved theorem _______ "pp_data_Axiom"
+Saved theorem _______ "pp_data_induction"
+Saved theorem _______ "pp_data_case_cong"
+Saved theorem _______ "pp_data_case_eq"
+<<HOL message: Defined type: "pp_data">>
+Saved definition ____ "pp_token_def"
+Saved definition ____ "pp_fun_def"
+Saved definition ____ "pp_unprintable_def"
+Saved definition ____ "pp_exn_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in mlprettyprinter)>>
+Saved definition ____ "app_intersperse_def"
+Saved induction _____ "app_intersperse_ind"
+Saved definition ____ "pp_contents_def"
+Saved definition ____ "pp_no_parens_def"
+Saved definition ____ "app_list_wrap_def"
+Saved definition ____ "pp_paren_contents_def"
+Saved induction _____ "pp_paren_contents_ind"
+Saved definition ____ "pp_paren_tuple_def"
+Saved definition ____ "pp_spaced_block_def"
+Saved definition ____ "pp_app_block_def"
+Saved definition ____ "pp_val_eq_def"
+Saved definition ____ "pp_val_hidden_type_def"
+Saved definition ____ "pp_failure_message_def"
+Saved definition ____ "pp_list_def"
+Saved definition ____ "pp_unit_def"
+Saved definition ____ "escape_str_app_list_def"
+Saved induction _____ "escape_str_app_list_ind"
+Proved triviality ___ "findi_map_escape"
+Saved theorem _______ "escape_str_app_list_thm"
+Saved definition ____ "pp_string_def"
+Saved theorem _______ "pp_string_thm"
+Saved definition ____ "pp_bool_def"
+Saved definition ____ "pp_app_list_def"
+Saved definition ____ "pp_pp_data_def"
+Saved definition ____ "pp_char_def"
+Saved theorem _______ "pp_char_thm"
+Saved definition ____ "pp_int_def"
+Saved definition ____ "pp_word8_def"
+Saved definition ____ "pp_word64_def"
+Saved definition ____ "pp_array_def"
+Saved definition ____ "pp_ref_def"
+Saved definition ____ "pp_word8array_def"
+Saved definition ____ "pp_vector_def"
+Saved theorem _______ "num2default_type_default_type2num"
+Saved theorem _______ "default_type2num_num2default_type"
+Saved theorem _______ "num2default_type_11"
+Saved theorem _______ "default_type2num_11"
+Saved theorem _______ "num2default_type_ONTO"
+Saved theorem _______ "default_type2num_ONTO"
+Saved theorem _______ "num2default_type_thm"
+Saved theorem _______ "default_type2num_thm"
+Saved theorem _______ "default_type_EQ_default_type"
+Saved theorem _______ "default_type_case_def"
+Saved theorem _______ "datatype_default_type"
+Saved theorem _______ "default_type_nchotomy"
+Saved theorem _______ "default_type_Axiom"
+Saved theorem _______ "default_type_induction"
+Saved theorem _______ "default_type_case_cong"
+Saved theorem _______ "default_type_case_eq"
+<<HOL message: Defined type: "default_type">>
+Saved definition ____ "pp_default_type_def"
+Saved definition ____ "fromRat_def"
+Saved definition ____ "fromOption_def"
+Exporting theory "mlprettyprinter" ... done.
+Theory "mlprettyprinter" took 4.9s to build
+Holmake: [↓108] mlprettyprinter
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/basis/pure/mlratScript.uo to produce theory-builder executable
+<<HOL message: Created theory "mlrat">>
+Saved theorem _______ "datatype_rational"
+Saved theorem _______ "rational_11"
+Saved theorem _______ "rational_nchotomy"
+Saved theorem _______ "rational_Axiom"
+Saved theorem _______ "rational_induction"
+Saved theorem _______ "rational_case_cong"
+Saved theorem _______ "rational_case_eq"
+<<HOL message: Defined type: "rational">>
+Saved definition ____ "rational_of_num_def"
+Saved definition ____ "rational_of_int_def"
+Saved definition ____ "real_of_rat_def"
+Saved theorem _______ "real_of_rat_int"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in mlrat)>>
+Saved theorem _______ "real_of_rat_le"
+Saved theorem _______ "real_of_rat_eq"
+Saved theorem _______ "real_of_rat_lt"
+Saved theorem _______ "real_of_rat_add"
+Saved theorem _______ "real_of_rat_mul"
+Saved theorem _______ "real_of_rat_ainv"
+Saved theorem _______ "real_of_rat_sub"
+Proved triviality ___ "inv_div"
+Saved theorem _______ "real_of_int_eq_num"
+Saved theorem _______ "rat_of_int_eq_num"
+Saved theorem _______ "real_of_rat_inv"
+Saved theorem _______ "real_of_rat_div"
+Saved theorem _______ "real_of_int_of_rat"
+Saved theorem _______ "rat_of_int_eq"
+Saved definition ____ "toString_def"
+Saved definition ____ "real_to_rational_def"
+Saved definition ____ "real_to_str_def"
+Saved theorem _______ "real_of_int_div_eq"
+Saved theorem _______ "real_to_str_num"
+Saved theorem _______ "real_to_str_neg_num"
+Saved theorem _______ "real_to_str_rat"
+Saved theorem _______ "real_to_str_neg_rat"
+Saved theorem _______ "INT_FLOOR_real_of_int"
+Exporting theory "mlrat" ... done.
+Theory "mlrat" took 1.8s to build
+Holmake: [↓107] mlrat
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/basis/pure/mlsetScript.uo to produce theory-builder executable
+<<HOL message: Created theory "mlset">>
+Saved theorem _______ "datatype_mlset"
+Saved theorem _______ "mlset_11"
+Saved theorem _______ "mlset_nchotomy"
+Saved theorem _______ "mlset_Axiom"
+Saved theorem _______ "mlset_induction"
+Saved theorem _______ "mlset_case_cong"
+Saved theorem _______ "mlset_case_eq"
+<<HOL message: Defined type: "mlset">>
+Saved definition ____ "empty_def"
+Saved definition ____ "singleton_def"
+Saved definition ____ "member_def"
+Saved definition ____ "insert_def"
+Saved definition ____ "delete_def"
+Saved definition ____ "union_def"
+Saved induction _____ "union_ind"
+Saved definition ____ "isSubset_def"
+Saved induction _____ "isSubset_ind"
+Saved definition ____ "compare_def"
+Saved induction _____ "compare_ind"
+Saved definition ____ "all_def"
+Saved definition ____ "exists_def"
+Saved definition ____ "translate_def"
+Saved definition ____ "map_def"
+Saved definition ____ "filter_def"
+Saved definition ____ "fromList_def"
+Saved definition ____ "null_def"
+Saved definition ____ "size_def"
+Saved definition ____ "toList_def"
+Saved definition ____ "fold_def"
+Exporting theory "mlset" ... done.
+Theory "mlset" took 1.4s to build
+Holmake: [↓106] mlset
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript.uo to produce theory-builder executable
+<<HOL message: Created theory "cmlPEG">>
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript.sml:32: error: Type error in function application.
+   Function: ! : 'a ref -> 'a
+   Argument: computeLib.the_compset : unit -> computeLib.compset
+   Reason:
+      Can't unify 'a ref to unit -> computeLib.compset (Incompatible types)
+Found near
+  (
+  computeLib.the_compset :=
+  computeLib.add_thms distinct_ths (! computeLib.the_compset))
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript.sml:32: error: Type error in function application.
+   Function: := : 'a ref * 'a -> unit
+   Argument:
+      (
+         computeLib.the_compset,
+         computeLib.add_thms distinct_ths (! computeLib.the_compset)
+         ) : (unit -> computeLib.compset) * computeLib.compset
+   Reason:
+      Can't unify 'a ref to unit -> computeLib.compset (Incompatible types)
+Found near
+  (
+  computeLib.the_compset :=
+  computeLib.add_thms distinct_ths (! computeLib.the_compset))
+error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript.sml : Fail "Static Errors"
+error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript : Fail "Static Errors"
+Uncaught exception at ./basis/FinalPolyML.sml:491: Fail "Static Errors"
+Holmake: Failed script build for /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript - exited with code 1
