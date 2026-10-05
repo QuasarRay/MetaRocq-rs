@@ -1,0 +1,8 @@
+finished_utc=2026-10-04T22:21:43Z
+repository_head_at_finalize=90560df2ea5cd1e0615736885e9300e779de524f
+result=FAIL_CLOSED
+failure_files_begin
+.o11y/github-37234537117-1-90560df2ea5c/preflight/cake-controller/complete
+.o11y/github-37234537117-1-90560df2ea5c/preflight/requested-peregrine-source-machine/complete
+.o11y/github-37234537117-1-90560df2ea5c/stages/03/regression-result.txt
+failure_files_end

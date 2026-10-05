@@ -96,3 +96,17 @@ bootstrap cannot use such a binary to compile and qualify original MetaRocq.
 Retained source proof terms also do not implement an extracted Ltac interpreter
 or port the original OCaml plugins. Those facilities cannot be counted as
 replayed merely because their source files occur in the inventory.
+
+## Incremental CI and toolchain preservation
+
+The unified workflow now uses the existing exact extraction-cache key rather
+than a separate cold-cache namespace. A completed producer installation can be
+saved even when a subsequent proof stage fails. A usable installation and switch
+export are prerequisites for that cache save; cache success is not proof evidence.
+
+Same-repository stacked E2E pull requests run their own head branch automatically.
+Only relevant source, recipe, and specification changes trigger this path; trace
+append commits do not trigger a build loop. Existing active runs are not canceled.
+This makes the changed workflow reviewable and executable before any main-branch
+merge. Workflow parsing and dispatch/cache contract checks pass; cloud completion
+was still pending when this layer was written.
