@@ -119,6 +119,19 @@ class GeneratedApiWrapperTests(unittest.TestCase):
             ])
             self.assertNotEqual(proc.returncode, 0)
 
+    def test_generator_uses_bounded_api_bridge(self):
+        text = (ROOT / "pipeline/cakeml/api-wrapper/ApiWrapperGenerator.cml").read_text()
+        self.assertIn("#(api_bridge)", text)
+        self.assertIn("Word8Array.length buffer < 16", text)
+        self.assertIn("generated_error 1", text)
+        self.assertNotIn("#(custom)", text)
+
+    def test_spec_declares_handle_envelope(self):
+        spec = json.loads(SPEC.read_text())
+        self.assertEqual(spec["abi"]["ffi_name"], "api_bridge")
+        self.assertEqual(spec["abi"]["minimum_frame_bytes"], 16)
+        self.assertIn("opaque", spec["abi"]["complex_values"].lower())
+
 
 if __name__ == "__main__":
     unittest.main()
