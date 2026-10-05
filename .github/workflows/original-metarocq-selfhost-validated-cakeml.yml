@@ -1,0 +1,63 @@
+name: Original MetaRocq validated CakeML candidate
+
+on:
+  push:
+    branches:
+      - experiment/original-metarocq-selfhost-06-validated-cakeml
+    paths:
+      - 'metatheory/original-selfhost/**'
+      - '.github/workflows/original-metarocq-selfhost-validated-cakeml.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  materialize-validated-candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install pinned MetaRocq and Peregrine
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
+          python3 tools/bootstrap.py sources
+          bash tools/install_extraction.sh
+
+      - name: Compile pure candidate CakeML gateway
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          mkdir -p generated/original-selfhost
+          Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
+          for f in \
+            PipelineIR.v OpenTheoryIR.v PCUICModuleManifest.v SelfSnapshot.v \
+            MaterializeSnapshot.v HOLProofIR.v OpenTheorySerialize.v \
+            RuntimeImage.v RetainedPayload.v SelfHostRunner.v ExtractionRoot.v \
+            HOL4ReuseManifest.v DualProofLedger.v CandleMachineChain.v \
+            SelfCICD.v SingleImageContract.v SingleImageEntrypoint.v \
+            CandlePrefixManifest.v EmbeddedPeregrine.v MetaRocqSuffixSafety.v \
+            CandlePrefixComposition.v RecursiveSelfIdentity.v \
+            SharedImageEntrypoint.v CakeMLBackendTrustLedger.v \
+            CandidateCakeMLCompiler.v CakeMLTranslationCertificate.v \
+            ValidatedCakeMLGateway.v ValidatedSharedImageEntrypoint.v \
+            ExtractValidatedSharedImage.v
+          do
+            rocq compile $Q "metatheory/original-selfhost/$f"
+          done
+          test -s generated/original-selfhost/validated-shared-image.ast
+
+      - name: Preserve candidate compiler evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: original-metarocq-validated-cakeml-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            generated/original-selfhost/
+            metatheory/original-selfhost/*.vo
+            metatheory/original-selfhost/*.vos
+            metatheory/original-selfhost/*.glob
+          if-no-files-found: error
