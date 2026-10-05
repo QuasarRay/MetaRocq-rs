@@ -8,11 +8,11 @@ Module OpenTheoryIR.
 (* This command vocabulary is intentionally kept isomorphic to the verified
    CakeML OpenTheory reader in examples/opentheory/readerScript.sml. *)
 Inductive opcode :=
-| AbsTerm | AbsThm | AppTerm | AppThm | Assume | Axiom | BetaConv
+| AbsTerm | AbsThm | AppTerm | AppThm | Assume | OTAxiom | BetaConv
 | Cons | Const | ConstTerm | DeductAntisym | Def | DefineConst
-| DefineConstList | DefineTypeOp | EqMp | HdTl | Nil | OpType | Pop
+| DefineConstList | DefineOTTypeOp | EqMp | HdTl | Nil | OpType | Pop
 | Pragma | ProveHyp | Ref | Refl | Remove | Subst | Sym | Thm | Trans
-| TypeOp | Var | VarTerm | VarType | Version.
+| OTTypeOp | Var | VarTerm | VarType | Version.
 
 Inductive token :=
 | IntegerToken (n : nat)
@@ -26,7 +26,7 @@ Definition opcode_name (op : opcode) : string :=
   | AppTerm => "appTerm"
   | AppThm => "appThm"
   | Assume => "assume"
-  | Axiom => "axiom"
+  | OTAxiom => "axiom"
   | BetaConv => "betaConv"
   | Cons => "cons"
   | Const => "const"
@@ -35,7 +35,7 @@ Definition opcode_name (op : opcode) : string :=
   | Def => "def"
   | DefineConst => "defineConst"
   | DefineConstList => "defineConstList"
-  | DefineTypeOp => "defineTypeOp"
+  | DefineOTTypeOp => "defineOTTypeOp"
   | EqMp => "eqMp"
   | HdTl => "hdTl"
   | Nil => "nil"
@@ -50,7 +50,7 @@ Definition opcode_name (op : opcode) : string :=
   | Sym => "sym"
   | Thm => "thm"
   | Trans => "trans"
-  | TypeOp => "typeOp"
+  | OTTypeOp => "typeOp"
   | Var => "var"
   | VarTerm => "varTerm"
   | VarType => "varType"
