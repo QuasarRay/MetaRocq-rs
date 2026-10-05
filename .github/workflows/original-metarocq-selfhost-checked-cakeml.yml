@@ -1,0 +1,68 @@
+name: Original MetaRocq checked CakeML fragment
+
+on:
+  push:
+    branches:
+      - experiment/original-metarocq-selfhost-07-checked-cakeml-fragment
+    paths:
+      - 'metatheory/original-selfhost/**'
+      - '.github/workflows/original-metarocq-selfhost-checked-cakeml.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: original-metarocq-selfhost-checked-cakeml-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checked-candidate:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    env:
+      OPAMROOT: ${{ github.workspace }}/.aegis/opam-root
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install pinned MetaRocq and Peregrine
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opam build-essential m4 pkg-config libgmp-dev clang
+          python3 tools/bootstrap.py sources
+          bash tools/install_extraction.sh
+
+      - name: Compile checked candidate and proofs
+        run: |
+          eval "$(opam env --switch .aegis/opam --set-switch)"
+          mkdir -p generated/original-selfhost
+          Q='-Q metatheory/original-selfhost MetaRocqRs.OriginalSelfHost'
+          for f in \
+            PipelineIR.v OpenTheoryIR.v PCUICModuleManifest.v SelfSnapshot.v \
+            MaterializeSnapshot.v HOLProofIR.v OpenTheorySerialize.v \
+            RuntimeImage.v RetainedPayload.v SelfHostRunner.v ExtractionRoot.v \
+            HOL4ReuseManifest.v DualProofLedger.v CandleMachineChain.v \
+            SelfCICD.v SingleImageContract.v SingleImageEntrypoint.v \
+            CandlePrefixManifest.v EmbeddedPeregrine.v MetaRocqSuffixSafety.v \
+            CandlePrefixComposition.v RecursiveSelfIdentity.v \
+            SharedImageEntrypoint.v CakeMLBackendTrustLedger.v \
+            CandidateCakeMLCompiler.v CakeMLTranslationCertificate.v \
+            ValidatedCakeMLGateway.v ValidatedSharedImageEntrypoint.v \
+            EAstSupportedFragment.v CakeMLNoRaise.v CheckedCandidateCakeML.v \
+            CheckedSharedImageEntrypoint.v ExtractCheckedSharedImage.v
+          do
+            rocq compile $Q "metatheory/original-selfhost/$f"
+          done
+          test -s generated/original-selfhost/checked-shared-image.ast
+
+      - name: Preserve checked compiler evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: original-metarocq-checked-cakeml-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            generated/original-selfhost/
+            metatheory/original-selfhost/*.vo
+            metatheory/original-selfhost/*.vos
+            metatheory/original-selfhost/*.glob
+          if-no-files-found: error
