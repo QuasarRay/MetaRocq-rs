@@ -1,0 +1,140 @@
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(CAKEMLDIR)/pancake
+Holmake: Scanning $(CAKEMLDIR)/pancake/parser
+Holmake: Scanning $(CAKEMLDIR)/compiler
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Holmake: Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Holmake: Scanning $(HOLDIR)/examples/bootstrap
+Holmake: Scanning $(CAKEMLDIR)/cv_translator
+Holmake: Scanning $(HOLDIR)/src/real/analysis
+Holmake: Scanning $(HOLDIR)/src/HolSmt
+Holmake: Scanned 89 directories
+Holmake: Building 1 theory file
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/OriginalBootstrapCompilerProbeScript.uo to produce theory-builder executable
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/backend/reg_alloc/reg_allocComputeLib.sml:345: warning: Pattern 3 is redundant.
+Found near
+  fun
+     alloc_aux alg k ... = (if ... ... then ... ... else (); [...]) |
+        alloc_aux alg ... = let val ...; ... in case ... of ... end |
+        alloc_aux ... = raise ...
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "OriginalBootstrapCompilerProbe">>
+Saved definition ____ "original_bootstrap_probe_prog_def"
+eval_cake: config EVAL-ed --- Sun Oct 04 20:41:15 2026
+Saved theorem _______ "original_bootstrap_probe_prog_cv_eq"
+Saved theorem _______ "original_bootstrap_probe_prog_cv_thm"
+Able to translate: original_bootstrap_probe_progeval_cake: cv_trans_deep_embedding prog_def finished --- Sun Oct 04 20:41:15 2026
+eval_cake: about to run cv_eval on to_livesets_def --- Sun Oct 04 20:41:15 2026
+Translating input to a cv term.
+Took 0.0 seconds.
+Looking for relevant cv code equations.
+Took 0.0 seconds.
+Found 1080 cv code equations to use.
+Calling cv_compute.
+Took 1.1 seconds.
+eval_cake: cv_eval to_livesets finished --- Sun Oct 04 20:41:17 2026
+eval_cake: external register allocation finished --- Sun Oct 04 20:41:20 2026
+Saved theorem _______ "original_bootstrap_probe_temp_oracle_cv_eq"
+Saved theorem _______ "original_bootstrap_probe_temp_oracle_cv_thm"
+Able to translate: original_bootstrap_probe_temp_oracleeval_cake: cv_trans_deep_embedding oracle_def finished --- Sun Oct 04 20:41:21 2026
+eval_cake: about to run cv_eval_raw on complie_cake_def --- Sun Oct 04 20:41:21 2026
+Translating input to a cv term.
+Took 0.0 seconds.
+Looking for relevant cv code equations.
+Took 0.1 seconds.
+Found 1554 cv code equations to use.
+Calling cv_compute.
+Took 2.0 seconds.
+eval_cake: cv_eval_raw complie_cake_def finished --- Sun Oct 04 20:41:24 2026
+eval_cake: to_pair evaluation finished --- Sun Oct 04 20:41:24 2026
+eval_cake: abbrevations for result defined --- Sun Oct 04 20:41:24 2026
+eval_cake: new_spec run on result --- Sun Oct 04 20:41:25 2026
+eval_cake: about to run cv_compute on export --- Sun Oct 04 20:41:25 2026
+eval_cake: cv_compute on export finished --- Sun Oct 04 20:41:25 2026
+Writing cv to file: original-bootstrap-probe.S
+eval_cake: theory tidy up finished --- Sun Oct 04 20:41:25 2026
+Saved theorem _______ "original_bootstrap_probe_evaluated"
+Saved definition ____ "original_bootstrap_probe_machine_code_def"
+Kernel-checked closed in-logic x64 compiler probe.
+Qualification only: no Peregrine, MetaRocq, or Rocq binary certificate.
+Exporting theory "OriginalBootstrapCompilerProbe" ... done.
+Theory "OriginalBootstrapCompilerProbe" took 12.3s to build
+Holmake: [1/1] OriginalBootstrapCompilerProbe

@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-10-05T03:22:09.177166+00:00",
+  "pinned_hol4": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "pinned_cakeml": "c98da7fc904c5d6d0e9a75a18fac1796a9bfb1f9",
+  "derived_source": ".aegis/derived/cakeml-context-93874a495eb9b376",
+  "processes": "    PID    PPID STAT     ELAPSED     TIME COMMAND\n   4707    4655 Sl         42:22 00:00:24 Holmake\n   5233    4707 S          39:27 00:00:00 Holmake\n",
+  "visible_target_lock": ".aegis/derived/cakeml-context-93874a495eb9b376/compiler/encoders/asm/.hol/locks/asmPropsScript.lock",
+  "completed_log_sha256": "2e8d302d747fbb49db50ba0b4ae782a575007e123fecebd1fa768139cfd31f54",
+  "claim": "Observed stalled parallel build; retain all products and resume serially. Not a kernel or source-specification certificate.",
+  "termination_method": "Interrupt the original execution session; exit status 130. Namespace-local shell PID signalling could not address the observed processes.",
+  "resume_method": "Holmake serial build in the existing derived source; all checked products retained."
+}

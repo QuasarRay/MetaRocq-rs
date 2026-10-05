@@ -5,12 +5,31 @@ import subprocess
 import tempfile
 import unittest
 
-from materialize_cakeml_context_compat import git, materialize, compatible_theory, compatibility_key, MOD_PREFIX
+from materialize_cakeml_context_compat import (
+    git, materialize, compatible_theory, compatibility_key, MOD_PREFIX,
+    ASM_LIBRARY, ASM_PROVE_PREFIX, compatible_asm_library,
+    EVALUATOR_LIBRARY, compatible_evaluator_library,
+)
 
 ORIGINAL = "(*Temporary workaround for cache being slow on long files*)\nfun clear_cache_prover gtac  =\n let val res = TAC_PROOF gtac in res end\n"
+ASM_ORIGINAL = "val asm_rwts =\n [\n    prove\n      (“!a b x:'a y. a /\\ (a ==> ~b) ==> ((if b then x else y) = y)”, rw [])\n ];\n"
+EVALUATOR_ORIGINAL = 'val _ = Feedback.set_trace "TheoryPP.include_docs" 0;\n'
 
 
 class ContextWorktreeTests(unittest.TestCase):
+    def test_evaluator_changes_only_the_documentation_trace_name(self):
+        adapted = compatible_evaluator_library(EVALUATOR_ORIGINAL)
+        self.assertEqual(adapted.replace('TheoryPP.include_html_docs', 'TheoryPP.include_docs'),
+                         EVALUATOR_ORIGINAL)
+        with self.assertRaises(ValueError):
+            compatible_evaluator_library(EVALUATOR_ORIGINAL.replace(' 0;', ' 1;'))
+    def test_library_adaptation_preserves_the_proposition_and_tactic(self):
+        adapted = compatible_asm_library(ASM_ORIGINAL)
+        restored = adapted.replace(ASM_PROVE_PREFIX, "").replace(
+            "    legacy_library_prove\n", "    prove\n")
+        self.assertEqual(restored, ASM_ORIGINAL)
+        with self.assertRaises(ValueError):
+            compatible_asm_library(ASM_ORIGINAL.replace("rw []", "ALL_TAC"))
     def test_grammar_is_restored_after_complete_theory_header(self):
         text = 'Theory test\nAncestors\n  arithmetic\nLibs\n  preamble\n\nTheorem example:\n  n * p MOD q = n * (p MOD q)\n'
         adapted = compatible_theory(text)
@@ -30,7 +49,7 @@ class ContextWorktreeTests(unittest.TestCase):
         pin = git(self.source, 'rev-parse', 'HEAD')
         self.assertNotEqual(compatibility_key(self.source), old_key)
         receipt = materialize(self.source, self.target, pin)
-        self.assertEqual(receipt['modified_files'], ['exampleScript.sml', 'misc/preamble.sml'])
+        self.assertEqual(receipt['modified_files'], [ASM_LIBRARY, EVALUATOR_LIBRARY, 'exampleScript.sml', 'misc/preamble.sml'])
         self.assertEqual(script.read_text(), original)
         self.assertEqual((self.target / 'exampleScript.sml').read_text(), compatible_theory(original))
 
@@ -46,6 +65,12 @@ class ContextWorktreeTests(unittest.TestCase):
         (self.source / "misc").mkdir()
         self.original = self.source / "misc/preamble.sml"
         self.original.write_text(ORIGINAL)
+        asm = self.source / ASM_LIBRARY
+        asm.parent.mkdir(parents=True)
+        asm.write_text(ASM_ORIGINAL)
+        evaluator = self.source / EVALUATOR_LIBRARY
+        evaluator.parent.mkdir(parents=True)
+        evaluator.write_text(EVALUATOR_ORIGINAL)
         (self.source / "other.sml").write_text("unchanged\n")
         git(self.source, "add", ".")
         git(self.source, "commit", "-qm", "fixture")
@@ -59,7 +84,7 @@ class ContextWorktreeTests(unittest.TestCase):
         self.assertEqual(git(self.source, "status", "--porcelain"), "")
         self.assertIn("Tactical.TAC_PROOF_in ctxt gtac", (self.target / "misc/preamble.sml").read_text())
         self.assertIn('Parse.set_fixity "MOD" (Infixl 650)', (self.target / "misc/preamble.sml").read_text())
-        self.assertEqual(git(self.target, "diff", "HEAD", "--name-only"), "misc/preamble.sml")
+        self.assertEqual(git(self.target, "diff", "HEAD", "--name-only"), ASM_LIBRARY + "\n" + EVALUATOR_LIBRARY + "\nmisc/preamble.sml")
 
     def test_unexpected_derived_progress_is_never_overwritten(self):
         materialize(self.source, self.target, self.pin)
