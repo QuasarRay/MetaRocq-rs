@@ -1,8 +1,8 @@
 Theory GeneratedApiWrapperCompile
 Ancestors
-  compiler
+  compiler basisProg
 Libs
-  preamble eval_cake_compile_x64Lib
+  preamble eval_cake_compile_x64Lib basis cfLib ml_progLib cfTacticsLib
 
 fun require_env name =
   case OS.Process.getEnv name of
@@ -21,38 +21,54 @@ val source_tm = stringSyntax.fromMLstring source;
 val generated_api_wrapper_source_def =
   Define `generated_api_wrapper_source = ^source_tm`;
 
-val parse_eval =
+(* Independent source-syntax check through CakeML's verified parser. *)
+val raw_parse_eval =
   EVAL `parse_cml_input generated_api_wrapper_source`;
 
-val parse_rhs = rhs (concl parse_eval);
-val (parse_ctor, parsed_prog_tm) =
-  dest_comb parse_rhs
+val raw_parse_rhs = rhs (concl raw_parse_eval);
+val (raw_parse_ctor, raw_parsed_prog_tm) =
+  dest_comb raw_parse_rhs
   handle HOL_ERR _ =>
     raise Fail "CakeML source parser did not return a sum constructor";
 
 val _ =
-  if same_const parse_ctor `INR` then ()
+  if same_const raw_parse_ctor `INR` then ()
   else raise Fail "Generated CakeML wrapper source failed verified parsing";
 
+val generated_api_wrapper_source_extension_def =
+  Define `generated_api_wrapper_source_extension = ^raw_parsed_prog_tm`;
+
+Theorem generated_api_wrapper_parses:
+  parse_cml_input generated_api_wrapper_source =
+  INR generated_api_wrapper_source_extension
+Proof
+  rw [raw_parse_eval, generated_api_wrapper_source_extension_def]
+QED
+
+(* Rebuild the exact cumulative translator program used by the CF proof:
+   restore basisProg's persisted ml_prog state, parse/normalise the exact
+   generated source, and add those declarations to that state. *)
+val _ = translation_extends "basisProg";
+val generated_topdecs =
+  cfTacticsLib.process_topdecs [QUOTE source];
+val _ =
+  ml_translatorLib.ml_prog_update
+    (ml_progLib.add_prog generated_topdecs I);
+val generated_compile_st = ml_translatorLib.get_ml_prog_state();
+
+val cumulative_prog_tm = ml_progLib.get_prog generated_compile_st;
 val generated_api_wrapper_library_prog_def =
-  Define `generated_api_wrapper_library_prog = ^parsed_prog_tm`;
+  Define `generated_api_wrapper_library_prog = ^cumulative_prog_tm`;
 
 val main_name_tm = mlstringSyntax.fromMLstring "main";
 val main_call_tm =
   ``Dlet unknown_loc (Pcon NONE [])
       (App Opapp [Var (Short ^main_name_tm); Con NONE []])``;
 val called_prog_tm =
-  listSyntax.mk_snoc (parsed_prog_tm, main_call_tm);
+  listSyntax.mk_snoc (cumulative_prog_tm, main_call_tm);
 
 val generated_api_wrapper_prog_def =
   Define `generated_api_wrapper_prog = ^called_prog_tm`;
-
-Theorem generated_api_wrapper_parses:
-  parse_cml_input generated_api_wrapper_source =
-  INR generated_api_wrapper_library_prog
-Proof
-  rw [parse_eval, generated_api_wrapper_library_prog_def]
-QED
 
 Theorem generated_api_wrapper_prog_has_main_call:
   generated_api_wrapper_prog =
@@ -60,6 +76,15 @@ Theorem generated_api_wrapper_prog_has_main_call:
 Proof
   rw [generated_api_wrapper_prog_def,
       generated_api_wrapper_library_prog_def]
+QED
+
+(* Bind compiler input to the exact CF/translator program, not merely to the
+   wrapper-source extension. *)
+Theorem generated_api_wrapper_compile_input_is_cumulative:
+  generated_api_wrapper_library_prog =
+  ^cumulative_prog_tm
+Proof
+  rw [generated_api_wrapper_library_prog_def]
 QED
 
 val generated_api_wrapper_compiled =
@@ -84,6 +109,9 @@ val _ = require_clean_closed "generated_api_wrapper_parses"
   generated_api_wrapper_parses;
 val _ = require_clean_closed "generated_api_wrapper_prog_has_main_call"
   generated_api_wrapper_prog_has_main_call;
+val _ = require_clean_closed
+  "generated_api_wrapper_compile_input_is_cumulative"
+  generated_api_wrapper_compile_input_is_cumulative;
 val _ = require_clean_closed "generated_api_wrapper_compiled"
   generated_api_wrapper_compiled;
 
