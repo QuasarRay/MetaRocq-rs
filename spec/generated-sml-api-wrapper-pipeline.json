@@ -87,7 +87,10 @@
     "exact CakeML compiler theorem is checked by HOL4",
     "final production gate rejects axioms or oracle tags other than DISK_THM",
     "generated wrapper calls use CakeML #(api_bridge) with the exact canonical operation id as FFI configuration bytes",
-    "the single native runtime entry is ffiapi_bridge; no per-operation native ABI symbol is required"
+    "the single native runtime entry is ffiapi_bridge; no per-operation native ABI symbol is required",
+    "generated CakeML function names are part of the canonical contract and are checked for collisions",
+    "HOL4 characteristic-formula xffi proofs bind every generated function to its exact canonical operation id",
+    "the CakeML proof stack reuses the historical audited context-compatibility worktree"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
@@ -103,6 +106,8 @@
     "wrapper_hol4_theory": "kernel checked",
     "exact_compiler_theorem": "kernel checked",
     "machine_safety_theorem": "pending source-semantics/compile_correct composition; fail closed until kernel checked",
-    "foreign_runtime_correctness": "assumed by explicit contract; not claimed by CakeML"
+    "foreign_runtime_correctness": "assumed by explicit contract; not claimed by CakeML",
+    "source_wrapper_ffi_specs": "kernel checked",
+    "generated_name_binding": "kernel checked"
   }
 }

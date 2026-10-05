@@ -27,6 +27,21 @@ Definition generated_api_step_def:
     generated_wrapper_step generated_api_operations foreign op payload
 End
 
+Definition generated_api_conf_def:
+  generated_api_conf (op:string) =
+    MAP ((n2w:num->word8) o ORD) op
+End
+
+Definition generated_foreign_bytes_refines_original_def:
+  generated_foreign_bytes_refines_original
+    (original:string -> word8 list -> word8 list)
+    (foreign:word8 list -> word8 list -> word8 list option) <=>
+      !op payload.
+        MEM op generated_api_operations ==>
+        foreign (generated_api_conf op) payload =
+        SOME (original op payload)
+End
+
 Definition generated_foreign_refines_original_def:
   generated_foreign_refines_original
     (original:string -> word8 list -> api_result)
@@ -85,6 +100,16 @@ Theorem generated_api_known_is_exact_foreign_call:
       foreign op payload
 Proof
   simp [generated_api_step_def,generated_wrapper_step_def]
+QED
+
+Theorem generated_foreign_bytes_refines_original_call:
+  !original foreign op payload.
+    generated_foreign_bytes_refines_original original foreign /\
+    MEM op generated_api_operations ==>
+    foreign (generated_api_conf op) payload =
+    SOME (original op payload)
+Proof
+  simp [generated_foreign_bytes_refines_original_def]
 QED
 
 Theorem generated_api_refines_original:

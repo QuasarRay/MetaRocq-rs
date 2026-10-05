@@ -6,7 +6,7 @@ cd "$ROOT"
 
 : "${HOL4_SRC:?Set HOL4_SRC to the pinned HOL4 checkout}"
 : "${CAKEML_SRC:?Set CAKEML_SRC to the pinned CakeML checkout}"
-: "${CAKEML_BIN_DIR:?Set CAKEML_BIN_DIR to the pinned CakeML compiler bundle containing cake and basis_ffi.c}"
+: "${CAKEML_BIN_DIR:?Set CAKEML_BIN_DIR to the CakeML generator runner bundle containing cake and basis_ffi.c}"
 : "${HOLDIR:?Set HOLDIR to the HOL4 build used for kernel checking}"
 
 SPEC="$ROOT/spec/generated-sml-api-wrapper-pipeline.json"
@@ -35,6 +35,16 @@ for component in hol4 z3_tac tactictoe; do
 done
 
 python3 tools/render_api_contract_cml.py   "$OUT/canonical-api.json"   "$OUT/GeneratedApiContractData.cml"
+
+HOL4_OUT="$ROOT/formal/hol4/api-wrapper"
+python3 tools/render_api_contract_hol4.py \
+  "$OUT/canonical-api.json" \
+  "$HOL4_OUT/GeneratedApiContractScript.sml"
+python3 tools/render_api_wrapper_ffi_hol4.py \
+  "$OUT/canonical-api.json" \
+  "$HOL4_OUT/GeneratedApiWrapperFfiScript.sml"
+cp "$HOL4_OUT/GeneratedApiContractScript.sml" "$OUT/"
+cp "$HOL4_OUT/GeneratedApiWrapperFfiScript.sml" "$OUT/"
 
 cat "$OUT/GeneratedApiContractData.cml"     pipeline/cakeml/api-wrapper/ApiWrapperGenerator.cml     > "$OUT/ApiWrapperGeneratorInput.cml"
 
@@ -78,7 +88,7 @@ export GENERATED_API_WRAPPER_ASM="$OUT/GeneratedApiWrapper-hol.S"
   "$HOLDIR/bin/Holmake"
 )
 
-for theory in   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
+for theory in   GeneratedApiContractTheory.dat   GeneratedApiWrapperModelTheory.dat   GeneratedApiWrapperFfiTheory.dat   GeneratedApiWrapperCompileTheory.dat   GeneratedApiWrapperQualificationTheory.dat
 do
   [[ -s "formal/hol4/api-wrapper/$theory" ]] || {
     echo "missing HOL4 qualification artifact: $theory" >&2
@@ -101,7 +111,7 @@ manifest={
   "api_summary":api["summary"],
   "component_summaries":components,
   "files":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-  "claim":"generated wrapper protocol and exact CakeML compilation artifacts; foreign implementation correctness remains the declared contract premise"
+  "claim":"generated CakeML wrapper source is bound to canonical API names, each wrapper has a kernel-checked xffi forwarding specification, and the exact wrapper program has a checked CakeML compiler artifact; foreign implementation correctness remains the declared contract premise"
 }
 (out/"manifest.json").write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
 PY
