@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "authority": "pipeline/cakeml/UnifiedE2E.cml",
+  "order": "strict numeric 01..23",
+  "failure_policy": "fail-closed; first non-zero command blocks all downstream stages",
+  "formal_status": "missing theorem objects remain BLOCKED and are never synthesized by the orchestrator",
+  "steps": [
+    {
+      "id": "01",
+      "manual": "01-peregrine-freeze-reuse-map-and-e2e-target.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh pins"
+    },
+    {
+      "id": "02",
+      "manual": "02-peregrine-clone-pin-and-audit.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh clone"
+    },
+    {
+      "id": "03",
+      "manual": "03-peregrine-build-selfhost-lambdabox-and-proof-replay-corpus.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh snapshot"
+    },
+    {
+      "id": "04",
+      "manual": "04-peregrine-bootstrap-with-prebuilt-metarocq-seed.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh seed && tools/peregrine-selfhost-e2e.sh lambdabox"
+    },
+    {
+      "id": "05",
+      "manual": "05-peregrine-use-prebuilt-peregrine-to-produce-cakeml.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh candidate"
+    },
+    {
+      "id": "06",
+      "manual": "06-peregrine-close-lambdabox-to-cakeml-proof-gap.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh translation-proof"
+    },
+    {
+      "id": "07",
+      "manual": "07-peregrine-prove-exact-cakeml-machine-code-in-hol4.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh hol4-replay && tools/peregrine-selfhost-e2e.sh cakeml-program && tools/peregrine-selfhost-e2e.sh machine"
+    },
+    {
+      "id": "08",
+      "manual": "08-peregrine-embed-non-circular-proof-capsule.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh capsule && tools/peregrine-selfhost-e2e.sh compose-e2e"
+    },
+    {
+      "id": "09",
+      "manual": "09-peregrine-revalidate-with-fresh-independent-hol4.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh fresh-revalidate"
+    },
+    {
+      "id": "10",
+      "manual": "10-peregrine-run-e2e-and-pass-publication-gate.md",
+      "phase": "peregrine",
+      "command": "tools/peregrine-selfhost-e2e.sh audit && tools/peregrine-selfhost-e2e.sh mutations && tools/peregrine-selfhost-e2e.sh publish-check"
+    },
+    {
+      "id": "11",
+      "manual": "11-metarocq-freeze-trust-and-e2e-completion-criteria.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh pins"
+    },
+    {
+      "id": "12",
+      "manual": "12-metarocq-reproduce-pinned-toolchain.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh pins"
+    },
+    {
+      "id": "13",
+      "manual": "13-metarocq-capture-complete-source-specification-and-proof-corpus.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh snapshot"
+    },
+    {
+      "id": "14",
+      "manual": "14-metarocq-self-reflection-and-lambdabox-retention.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh lambdabox"
+    },
+    {
+      "id": "15",
+      "manual": "15-metarocq-prove-erasure-correctness-and-assumption-closure.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh erasure"
+    },
+    {
+      "id": "16",
+      "manual": "16-metarocq-reuse-verified-peregrine-to-cakeml-bridge.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh peregrine"
+    },
+    {
+      "id": "17",
+      "manual": "17-metarocq-replay-complete-proof-corpus-in-hol4.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh hol4-replay"
+    },
+    {
+      "id": "18",
+      "manual": "18-metarocq-compile-exact-cakeml-program-inside-hol4.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh cakeml && tools/selfhost-e2e.sh machine"
+    },
+    {
+      "id": "19",
+      "manual": "19-metarocq-compose-unified-source-to-machine-hol4-theorem.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh e2e"
+    },
+    {
+      "id": "20",
+      "manual": "20-metarocq-prove-recursive-machine-self-replay.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh replay-machine"
+    },
+    {
+      "id": "21",
+      "manual": "21-metarocq-local-operation-debugging-and-recovery.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh audit"
+    },
+    {
+      "id": "22",
+      "manual": "22-metarocq-final-audit-and-publication-gate.md",
+      "phase": "metarocq",
+      "command": "tools/selfhost-e2e.sh publish-check"
+    },
+    {
+      "id": "23",
+      "manual": "23-unified-reuse-provenance-and-open-proof-obligations.md",
+      "phase": "report",
+      "command": "tools/unified-e2e-report.sh"
+    }
+  ]
+}
