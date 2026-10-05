@@ -34,6 +34,13 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def cake_name(op_id: str) -> str:
+    s = re.sub(r"[^A-Za-z0-9_']", "_", op_id).lower()
+    if not s or not s[0].isalpha():
+        s = "api_" + s
+    return "generated_" + s
+
+
 def strip_nested_comments(text: str) -> str:
     out: list[str] = []
     i = 0
@@ -185,6 +192,7 @@ def parse_signature(path: pathlib.Path, source_rel: str, opaque: set[str]) -> di
                     normalized, opaque
                 )
                 parts = split_top_level_arrows(normalized)
+                operation_id = f"{sig_name}.{name}"
                 item.update(
                     name=name,
                     type=normalized,
@@ -194,8 +202,9 @@ def parse_signature(path: pathlib.Path, source_rel: str, opaque: set[str]) -> di
                     result_lowering=result_class,
                     lowering=lowering,
                     arity=arity,
-                    original_symbol=f"{sig_name}.{name}",
-                    operation_id=f"{sig_name}.{name}",
+                    original_symbol=operation_id,
+                    operation_id=operation_id,
+                    cake_name=cake_name(operation_id),
                 )
         elif kind in {"type", "eqtype"}:
             m = TYPE.match(first)
@@ -290,13 +299,19 @@ def main() -> int:
     unsupported = [d for d in declarations if d["kind"] == "unsupported"]
 
     operation_locations: dict[str, list[str]] = collections.defaultdict(list)
+    cake_name_locations: dict[str, list[str]] = collections.defaultdict(list)
     for s in signatures:
         for d in s["declarations"]:
             if d["kind"] == "val":
                 operation_locations[d["operation_id"]].append(s["path"])
+                cake_name_locations[d["cake_name"]].append(d["operation_id"])
     duplicates = {
         op: sorted(paths) for op, paths in operation_locations.items()
         if len(paths) > 1
+    }
+    cake_name_collisions = {
+        name: sorted(set(ops)) for name, ops in cake_name_locations.items()
+        if len(set(ops)) > 1
     }
 
     canonical = {
@@ -307,6 +322,7 @@ def main() -> int:
         "signatures": signatures,
         "failures": failures,
         "duplicate_operation_ids": duplicates,
+        "cake_name_collisions": cake_name_collisions,
         "source_interface_audit": {
             "signature_count": len(audit_inventory),
             "files": audit_inventory,
@@ -317,6 +333,7 @@ def main() -> int:
             "value_count": len(values),
             "unsupported_count": (
                 len(unsupported) + len(failures) + len(duplicates)
+                + len(cake_name_collisions)
             ),
         },
         "components": {

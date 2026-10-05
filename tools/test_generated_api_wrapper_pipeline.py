@@ -83,6 +83,9 @@ class GeneratedApiWrapperTests(unittest.TestCase):
                 by_id["HolSmtLib.Z3_PROVE"]["arguments"], ["term"])
             self.assertEqual(
                 by_id["HolSmtLib.Z3_PROVE"]["result_type"], "thm")
+            self.assertEqual(
+                by_id["HolSmtLib.Z3_PROVE"]["cake_name"],
+                "generated_holsmtlib_z3_prove")
 
             z3 = json.loads((root / "api.z3_tac.json").read_text())
             ttt = json.loads((root / "api.tactictoe.json").read_text())
@@ -131,6 +134,18 @@ class GeneratedApiWrapperTests(unittest.TestCase):
         self.assertEqual(spec["abi"]["ffi_name"], "api_bridge")
         self.assertEqual(spec["abi"]["minimum_frame_bytes"], 16)
         self.assertIn("opaque", spec["abi"]["complex_values"].lower())
+
+    def test_binding_renderer_uses_canonical_name(self):
+        renderer = (
+            ROOT / "tools/render_api_wrapper_bindings_hol4.py"
+        ).read_text()
+        self.assertIn('d["cake_name"]', renderer)
+        self.assertNotIn("def cake_name(", renderer)
+
+    def test_generator_uses_persisted_contract_name(self):
+        renderer = (ROOT / "tools/render_api_contract_cml.py").read_text()
+        self.assertIn('d["cake_name"]', renderer)
+        self.assertNotIn("def cake_name(", renderer)
 
 
 if __name__ == "__main__":
