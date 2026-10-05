@@ -43,13 +43,20 @@ command -v rocq >/dev/null || {
 command -v peregrine >/dev/null
 Q=(-Q "$RUNTIME" MetaRocqRs.OriginalSelfHost
    -Q "$GENERATED" MetaRocqRs.UnifiedGenerated)
+# Proof-search metadata is retained in compiled .vo files; the quotations below
+# keep produced proof terms as Type-valued AST data for subsequent extraction.
+TACTICIAN=()
+if [[ -s "$ROOT/generated/peregrine-selfhost/tactician/qualification.txt" ]]; then
+  (cd "$ROOT" && sha256sum -c generated/peregrine-selfhost/tactician/qualified-inputs.sha256)
+  TACTICIAN=(-require Tactician.Ltac1)
+fi
 compile() {
   local file="$1" key
   key="$(basename "$file" .v)"
   local log="$GEN/$key.log"
   set +e
   /usr/bin/time -v -o "$GEN/$key.time-memory.txt" \
-    rocq compile "${Q[@]}" "$file" 2>&1 | tee "$log"
+    rocq compile "${Q[@]}" "${TACTICIAN[@]}" "$file" 2>&1 | tee "$log"
   local status=("${PIPESTATUS[@]}")
   set -e
   printf 'rocq=%s capture=%s\n' "${status[0]}" "${status[1]}" > "$GEN/$key.status.txt"

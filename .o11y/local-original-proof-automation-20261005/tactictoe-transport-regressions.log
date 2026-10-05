@@ -1,0 +1,9 @@
+test_changed_or_duplicated_boundaries_are_rejected (test_materialize_tactictoe_transport.LauncherBoundaries.test_changed_or_duplicated_boundaries_are_rejected) ... ok
+test_every_byte_outside_the_child_launcher_is_preserved (test_materialize_tactictoe_transport.LauncherBoundaries.test_every_byte_outside_the_child_launcher_is_preserved) ... ok
+test_reordered_boundaries_are_rejected (test_materialize_tactictoe_transport.LauncherBoundaries.test_reordered_boundaries_are_rejected) ... ok
+test_unexpected_original_launcher_is_rejected (test_materialize_tactictoe_transport.LauncherBoundaries.test_unexpected_original_launcher_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

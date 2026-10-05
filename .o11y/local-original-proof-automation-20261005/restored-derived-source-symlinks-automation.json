@@ -1,0 +1,162 @@
+[
+  {
+    "path": "compiler/benchmarks/cakeml_benchmarks/cakeml/Makefile",
+    "target": "../../../bootstrap/compilation/x64/64/Makefile",
+    "git_blob": "352cfeafbbe203e52351c0b0546813427a2217ff"
+  },
+  {
+    "path": "compiler/benchmarks/cakeml_benchmarks/cakeml/basis_ffi.c",
+    "target": "../../../../basis/basis_ffi.c",
+    "git_blob": "20bd4c86e69cbba9886908a7539275ae8de60cea"
+  },
+  {
+    "path": "compiler/benchmarks/mlton_benchmarks/cakeml/Makefile",
+    "target": "../../../bootstrap/compilation/x64/64/Makefile",
+    "git_blob": "352cfeafbbe203e52351c0b0546813427a2217ff"
+  },
+  {
+    "path": "compiler/benchmarks/mlton_benchmarks/cakeml/basis_ffi.c",
+    "target": "../../../../basis/basis_ffi.c",
+    "git_blob": "20bd4c86e69cbba9886908a7539275ae8de60cea"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/arm8/64/Makefile",
+    "target": "../Makefile",
+    "git_blob": "d0b0e8e0086f68062b2b427755eb137285993ed3"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/arm8/64/basis_ffi.c",
+    "target": "../../../../../basis/basis_ffi.c",
+    "git_blob": "80b75d0c00f08a18dc7bb4137aa2cea1ce74f2ee"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/arm8/64/hello.cml",
+    "target": "../../x64/hello.cml",
+    "git_blob": "6affe94193a7ef854eaef4df3f44a8b8c3fd8e67"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/arm8/64/how-to.md",
+    "target": "../../../../../how-to.md",
+    "git_blob": "cae3c005fa79586298b125aeab363adb0cbe8db4"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/32/Makefile",
+    "target": "../Makefile",
+    "git_blob": "d0b0e8e0086f68062b2b427755eb137285993ed3"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/32/basis_ffi.c",
+    "target": "../../../../../basis/basis_ffi.c",
+    "git_blob": "80b75d0c00f08a18dc7bb4137aa2cea1ce74f2ee"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/32/hello.cml",
+    "target": "../hello.cml",
+    "git_blob": "281e518da031efcddf27fdc8804260430c037588"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/32/how-to.md",
+    "target": "../../../../../how-to.md",
+    "git_blob": "cae3c005fa79586298b125aeab363adb0cbe8db4"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/Makefile",
+    "target": "../Makefile",
+    "git_blob": "d0b0e8e0086f68062b2b427755eb137285993ed3"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/basis_ffi.c",
+    "target": "../../../../../basis/basis_ffi.c",
+    "git_blob": "80b75d0c00f08a18dc7bb4137aa2cea1ce74f2ee"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/candle_boot.ml",
+    "target": "../../../../../candle/prover/candle_boot.ml",
+    "git_blob": "5a18ee20a27e0ef9e04dd0f88e4858422869390c"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/candle_records.ml",
+    "target": "../../../../../candle/prover/candle_records.ml",
+    "git_blob": "19e55c7adc468c974e28a6667de0147eb3c3285b"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/hello.cml",
+    "target": "../hello.cml",
+    "git_blob": "281e518da031efcddf27fdc8804260430c037588"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/how-to.md",
+    "target": "../../../../../how-to.md",
+    "git_blob": "cae3c005fa79586298b125aeab363adb0cbe8db4"
+  },
+  {
+    "path": "compiler/bootstrap/compilation/x64/64/repl_boot.cml",
+    "target": "../../../../repl/repl_boot.cml",
+    "git_blob": "d6ef5ae45f6c1f216124e5b9edbf83908a84828e"
+  },
+  {
+    "path": "examples/compilation/x64/proofs/wordcountProofScript.sml",
+    "target": "../../../../tutorial/wordcountProofScript.sml",
+    "git_blob": "258745e31344f779db075cd8ee76ce091e1329bc"
+  },
+  {
+    "path": "examples/compilation/x64/wordcountCompileScript.sml",
+    "target": "../../../tutorial/wordcountCompileScript.sml",
+    "git_blob": "87ac89376f556bfa3c9c6f1c33bf83e810622fb3"
+  },
+  {
+    "path": "examples/splitwordsScript.sml",
+    "target": "../tutorial/splitwordsScript.sml",
+    "git_blob": "42d1538e1ac67191728e382bad2320cd1e9fd89e"
+  },
+  {
+    "path": "examples/wordcountProgScript.sml",
+    "target": "../tutorial/wordcountProgScript.sml",
+    "git_blob": "3f5bbb8f28ac6e29c3ddeb9c2ecf156799836262"
+  },
+  {
+    "path": "tutorial/solutions/splitwordsScript.sml",
+    "target": "../splitwordsScript.sml",
+    "git_blob": "ff8a55dbdf572536bdb7d3a7a453b1df7badc3b6"
+  },
+  {
+    "path": "tutorial/solutions/wordfreqCompileScript.sml",
+    "target": "../wordfreqCompileScript.sml",
+    "git_blob": "fb59f60de669ba47480ccbde24dd0b7989facc59"
+  },
+  {
+    "path": "tutorial/solutions/wordfreqProofScript.sml",
+    "target": "../wordfreqProofScript.sml",
+    "git_blob": "11c799ee55c0eb9557e62f8a1d0e6ef61abd0f27"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/32/Makefile",
+    "target": "../../../../compiler/bootstrap/compilation/x64/Makefile",
+    "git_blob": "5d0590e702a856f10a4a1efe76281e5153f9ac31"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/32/basis_ffi.c",
+    "target": "../../../../basis/basis_ffi.c",
+    "git_blob": "20bd4c86e69cbba9886908a7539275ae8de60cea"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/32/how-to.md",
+    "target": "../../../../how-to.md",
+    "git_blob": "55312ab5ea228e81e3843d4b4258e4660a48ee76"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/64/Makefile",
+    "target": "../../../../compiler/bootstrap/compilation/x64/Makefile",
+    "git_blob": "5d0590e702a856f10a4a1efe76281e5153f9ac31"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/64/basis_ffi.c",
+    "target": "../../../../basis/basis_ffi.c",
+    "git_blob": "20bd4c86e69cbba9886908a7539275ae8de60cea"
+  },
+  {
+    "path": "unverified/sexpr-bootstrap/x64/64/how-to.md",
+    "target": "../../../../how-to.md",
+    "git_blob": "55312ab5ea228e81e3843d4b4258e4660a48ee76"
+  }
+]

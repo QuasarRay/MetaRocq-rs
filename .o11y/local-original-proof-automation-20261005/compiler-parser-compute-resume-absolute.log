@@ -1,0 +1,713 @@
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(CAKEMLDIR)/pancake
+Holmake: Scanning $(CAKEMLDIR)/pancake/parser
+Holmake: Scanned 81 directories
+Holmake: Building 105 theory files
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlPEGScript.uo to produce theory-builder executable
+<<HOL message: Created theory "cmlPEG">>
+Saved definition ____ "sumID_def"
+Saved definition ____ "mktokLf_def"
+Saved definition ____ "mkNd_def"
+Saved definition ____ "bindNT0_def"
+Saved definition ____ "bindNT_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in cmlPEG)>>
+Saved definition ____ "mk_linfix_def"
+Saved induction _____ "mk_linfix_ind"
+Saved definition ____ "mk_rinfix_def"
+Saved induction _____ "mk_rinfix_ind"
+Saved definition ____ "peg_linfix_def"
+Saved definition ____ "choicel_def"
+Saved definition ____ "pegf_def"
+Saved definition ____ "seql_def"
+Saved definition ____ "try_def"
+Saved definition ____ "tokeq_def"
+Saved definition ____ "tokSymP_def"
+Saved definition ____ "pnt_def"
+Saved definition ____ "peg_UQConstructorName_def"
+Saved definition ____ "peg_TypeDec_def"
+Saved definition ____ "peg_V_def"
+Saved definition ____ "peg_longV_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 4 clauses to the original specification.>>
+Saved definition ____ "peg_EbaseParenFn_def"
+Saved definition ____ "peg_EbaseParen_def"
+Saved definition ____ "peg_StructName_def"
+Saved definition ____ "ptPapply0_def"
+Saved induction _____ "ptPapply0_ind"
+Saved definition ____ "ptPapply_def"
+Saved induction _____ "ptPapply_ind"
+Saved definition ____ "cmlPEG_def"
+Calculating application of cmlPEG rules
+Saved theorem _______ "cmlpeg_rules_applied"
+Saved theorem _______ "FDOM_cmlPEG"
+Saved theorem _______ "cmlPEG_exec_thm"
+runtime: 0.05341s,    gctime: 0.00000s,     systime: 0.00007s.
+Proved triviality ___ "frange_image"
+Saved theorem _______ "peg0_pegf"
+Saved theorem _______ "peg0_seql"
+Saved theorem _______ "peg0_tokeq"
+Saved theorem _______ "peg0_tokSymP"
+Saved theorem _______ "peg0_choicel"
+Saved theorem _______ "peg0_nTypeDec"
+Saved theorem _______ "peg0_nTypeAbbrevDec"
+Saved theorem _______ "peg0_nOpID"
+Saved theorem _______ "peg0_nStructure"
+Saved theorem _______ "peg0_nDecl"
+Saved theorem _______ "peg0_nV"
+Saved theorem _______ "peg0_nUQTyOp"
+Saved theorem _______ "peg0_nUQConstructorName"
+Saved theorem _______ "peg0_nStructName"
+Saved theorem _______ "peg0_nConstructorName"
+Saved theorem _______ "peg0_nTypeName"
+Saved theorem _______ "peg0_nDtypeDecl"
+Saved theorem _______ "peg0_nDconstructor"
+Saved theorem _______ "peg0_nFDecl"
+Saved theorem _______ "peg0_nTyvarN"
+Saved theorem _______ "peg0_nTyOp"
+Saved theorem _______ "peg0_nTbase"
+Saved theorem _______ "peg0_nPTbase"
+Saved theorem _______ "peg0_nDType"
+Saved theorem _______ "peg0_nPType"
+Saved theorem _______ "peg0_nType"
+Saved theorem _______ "peg0_nTypeList1"
+Saved theorem _______ "peg0_nTypeList2"
+Saved theorem _______ "peg0_nRelOps"
+Saved theorem _______ "peg0_nPtuple"
+Saved theorem _______ "peg0_nPbase"
+Saved theorem _______ "peg0_nPapp"
+Saved theorem _______ "peg0_nPcons"
+Saved theorem _______ "peg0_nPas"
+Saved theorem _______ "peg0_nPattern"
+Saved theorem _______ "peg0_nPatternList"
+Saved theorem _______ "peg0_nPbaseList1"
+Saved theorem _______ "peg0_nLetDec"
+Saved theorem _______ "peg0_nMultOps"
+Saved theorem _______ "peg0_nListOps"
+Saved theorem _______ "peg0_nFQV"
+Saved theorem _______ "peg0_nAddOps"
+Saved theorem _______ "peg0_nCompOps"
+Saved theorem _______ "peg0_nEliteral"
+Saved theorem _______ "peg0_nEbase"
+Saved theorem _______ "peg0_nEapp"
+Saved theorem _______ "peg0_nEmult"
+Saved theorem _______ "peg0_nEadd"
+Saved theorem _______ "peg0_nElistop"
+Saved theorem _______ "peg0_nErel"
+Saved theorem _______ "peg0_nEcomp"
+Saved theorem _______ "peg0_nEbefore"
+Saved theorem _______ "peg0_nEtyped"
+Saved theorem _______ "peg0_nElogicAND"
+Saved theorem _______ "peg0_nElogicOR"
+Saved theorem _______ "peg0_nEhandle"
+Saved theorem _______ "peg0_nE"
+Saved theorem _______ "peg0_nPE"
+Saved theorem _______ "peg0_nPEs"
+Saved theorem _______ "peg0_nElist1"
+Saved theorem _______ "peg0_nSpecLine"
+Saved theorem _______ "cml_wfpeg_thm"
+Proved triviality ___ "subexprs_pnt"
+Saved theorem _______ "PEG_exprs"
+Saved theorem _______ "PEG_wellformed"
+Saved theorem _______ "parse_TopLevelDecs_total"
+Saved theorem _______ "coreloop_TopLevelDecs_total"
+Saved theorem _______ "owhile_TopLevelDecs_total"
+Saved theorem _______ "FDOM_cmlPEG_nts"
+PEGexpr: mkNT nV
+PEGexpr: mkNT nTyvarN
+PEGexpr: mkNT nFQV
+PEGexpr: mkNT nEapp
+PEGexpr: mkNT nElist1
+PEGexpr: mkNT nMultOps
+PEGexpr: mkNT nAddOps
+PEGexpr: mkNT nRelOps
+PEGexpr: mkNT nListOps
+PEGexpr: mkNT nCompOps
+PEGexpr: mkNT nOpID
+PEGexpr: mkNT nEliteral
+PEGexpr: mkNT nEbase
+PEGexpr: mkNT nEseq
+PEGexpr: mkNT nEmult
+PEGexpr: mkNT nEadd
+PEGexpr: mkNT nElistop
+PEGexpr: mkNT nErel
+PEGexpr: mkNT nEcomp
+PEGexpr: mkNT nEbefore
+PEGexpr: mkNT nEtyped
+PEGexpr: mkNT nElogicAND
+PEGexpr: mkNT nElogicOR
+PEGexpr: mkNT nEhandle
+PEGexpr: mkNT nE
+PEGexpr: mkNT nPEs
+PEGexpr: mkNT nPE
+PEGexpr: mkNT nPEsfx
+PEGexpr: mkNT nAndFDecls
+PEGexpr: mkNT nFDecl
+PEGexpr: mkNT nPbaseList1
+PEGexpr: mkNT nType
+PEGexpr: mkNT nDType
+PEGexpr: mkNT nTbase
+PEGexpr: mkNT nPTbase
+PEGexpr: mkNT nTypeList2
+PEGexpr: mkNT nTypeList1
+PEGexpr: mkNT nTbaseList
+PEGexpr: mkNT nTyOp
+PEGexpr: mkNT nUQTyOp
+PEGexpr: mkNT nPType
+PEGexpr: mkNT nTypeName
+PEGexpr: mkNT nTyVarList
+PEGexpr: mkNT nTypeDec
+PEGexpr: mkNT nDtypeDecl
+PEGexpr: mkNT nDconstructor
+PEGexpr: mkNT nUQConstructorName
+PEGexpr: mkNT nConstructorName
+PEGexpr: mkNT nPbase
+PEGexpr: mkNT nPapp
+PEGexpr: mkNT nPcons
+PEGexpr: mkNT nPas
+PEGexpr: mkNT nPattern
+PEGexpr: mkNT nPatternList
+PEGexpr: mkNT nPtuple
+PEGexpr: mkNT nLetDec
+PEGexpr: mkNT nLetDecs
+PEGexpr: mkNT nDecl
+PEGexpr: mkNT nTypeAbbrevDec
+PEGexpr: mkNT nDecls
+PEGexpr: mkNT nOptTypEqn
+PEGexpr: mkNT nSpecLine
+PEGexpr: mkNT nSpecLineList
+PEGexpr: mkNT nSignatureValue
+PEGexpr: mkNT nOptionalSignatureAscription
+PEGexpr: mkNT nStructName
+PEGexpr: mkNT nStructure
+PEGexpr: mkNT nTopLevelDecs
+PEGexpr: mkNT nNonETopLevelDecs
+Saved theorem _______ "NTS_in_PEG_exprs"
+Exporting theory "cmlPEG" ... done.
+Theory "cmlPEG" took 53.8s to build
+Holmake: [↓104] cmlPEG
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/cmlParseScript.uo to produce theory-builder executable
+<<HOL message: Created theory "cmlParse">>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "destResult_def"
+Saved induction _____ "destResult_ind"
+Saved definition ____ "pegresult_bind_def"
+Saved definition ____ "pegresult_choice_def"
+Saved definition ____ "toks_to_loc_def"
+Saved induction _____ "toks_to_loc_ind"
+Saved definition ____ "pegresult_guard_def"
+Saved definition ____ "optlift_def"
+Saved definition ____ "cmlParseExpr_def"
+Saved definition ____ "parse_prog_def"
+Exporting theory "cmlParse" ... done.
+Theory "cmlParse" took 1.5s to build
+Holmake: [↓103] cmlParse
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/fromSexpScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "fromSexp">>
+Proved triviality ___ "monad_unitbind_assert"
+Saved theorem _______ "OPTION_APPLY_MAP3"
+Saved theorem _______ "OPTION_APPLY_MAP4"
+Saved theorem _______ "FOLDR_SX_CONS_INJ"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in fromSexp)>>
+Saved theorem _______ "strip_sxcons_11"
+Saved theorem _______ "dstrip_sexp_size"
+Saved theorem _______ "dstrip_sexp_SOME"
+Saved theorem _______ "strip_sxcons_SOME_NIL"
+Saved theorem _______ "strip_sxcons_EQ_CONS"
+Saved definition ____ "encode_control_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "decode_control_def"
+Saved induction _____ "decode_control_ind"
+Saved theorem _______ "EVERY_isPrint_encode_control"
+Saved theorem _______ "decode_encode_control"
+Proved triviality ___ "isHexDigit_alt"
+Proved triviality ___ "UNHEX_lt16"
+Saved theorem _______ "isAlpha_isUpper_isLower"
+Saved theorem _______ "isLower_isAlpha"
+Saved theorem _______ "encode_decode_control"
+Saved definition ____ "SEXSTR_def"
+Saved theorem _______ "SEXSTR_11"
+Saved theorem _______ "SEXSTR_distinct"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "odestSEXSTR_def"
+Saved induction _____ "odestSEXSTR_ind"
+Saved theorem _______ "encode_control_remove"
+Saved theorem _______ "SEXSTR_remove"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "odestSXSTR_def"
+Saved induction _____ "odestSXSTR_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "odestSXSYM_def"
+Saved induction _____ "odestSXSYM_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "odestSXNUM_def"
+Saved induction _____ "odestSXNUM_ind"
+Saved theorem _______ "odestSXNUM_SEXSTR"
+Saved definition ____ "sexpopt_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "sexplist_def"
+Saved induction _____ "sexplist_ind"
+Saved theorem _______ "sexplist_thm"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "sexppair_def"
+Saved theorem _______ "sexppair_CONG"
+Saved theorem _______ "strip_sxcons_FAIL_sexplist_FAIL"
+Saved theorem _______ "monad_bind_FAIL"
+Saved theorem _______ "monad_unitbind_CONG"
+Saved theorem _______ "strip_sxcons_thm"
+Saved theorem _______ "sexplist_CONG"
+Saved definition ____ "sexpid_def"
+Saved induction _____ "sexpid_ind"
+Saved definition ____ "sexptype_def"
+Saved induction _____ "sexptype_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "sexptype_alt_def"
+Saved induction _____ "sexptype_alt_ind"
+Saved theorem _______ "sexptype_alt_intro"
+Saved theorem _______ "sexptype_alt_intro1"
+Saved definition ____ "sexplit_def"
+Saved definition ____ "sexppat_def"
+Saved induction _____ "sexppat_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "sexppat_alt_def"
+Saved induction _____ "sexppat_alt_ind"
+Saved theorem _______ "sexppat_alt_intro"
+Saved theorem _______ "sexppat_alt_intro1"
+Saved definition ____ "decode_thunk_mode_def"
+Saved definition ____ "encode_thunk_mode_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "decode_test_def"
+Saved induction _____ "decode_test_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "decode_prim_type_def"
+Saved induction _____ "decode_prim_type_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "sexparith_def"
+Saved induction _____ "sexparith_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "sexplog_def"
+Saved induction _____ "sexplog_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 4 clauses to the original specification.>>
+Saved definition ____ "sexpop_def"
+Saved induction _____ "sexpop_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "sexplocpt_def"
+Saved induction _____ "sexplocpt_ind"
+Saved definition ____ "sexplocn_def"
+Saved definition ____ "sexpexp_def"
+Saved induction _____ "sexpexp_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 2 clauses to the original specification.>>
+Saved definition ____ "sexpexp_alt_def"
+Saved induction _____ "sexpexp_alt_ind"
+Saved theorem _______ "sexpexp_alt_intro"
+Saved theorem _______ "sexpexp_alt_intro1"
+Saved definition ____ "sexptype_def_def"
+Saved definition ____ "sexpdec_def"
+Saved induction _____ "sexpdec_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 1 clause to the original specification.>>
+Saved definition ____ "sexpdec_alt_def"
+Saved induction _____ "sexpdec_alt_ind"
+Saved theorem _______ "sexpdec_alt_intro"
+Saved theorem _______ "sexpdec_alt_intro1"
+Saved definition ____ "listsexp_def"
+Saved theorem _______ "listsexp_thm"
+Saved theorem _______ "listsexp_11"
+Saved definition ____ "optsexp_def"
+Saved theorem _______ "optsexp_11"
+Saved definition ____ "idsexp_def"
+Saved theorem _______ "idsexp_11"
+Saved definition ____ "typesexp_def"
+Saved induction _____ "typesexp_ind"
+Saved theorem _______ "typesexp_11"
+Saved definition ____ "litsexp_def"
+Saved theorem _______ "litsexp_11"
+Saved definition ____ "patsexp_def"
+Saved induction _____ "patsexp_ind"
+Saved theorem _______ "patsexp_11"
+Saved definition ____ "testsexp_def"
+Saved induction _____ "testsexp_ind"
+Saved theorem _______ "testsexp_11"
+Saved theorem _______ "sexptest_testsexp"
+Saved definition ____ "arithsexp_def"
+Saved theorem _______ "arithsexp_11"
+Saved theorem _______ "arithsexp_sexparith"
+Saved definition ____ "prim_typesexp_def"
+Saved induction _____ "prim_typesexp_ind"
+Saved theorem _______ "sexplist_listsexp_matchable"
+Saved theorem _______ "dstrip_sexp_SX_STR"
+Saved theorem _______ "dstrip_sexp_SEXSTR"
+Saved theorem _______ "odestSXSTR_SOME"
+Saved theorem _______ "odestSEXSTR_SOME"
+Saved theorem _______ "odestSXNUM_SOME"
+Saved theorem _______ "odestSXSTR_SX_STR"
+Saved theorem _______ "odestSEXSTR_SEXSTR"
+Saved theorem _______ "odestSXNUM_SX_NUM"
+Saved theorem _______ "odestSXSYM_SX_SYM"
+Saved theorem _______ "odestSXSTR_listsexp"
+Saved theorem _______ "odestSEXSTR_listsexp"
+Saved theorem _______ "odestSXNUM_listsexp"
+Saved theorem _______ "strip_sxcons_listsexp"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+Saved theorem _______ "dstrip_sexp_listsexp"
+Saved theorem _______ "sexplist_listsexp_rwt"
+Saved theorem _______ "sexplist_listsexp_imp"
+Saved theorem _______ "sexpopt_optsexp"
+Saved theorem _______ "sexpid_odestSEXSTR_idsexp"
+Saved theorem _______ "dstrip_sexp_thm"
+Saved theorem _______ "sexptype_typesexp"
+Saved theorem _______ "sexpprim_type_testsexp"
+Saved theorem _______ "prim_typesexp_11"
+Saved definition ____ "opsexp_def"
+Saved induction _____ "opsexp_ind"
+Saved theorem _______ "sexpop_opsexp"
+Saved theorem _______ "opsexp_11"
+Saved definition ____ "logsexp_def"
+Saved theorem _______ "logsexp_11"
+Saved definition ____ "locnsexp_def"
+Saved theorem _______ "locnsexp_11"
+Saved definition ____ "locssexp_def"
+Saved theorem _______ "locssexp_11"
+Saved definition ____ "expsexp_def"
+Saved induction _____ "expsexp_ind"
+Proved triviality ___ "SEXSTR_explode_11"
+Saved theorem _______ "expsexp_11"
+Saved definition ____ "type_defsexp_def"
+Saved theorem _______ "type_defsexp_11"
+Saved theorem _______ "dec1_size_eq"
+Saved theorem _______ "mem_size_lemma"
+Saved definition ____ "decsexp_def"
+Saved induction _____ "decsexp_ind"
+Saved theorem _______ "decsexp_11"
+Saved theorem _______ "sexptype_def_type_defsexp"
+Saved theorem _______ "sexplit_litsexp"
+Saved theorem _______ "sexppat_patsexp"
+Saved theorem _______ "sexplocpt_locnsexp"
+Saved theorem _______ "sexplocn_locnsexp"
+Saved theorem _______ "sexplog_logsexp"
+Saved theorem _______ "sexpexp_expsexp"
+Saved theorem _______ "sexpdec_decsexp"
+Saved theorem _______ "odestSXSYM_EQ_SOME"
+Saved theorem _______ "sexpopt_SOME"
+Saved theorem _______ "listsexp_MAP_EQ_f"
+Saved theorem _______ "sexplist_SOME"
+Saved theorem _______ "sexppair_SOME"
+Saved theorem _______ "OPTION_CHOICE_EQ_SOME"
+Saved theorem _______ "odestSXNUM_EQ_SOME"
+Saved theorem _______ "litsexp_sexplit"
+Saved theorem _______ "idsexp_sexpid_odestSEXSTR"
+Saved theorem _______ "idsexp_sexpid_odestSEXSTR'"
+Saved theorem _______ "typesexp_sexptype"
+Saved theorem _______ "patsexp_sexppat0"
+Saved theorem _______ "patsexp_sexppat"
+Saved theorem _______ "decode_test_testsexp"
+Saved theorem _______ "sexparith_arithsexp"
+Saved theorem _______ "decode_prim_type_prim_typesexp"
+Saved theorem _______ "opsexp_sexpop"
+Saved theorem _______ "locnsexp_sexplocpt0"
+Saved theorem _______ "locnsexp_sexplocpt"
+Saved theorem _______ "locnsexp_sexplocn"
+Saved theorem _______ "logsexp_sexplog"
+Saved theorem _______ "expsexp_sexpexp"
+Saved theorem _______ "type_defsexp_sexptype_def"
+Saved theorem _______ "decsexp_sexpdec"
+Saved theorem _______ "SEXSTR_valid"
+Saved theorem _______ "listsexp_valid"
+Saved theorem _______ "idsexp_valid"
+Saved theorem _______ "typesexp_valid"
+Saved theorem _______ "litsexp_valid"
+Saved theorem _______ "optsexp_valid"
+Saved theorem _______ "patsexp_valid"
+Saved theorem _______ "type_defsexp_valid"
+Saved theorem _______ "valid_sexp_prim_typesexp"
+Proved triviality ___ "valid_sexp_arithsexp"
+Proved triviality ___ "valid_sexp_logsexp"
+Saved theorem _______ "opsexp_valid"
+Saved theorem _______ "locnsexp_valid"
+Saved theorem _______ "locssexp_valid"
+Saved theorem _______ "expsexp_valid"
+Saved theorem _______ "decsexp_valid"
+Exporting theory "fromSexp" ... done.
+Theory "fromSexp" took 29.4s to build
+Holmake: [↓102] fromSexp
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/compiler/parsing/lexer_implScript.uo to produce theory-builder executable
+<<HOL warning: Tactical.TAC_PROOF: no current theory when proving: (P ⇒ Q ⇒ R) ⇒ Q ⇒ P ⇒ R [proving without a current theory is deprecated and this permissive mode will be removed]>>
+<<HOL message: Created theory "lexer_impl">>
+Saved theorem _______ "get_token_eqn"
+Saved definition ____ "unhex_alt_def"
+Saved definition ____ "num_from_dec_string_alt_def"
+Saved definition ____ "num_from_hex_string_alt_def"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in lexer_impl)>>
+Saved definition ____ "next_sym_alt_def"
+Saved induction _____ "next_sym_alt_ind"
+Proved triviality ___ "EVERY_isDigit_imp"
+Proved triviality ___ "toNum_rw"
+Proved triviality ___ "EVERY_isHexDigit_imp"
+Proved triviality ___ "num_from_hex_string_rw"
+Proved triviality ___ "EVERY_IMPLODE"
+Proved triviality ___ "read_while_P_lem"
+Proved triviality ___ "read_while_P"
+Saved theorem _______ "next_sym_eq"
+Saved definition ____ "lex_aux_def"
+Saved induction _____ "lex_aux_ind"
+Saved definition ____ "lex_until_toplevel_semicolon_def"
+Proved triviality ___ "lex_aux_LESS"
+Saved theorem _______ "lex_until_toplevel_semicolon_LESS"
+Saved definition ____ "lex_aux_alt_def"
+Saved induction _____ "lex_aux_alt_ind"
+Saved definition ____ "lex_until_top_semicolon_alt_def"
+Proved triviality ___ "lex_aux_alt_LESS"
+Saved theorem _______ "lex_until_top_semicolon_alt_LESS"
+Proved triviality ___ "token_of_sym_EQ_LEMMA"
+Saved definition ____ "token_of_sym_loc_def"
+Saved theorem _______ "lex_until_top_semicolon_alt_thm"
+Saved definition ____ "lex_impl_all_def"
+Saved induction _____ "lex_impl_all_ind"
+Saved definition ____ "lex_aux_tokens_def"
+Saved induction _____ "lex_aux_tokens_ind"
+Saved definition ____ "lex_until_toplevel_semicolon_tokens_def"
+Proved triviality ___ "lex_aux_tokens_LESS"
+Saved definition ____ "lex_impl_all_tokens_def"
+Saved induction _____ "lex_impl_all_tokens_ind"
+Proved triviality ___ "lex_aux_tokens_thm_1"
+Proved triviality ___ "lex_aux_tokens_thm"
+Proved triviality ___ "lex_impl_all_tokens_thm"
+Proved triviality ___ "lex_aux_tokens_thm_1"
+Proved triviality ___ "lex_aux_tokens_thm"
+Proved triviality ___ "split_top_level_semi_thm"
+Saved theorem _______ "lexer_correct"
+Exporting theory "lexer_impl" ... done.
+Theory "lexer_impl" took 26.5s to build
+Holmake: [↓101] lexer_impl
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_optimiseScript.uo to produce theory-builder executable
+<<HOL message: Created theory "ml_optimise">>
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in ml_optimise)>>
+Saved definition ____ "BOTTOM_UP_OPT_def"
+Saved induction _____ "BOTTOM_UP_OPT_ind"
+Saved theorem _______ "BOTTOM_UP_OPT_def"
+Proved triviality ___ "LENGTH_BOTTOM_UP_OPT_LIST"
+Proved triviality ___ "BOTTOM_UP_OPT_LIST_APPEND"
+Proved triviality ___ "REVERSE_BOTTOM_UP_OPT_LIST"
+Saved theorem _______ "dec_clock_with_clock"
+Saved theorem _______ "MAP_FST_BOTTOM_UP_OPT_PAT"
+Saved theorem _______ "evaluate_two_steps_clock"
+Saved theorem _______ "evaluate_and_match_clock"
+Proved triviality ___ "BOTTOM_UP_OPT_THM1"
+Saved theorem _______ "BOTTOM_UP_OPT_THM"
+<<HOL message: mk_functional: 
+  pattern completion has added 70 clauses to the original specification.>>
+Saved definition ____ "abs2let_def"
+Proved triviality ___ "abs2let_thm"
+<<HOL message: mk_functional: 
+  pattern completion has added 13 clauses to the original specification.>>
+Saved definition ____ "let_id_def"
+Saved induction _____ "let_id_ind"
+Proved triviality ___ "let_id_thm"
+<<HOL message: mk_functional: 
+  pattern completion has added 62 clauses to the original specification.>>
+Saved definition ____ "dest_binop_def"
+Saved induction _____ "dest_binop_ind"
+<<HOL message: mk_functional: 
+  pattern completion has added 13 clauses to the original specification.>>
+Saved definition ____ "opt_sub_add_def"
+Proved triviality ___ "dest_binop_thm"
+Proved triviality ___ "opt_sub_add_thm"
+Saved definition ____ "OPTIMISE_def"
+Saved theorem _______ "Eval_OPTIMISE"
+Exporting theory "ml_optimise" ... done.
+Theory "ml_optimise" took 6.6s to build
+Holmake: [↓100] ml_optimise
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_pmatchScript.uo to produce theory-builder executable
+<<HOL message: Created theory "ml_pmatch">>
+Saved definition ____ "EvalPatRel_def"
+<<HOL message: mk_functional: 
+  pattern completion has added 3 clauses to the original specification.>>
+<<HOL message: mk_functional: 
+  pattern completion has added 24 clauses to the original specification.>>
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in ml_pmatch)>>
+Saved definition ____ "Pmatch_def"
+Saved induction _____ "Pmatch_ind"
+Saved definition ____ "EvalPatBind_def"
+Saved theorem _______ "Pmatch_cons"
+Saved theorem _______ "pmatch_imp_Pmatch"
+Saved theorem _______ "Pmatch_SOME_const"
+Saved theorem _______ "pmatch_PMATCH_ROW_COND_No_match"
+Saved theorem _______ "pmatch_PMATCH_ROW_COND_Match"
+Saved definition ____ "pmatch_no_type_error_def"
+Saved definition ____ "pmatch_all_no_type_error_def"
+Saved induction _____ "pmatch_all_no_type_error_ind"
+Saved theorem _______ "Eval_PMATCH_NIL"
+Saved theorem _______ "pmatch_all_no_type_error_IMP_can_pmatch_all"
+Saved theorem _______ "Eval_PMATCH"
+Saved theorem _______ "PMATCH_option_case_rwt"
+Saved theorem _______ "PMATCH_SIMP"
+Exporting theory "ml_pmatch" ... done.
+Theory "ml_pmatch" took 7.8s to build
+Holmake: [↓99] ml_pmatch
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/std_preludeScript.uo to produce theory-builder executable
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_translatorLib.sml:150: error: Pattern and expression have incompatible types.
+   Pattern: (rest, validation) : 'a * 'b
+   Expression:
+      tac ([], goal)
+      handle
+         HOL_ERR r => reraise "auto_prove" "tactic failure" r |
+         Empty => raise (... ... "tactic raised Empty") :
+      Context.t -> goal list * validation
+   Reason:
+      Can't unify 'a * 'b to Context.t -> goal list * validation
+         (Incompatible types)
+Found near
+  val
+     (rest, validation) =
+        tac ([...], ...) handle HOL_ERR r => ... ... r | Empty => raise ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_translatorLib.sml:1624: error: Pattern and expression have incompatible types.
+   Pattern: (FILTER_ASSUM_TAC : (term -> bool) -> ml_progLib.tactic) :
+      (term -> bool) -> tactic
+   Expression:
+      let fun sing f ... = f x | sing ... = raise ...;
+         fun add_assum ... = ... ...; fun f ... = ... in f end :
+      (term -> bool) ->
+        term list * term -> (term list * term) list * (thm list -> thm)
+   Reason:
+      Can't unify Context.t -> goal list * validation to
+         (term list * term) list * (thm list -> thm) (Incompatible types)
+Found near
+  val
+     (FILTER_ASSUM_TAC : (term -> bool) -> ml_progLib.tactic) =
+        let fun sing ... = ... | ...; fun ...; fun ... in f end
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_translatorLib.sml:2355: error: Type error in function application.
+   Function: auto_prove_asms "prove_EvalPatRel" :
+      (term list * term) * (term list * term -> 'a list * ('b list -> 'c)) ->
+        'c
+   Argument:
+      (
+         (asms, goal),
+         (((... >> ...) >> ... ...) >> every_case_tac) >>
+         rpt (CHANGED_TAC (... >> ...))
+         ) : (term list * term) * (goal, thm) gentactic
+   Reason:
+      Can't unify 'a list * ('b list -> 'c) to
+         Context.t -> goal list * (thm list -> thm) (Incompatible types)
+Found near
+  auto_prove_asms "prove_EvalPatRel"
+  ((asms, goal), ((... >> ...) >> every_case_tac) >> rpt (... ...))
+error in quse /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/ml_translatorLib.sml : Fail "Static Errors"
+error in load $(CAKEMLDIR)/translator/ml_translatorLib : Fail "Static Errors"
+error in load /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/std_preludeScript : Fail "Static Errors"
+Uncaught exception at ./basis/FinalPolyML.sml:491: Fail "Static Errors"
+Holmake: Failed script build for /workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/derived/cakeml-context-93874a495eb9b376/translator/std_preludeScript - exited with code 1

@@ -1,0 +1,128 @@
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/src/real/analysis
+Holmake: Scanning $(HOLDIR)/src/HolSmt
+Holmake: Scanning $(HOLDIR)/src/tactictoe/src
+Holmake: Scanning $(CAKEMLDIR)/developers
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/context-free
+Holmake: Scanning $(HOLDIR)/examples/machine-code/hoare-triple
+Holmake: Scanning $(HOLDIR)/src/coalgebras
+Holmake: Scanning $(HOLDIR)/examples/pl-semantics/lprefix_lub
+Holmake: Scanning $(CAKEMLDIR)/misc
+Holmake: Scanning $(HOLDIR)/examples/data-structures/balanced_bst
+Holmake: Scanning $(HOLDIR)/examples/formal-languages
+Holmake: Scanning $(HOLDIR)/src/search
+Holmake: Scanning $(HOLDIR)/examples/formal-languages/regular
+Holmake: Scanning $(CAKEMLDIR)/basis/pure
+Holmake: Scanning $(CAKEMLDIR)/semantics/ffi
+Holmake: Scanning $(CAKEMLDIR)/semantics
+Holmake: Scanning $(CAKEMLDIR)/semantics/proofs
+Holmake: Scanning $(CAKEMLDIR)/compiler/parsing
+Holmake: Scanning $(CAKEMLDIR)/translator
+Holmake: Scanning $(CAKEMLDIR)/characteristic
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular
+Holmake: Scanning $(HOLDIR)/src/transfer/examples
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order
+Holmake: Scanning $(HOLDIR)/examples/algorithms/unification/triangular/first-order/compilation
+Holmake: Scanning $(CAKEMLDIR)/compiler/inference
+Holmake: Scanning $(CAKEMLDIR)/compiler/printing
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic/monad_base
+Holmake: Scanning $(CAKEMLDIR)/translator/monadic
+Holmake: Scanning $(CAKEMLDIR)/basis
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/pattern_matching
+Holmake: Scanning $(CAKEMLDIR)/unverified/reg_alloc
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/reg_alloc
+Holmake: Scanning $(HOLDIR)/src/floating-point
+Holmake: Scanning $(HOLDIR)/src/monad/more_monads
+Holmake: Scanning $(HOLDIR)/src/update
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/common
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/asm
+Holmake: Scanning $(HOLDIR)/examples/algorithms
+Holmake: Scanning $(HOLDIR)/examples/machine-code/multiword
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/ag32
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/ag32
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/lib
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/model
+Holmake: Scanning $(HOLDIR)/examples/machine-code/decompiler
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm7
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm7
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/arm8/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/arm8
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/arm8
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/mips/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/mips
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/mips
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/riscv/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/riscv
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/riscv
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/model
+Holmake: Scanning $(HOLDIR)/examples/l3-machine-code/x64/step
+Holmake: Scanning $(CAKEMLDIR)/compiler/encoders/x64
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/x64
+Holmake: Scanning $(CAKEMLDIR)/pancake
+Holmake: Scanning $(CAKEMLDIR)/pancake/parser
+Holmake: Scanning $(CAKEMLDIR)/compiler
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/serialiser
+Holmake: Scanning $(CAKEMLDIR)/compiler/backend/cv_compute
+Holmake: Scanning $(HOLDIR)/src/num/theories/cv_compute/automation
+Holmake: Scanning $(HOLDIR)/examples/bootstrap
+Holmake: Scanning $(CAKEMLDIR)/cv_translator
+Holmake: Scanning ..
+Holmake: Scanned 91 directories
+Holmake: Building 1 theory file
+Holmake: Linking /workspace/scratch/075feb80ddac/MetaRocq-rs/formal/hol4/compiler-automation/OriginalCompilerOutputTacticToeScript.uo to produce theory-builder executable
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:607: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     metis_prove [...] target
+     handle Feedback.HOL_ERR _ => let val ... in ... ... end | _ => raise ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:624: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     metis_prove [...] target
+     handle
+        Feedback.HOL_ERR _ => let val ...; ... in ... ... end |
+        _ => raise ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1164: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     let val ... = ...; val ...; ... in ... ... p end
+     handle Feedback.HOL_ERR _ => ... ... target | _ => ... ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1155: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     Thm.SYM p handle Feedback.HOL_ERR _ => ... ... (... ...) | _ => ... ...
+<<HOL message: Created theory "OriginalCompilerOutputTacticToe">>
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in OriginalCompilerOutputTacticToe)>>
+Missing tactic data: topology wellorder cardinal real_sigma metric nets HolSmt backend_x64 export_x64 asmSem asmProps utilsLibSupport decompilerLibSupport x64 update x64_step x64_target x64_eval_encode x64_config export infer inferProps infer_t collapse unifProps commonUnif term subst walk walkstar unifDef fmsp rmfmap cps tcallUnif unify unify_cv infer_cv backend_passes data_live data_simp data_space bvi_to_data clos_interp flat_to_clos lab_filter lab_to_target mloption bvl_jump clos_annotate clos_call clos_fvs clos_letop clos_op clos_ticks clos_known clos_mti clos_number clos_to_bvl jsonLang displayLang spt_closure flat_elim flatLang pattern_common pattern_semantics pattern_comp flat_pattern source_to_flat presLang source_let source_to_source bvi_let bvi bvi_tailrec bvl bvl_const db_vars bvl_handle bvl_inline bvl_to_bvi labLang stack_alloc stack_names closLang dataLang temporal multiword mc_multiword word_bignum word_depth word_copy word_cse word_inst word_remove word_simp word_unreach word_to_word data_to_word stack_rawcall stack_remove backend_common asm stackLang wordLang ml_monadBase reg_alloc linear_scan word_alloc parmove word_to_stack stack_to_lab backend balanced_map oset FormalLang charset regexp regexp_map vec_map regexp_compiler mlvector gram tokenUtils cmlPtreeConversion tokens lexer_fun primTypes semantics grammar peg pegexec state_transformer typeSystem typeSoundInvariants typeSysProps primSemEnv evaluate fpSem ffi semanticPrimitives namespaceProps semanticPrimitivesProps evaluateProps alist_tree evaluate_dec ml_prog ml_translator num_list_enc_dec num_tree_enc_dec backend_enc_dec backend_asm mlint mlsexp primeFactor schneiderUtilsContext intExtension frac rat cv_type cv_rep cv_prim transfer lifting finite_set cv_std basis_cv mergesort mllist mlstring set_sep tailrec prog alignment address lprefix_lub integer_word gcd int_arith cooper integer intReduce Omega intreal normalizer hrat hreal realax real_arith real RealFieldContext binary_ieee machine_ieee poset fixedPoint llist path set_relation toto comparison bag container sorting finite_map alist sptree bitstring numeral_bit hurdUtilsContext permutes iterate fcp sum_num logroot bit numposrep ternaryComparisons string ASCIInumbers words blast byte res_quan misc namespace ConseqConv quantHeuristics patternMatches EnumTypeContext ind_type divides While NumConvContext cv reduce sum option pairToolsContext pair prim_rec arithmetic numeral basicSize numpair pred_set list rich_list indexedLists hol location ast source_cv to_data_cv backend_cv backend_64_cv backend_x64_cv OriginalBootstrapCompilerProbe OriginalCompilerOutputAutomation
+Run tttUnfold.ttt_record ()
+Loading 1759 tactic calls in 0.02 seconds
+  disch_then SUBST1_TAC >> simp []
+Saved theorem _______ "probe_code_nonempty_tactictoe"
+Exporting theory "OriginalCompilerOutputTacticToe" ... done.
+Theory "OriginalCompilerOutputTacticToe" took 27.8s to build
+Holmake: [1/1] OriginalCompilerOutputTacticToe

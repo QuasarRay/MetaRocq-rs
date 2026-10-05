@@ -1,0 +1,9 @@
+{
+  "original_holder": "B\n1791178538.985\n",
+  "old_processes_absent": [
+    "2404",
+    "3324"
+  ],
+  "reason": "Interrupted fork-stalled recorder, followed by serial recorder exit. Preserve the exact old holder; no live lock was reclaimed.",
+  "claim": "orchestration only"
+}

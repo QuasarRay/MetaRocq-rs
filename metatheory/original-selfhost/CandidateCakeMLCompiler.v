@@ -9,7 +9,7 @@ Import MonadNotation.
 Local Open Scope monad.
 
 Definition candidate_cakeml_ast : Type :=
-  list (Stdlib.String.string * option exp) * exp.
+  list (Stdlib.Strings.String.string * option exp) * exp.
 
 (* Pure syntax producer only.  This deliberately bypasses
    Peregrine.CakeMLBackend.cakeml_pipeline, its Admitted obligation,

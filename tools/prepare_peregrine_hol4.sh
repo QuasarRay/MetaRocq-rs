@@ -63,6 +63,11 @@ HOL4_BUILD_JOBS="${HOL4_BUILD_JOBS:-1}"
   "$HOLDIR/bin/Holmake" -j"$HOL4_BUILD_JOBS" eval_cake_compile_x64Lib.uo
 )
 
+# Reuse .agents' exact HOL/MCP identities, reconstructing Z3 qualification,
+# and persistent TacticToe cache. These tool checks are not project refinement.
+bash tools/prepare_original_proof_automation.sh
+source "$HOLGEN/proof-automation.env"
+
 compiler_artifacts=()
 for library in eval_cake_compileLib eval_cake_compile_x64Lib; do
   compiler_artifacts+=("$(hol4_artifact_path "$CAKEML_DIR/cv_translator/$library.uo")")
@@ -81,6 +86,7 @@ sha256sum "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/toolchain.env" \
   "$CAKEML_DIR/misc/preamble.sml" "$HOL4_DIR/src/1/Tactical.sig" \
   "${compiler_artifacts[@]}" \
   tools/materialize_cakeml_context_compat.py tools/prepare_peregrine_hol4.sh \
+  "$HOLGEN/proof-automation-inputs.sha256" \
   > "$HOLGEN/compiler-preparation-inputs.sha256"
 python3 - "$HOLGEN/cakeml-context-compat.json" "$HOLGEN/compiler-preparation-inputs.sha256" <<'PY'
 import json, pathlib, subprocess, sys
