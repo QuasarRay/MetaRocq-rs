@@ -63,3 +63,26 @@ HOL4 API publication requires zero unclassified public symbols.
 
 PR #59 remains authoritative for Z3 reconstruction, TacticToe qualification,
 HOL4 theorem hygiene, MCP inspection and proof-artifact preservation.
+
+
+## Toolchain reuse
+
+The production wrapper target deliberately reuses the exact CakeML and HOL4
+pins already qualified by PR #58/#59. A newer CakeML release is unnecessary:
+the pinned CakeML runtime already provides the generic `fficustom` entry and
+the language already supports direct `#(custom)` FFI calls.
+
+Each generated wrapper therefore has the uniform shape:
+
+```sml
+fun generated_operation buffer =
+  let
+    val _ = #(custom) "Original.Signature.operation" buffer
+  in
+    buffer
+  end
+```
+
+This keeps the foreign ABI to one runtime symbol and exposes the exact original
+operation identifier as FFI configuration bytes, which is directly visible to
+CakeML's characteristic-formula `xffi` rule.
