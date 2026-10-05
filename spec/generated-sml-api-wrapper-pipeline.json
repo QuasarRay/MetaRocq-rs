@@ -105,4 +105,4 @@
     "machine_safety_theorem": "pending source-semantics/compile_correct composition; fail closed until kernel checked",
     "foreign_runtime_correctness": "assumed by explicit contract; not claimed by CakeML"
   }
-}\n
+}
