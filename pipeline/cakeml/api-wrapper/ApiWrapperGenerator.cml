@@ -1,0 +1,48 @@
+(* CakeML generator for canonical HOL4-family API wrappers.
+   GeneratedApiContractData.cml is prepended to this source before compilation. *)
+
+fun join [] = ""
+  | join [x] = x
+  | join (x::xs) = x ^ join xs;
+
+fun emit_cakeml_one
+      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+  "(* " ^ operation_id ^ " : " ^ type_text ^ " [" ^ lowering ^ "] *)\n" ^
+  "fun " ^ cake_name ^
+  " buffer = Runtime.customFFI \"" ^ operation_id ^ "\" buffer;\n";
+
+fun emit_sml_sig_one
+      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+  "  (* original: " ^ operation_id ^ " : " ^ type_text ^
+  " ; lowering=" ^ lowering ^ " *)\n" ^
+  "  val " ^ cake_name ^ " : Word8Vector.vector -> Word8Vector.vector\n";
+
+fun emit_sml_impl_one
+      (sig_name, original_name, operation_id, cake_name, type_text, lowering) =
+  "fun " ^ cake_name ^ " payload = GeneratedApiRuntime.call \"" ^
+  operation_id ^ "\" payload;\n";
+
+fun emit_map f [] = ""
+  | emit_map f (x::xs) = f x ^ emit_map f xs;
+
+fun emit_cakeml contract =
+  "(* MACHINE GENERATED. Canonical ABI: mutable byte_array via Runtime.customFFI. *)\n" ^
+  "(* Native Poly/ML objects never cross this boundary. *)\n\n" ^
+  emit_map emit_cakeml_one contract ^
+  "\nval generated_api_operation_count = " ^
+  Int.toString generated_api_operation_count ^ ";\n";
+
+fun emit_sml contract =
+  "(* MACHINE GENERATED. Adapter requires GeneratedApiRuntime.call. *)\n" ^
+  "signature GENERATED_CAKEML_API_ADAPTER =\nsig\n" ^
+  emit_map emit_sml_sig_one contract ^
+  "end\n\nstructure GeneratedCakeMLApiAdapter :> GENERATED_CAKEML_API_ADAPTER =\nstruct\n" ^
+  emit_map emit_sml_impl_one contract ^
+  "end\n";
+
+fun main u =
+  case CommandLine.arguments () of
+    "sml"::_ => print (emit_sml generated_api_contract)
+  | _ => print (emit_cakeml generated_api_contract);
+
+main ();
