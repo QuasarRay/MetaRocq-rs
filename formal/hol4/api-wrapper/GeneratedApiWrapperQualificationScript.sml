@@ -5,29 +5,29 @@ Libs
   preamble
 
 Theorem generated_api_wrapper_one_to_one:
-  !known original foreign op payload.
+  !original foreign op payload.
     generated_foreign_refines_original original foreign /\
-    MEM op known ==>
-    generated_wrapper_step known foreign op payload =
+    MEM op generated_api_operations ==>
+    generated_api_step foreign op payload =
       original op payload
 Proof
-  metis_tac [generated_wrapper_refines_original]
+  metis_tac [generated_api_refines_original]
 QED
 
 Theorem generated_api_wrapper_unknown_operations_fail_closed:
-  !known foreign op payload.
-    ~MEM op known ==>
-    generated_wrapper_step known foreign op payload =
+  !foreign op payload.
+    ~MEM op generated_api_operations ==>
+    generated_api_step foreign op payload =
       ApiError UnknownOperation
 Proof
-  metis_tac [generated_wrapper_unknown_fail_closed]
+  metis_tac [generated_api_unknown_fail_closed]
 QED
 
 Theorem generated_api_wrapper_protocol_total:
-  !known foreign op payload.
-    ?r. generated_wrapper_step known foreign op payload = r
+  !foreign op payload.
+    ?r. generated_api_step foreign op payload = r
 Proof
-  metis_tac [generated_wrapper_step_total]
+  metis_tac [generated_api_step_total]
 QED
 
 Theorem generated_api_wrapper_exact_machine_object:
@@ -37,6 +37,12 @@ Proof
   rw [generated_api_wrapper_machine_code_def]
 QED
 
+Theorem generated_api_manifest_is_nonempty:
+  generated_api_operations <> []
+Proof
+  fs [generated_api_operation_count]
+QED
+
 val _ =
   let
     val ths =
@@ -44,6 +50,7 @@ val _ =
        generated_api_wrapper_unknown_operations_fail_closed,
        generated_api_wrapper_protocol_total,
        generated_api_wrapper_exact_machine_object,
+       generated_api_manifest_is_nonempty,
        generated_api_wrapper_compiled]
     fun clean th =
       let val (oracles,axioms) = Tag.dest_tag (Thm.tag th)
@@ -56,4 +63,8 @@ val _ =
     else raise Fail "Generated wrapper qualification contains open/contaminated theorem"
   end;
 
+(* The foreign-contract premise is deliberate: this theory proves that the
+   generated protocol mirrors the exact API inventory and binds the generated
+   CakeML source to its exact compiler theorem. It does not claim that the
+   external Poly/ML implementation was verified by CakeML. *)
 val _ = export_theory();
