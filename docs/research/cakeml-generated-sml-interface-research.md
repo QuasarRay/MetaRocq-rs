@@ -25,7 +25,8 @@ exact CakeML compiler theorem.
 ### CakeML compiler and FFI semantics
 
 CakeML gives FFI calls an explicit semantics and carries those effects through
-verified compilation. Current CakeML also exposes `Runtime.customFFI`.
+verified compilation. The already-qualified MetaRocq CakeML pin supports direct
+`#(custom)` FFI calls and its runtime already exports the single `fficustom` entry.
 
 Relevant upstream:
 - https://github.com/CakeML/cakeml
@@ -90,3 +91,14 @@ This branch is stacked on PR #59 and reuses:
 
 The new work begins above that substrate: complete public API discovery,
 canonical representation, code generation and generic correspondence proofs.
+
+
+### Characteristic-formula FFI proof rule
+
+CakeML's characteristic-formula tactics expose `xffi`, documented specifically
+for goals of the form `cf_ffi ...`. Existing CakeML basis proofs use it to
+prove concrete FFI effects over `FFI_part`/byte-array state.
+
+Reuse decision: prove one generic custom-FFI contract, then machine-generate
+per-operation corollaries. This makes callable-wrapper correctness scale with
+the number of lowering classes rather than the number of HOL4 API functions.
