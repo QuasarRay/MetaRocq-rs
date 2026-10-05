@@ -5,12 +5,35 @@ import subprocess
 import tempfile
 import unittest
 
-from materialize_cakeml_context_compat import git, materialize
+from materialize_cakeml_context_compat import git, materialize, compatible_theory, compatibility_key, MOD_PREFIX
 
 ORIGINAL = "(*Temporary workaround for cache being slow on long files*)\nfun clear_cache_prover gtac  =\n let val res = TAC_PROOF gtac in res end\n"
 
 
 class ContextWorktreeTests(unittest.TestCase):
+    def test_grammar_is_restored_after_complete_theory_header(self):
+        text = 'Theory test\nAncestors\n  arithmetic\nLibs\n  preamble\n\nTheorem example:\n  n * p MOD q = n * (p MOD q)\n'
+        adapted = compatible_theory(text)
+        self.assertEqual(adapted.replace(MOD_PREFIX, ''), text)
+        self.assertIn('  preamble\n' + MOD_PREFIX + '\nTheorem', adapted)
+        self.assertEqual(compatible_theory('Theory untouched\nAncestors arithmetic\n\nval x = 1;\n'), 'Theory untouched\nAncestors arithmetic\n\nval x = 1;\n')
+        with self.assertRaises(ValueError):
+            compatible_theory('unknown header\nval term = ``p MOD q``;')
+
+    def test_theory_patch_is_part_of_worktree_recipe_and_preserves_source(self):
+        old_key = compatibility_key(self.source)
+        script = self.source / 'exampleScript.sml'
+        original = 'Theory example\nAncestors arithmetic\n\nval x = ``p MOD q``;\n'
+        script.write_text(original)
+        git(self.source, 'add', '.')
+        git(self.source, 'commit', '-qm', 'theory fixture')
+        pin = git(self.source, 'rev-parse', 'HEAD')
+        self.assertNotEqual(compatibility_key(self.source), old_key)
+        receipt = materialize(self.source, self.target, pin)
+        self.assertEqual(receipt['modified_files'], ['exampleScript.sml', 'misc/preamble.sml'])
+        self.assertEqual(script.read_text(), original)
+        self.assertEqual((self.target / 'exampleScript.sml').read_text(), compatible_theory(original))
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)

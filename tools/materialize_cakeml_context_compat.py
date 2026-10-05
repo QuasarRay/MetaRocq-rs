@@ -10,10 +10,13 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 PREAMBLE = "misc/preamble.sml"
+THEORY_HEADER = re.compile(r"(?m)^Theory[^\n]*\n(?:(?:Ancestors|Libs)[^\n]*\n(?:[ \t]+[^\n]*\n)*)*")
+MOD_PREFIX = '(* Preserve the pinned CakeML MOD grammar after ancestor loading. *)\nval _ = Parse.temp_set_fixity "MOD" (Parse.Infixl 650);\n'
 
 
 def git(directory: Path, *args: str) -> str:
@@ -39,6 +42,32 @@ val _ = Parse.set_fixity "MOD" (Infixl 650);
     return original
 
 
+def compatible_theory(original: str) -> str:
+    if not re.search(r"\bMOD\b", original):
+        return original
+    header = THEORY_HEADER.search(original)
+    if not header:
+        raise ValueError("MOD theory header changed; grammar adaptation requires re-audit")
+    return original[:header.end()] + MOD_PREFIX + original[header.end():]
+
+
+def adapted_sources(source: Path) -> dict[str, str]:
+    result = {PREAMBLE: compatible_preamble((source / PREAMBLE).read_text())}
+    for name in git(source, "ls-files", "*Script.sml").splitlines():
+        original = (source / name).read_text()
+        adapted = compatible_theory(original)
+        if adapted != original:
+            result[name] = adapted
+    return result
+
+
+def compatibility_key(source: Path) -> str:
+    h = hashlib.sha256()
+    for name, content in sorted(adapted_sources(source).items()):
+        h.update(name.encode() + b"\0" + content.encode() + b"\0")
+    return h.hexdigest()[:16]
+
+
 def materialize(source: Path, target: Path, expected: str) -> dict:
     source, target = source.resolve(), target.resolve()
     if source == target:
@@ -47,33 +76,41 @@ def materialize(source: Path, target: Path, expected: str) -> dict:
         raise ValueError("CakeML source pin mismatch")
     if git(source, "status", "--porcelain", "--untracked-files=no"):
         raise ValueError("pinned CakeML source has tracked changes")
-    original = (source / PREAMBLE).read_text()
-    adapted = compatible_preamble(original)
+    originals = {PREAMBLE: (source / PREAMBLE).read_text()}
+    adaptations = adapted_sources(source)
+    originals.update({n: (source / n).read_text() for n in adaptations})
     if not target.exists():
         target.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(["git", "-C", str(source), "worktree", "add", "--detach",
                         str(target), expected], check=True)
     if git(target, "rev-parse", "HEAD") != expected:
         raise ValueError("derived CakeML worktree pin mismatch")
-    if (target / PREAMBLE).is_symlink() or (target / PREAMBLE).stat().st_nlink != 1:
-        raise ValueError("derived wrapper must be an independent regular file")
     changed = git(target, "diff", "HEAD", "--name-only").splitlines()
-    content = (target / PREAMBLE).read_text()
-    if changed not in ([], [PREAMBLE]) or content not in (original, adapted):
+    if set(changed) - set(adaptations):
         raise ValueError("unexpected derived source changes; refusing to overwrite progress")
-    if content != adapted:
-        (target / PREAMBLE).write_text(adapted)
-    if git(target, "diff", "HEAD", "--name-only") != PREAMBLE:
+    for name, adapted in adaptations.items():
+        file = target / name
+        if file.is_symlink() or file.stat().st_nlink != 1:
+            raise ValueError("derived source must be an independent regular file")
+        if file.read_text() not in (originals[name], adapted):
+            raise ValueError("unexpected derived source changes; refusing to overwrite progress")
+    for name, adapted in adaptations.items():
+        if (target / name).read_text() != adapted:
+            (target / name).write_text(adapted)
+    modified = sorted(adaptations)
+    if git(target, "diff", "HEAD", "--name-only").splitlines() != modified:
         raise ValueError("compatibility patch changed an unaudited source file")
-    patch = git(target, "diff", "HEAD", "--", PREAMBLE) + "\n"
+    patch = git(target, "diff", "HEAD", "--", *modified) + "\n"
     return {
         "schema": 1,
         "base_commit": expected,
         "original_source": str(source),
         "derived_source": str(target),
-        "modified_files": [PREAMBLE],
-        "original_preamble_sha256": hashlib.sha256(original.encode()).hexdigest(),
-        "adapted_preamble_sha256": hashlib.sha256(adapted.encode()).hexdigest(),
+        "modified_files": modified,
+        "source_digests": {n: {"original": hashlib.sha256(originals[n].encode()).hexdigest(),
+                               "adapted": hashlib.sha256(adaptations[n].encode()).hexdigest()} for n in modified},
+        "original_preamble_sha256": hashlib.sha256(originals[PREAMBLE].encode()).hexdigest(),
+        "adapted_preamble_sha256": hashlib.sha256(adaptations[PREAMBLE].encode()).hexdigest(),
         "patch_sha256": hashlib.sha256(patch.encode()).hexdigest(),
         "patch": patch,
         "claim": "tactic API compatibility recipe; NOT proof of source-to-machine correctness",
@@ -83,6 +120,7 @@ def materialize(source: Path, target: Path, expected: str) -> dict:
             "historical_hol4_commit": "bec0b16a8e4efed5c8aa75afe14797543da0eccd",
             "historical_source": "src/num/theories/arithmeticScript.sml",
             "reason": "Preserve the existing CakeML statements' original parse; current HOL4 uses Infixl 600.",
+            "theory_contexts": "Restore temporary fixity immediately after each MOD-using theory header. Ancestor loading resets the preamble's earlier grammar setting.",
         },
     }
 

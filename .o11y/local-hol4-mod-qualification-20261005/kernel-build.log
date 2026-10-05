@@ -1,0 +1,6 @@
+<<HOL message: Created theory "MODContextQualification">>
+Historical MOD parse retained.
+Saved theorem _______ "mod_parse_preserved"
+Kernel-checked closed MOD theorem.
+Exporting theory "MODContextQualification" ... done.
+Theory "MODContextQualification" took 0.07674s to build
