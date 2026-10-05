@@ -9,7 +9,7 @@ fun emit_cakeml_one
       (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
   "(* " ^ operation_id ^ " : " ^ type_text ^ " [" ^ lowering ^ "] *)\n" ^
   "fun " ^ cake_name ^
-  " buffer = Runtime.customFFI \"" ^ operation_id ^ "\" buffer;\n";
+  " buffer = let val _ = #(custom) \"" ^ operation_id ^ "\" buffer in buffer end;\n";
 
 fun emit_sml_sig_one
       (component, sig_name, original_name, operation_id, cake_name, type_text, lowering) =
