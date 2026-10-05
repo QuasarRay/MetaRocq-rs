@@ -94,7 +94,9 @@
     "operation_index is globally contiguous and stored in the canonical API IR",
     "unified CakeML output contains main; component projections remain library facades",
     "service dispatch resolves operation_index through the canonical operation-name table",
-    "api_request and api_reply are explicit foreign-contract premises"
+    "api_request and api_reply are explicit foreign-contract premises",
+    "verified service dispatch preserves the original 64-byte frame identity on valid and invalid operations",
+    "invalid service operations write status 2 into byte 0 in place"
   ],
   "reused_from_pr59": [
     ".agents HOL4/MCP qualification",
@@ -142,6 +144,8 @@
       "api_reply"
     ],
     "invalid_operation_status": 2,
-    "purpose": "Expose generated wrapper behavior to whole-program CakeML semantics and compile_correct."
+    "purpose": "Expose generated wrapper behavior to whole-program CakeML semantics and compile_correct.",
+    "invalid_operation_behavior": "write status byte 2 into the existing 64-byte frame and return the same frame",
+    "uniform_frame_invariant": true
   }
 }
