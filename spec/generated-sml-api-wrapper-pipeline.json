@@ -17,14 +17,7 @@
       "role": "production generated-wrapper target; includes Runtime.customFFI"
     },
     "public_roots": [
-      "src/0",
-      "src/1",
-      "src/thm",
-      "src/boss",
-      "src/parse",
-      "src/postkernel",
-      "src/HolSmt",
-      "src/tactictoe/src"
+      "src"
     ],
     "mandatory_signatures": [
       "src/HolSmt/HolSmtLib.sig",
@@ -41,6 +34,27 @@
       "repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
       "commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
       "role": "historical PR #59 qualification/reference only"
+    },
+    "components": {
+      "hol4": {
+        "include": [
+          "src/**/*.sig"
+        ],
+        "exclude": [
+          "src/HolSmt/**",
+          "src/tactictoe/**"
+        ]
+      },
+      "z3_tac": {
+        "include": [
+          "src/HolSmt/HolSmtLib.sig"
+        ]
+      },
+      "tactictoe": {
+        "include": [
+          "src/tactictoe/src/**/*.sig"
+        ]
+      }
     }
   },
   "lowering_classes": {
