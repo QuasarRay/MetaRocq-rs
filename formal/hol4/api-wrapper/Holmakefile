@@ -4,8 +4,9 @@ INCLUDES = .. \
   $(CAKEMLDIR)/compiler/backend/proofs \
   $(CAKEMLDIR)/compiler/backend/x64/proofs
 
-GeneratedApiWrapperModelTheory.dat: GeneratedApiWrapperModelScript.sml
+GeneratedApiContractTheory.dat: GeneratedApiContractScript.sml
+GeneratedApiWrapperModelTheory.dat: GeneratedApiWrapperModelScript.sml GeneratedApiContractTheory.dat
 GeneratedApiWrapperCompileTheory.dat: GeneratedApiWrapperCompileScript.sml
-GeneratedApiWrapperQualificationTheory.dat: GeneratedApiWrapperQualificationScript.sml
+GeneratedApiWrapperQualificationTheory.dat: GeneratedApiWrapperQualificationScript.sml GeneratedApiWrapperModelTheory.dat GeneratedApiWrapperCompileTheory.dat
 
-all: GeneratedApiWrapperModelTheory.dat GeneratedApiWrapperCompileTheory.dat GeneratedApiWrapperQualificationTheory.dat
+all: GeneratedApiContractTheory.dat GeneratedApiWrapperModelTheory.dat GeneratedApiWrapperCompileTheory.dat GeneratedApiWrapperQualificationTheory.dat
