@@ -1,12 +1,14 @@
 From Stdlib Require Import String List.
 From MetaRocq.Utils Require Import ResultMonad.
+From Peregrine Require Import Utils.
 From MetaRocqRs.OriginalSelfHost Require Import
   ValidatedSharedImageEntrypoint CheckedCandidateCakeML
   CandidateCakeMLCompiler.
 
 Inductive checked_shared_command :=
 | RunValidatedImage (cmd : validated_shared_command)
-| CheckedCompileCakeML (attrs : list string) (source : string).
+| CheckedCompileCakeML (attrs : list bytestring.String.string)
+    (source : bytestring.String.string).
 
 Inductive checked_shared_response :=
 | ValidatedLayerResponse (r : validated_shared_response)

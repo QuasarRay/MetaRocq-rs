@@ -17,6 +17,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PREAMBLE = "misc/preamble.sml"
 ASM_LIBRARY = "compiler/encoders/asm/asmLib.sml"
 EVALUATOR_LIBRARY = "cv_translator/eval_cake_compileLib.sml"
+COMPUTE_UPDATES = {
+    "compiler/parsing/cmlPEGScript.sml": (
+        "val _ = (computeLib.the_compset := computeLib.add_thms distinct_ths (!computeLib.the_compset))",
+        "val _ = computeLib.add_funs distinct_ths"),
+    "translator/ml_progLib.sml": (
+        "val () = (computeLib.the_compset := computeLib.add_thms [nsLookup_eq] (!computeLib.the_compset))",
+        "val () = computeLib.add_funs [nsLookup_eq]"),
+}
 ASM_PROVE_PREFIX = '''(* Preserve the legacy load-time proof call with a scoped context policy. *)
 fun legacy_library_prove ttac =
   if isSome (Context.current_thy (Context.snapshot())) then Tactical.prove ttac
@@ -75,6 +83,13 @@ def compatible_evaluator_library(original: str) -> str:
     return original.replace(old, 'Feedback.set_trace "TheoryPP.include_html_docs" 0')
 
 
+def compatible_compute_update(name: str, original: str) -> str:
+    before, after = COMPUTE_UPDATES[name]
+    if original.count(before) != 1:
+        raise ValueError("pinned computation-set update changed; compatibility patch requires re-audit")
+    return original.replace(before, after)
+
+
 def adapted_sources(source: Path) -> dict[str, str]:
     result = {PREAMBLE: compatible_preamble((source / PREAMBLE).read_text())}
     result[ASM_LIBRARY] = compatible_asm_library((source / ASM_LIBRARY).read_text())
@@ -84,6 +99,9 @@ def adapted_sources(source: Path) -> dict[str, str]:
         adapted = compatible_theory(original)
         if adapted != original:
             result[name] = adapted
+    for name in COMPUTE_UPDATES:
+        original = result.get(name, (source / name).read_text())
+        result[name] = compatible_compute_update(name, original)
     return result
 
 

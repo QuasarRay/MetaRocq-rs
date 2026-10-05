@@ -1,0 +1,23 @@
+test_compute_updates_preserve_registered_theorems_and_surrounding_source (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_compute_updates_preserve_registered_theorems_and_surrounding_source) ... ok
+test_dirty_pinned_source_is_rejected (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_dirty_pinned_source_is_rejected) ... ok
+test_evaluator_changes_only_the_documentation_trace_name (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_evaluator_changes_only_the_documentation_trace_name) ... ok
+test_grammar_is_restored_after_complete_theory_header (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_grammar_is_restored_after_complete_theory_header) ... ok
+test_library_adaptation_preserves_the_proposition_and_tactic (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_library_adaptation_preserves_the_proposition_and_tactic) ... ok
+test_link_cannot_modify_the_original_wrapper (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_link_cannot_modify_the_original_wrapper) ... Preparing worktree (detached HEAD 8e6ad8c)
+HEAD is now at 8e6ad8c fixture
+ok
+test_source_unchanged_and_exact_patch_is_idempotent (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_source_unchanged_and_exact_patch_is_idempotent) ... Preparing worktree (detached HEAD 8e6ad8c)
+HEAD is now at 8e6ad8c fixture
+ok
+test_theory_patch_is_part_of_worktree_recipe_and_preserves_source (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_theory_patch_is_part_of_worktree_recipe_and_preserves_source) ... Preparing worktree (detached HEAD 9beb3cb)
+HEAD is now at 9beb3cb theory fixture
+ok
+test_unexpected_derived_progress_is_never_overwritten (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_unexpected_derived_progress_is_never_overwritten) ... Preparing worktree (detached HEAD 8e6ad8c)
+HEAD is now at 8e6ad8c fixture
+ok
+test_wrong_pin_is_rejected (test_materialize_cakeml_context_compat.ContextWorktreeTests.test_wrong_pin_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.312s
+
+OK

@@ -1,0 +1,5 @@
+f1234174a8b6cdc495b235e83ce9031f0f7d2a7732f498450d47dc0d00b7085d  /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation.env
+e9d49ecd8e78cc456360f70ee8aabbe9c904416439efe247ccc225ee1c83d9de  /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation-identity.json
+0cd5b004e50cfdc32bf93d05bd2ae084e4de041ba81582a8672ac7f1951b6b69  /workspace/scratch/075feb80ddac/MetaRocq-rs/generated/peregrine-selfhost/hol4/proof-automation-freeze.txt
+3d9cd9b39909edfc2168c5cf73f5376a243214c0736788fb1496600e382cb343  spec/original-proof-automation.lock.json
+6067ed19dd0aeb959dae9abedb46a5efa65aedc14587fe11989f2d687797c329  tools/prepare_original_proof_automation.sh

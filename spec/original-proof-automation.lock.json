@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "hol4_and_mcp_authority": ".agents/contracts/toolchain.json",
+  "z3_solver_python_distribution": "z3-solver==4.12.2.0",
+  "mcp_python_distribution": "mcp==2.3.0",
+  "fastmcp_python_distribution": "fastmcp==4.0.11",
+  "tactician": {
+    "repository": "https://github.com/coq-tactician/coq-tactician.git",
+    "commit": "59ca1a9b1e0d9edd2bf5daf3d46edc6bf470ef89",
+    "branch_at_inspection": "coq9.1",
+    "rocq_ci_reference_commit": "3a74c377ac9409d425f11f679eff7a34eaa5a45a",
+    "package": "coq-tactician.dev",
+    "compatible_core_range": ">= 9.1 and < 9.2~"
+  },
+  "claim": "proof-search tool inputs; no MetaRocq source-to-machine theorem is asserted"
+}

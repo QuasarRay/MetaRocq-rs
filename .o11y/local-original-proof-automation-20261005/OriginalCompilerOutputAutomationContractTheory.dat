@@ -1,0 +1,51 @@
+(theory
+ ("OriginalCompilerOutputAutomationContract"
+  ("OriginalCompilerOutputAutomation" .
+   "1a2d59bb5df9d9d5149487c13cc9a630c9903866"))
+ (core-data
+  (tables
+   (string-table "integer" "int" "bool" "!" "min" "fun" "arithmetic" "*"
+    "num" "+" "/\\" "0" "=" "==>" "BIT1" "BIT2" "list" "LENGTH" "fcp"
+    "cart" "bit0" "one" "NUMERAL" "ZERO" "int_add" "int_le" "int_lt"
+    "int_mul" "int_of_num" "OriginalBootstrapCompilerProbe"
+    "original_bootstrap_probe_code" "original_bootstrap_probe_data"
+    "library_data_length" "library_code_length"
+    "library_code_data_offsets_disjoint_z3"
+    "library_code_address_bounds_z3"
+    "OriginalCompilerOutputAutomationContract" "HolSmt" "Omega"
+    "canonContext" "cooper" "int_arith" "numeral")
+   (id-table (0 . 1) (2 . 3) (4 . 5) (4 . 2) (6 . 7) (8 . 8) (6 . 9)
+    (2 . 10) (8 . 11) (4 . 12) (4 . 13) (6 . 14) (6 . 15) (16 . 17)
+    (16 . 16) (18 . 19) (18 . 20) (21 . 21) (6 . 22) (6 . 23) (0 . 24)
+    (0 . 25) (0 . 26) (0 . 27) (0 . 28) (29 . 30) (29 . 31))
+   (type-table (0) (3) (2 0 1) (2 2 1) (5) (2 4 4) (2 4 5) (2 1 1) (2 1 7)
+    (2 4 1) (2 4 9) (17) (16 11) (16 12) (16 13) (16 14) (16 15) (16 16)
+    (15 1 17) (14 18) (2 19 4) (15 1 14) (14 21) (2 22 4) (2 0 0) (2 0 24)
+    (2 0 2) (2 4 0))
+   (term-table ("base" 0) ("i" 0) ("j" 0) (1 3) (4 6) (6 6) (7 8) (8 4)
+    (9 10) (10 8) (11 5) (12 5) (13 20) (13 23) (18 5) (19 4) (20 25)
+    (21 26) (22 26) (23 25) (24 27) (25 22) (26 19))) exports (nil) (nil)
+  ((32 (((36 1) (29 13)) "DISK_THM") (2 0)
+    ("%22U12%15U10U11U11U10U10U10U11U11U14B8"))
+   (33 (((36 0) (29 13)) "DISK_THM") (2 0)
+    ("%21U13%15U10U10U10U10U11U10U10U11U10U11U10U10U10U11U11U11U14B8"))
+   (34
+    (((36 3) (37 13 174) (38 85 86 87 90 94 95 96 98 100) (29 13)
+      (2 8 14 25 36 41 42 50 51 52 54 58 63 64 93 101) (39 7 8 9 12)
+      (40 5 8 10 17 24) (41 8 9 62)
+      (0 59 62 63 79 80 92 93 95 97 99 118 149 161 168 173 189 232 234 346
+       352 356 367 369) (42 0 6 7 8 9 15 16 21 32 34 35 39 40)) "DISK_THM")
+    (2 0)
+    ("%0%1%2%7U20$1B17$1%21U13U20B18%7U20$0B17$0%22U12U20B18B6B6B6$2$1B16$2%21U13U20B16%15U10U10U11U14U20$0B19B16B18B9|U3|U3|U3"))
+   (35
+    (((36 2) (37 13 16 111 126 174) (38 85 86 90 94 95 96 98 100) (29 13)
+      (2 8 14 25 36 41 42 50 51 52 54 56 58 63 64 93 101) (39 7 8 9 12)
+      (40 5 8 10 17 24) (41 8 9 62)
+      (0 59 62 79 80 92 93 95 97 99 118 149 161 168 173 189 232 234 352 367
+       369) (42 0 3 5 6 7 8 9 15 16 17 21 32 34 35 39 40)) "DISK_THM")
+    (2 0)
+    ("%0%1%7U20$1B17$1%21U13%15U10U10U11U14%22U12B4B5U20B16%15U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U11U14U20B18%7U20$0B17$0%21U13U20B18B6B6B6%7U20$1$0B16B17$1$0B16%15U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U10U11U14U20B18B6B9|U3|U3"))))
+ (incorporate (incorporate-types) incorporate-consts)
+ (loadable-thydata ("grammardelta")
+  ("grammar" "hol" "OriginalCompilerOutputAutomation"
+   "OriginalBootstrapCompilerProbe" "words")))

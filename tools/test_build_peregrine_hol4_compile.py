@@ -18,6 +18,10 @@ class ExactCompileInputs(unittest.TestCase):
         for name in (
             "tools/build_peregrine_hol4_compile.sh", "tools/hol4_artifacts.sh",
             "formal/hol4/PeregrineGeneratedCompileScript.sml",
+            "formal/hol4/CompilerOutputAutomationLib.sml",
+            "formal/hol4/CompilerOutputAutomationLib.sig",
+            "tools/prepare_original_proof_automation.sh",
+            "spec/original-proof-automation.lock.json",
             "formal/hol4/Holmakefile", "spec/toolchain.lock.json",
         ):
             target = self.root / name
@@ -86,6 +90,13 @@ cp ../../generated/peregrine-selfhost/hol4/compiler-input.sexp "$PEREGRINE_MACHI
     def test_missing_assembler_is_regenerated(self):
         self.assertEqual(self.build().returncode, 0)
         (self.gen / "hol4/peregrine-selfhost.S").unlink()
+        self.assertEqual(self.build().returncode, 0)
+        self.assertEqual(self.count(), 2)
+
+    def test_modified_automation_library_invalidates_previous_output_receipt(self):
+        self.assertEqual(self.build().returncode, 0)
+        library = self.root / "formal/hol4/CompilerOutputAutomationLib.sml"
+        library.write_text(library.read_text() + '\n(* changed search recipe *)\n')
         self.assertEqual(self.build().returncode, 0)
         self.assertEqual(self.count(), 2)
 

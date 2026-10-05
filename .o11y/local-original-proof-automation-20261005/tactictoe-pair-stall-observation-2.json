@@ -1,0 +1,66 @@
+{
+  "observed_at": 1791181338.6074178,
+  "elapsed_seconds": 25.60868549346924,
+  "processes": [
+    {
+      "pid": 7818,
+      "start": 529217,
+      "ticks": 0,
+      "delta_ticks": 0,
+      "threads": [
+        {
+          "tid": 7818,
+          "state": "S"
+        }
+      ]
+    },
+    {
+      "pid": 7843,
+      "start": 529225,
+      "ticks": 0,
+      "delta_ticks": 0,
+      "threads": [
+        {
+          "tid": 7843,
+          "state": "S"
+        }
+      ]
+    },
+    {
+      "pid": 7844,
+      "start": 529225,
+      "ticks": 5151,
+      "delta_ticks": 8,
+      "threads": [
+        {
+          "tid": 7844,
+          "state": "S"
+        },
+        {
+          "tid": 7845,
+          "state": "S"
+        },
+        {
+          "tid": 7846,
+          "state": "S"
+        },
+        {
+          "tid": 7847,
+          "state": "S"
+        }
+      ]
+    },
+    {
+      "pid": 9102,
+      "start": 543389,
+      "ticks": 0,
+      "delta_ticks": 0,
+      "threads": [
+        {
+          "tid": 9102,
+          "state": "S"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 From Stdlib Require Import String List Bool.
 From MetaRocq.Utils Require Import ResultMonad.
+From Peregrine Require Import Utils PAst.
+From MetaRocqRs.OriginalSelfHost Require Import EmbeddedPeregrine.
 From MetaRocqRs.OriginalSelfHost Require Import
   CheckedCandidateCakeML CakeMLBackendTrustLedger.
 
@@ -18,7 +20,7 @@ Definition pinned_cakeml_compile_blob : string :=
   "b22338bc3113a972bcf793f79be7887bc59153e8".
 
 Definition integrated_lambdabox_to_cakeml
-  (attrs : list string) (source : string)
+  (attrs : list bytestring.String.string) (source : bytestring.String.string)
   : result' candidate_cakeml_ast :=
   prepare_and_checked_compile attrs source.
 
@@ -39,7 +41,7 @@ Definition integrated_peregrine_evidence_complete
   && e.(forbidden_backend_assumptions_unused).
 
 Lemma integrated_lambdabox_to_cakeml_no_raise
-  (attrs : list string) (source : string)
+  (attrs : list bytestring.String.string) (source : bytestring.String.string)
   (out : candidate_cakeml_ast) :
   integrated_lambdabox_to_cakeml attrs source = Ok out ->
   candidate_cakeml_no_raise out = true.
@@ -48,7 +50,7 @@ Proof.
 Qed.
 
 Lemma integrated_lambdabox_to_cakeml_supported
-  (attrs : list string) (source : string)
+  (attrs : list bytestring.String.string) (source : bytestring.String.string)
   (out : candidate_cakeml_ast) :
   integrated_lambdabox_to_cakeml attrs source = Ok out ->
   exists p ep,

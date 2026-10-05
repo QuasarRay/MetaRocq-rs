@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "parent_commit": "502a41ed9c84756191e370113aece5f889f2d045",
+  "hol4_pin": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "z3_layout_obligations": 2,
+  "tactictoe_closed_goal": "original_bootstrap_probe_code <> []",
+  "library_negative_inputs_rejected": 7,
+  "regression_cases_passed": 27,
+  "tactician_local_exit": 69,
+  "tactician_status": "UNCOMPILED: exact installed Rocq switch absent locally",
+  "mcp_status": "ORCHESTRATION_READY",
+  "full_recording_status": "INCOMPLETE: pair lock blocked latest resume",
+  "archives": [
+    {
+      "path": "tactictoe-cache-before-resume.tar.gz",
+      "sha256": "832c294b980da9c7eae014efb4b48ce581162b76bbe96f4818c2025ed910954d",
+      "bytes": 28007,
+      "claim": "Search guidance only"
+    },
+    {
+      "path": "tactictoe-cache-after-pair-stall.tar.gz",
+      "sha256": "0a3f73f342c538c1efc1bb4f89512bf9c1b52642ab95d80ed2d877edf3c66b34",
+      "bytes": 306474,
+      "claim": "Search guidance only"
+    },
+    {
+      "path": "proof-automation-objects.tar.gz",
+      "sha256": "f34d54f8bed286297f2dc2eed455c06ee87065da86fe60034f66afbbfaae9406",
+      "bytes": 3786,
+      "claim": "Actual HOL4 build exports; scope checked in original SML"
+    }
+  ],
+  "unavailable_optional_logs": [],
+  "claim": "Actual compiler-output proof automation qualification; NOT complete MetaRocq proof replay or source-to-machine refinement",
+  "previous_theory_data_files_preserved": 119
+}
