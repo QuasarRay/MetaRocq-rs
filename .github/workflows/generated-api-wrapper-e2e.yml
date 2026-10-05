@@ -21,7 +21,7 @@ jobs:
       - name: Prepare exact HOL4 and CakeML proof stack
         run: bash tools/prepare_generated_api_wrapper_toolchain.sh
 
-      - name: Fetch CakeML v3400 compiler bundle
+      - name: Fetch untrusted CakeML generator runner
         run: |
           mkdir -p .aegis/tools/cake-v3400
           curl -fL             https://github.com/CakeML/cakeml/releases/download/v3400/cake-x64-64.tar.gz             -o /tmp/cake-v3400.tar.gz
@@ -35,7 +35,7 @@ jobs:
       - name: Generate wrappers and kernel-check HOL4 artifacts
         run: |
           source generated/api-wrapper/proof-toolchain.env
-          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3400"
+          # This newer binary only executes the untrusted code generator and\n          # engineering type checks. HOL4 recompiles the exact generated source\n          # with the separately pinned/qualified CakeML proof stack above.\n          export CAKEML_BIN_DIR="$PWD/.aegis/tools/cake-v3400"
           bash tools/run_generated_api_wrapper_pipeline.sh
 
       - name: Preserve generated proof evidence
@@ -45,4 +45,4 @@ jobs:
           name: generated-api-wrapper-proof-evidence
           path: |
             generated/api-wrapper/
-            formal/hol4/api-wrapper/*Theory.*
+            formal/hol4/api-wrapper/*Theory.*\n            formal/hol4/api-wrapper/GeneratedApiContractScript.sml\n            formal/hol4/api-wrapper/GeneratedApiWrapperFfiScript.sml
