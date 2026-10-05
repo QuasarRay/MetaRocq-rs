@@ -2,18 +2,12 @@
 """Render canonical API JSON as CakeML data consumed by ApiWrapperGenerator."""
 
 from __future__ import annotations
-import argparse, json, pathlib, re
+import argparse, json, pathlib
 
 
 def q(s: str) -> str:
     return '"' + s.replace('\\', '\\\\').replace('"', '\\"').replace("\n", "\\n") + '"'
 
-
-def cake_name(op_id: str) -> str:
-    s = re.sub(r"[^A-Za-z0-9_']", "_", op_id).lower()
-    if not s or not s[0].isalpha():
-        s = "api_" + s
-    return "generated_" + s
 
 
 def main() -> int:
@@ -33,7 +27,7 @@ def main() -> int:
             rows.append((
                 sig.get("component", "hol4"),
                 sig["signature"], d["name"], d["operation_id"],
-                cake_name(d["operation_id"]), d["type"], d["lowering"],
+                d["cake_name"], d["type"], d["lowering"],
             ))
     rows.sort(key=lambda r: r[2])
     body = ",\n    ".join(
